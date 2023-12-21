@@ -1,0 +1,32 @@
+* {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: large;
+}
+
+.header {
+  background-color: #0b192f;
+}
+
+.navbar-brand {
+  margin-left: 5px;
+  color: #64feda !important;
+}
+
+.nav-item a {
+  color: #64feda;
+}
+
+.nav-item a:hover {
+  color: #0b192f;
+  position: fixed;
+  background-color: #64feda;
+  border-radius: 3px;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.resume {
+  margin-left: 5px;
+}
