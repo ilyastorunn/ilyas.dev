@@ -85,14 +85,10 @@ function Projects() {
         </div>
       </div>
       <div className="other-projects">
-        <h2>Other Projects</h2>
-        <div className="grid-container">
-          <div className="grid-item">deneme proje</div>
-          <div className="grid-item">deneme proje 2</div>
-          <div className="grid-item">deneme proje 3</div>
-          <div className="grid-item">deneme proje</div>
-          <div className="grid-item">deneme proje 2</div>
-          <div className="grid-item">deneme proje 3</div>
+        <div className="project-link">
+          <a href="https://github.com/ilyastorunn" target="_blank">
+            View Other Projects!
+          </a>
         </div>
       </div>
     </div>

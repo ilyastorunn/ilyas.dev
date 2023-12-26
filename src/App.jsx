@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Home />
       <About />
       <Projects />
+      <Contact />
     </div>
   );
 }
