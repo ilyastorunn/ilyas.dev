@@ -16,7 +16,7 @@ function About() {
               Hello! My name is İlyas and I enjoy creating things that live on
               the internet.
               <br />
-              My interest in coding started back in 2018 when I taking C++ class
+              My interest in coding started back in 2018 when I was taking C++ class
               in university.
               <br />
             </p>
