@@ -103,14 +103,40 @@
   color: #0b192f;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 425px) {
   .projects-heading {
     margin-top: 50px;
   }
 
   .projects-heading::before,
   .projects-heading::after {
-    width: 16%;
+    width: 15%;
+  }
+
+  .projects-desc {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .projects-text {
+    margin-top: 20px;
+  }
+
+  .projects-img {
+    margin-right: 0;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+  .projects-heading {
+    margin-top: 50px;
+  }
+
+  .projects-heading::before,
+  .projects-heading::after {
+    width: 20%;
   }
 
   .projects-desc {

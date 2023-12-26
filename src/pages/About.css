@@ -74,8 +74,7 @@ li {
   order: 2;
 }
 
-@media only screen and (max-width: 375px) {
-
+@media only screen and (max-width: 425px) {
   .about-heading {
     margin-bottom: 50px;
   }
@@ -91,5 +90,24 @@ li {
 
   .about-img {
     order: 2; /* about-text'ten sonra göster */
+  }
+}
+
+@media only screen and (min-width: 425px) and (max-width: 768px) {
+  .about-heading {
+    margin-bottom: 50px;
+  }
+
+  .about-heading::before,
+  .about-heading::after {
+    width: 25%;
+  }
+
+  .about-desc-content {
+    flex-direction: column;
+  }
+
+  .about-img {
+    order: 2;
   }
 }
