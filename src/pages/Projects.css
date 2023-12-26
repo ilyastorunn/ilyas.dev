@@ -73,3 +73,31 @@
     margin-top: 10px;
     color: #ccd6f6;
 }
+
+.other-projects {
+    color: #ccd6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-item {
+    text-align: center;
+}
+
+.grid-item a {
+    color: #ccd6f6;
+    text-decoration: none;
+}
+
+.grid-item a:hover {
+    color: #64feda;
+}
