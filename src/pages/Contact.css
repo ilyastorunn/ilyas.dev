@@ -64,3 +64,20 @@
 .send-email a:hover {
   color: #0b192f;
 }
+
+@media only screen and (max-width: 375px) {
+  .contact-heading {
+    margin-top: 50px;
+  }
+
+  .contact-heading::before,
+  .contact-heading::after {
+    width: 30%;
+  }
+
+  .contact-desc {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

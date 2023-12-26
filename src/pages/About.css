@@ -60,7 +60,8 @@
   margin-top: 30px;
 }
 
-.techs-list ul, li {
+.techs-list ul,
+li {
   color: #ccd6f6;
   list-style: none;
   font-size: medium;
@@ -71,4 +72,24 @@
   height: 300px;
   margin-left: 20px;
   order: 2;
+}
+
+@media only screen and (max-width: 375px) {
+
+  .about-heading {
+    margin-bottom: 50px;
+  }
+
+  .about-heading::before,
+  .about-heading::after {
+    width: 30%;
+  }
+
+  .about-desc-content {
+    flex-direction: column;
+  }
+
+  .about-img {
+    order: 2; /* about-text'ten sonra göster */
+  }
 }

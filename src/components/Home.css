@@ -1,4 +1,4 @@
-.footer-container {
+.header-container {
     background-color: #0b192f;
     color: #64feda;
     display: flex;
@@ -38,3 +38,10 @@
     color: #0b192f;
   }
   
+  @media only screen and (max-width: 375px) {
+    .header-container {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+  }

@@ -3,7 +3,7 @@ import "./Home.css";
 
 function Home() {
   return (
-    <div className="footer-container">
+    <div className="header-container">
       <p className="first-parag">Hi, my name is</p>
       <h2 className="name">İlyas Torun</h2>
       <h3 className="name-bottom">I build things for web.</h3>
