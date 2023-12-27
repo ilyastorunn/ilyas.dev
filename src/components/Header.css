@@ -18,7 +18,6 @@
 
 .nav-item a:hover {
   color: #0b192f;
-  position: fixed;
   background-color: #64feda;
   border-radius: 3px;
 }

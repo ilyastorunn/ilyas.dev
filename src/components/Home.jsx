@@ -6,7 +6,7 @@ function Home() {
     <div className="header-container">
       <p className="first-parag">Hi, my name is</p>
       <h2 className="name">İlyas Torun</h2>
-      <h3 className="name-bottom">I build things for web.</h3>
+      <h3 className="name-bottom">I build things for Web.</h3>
       <p className="summary">
         I'm a Front-End Developer dedicated to crafting outstanding digital
         interfaces and user experiences,

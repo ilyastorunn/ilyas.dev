@@ -7,7 +7,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 
 function Projects() {
   return (
-    <div className="projects">
+    <div id="projects" className="projects">
       <div className="projects-heading">
         <h3>02.</h3>
         <h2>Some Things I've Built</h2>

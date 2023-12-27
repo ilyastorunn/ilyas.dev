@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 100px;
+  margin-top: 70px;
 }
 
 .projects-heading h3 {
@@ -38,13 +39,12 @@
 
 .projects-desc {
   display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: left;
   margin-bottom: 50px;
 }
 
 .projects-img {
+  margin-left: 200px;
   margin-right: 200px;
 }
 
@@ -92,11 +92,13 @@
 
 .project-link:hover {
   background-color: #64feda;
+  color: #0b192f;
 }
 
 .project-link a {
   color: #64feda;
   text-decoration: none;
+  transition: color 0.8s;
 }
 
 .project-link a:hover {

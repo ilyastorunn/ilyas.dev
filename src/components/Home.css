@@ -27,11 +27,13 @@
   
   .project-link:hover {
     background-color: #64feda;
+    color: #0b192f;
   }
   
   .project-link a {
     color: #64feda;
     text-decoration: none;
+    transition: color 0.8s;
   }
   
   .project-link a:hover {

@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 100px;
+  margin-top: 70px;
 }
 
 .contact-heading h3 {
@@ -54,11 +55,13 @@
 
 .send-email:hover {
   background-color: #64feda;
+  color: #0b192f;
 }
 
 .send-email a {
   color: #64feda;
   text-decoration: none;
+  transition: color 0.8s;
 }
 
 .send-email a:hover {
