@@ -1,31 +1,40 @@
 * {
   font-family: "Bebas Neue", sans-serif;
-  font-size: large;
-}
-
-.header {
   background-color: #0b192f;
 }
 
-.navbar-brand {
-  margin-left: 5px;
-  color: #64feda !important;
+.header {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: flex-start;
+  /* gap: 35rem; */
+  margin: 2.63rem 6.88rem;
 }
 
-.nav-item a {
+.headerTitle {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.headerTitleLink {
   color: #64feda;
+  text-decoration: none;
 }
 
-.nav-item a:hover {
-  color: #0b192f;
-  background-color: #64feda;
-  border-radius: 3px;
+.headerNavbarList {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.9375rem;
 }
 
-.navbar-nav {
-  margin-left: auto;
-}
-
-.resume {
-  margin-left: 5px;
+.navbarItem a {
+  color: #64feda;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
 }

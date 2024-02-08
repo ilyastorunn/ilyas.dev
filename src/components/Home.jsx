@@ -3,18 +3,24 @@ import "./Home.css";
 
 function Home() {
   return (
-    <div className="header-container">
-      <p className="first-parag">Hi, my name is</p>
-      <h2 className="name">İlyas Torun</h2>
-      <h3 className="name-bottom">I build things for Web.</h3>
-      <p className="summary">
-        I'm a Front-End Developer dedicated to crafting outstanding digital
-        interfaces and user experiences,
-        <br />
-        combining my technical expertise with a keen eye for design.
-      </p>
-      <div className="project-link">
-        <a href="https://github.com/ilyastorunn" target="_blank">
+    <div className="homeText">
+      <div className="text">
+        <p className="firstParag">Hi, my name is</p>
+        <h2 className="name">İlyas Torun</h2>
+        <h3 className="title">I build things for Web.</h3>
+        <p className="summary">
+          I'm a Front-End Developer dedicated to crafting outstanding digital
+          interfaces and user experiences,
+          <br />
+          combining my technical expertise with a keen eye for design.
+        </p>
+      </div>
+      <div className="projectsBorder">
+        <a
+          href="https://github.com/ilyastorunn"
+          target="_blank"
+          className="projectsLink"
+        >
           Check out my projects!
         </a>
       </div>

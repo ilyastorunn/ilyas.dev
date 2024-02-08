@@ -7,85 +7,84 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 
 function Projects() {
   return (
-    <div id="projects" className="projects">
-      <div className="projects-heading">
-        <h3>02.</h3>
-        <h2>Some Things I've Built</h2>
+    <div className="projectsSection">
+      <div className="projectsHeading">
+        <div className="projectsLeftLine"></div>
+        <h3 className="projectsNumber">02.</h3>
+        <h3 className="projectsName">Some Things I've Built</h3>
+        <div className="projectsRightLine"></div>
       </div>
-      <div className="projects-desc">
-        <div className="projects-img">
+      <div className="projects">
+        <div className="project">
           <a
             href="https://react-twitter-clone-kappa.vercel.app/"
             target="_blank"
           >
-            <img src={TwitterClone} width={700} className="content-img" />
+            <img src={TwitterClone} className="projectImg" />
           </a>
+          <div className="projectHeading">
+            <a
+              href="https://react-twitter-clone-kappa.vercel.app/"
+              target="_blank"
+            >
+              <h4>Twitter Clone</h4>
+            </a>
+            <p>
+              Twitter Clone made with React, Tailwind and
+              <br />
+              deployed with Vite
+            </p>
+            <a
+              href="https://github.com/ilyastorunn/twitter-x-clone-react"
+              target="_blank"
+            >
+              <GitHubIcon className="githubIcon" />
+            </a>
+          </div>
         </div>
-        <div className="projects-text">
-          <a
-            href="https://react-twitter-clone-kappa.vercel.app/"
-            target="_blank"
-          >
-            <h4>Twitter Clone</h4>
-          </a>
-          <p>
-            Twitter Clone made with React, Tailwind and
-            <br />
-            deployed with Vite
-          </p>
-          <a
-            href="https://github.com/ilyastorunn/twitter-x-clone-react"
-            target="_blank"
-          >
-            <GitHubIcon className="github-icon" />
-          </a>
-        </div>
-      </div>
-      <div className="projects-desc">
-        <div className="projects-img">
+        <div className="project">
           <a href="https://e-commerce-app-sandy.vercel.app/" target="_blank">
-            <img src={eCommerceApp} width={700} className="content-img" />
+            <img src={eCommerceApp} className="projectImg" />
           </a>
+          <div className="projectHeading">
+            <a href="https://e-commerce-app-sandy.vercel.app/" target="_blank">
+              <h4>E-commerce App</h4>
+            </a>
+            <p>
+              E-commerce App made with React, Bootstrap and
+              <br />
+              deployed with Vite
+            </p>
+            <a
+              href="https://github.com/ilyastorunn/e-commerce-app"
+              target="_blank"
+            >
+              <GitHubIcon className="githubIcon" />
+            </a>
+          </div>
         </div>
-        <div className="projects-text">
-          <a href="https://e-commerce-app-sandy.vercel.app/" target="_blank">
-            <h4>E-commerce App</h4>
-          </a>
-          <p>
-            E-commerce App made with React, Bootstrap and
-            <br />
-            deployed with Vite
-          </p>
-          <a
-            href="https://github.com/ilyastorunn/e-commerce-app"
-            target="_blank"
-          >
-            <GitHubIcon className="github-icon" />
-          </a>
-        </div>
-      </div>
-      <div className="projects-desc">
-        <div className="projects-img">
+        <div className="project">
           <a href="https://recipe-app-ilyastorunn.vercel.app/" target="_blank">
-            <img src={recipeApp} width={700} className="content-img" />
+            <img src={recipeApp} className="projectImg" />
           </a>
+          <div className="projectHeading">
+            <a
+              href="https://recipe-app-ilyastorunn.vercel.app/"
+              target="_blank"
+            >
+              <h4>Recipe App</h4>
+            </a>
+            <p>
+              Recipe App made with React, Bootstrap and
+              <br />
+              deployed with Vite
+            </p>
+            <a href="https://github.com/ilyastorunn/recipe-app" target="_blank">
+              <GitHubIcon className="githubIcon" />
+            </a>
+          </div>
         </div>
-        <div className="projects-text">
-          <a href="https://recipe-app-ilyastorunn.vercel.app/" target="_blank">
-            <h4>Recipe App</h4>
-          </a>
-          <p>
-            Recipe App made with React, Bootstrap and
-            <br />
-            deployed with Vite
-          </p>
-          <a href="https://github.com/ilyastorunn/recipe-app" target="_blank">
-            <GitHubIcon className="github-icon" />
-          </a>
-        </div>
-      </div>
-      <div className="other-projects">
-        <div className="project-link">
+        <div className="otherProjects">
           <a href="https://github.com/ilyastorunn" target="_blank">
             View Other Projects!
           </a>

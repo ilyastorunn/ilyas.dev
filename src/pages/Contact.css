@@ -1,103 +1,62 @@
-.contact {
-  background-color: #0b192f;
-  padding: 20px;
-}
-
-.contact-heading {
+.contactSection {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 100px;
-  margin-top: 70px;
-}
-
-.contact-heading h3 {
-  color: #64feda;
-  margin-right: 10px;
-}
-
-.contact-heading h2 {
-  color: #ccd6f6;
-}
-
-.contact-heading::before,
-.contact-heading::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 40%;
-  background-color: #8892b0;
-}
-
-.contact-heading::before {
-  left: 0;
-}
-
-.contact-heading::after {
-  right: 0;
-}
-
-.contact-desc {
-  color: #8892b0;
-  display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
-  padding: 20px;
+  align-items: center;
+  gap: 9.875rem;
+  margin-bottom: 9.81rem;
 }
 
-.send-email {
-  border: 2px solid #64feda;
-  border-radius: 5px;
-  margin-top: 40px;
-  padding: 8px 10px;
+.contactHeading {
+  display: flex;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.send-email:hover {
-  background-color: #64feda;
-  color: #0b192f;
-}
-
-.send-email a {
+.contactNumber {
   color: #64feda;
+  margin-left: 4.75rem;
+  margin-right: 0.625rem;
+}
+
+.contactName {
+  color: #ccd6f6;
+  margin-right: 4.75rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.contactText {
+  color: #8892b0;
+  text-align: center;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sendEmail {
+  display: flex;
+  padding: 0.5625rem 1.0625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.1875rem;
+  border: 2px solid #64feda;
+  background: #0b192f;
+}
+
+a {
   text-decoration: none;
-  transition: color 0.8s;
-}
-
-.send-email a:hover {
-  color: #0b192f;
-}
-
-@media only screen and (max-width: 425px) {
-  .contact-heading {
-    margin-top: 50px;
-  }
-
-  .contact-heading::before,
-  .contact-heading::after {
-    width: 30%;
-  }
-
-  .contact-desc {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-@media only screen and (min-width: 425px) and (max-width: 768px) {
-  .contact-heading {
-    margin-top: 50px;
-  }
-
-  .contact-heading::before,
-  .contact-heading::after {
-    width: 30%;
-  } 
-
-  .contact-desc {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+  color: #64feda;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

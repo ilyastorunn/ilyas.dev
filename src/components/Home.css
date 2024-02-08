@@ -1,57 +1,68 @@
-.header-container {
-    background-color: #0b192f;
-    color: #64feda;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 70vh;
-    padding: 20px;
-  }
-  
-  .name {
-    color: #ccd6f6;
-  }
-  
-  .name-bottom,
-  .summary {
-    color: #8892b0;
-  }
-  
-  .project-link {
-    border: 2px solid #64feda;
-    border-radius: 5px;
-    margin-top: 5px;
-    padding: 8px 10px;
-  }
-  
-  .project-link:hover {
-    background-color: #64feda;
-    color: #0b192f;
-  }
-  
-  .project-link a {
-    color: #64feda;
-    text-decoration: none;
-    transition: color 0.8s;
-  }
-  
-  .project-link a:hover {
-    color: #0b192f;
-  }
-  
-  @media only screen and (max-width: 425px) {
-    .header-container {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-    }
-  }
+.homeText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 11.19rem;
+}
 
-  @media only screen and (min-width: 425px) and (max-width: 768px) {
-    .header-container {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-    }
-  }
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.0625rem;
+}
+
+.firstParag {
+  color: #64feda;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.name {
+  color: #fff;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.title {
+  color: #8892b0;
+  font-size: 1.625rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.summary {
+  color: #8892b0;
+  text-align: center;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.projectsBorder {
+  display: flex;
+  padding: 0.5625rem 1.0625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.1875rem;
+  border: 2px solid #64feda;
+  background: #0b192f;
+}
+
+.projectsLink {
+  color: #64feda;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
