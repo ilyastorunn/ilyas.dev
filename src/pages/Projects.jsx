@@ -1,7 +1,7 @@
 import React from "react";
 import "./Projects.css";
 import TwitterClone from "../pics/twitter-clone.png";
-import eCommerceApp from "../pics/e-commerce-app.png";
+import eCommerceApp from "../pics/e-commerce.png";
 import recipeApp from "../pics/recipe-app.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
