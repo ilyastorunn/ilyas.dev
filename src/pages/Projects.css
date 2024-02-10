@@ -56,12 +56,17 @@ a {
   gap: 1.5rem;
 }
 
-.projectHeading h4 {
+.projectLink {
   color: #ccd6f6;
   font-size: 2.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.projectLink:hover {
+  color: #64feda;
+  transition: 500ms;
 }
 
 .projectHeading p {
@@ -96,10 +101,15 @@ a {
   border-radius: 0.1875rem;
   border: 2px solid #64feda;
   background: #0b192f;
-
   color: #64feda;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.otherProjects a:hover {
+  background-color: #64feda;
+  color: #0b192f;
+  transition: 500ms;
 }

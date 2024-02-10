@@ -20,9 +20,9 @@ function Contact() {
           </h4>
         </div>
       </div>
-      <div className="sendEmail">
-        <a href="mailto: ilyastorunn@outlook.com">Say Hello</a>
-      </div>
+      <a href="mailto: ilyastorunn@outlook.com" className="emailLink">
+        Say Hello
+      </a>
     </div>
   );
 }

@@ -8,7 +8,7 @@
   justify-content: space-between;
   box-sizing: border-box;
   align-items: flex-start;
-  /* gap: 35rem; */
+  gap: 35rem;
   margin: 2.63rem 6.88rem;
 }
 
@@ -30,11 +30,23 @@
   gap: 1.9375rem;
 }
 
-.navbarItem a {
+.navbarItem {
+  list-style-type: none;
+}
+
+.headerLink {
   color: #64feda;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   text-decoration: none;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+}
+
+.headerLink:hover {
+  color: #ccd6f6;
+  cursor: pointer;
 }

@@ -41,7 +41,7 @@
   line-height: normal;
 }
 
-.sendEmail {
+.emailLink {
   display: flex;
   padding: 0.5625rem 1.0625rem;
   justify-content: center;
@@ -50,13 +50,16 @@
   border-radius: 0.1875rem;
   border: 2px solid #64feda;
   background: #0b192f;
-}
-
-a {
   text-decoration: none;
   color: #64feda;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.emailLink:hover {
+  background-color: #64feda;
+  color: #0b192f;
+  transition: 500ms;
 }

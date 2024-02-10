@@ -26,8 +26,9 @@ function Projects() {
             <a
               href="https://react-twitter-clone-kappa.vercel.app/"
               target="_blank"
+              className="projectLink"
             >
-              <h4>Twitter Clone</h4>
+              Twitter Clone
             </a>
             <p>
               Twitter Clone made with React, Tailwind and
@@ -47,8 +48,12 @@ function Projects() {
             <img src={eCommerceApp} className="projectImg" />
           </a>
           <div className="projectHeading">
-            <a href="https://e-commerce-app-sandy.vercel.app/" target="_blank">
-              <h4>E-commerce App</h4>
+            <a
+              href="https://e-commerce-app-sandy.vercel.app/"
+              target="_blank"
+              className="projectLink"
+            >
+              E-commerce App
             </a>
             <p>
               E-commerce App made with React, Bootstrap and
@@ -71,8 +76,9 @@ function Projects() {
             <a
               href="https://recipe-app-ilyastorunn.vercel.app/"
               target="_blank"
+              className="projectLink"
             >
-              <h4>Recipe App</h4>
+              Recipe App
             </a>
             <p>
               Recipe App made with React, Bootstrap and

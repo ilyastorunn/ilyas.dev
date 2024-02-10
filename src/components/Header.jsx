@@ -16,13 +16,13 @@ function Header() {
       </div>
         <ul className="headerNavbarList">
           <li className="navbarItem">
-            <a className="nav-link" href="#about">
+            <a className="headerLink" href="#about">
               01. About
             </a>
           </li>
           <li className="navbarItem">
             <a
-              className="navbarLink"
+              className="headerLink"
               href="#projects"
               role="button"
               data-bs-toggle="dropdown"
@@ -32,12 +32,12 @@ function Header() {
             </a>
           </li>
           <li className="navbarItem">
-            <a className="navbarLink" aria-disabled="true" href="#contact">
+            <a className="headerLink" aria-disabled="true" href="#contact">
               03. Contact
             </a>
           </li>
           <li className="navbarItem">
-            <a className="navbarLink resume" href="#" onClick={handleDownload}>
+            <a className="headerLink resume" href="#" onClick={handleDownload}>
               Resume
             </a>
           </li>

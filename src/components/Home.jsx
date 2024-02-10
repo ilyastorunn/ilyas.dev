@@ -15,7 +15,6 @@ function Home() {
           combining my technical expertise with a keen eye for design.
         </p>
       </div>
-      <div className="projectsBorder">
         <a
           href="https://github.com/ilyastorunn"
           target="_blank"
@@ -23,7 +22,6 @@ function Home() {
         >
           Check out my projects!
         </a>
-      </div>
     </div>
   );
 }
