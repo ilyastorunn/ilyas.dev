@@ -79,8 +79,8 @@ a {
 }
 
 .githubIcon {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   color: #ccd6f6;
 }
 
@@ -88,6 +88,9 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .otherProjects a {

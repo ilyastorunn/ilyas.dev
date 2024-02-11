@@ -4,7 +4,7 @@ import ProfilePicture from "../pics/500x500.png";
 
 function About() {
   return (
-    <div className="aboutSection">
+    <div className="aboutSection" id="about">
       <div className="aboutHeading">
         <div className="aboutLeftLine"></div>
         <h3 className="aboutNumber">01.</h3>
