@@ -1,6 +1,8 @@
 import React from "react";
 import "./About.css";
 import ProfilePicture from "../pics/500x500.png";
+import Memoji from "../pics/MemojiSticker.png";
+import Memoji1 from "../pics/MemojiSticker1.png";
 
 function About() {
   return (
@@ -43,11 +45,17 @@ function About() {
             </ul>
           </div>
         </div>
-        <img
+        {/* <img
           src={ProfilePicture}
           alt="Picture of myself"
           className="aboutMeImg"
-        />
+        /> */}
+        <div class="container">
+          <img src={Memoji1} alt="Avatar" class="image" />
+          <div class="overlay">
+            <img src={Memoji} alt="Avatar1" />
+          </div>
+        </div>
       </div>
     </div>
   );
