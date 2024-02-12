@@ -1,6 +1,5 @@
 import React from "react";
 import "./About.css";
-import ProfilePicture from "../pics/500x500.png";
 import Memoji from "../pics/MemojiSticker.png";
 import Memoji1 from "../pics/MemojiSticker1.png";
 
