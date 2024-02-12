@@ -45,6 +45,7 @@ a {
 }
 
 .projectImg {
+  display: block;
   width: 33.75rem;
   height: 18.5625rem;
 }

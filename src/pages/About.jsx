@@ -44,11 +44,6 @@ function About() {
             </ul>
           </div>
         </div>
-        {/* <img
-          src={ProfilePicture}
-          alt="Picture of myself"
-          className="aboutMeImg"
-        /> */}
         <div class="container">
           <img src={Memoji1} alt="Avatar" class="image" />
           <div class="overlay">

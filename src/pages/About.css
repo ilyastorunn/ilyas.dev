@@ -14,12 +14,6 @@
   display: flex;
 }
 
-/* .aboutLeftLine {
-  width: 29.375rem;
-  height: 0.0625rem;
-  background-color: #ccd6f6;
-} */
-
 .aboutNumber {
   margin-left: 5.94rem;
   color: #64feda;
@@ -30,12 +24,6 @@
   color: #ccd6f6;
   margin-right: 5.94rem;
 }
-
-/* .abooutRightLine {
-  width: 29.375rem;
-  height: 0.0625rem;
-  background-color: #ccd6f6;
-} */
 
 .aboutMe {
   display: flex;
