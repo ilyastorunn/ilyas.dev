@@ -53,13 +53,28 @@ export default function Skills() {
             <img src={arrow} alt="arrow" className="mt-2" />
           </div>
         </div>
-        <div className="col-spa-6 col-start-2 flex items-center justify-center mt-12 text-small1 text-gray-3 opacity-50 underline decoration-underline-gray">
+        <div className="col-span-6 col-start-2 flex items-center justify-center mt-12 text-small1 text-gray-3 opacity-50 underline decoration-underline-gray">
           <span className="">
             See more on my
-            <a href="https://github.com/ilyastorunn" target="_blank" className="pl-1">
+            <a
+              href="https://github.com/ilyastorunn"
+              target="_blank"
+              className="pl-1"
+            >
               GitHub
             </a>
           </span>
+        </div>
+        <div className="grid gap-5 col-span-4 col-start-3 items-start text-pearl-white font-zeyada text-small2 mt-[120px]">
+          <span className="w-full h-[1px] bg-gray-4 opacity-40 mb-[44px]"></span>
+          <span className="opacity-80">
+            Creativity without business <br />
+            is usually victimization. <br />
+            And business without creativity <br />
+            is a waste of time.
+          </span>
+          <span className="text-end block opacity-80">Pharell Williams</span>
+          <span className="w-full h-[1px] bg-gray-4 opacity-40 mt-[44px]"></span>
         </div>
       </div>
     </>
