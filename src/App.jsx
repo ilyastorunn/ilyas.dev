@@ -2,6 +2,7 @@ import './App.css'
 import Header from './Components/Header'
 import Piano from './Components/Piano'
 import About from './Pages/About'
+import Mind from './Pages/Mind'
 import Skills from './Pages/Skills'
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
       {/* <Header /> */}
       {/* <About /> */}
       {/* <Piano /> */}
-      <Skills />
+      {/* <Skills /> */}
+      <Mind />
     </>
   )
 }
