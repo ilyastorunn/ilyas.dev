@@ -1,9 +1,13 @@
 import SpotifyWidget from "../Components/SpotifyWidget";
+import Header from "../Components/Header";
 
 export default function About() {
   return (
     <>
       <div className="container mx-auto grid grid-cols-8 gap-8 px-4 my-5 max-w-[1200px]">
+        <div className="grid col-span-4 col-start-3 items-center justify-center mb-8">
+          <Header />
+        </div>
         <div className="flex flex-col items-start col-span-4 col-start-3 pt-4">
           <span className="text-pearl-white text-large3">
             Hey I'm Ilyas, <br /> Front-End Developer.

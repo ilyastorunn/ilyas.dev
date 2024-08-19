@@ -1,3 +1,4 @@
+import Header from "../Components/Header";
 import mind1 from "../assets/pics/mind1.jpeg";
 import mind2 from "../assets/pics/mind2.jpeg";
 import mind3 from "../assets/pics/mind3.jpeg";
@@ -9,11 +10,14 @@ export default function Mind() {
   return (
     <>
       <div className="container mx-auto grid grid-cols-8 gap-8 px-4 my-5 max-w-[1200px]">
+        <div className="grid col-span-4 col-start-3 items-center justify-center mb-8">
+          <Header />
+        </div>
         <div className="grid col-span-4 col-start-3">
           <span className="text-pearl-white text-small2">
             Here is what's on my mind.
           </span>
-          <span className="w-full h-[1px] bg-gray-4 opacity-40 mt-[60px] mb-[40px]"></span>
+          <span className="w-full h-[1px] bg-gray-4 opacity-40 mt-[40px] mb-[40px]"></span>
         </div>
         <div className="col-span-4 col-start-3 font-zeyada">
           <span className="text-gray-3 opacity-80 text-small1">

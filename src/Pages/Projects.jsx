@@ -1,3 +1,4 @@
+import Header from "../Components/Header";
 import Project1 from "../assets/pics/Project1.png";
 import Project2 from "../assets/pics/Project2.png";
 import Project3 from "../assets/pics/Project3.png";
@@ -6,7 +7,10 @@ import Project4 from "../assets/pics/Project4.png";
 export default function Projects() {
   return (
     <>
-      <div className="container mx-auto grid grid-cols-8 px-4 my-5 gap-[52px] max-w-[1200px]">
+      <div className="container mx-auto grid grid-cols-8 px-4 my-5 gap-16 max-w-[1200px]">
+        <div className="grid col-span-4 col-start-3 items-center justify-center">
+          <Header />
+        </div>
         <div className="col-span-4 col-start-3 text-center">
           <img
             src={Project1}
