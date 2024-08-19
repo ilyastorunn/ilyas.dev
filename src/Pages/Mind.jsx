@@ -78,7 +78,11 @@ export default function Mind() {
         </div>
         <div className="grid col-span-6 col-start-2 w-[262px] h-[349px] gap-[64px]">
           <div className="flex items-center gap-[32px]">
-              <img src={mind1} alt="" className="rounded-[30px] hover:filter hover:blur-sm hover:text-red-500 transition ease-in-out duration-300" />
+            <img
+              src={mind1}
+              alt=""
+              className="rounded-[30px] hover:filter hover:blur-sm hover:text-red-500 transition ease-in-out duration-300"
+            />
             <img src={mind2} alt="" className="rounded-[30px]" />
             <img src={mind3} alt="" className="rounded-[30px]" />
           </div>

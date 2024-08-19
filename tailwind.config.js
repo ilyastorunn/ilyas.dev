@@ -9,6 +9,7 @@ export default {
       'small': '18px',
       'small1': '20px',
       'small2': '24px',
+      'medium1': '28px',
       'medium': '30px',
       'large3': '32px',
       'large4': '40px', 
@@ -30,6 +31,7 @@ export default {
         'gray-3': '#ADB5BD',
         'gray-4': '#495057',
         'black-5': '#212529',
+        'black-5-alternative': 'rgba(33, 37, 41, 1)',
       },
 
     },
