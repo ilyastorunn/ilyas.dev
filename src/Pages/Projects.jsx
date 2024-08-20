@@ -7,11 +7,16 @@ import Project4 from "../assets/pics/Project4.png";
 export default function Projects() {
   return (
     <>
-      <div className="container mx-auto grid grid-cols-8 px-4 my-5 gap-16 max-w-[1200px]">
+      <div className="container mx-auto grid grid-cols-8 px-4 my-5 max-w-[1200px]">
         <div className="grid col-span-4 col-start-3 items-center justify-center">
           <Header />
         </div>
-        <div className="col-span-4 col-start-3 text-center">
+        <div className="flex flex-col items-start col-span-4 col-start-3 pt-4 mb-16 ml-4 mt-16">
+          <span className="text-pearl-white text-small2">
+            My latest projects:
+          </span>
+        </div>
+        <div className="col-span-4 col-start-3 text-center mb-16">
           <img
             src={Project1}
             className="rounded-[30px]"
@@ -21,7 +26,7 @@ export default function Projects() {
             Cryptocurrency Tracker
           </span>
         </div>
-        <div className="grid col-span-4 col-start-3 text-center">
+        <div className="grid col-span-4 col-start-3 text-center mb-16">
           <div className="col-start-3 col-end-4">
             <img src={Project2} alt="" />
             <span className="block text-pearl-white text-small opacity-90  mt-4">
@@ -35,7 +40,7 @@ export default function Projects() {
             </span>
           </div>
         </div>
-        <div className="col-span-4 col-start-3 justify-center items-center text-center">
+        <div className="col-span-4 col-start-3 justify-center items-center text-center mb-16">
           <img src={Project4} alt="" />
           <span className="block text-pearl-white text-small opacity-90  mt-4">
             Netflix Clone
@@ -48,9 +53,9 @@ export default function Projects() {
         >
           View All Projects
         </a>
-        <div className="grid gap-5 col-span-4 col-start-3 items-start text-pearl-white font-zeyada text-small2 mt-[84px]">
+        <div className="grid gap-5 col-span-4 col-start-3 items-start text-pearl-white font-zeyada text-small2 mt-[128px]">
           <span className="w-full h-[1px] bg-gray-4 opacity-40 mb-[40px]"></span>
-          <span className="opacity-80">
+          <span className="opacity-90">
             Perfectionism doesn't
             <br />
             advance anything.
@@ -58,7 +63,7 @@ export default function Projects() {
             Ironically.
             <br />
           </span>
-          <span className="text-end block opacity-80">Virgil Abloh</span>
+          <span className="text-end block opacity-90">Virgil Abloh</span>
           <span className="w-full h-[1px] bg-gray-4 opacity-40 mt-[40px] mb-[40px]"></span>
         </div>
       </div>

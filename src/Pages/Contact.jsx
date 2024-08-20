@@ -54,7 +54,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        <div className="col-span-3 col-start-5 rounded-[30px] bg-gray-4">
+        <div className="col-span-3 col-start-5 rounded-[30px] bg-black-6">
           <div className="flex justify-center items-center leading-none text-small2 text-pearl-white mt-8">
             <CiMail className="mb-1" />
             <span className="ml-2">Get in touch</span>
@@ -83,7 +83,7 @@ export default function Contact() {
                 className="w-full h-[150px] p-3 rounded-[10px] bg-pearl-white text-dark-gray"
               />
             </div>
-            <button className="px-6 py-2 rounded-[10px] bg-black-5-alternative text-pearl-white text-small1 font-semibold shadow-lg tracking-wide mt-5 hover:bg-black-5">
+            <button className="px-6 py-2 rounded-[10px] bg-screen-black text-pearl-white text-small1 font-semibold shadow-lg tracking-wide mt-5 hover:bg-black-6">
               SUBMIT
             </button>
           </div>

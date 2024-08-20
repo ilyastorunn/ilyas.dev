@@ -22,6 +22,7 @@ export default {
       fontFamily: {
         sans: ['Zeyada', 'sans-serif'],
         zeyada: ['Zeyada', 'sans-serif'],
+
       },
       colors: {
         'underline-gray': 'rgba(173, 181, 189, 0.4)',
@@ -32,6 +33,9 @@ export default {
         'gray-4': '#495057',
         'black-5': '#212529',
         'black-5-alternative': 'rgba(33, 37, 41, 1)',
+        'black-6': '#262626',
+        'screen-black': '#0F0F0F',
+        'header-hover': 'rgba(255, 255, 255, 0.03)',
       },
 
     },

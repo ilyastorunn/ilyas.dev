@@ -4,11 +4,11 @@ import Header from "../Components/Header";
 export default function About() {
   return (
     <>
-      <div className="container mx-auto grid grid-cols-8 gap-8 px-4 my-5 max-w-[1200px]">
+      <div className="container mx-auto grid grid-cols-8 gap-8 px-4 my-5 max-w-[800px]">
         <div className="grid col-span-4 col-start-3 items-center justify-center mb-8">
           <Header />
         </div>
-        <div className="flex flex-col items-start col-span-4 col-start-3 pt-4">
+        <div className="flex flex-col items-start col-span-4 col-start-3 mb-4">
           <span className="text-pearl-white text-large3">
             Hey I'm Ilyas, <br /> Front-End Developer.
           </span>
@@ -18,9 +18,11 @@ export default function About() {
             You can learn about me and what I do.
           </span>
         </div>
-        <div className="flex items-start col-span-4 col-start-3 gap-10">
-          <span className="flex-1 aspect-square rounded-[20px] bg-pearl-white"></span>
-          <span className="flex-1 aspect-square rounded-[20px] bg-pearl-white"></span>
+        <div className="col-span-8 flex justify-center">
+          <div className="flex justify-between gap-[32px] max-w-[368px]">
+            <span className="w-[168px] h-[168px] rounded-[20px] bg-pearl-white"></span>
+            <span className="w-[168px] h-[168px] rounded-[20px] bg-pearl-white"></span>
+          </div>
         </div>
         <div className="flex flex-col items-start col-span-4 col-start-3 pt-4 gap-9 opacity-80">
           <span className="text-pearl-white text-small">
@@ -51,8 +53,19 @@ export default function About() {
           </span>
           <span className="text-pearl-white text-small leading-7">
             Today, I've become a developer instead. I still enjoy making <br />
-            music occassionally.
+            music occasionally.
           </span>
+        </div>
+        <div className="grid gap-5 col-span-4 col-start-3 items-start text-pearl-white font-zeyada text-small2 mt-[76px]">
+          <span className="w-full h-[1px] bg-gray-4 opacity-40 mb-[40px]"></span>
+          <span className="opacity-90">
+            Dedication makes
+            <br />
+            dreams come true.
+            <br />
+          </span>
+          <span className="text-end block opacity-90">Kobe Bryant</span>
+          <span className="w-full h-[1px] bg-gray-4 opacity-40 mt-[40px] mb-[40px]"></span>
         </div>
       </div>
     </>
