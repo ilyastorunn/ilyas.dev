@@ -22,7 +22,10 @@ export default {
       fontFamily: {
         sans: ['Zeyada', 'sans-serif'],
         zeyada: ['Zeyada', 'sans-serif'],
-
+        hypebeast: ['Hypebeast', 'sans-serif'],
+        dxalegant: ['DxAlegant', 'sans-serif'],
+        linkgawi: ['Linkgawi', 'sans-serif'],
+        magtis: ['Magtis', 'sans-serif'],
       },
       colors: {
         'underline-gray': 'rgba(173, 181, 189, 0.4)',

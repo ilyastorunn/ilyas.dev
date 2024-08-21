@@ -4,11 +4,11 @@ import arrow from "../assets/pics/arrow.png";
 export default function Skills() {
   return (
     <>
-      <div className="container mx-auto grid grid-cols-8 px-4 my-5 max-w-[1200px]">
+      <div className="container mx-auto grid grid-cols-8 px-4 my-5 max-w-[800px]">
         <div className="grid col-span-4 col-start-3 items-center justify-center mb-16">
           <Header />
         </div>
-        <div className="col-span-6 col-start-2 text-center mb-[52px]">
+        <div className="col-span-6 col-start-2 text-center mb-[52px] p-0">
           <span className="text-pearl-white text-small2">
             Techs I'm using while coding:
           </span>

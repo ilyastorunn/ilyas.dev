@@ -50,38 +50,121 @@ export default function Mind() {
             <span className="w-full h-[1px] bg-gray-4 opacity-40 mt-[40px] mb-[40px]"></span>
           </div>
         </div>
+        <div className="grid col-span-4 col-start-3 gap-[84px]">
+          <span className="text-gray-3 opacity-80 text-small1 italic">
+            Thinking about...
+          </span>
+          <div className="grid gap-[52px]">
+            <span className="text-pearl-white text-small">
+              What advice would I give to myself from 5 years ago?
+            </span>
+            <span className="text-gray-2 opacity-90">
+              Lorem <br />
+              Lorem <br />
+              Lorem
+            </span>
+            <span className="text-end text-gray-3 opacity-80 underline">
+              Read...
+            </span>
+          </div>
+          <div className="grid gap-[52px]">
+            <span className="text-pearl-white text-small">AI and software</span>
+            <span className="text-gray-2 opacity-90">
+              Lorem <br />
+              Lorem <br />
+              Lorem
+            </span>
+            <span className="text-end text-gray-3 opacity-80 underline">
+              Read...
+            </span>
+          </div>
+          <span className="w-full h-[1px] bg-gray-4 opacity-40 mb-[40px]"></span>
+        </div>
         <div className="col-span-8 flex justify-center">
           <div className="grid grid-cols-3 gap-[32px]">
-            <img
-              src={mind1}
-              alt=""
-              className="w-[262px] h-[349px] rounded-[30px] hover:filter hover:blur-sm hover:text-red-500 transition ease-in-out duration-300"
-            />
-            <img
-              src={mind2}
-              alt=""
-              className="w-[262px] h-[349px] rounded-[30px]"
-            />
-            <img
-              src={mind3}
-              alt=""
-              className="w-[262px] h-[349px] rounded-[30px]"
-            />
-            <img
-              src={mind4}
-              alt=""
-              className="w-[262px] h-[349px] rounded-[30px]"
-            />
-            <img
-              src={mind5}
-              alt=""
-              className="w-[262px] h-[349px] rounded-[30px]"
-            />
-            <img
-              src={mind6}
-              alt=""
-              className="w-[262px] h-[349px] rounded-[30px]"
-            />
+            <div className="relative w-[200px] h-[266px] rounded-[30px] overflow-hidden">
+              <img
+                src={mind1}
+                alt=""
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-start justify-start p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <h2 className="text-pearl-white font-zeyada text-xl font-semibold mb-2">
+                  They watching us. v1
+                </h2>
+                <p className="text-pearl-white font-zeyada text-sm">Konya, Turkey</p>
+              </div>
+            </div>
+
+            <div className="relative w-[200px] h-[266px] rounded-[30px] overflow-hidden">
+              <img
+                src={mind2}
+                alt=""
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-start justify-start p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <h2 className="text-pearl-white font-zeyada text-xl font-semibold mb-2">
+                They watching us. v2
+                </h2>
+                <p className="text-pearl-white font-zeyada text-sm">Istanbul, Turkey</p>
+              </div>
+            </div>
+
+            <div className="relative w-[200px] h-[266px] rounded-[30px] overflow-hidden">
+              <img
+                src={mind3}
+                alt=""
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-start justify-start p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <h2 className="text-pearl-white font-zeyada text-xl font-semibold mb-2">
+                  Cousin's Home
+                </h2>
+                <p className="text-pearl-white font-zeyada text-sm">Istanbul, Turkey</p>
+              </div>
+            </div>
+
+            <div className="relative w-[200px] h-[266px] rounded-[30px] overflow-hidden">
+              <img
+                src={mind4}
+                alt=""
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-start justify-start p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <h2 className="text-pearl-white font-zeyada text-xl font-semibold mb-2">
+                  Resting time
+                </h2>
+                <p className="text-pearl-white font-zeyada text-sm">Izmir, Turkey</p>
+              </div>
+            </div>
+
+            <div className="relative w-[200px] h-[266px] rounded-[30px] overflow-hidden">
+              <img
+                src={mind5}
+                alt=""
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-start justify-start p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <h2 className="text-pearl-white font-zeyada text-xl font-semibold mb-2">
+                  Skyscrapper, literally
+                </h2>
+                <p className="text-pearl-white font-zeyada text-sm">Konya, Turkey</p>
+              </div>
+            </div>
+
+            <div className="relative w-[200px] h-[266px] rounded-[30px] overflow-hidden">
+              <img
+                src={mind6}
+                alt=""
+                className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-start justify-start p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <h2 className="text-pearl-white font-zeyada text-xl font-semibold mb-2">
+                  Sweet nature
+                </h2>
+                <p className="text-pearl-white font-zeyada text-sm">Antalya, Turkey</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

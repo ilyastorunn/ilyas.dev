@@ -6,6 +6,38 @@
   line-height: 28px;
 }
 
+@font-face {
+  font-family: 'Hypebeast';
+  src: url('./assets/fonts/Hypebeast.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  line-height: 28px;
+}
+
+@font-face {
+  font-family: 'DxAlegant';
+  src: url('./assets/fonts/DxAlegant-ExtraLight.otf') format('opentype');
+  font-weight: lighter;
+  font-style: normal;
+  line-height: 28px;
+}
+
+@font-face {
+  font-family: 'Linkgawi';
+  src: url('./assets/fonts/Lingkawi-South.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  line-height: 28px;
+}
+
+@font-face {
+  font-family: 'Magtis';
+  src: url('./assets/fonts/Magtis-ExtraBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  line-height: 28px;
+}
+
 body {
   font-family: "CustomGaramond", serif;
   font-optical-sizing: auto;

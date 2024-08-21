@@ -43,10 +43,10 @@ export default function About() {
             reading, learning Japan, ocassionally making music.
           </span>
         </div>
-        <div className="flex flex-col items-start col-span-4 col-start-3 pt-4 gap-9">
+        <div className="flex flex-col items-start col-span-4 col-start-3 pt-4 pb-4 gap-9">
           <SpotifyWidget />
         </div>
-        <div className="flex flex-col items-start col-span-4 col-start-3 pt-4 gap-9 opacity-80">
+        <div className="flex flex-col items-start col-span-4 col-start-3 gap-9 opacity-80">
           <span className="text-pearl-white text-small leading-7">
             Growing up, I had a passion for making music and aspired <br />
             to become musician.

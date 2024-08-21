@@ -7,12 +7,12 @@ import Project4 from "../assets/pics/Project4.png";
 export default function Projects() {
   return (
     <>
-      <div className="container mx-auto grid grid-cols-8 px-4 my-5 max-w-[1200px]">
+      <div className="container mx-auto grid grid-cols-8 px-4 my-5 max-w-[800px]">
         <div className="grid col-span-4 col-start-3 items-center justify-center">
           <Header />
         </div>
-        <div className="flex flex-col items-start col-span-4 col-start-3 pt-4 mb-16 ml-4 mt-16">
-          <span className="text-pearl-white text-small2">
+        <div className="flex flex-col items-start col-span-4 col-start-3 mb-16 ml-4 mt-16">
+          <span className="text-pearl-white text-medium1">
             My latest projects:
           </span>
         </div>
@@ -22,27 +22,27 @@ export default function Projects() {
             className="rounded-[30px]"
             alt="Cryotocurrency Tracker"
           />
-          <span className="block text-pearl-white text-small opacity-90  mt-4">
+          <span className="block text-pearl-white text-small opacity-90 mt-4">
             Cryptocurrency Tracker
           </span>
         </div>
-        <div className="grid col-span-4 col-start-3 text-center mb-16">
-          <div className="col-start-3 col-end-4">
-            <img src={Project2} alt="" />
-            <span className="block text-pearl-white text-small opacity-90  mt-4">
+        <div className="col-span-4 col-start-3 grid grid-cols-2 gap-4 text-center mb-16">
+          <div>
+            <img src={Project2} className="rounded-[30px]" alt="Emoji Tic-Tac-Toe" />
+            <span className="block text-pearl-white text-small opacity-90 mt-4">
               Emoji Tic-Tac-Toe
             </span>
           </div>
-          <div className="col-start-5 col-end-6">
-            <img src={Project3} alt="" />
-            <span className="block text-pearl-white text-small opacity-90  mt-4">
+          <div>
+            <img src={Project3} className="rounded-[30px]" alt="E-commerce App" />
+            <span className="block text-pearl-white text-small opacity-90 mt-4">
               E-commerce App
             </span>
           </div>
         </div>
         <div className="col-span-4 col-start-3 justify-center items-center text-center mb-16">
-          <img src={Project4} alt="" />
-          <span className="block text-pearl-white text-small opacity-90  mt-4">
+          <img src={Project4} className="rounded-[30px]" alt="Netflix Clone" />
+          <span className="block text-pearl-white text-small opacity-90 mt-4">
             Netflix Clone
           </span>
         </div>
@@ -61,7 +61,6 @@ export default function Projects() {
             advance anything.
             <br />
             Ironically.
-            <br />
           </span>
           <span className="text-end block opacity-90">Virgil Abloh</span>
           <span className="w-full h-[1px] bg-gray-4 opacity-40 mt-[40px] mb-[40px]"></span>
