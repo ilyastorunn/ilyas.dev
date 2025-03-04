@@ -5,7 +5,6 @@ import Contact from './Pages/Contact'
 import Mind from './Pages/Mind'
 import Projects from './Pages/Projects'
 import Skills from './Pages/Skills'
-import Piano from './Components/Piano'
 
 function App() {
 

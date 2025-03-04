@@ -3,6 +3,8 @@ import Project1 from "../assets/pics/Project1.png";
 import Project2 from "../assets/pics/Project2.png";
 import Project3 from "../assets/pics/Project3.png";
 import Project4 from "../assets/pics/Project4.png";
+import Project5 from "../assets/pics/Project5.png";
+import Project6 from "../assets/pics/Project6.png";
 
 export default function Projects() {
   return (
@@ -18,12 +20,12 @@ export default function Projects() {
         </div>
         <div className="col-span-4 col-start-3 text-center mb-16">
           <img
-            src={Project1}
+            src={Project5}
             className="rounded-[30px]"
-            alt="Cryotocurrency Tracker"
+            alt="Daily Habits Tracker"
           />
           <span className="block text-pearl-white text-small opacity-90 mt-4">
-            Cryptocurrency Tracker
+            Daily Habits Tracker
           </span>
         </div>
         <div className="col-span-4 col-start-3 grid grid-cols-2 gap-4 text-center mb-16">
@@ -41,9 +43,9 @@ export default function Projects() {
           </div>
         </div>
         <div className="col-span-4 col-start-3 justify-center items-center text-center mb-16">
-          <img src={Project4} className="rounded-[30px]" alt="Netflix Clone" />
+          <img src={Project6} className="rounded-[30px]" alt="Netflix Clone" />
           <span className="block text-pearl-white text-small opacity-90 mt-4">
-            Netflix Clone
+            "plak"
           </span>
         </div>
         <a
