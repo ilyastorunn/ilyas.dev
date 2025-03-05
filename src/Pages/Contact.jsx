@@ -20,9 +20,9 @@ export default function Contact() {
             Web developer at
             <br />
             self-employed in Turkey.
-          </span> 
+          </span>
           <div className="flex flex-col gap-8 text-small1">
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center hover:underline">
               <VscGithubAlt className="text-pearl-white" />
               <a
                 href="https://github.com/ilyastorunn"
@@ -32,7 +32,7 @@ export default function Contact() {
                 github.com/ilyastorunn
               </a>
             </div>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center hover:underline">
               <CiLinkedin className="text-pearl-white" />
               <a
                 href="https://www.linkedin.com/in/ilyastorunn/"
@@ -42,7 +42,7 @@ export default function Contact() {
                 @ilyastorunn
               </a>
             </div>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center hover:underline">
               <CiMail className="text-pearl-white" />
               <a
                 href="mailto:ilyastorunn@outlook.com"
@@ -65,7 +65,7 @@ export default function Contact() {
               <input
                 type="text"
                 // placeholder="name"
-                className="w-full h-[48px] p-3 rounded-[10px] bg-pearl-white text-gray-3"
+                className="w-full h-[48px] p-3 rounded-[10px] bg-gray-2 text-gray-3"
               />
             </div>
             <div className="grid gap-2">
@@ -73,18 +73,18 @@ export default function Contact() {
               <input
                 type="text"
                 // placeholder="name"
-                className="w-full h-[48px] p-3 rounded-[10px] bg-pearl-white text-gray-3"
+                className="w-full h-[48px] p-3 rounded-[10px] bg-gray-2 text-gray-3"
               />
             </div>
             <div className="grid gap-2">
               <span className="text-pearl-white text-small1">Message:</span>
               <textarea
                 // placeholder="message"
-                className="w-full h-[150px] p-3 rounded-[10px] bg-pearl-white text-dark-gray"
+                className="w-full h-[150px] p-3 rounded-[10px] bg-gray-2 text-dark-gray"
               />
             </div>
             <button className="px-6 py-2 rounded-[10px] bg-screen-black text-pearl-white text-small1 font-semibold shadow-lg tracking-wide mt-5 hover:bg-black-6">
-              SUBMIT
+              <a href="mailto:ilyastorunn@outlook.com">SUBMIT</a>
             </button>
           </div>
         </div>

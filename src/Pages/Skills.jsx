@@ -58,17 +58,14 @@ export default function Skills() {
           </div>
         </div>
         <div className="col-span-6 col-start-2 flex items-center justify-center mt-12 text-small1 text-gray-3 opacity-50 underline decoration-underline-gray">
-          <span>
-            See more on my
             <a
               href="https://github.com/ilyastorunn"
               target="_blank"
               rel="noopener noreferrer"
               className="pl-1"
             >
-              GitHub
+            See more on my GitHub
             </a>
-          </span>
         </div>
         <div className="grid gap-5 col-span-4 col-start-3 items-start text-pearl-white font-zeyada text-small2 mt-[120px]">
           <span className="w-full h-[1px] bg-gray-4 opacity-40 mb-[44px]"></span>

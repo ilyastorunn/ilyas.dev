@@ -1,5 +1,8 @@
 import SpotifyWidget from "../Components/SpotifyWidget";
 import Header from "../Components/Header";
+import arrowhome from "../assets/pics/arrowhome.png";
+import computers from "../assets/pics/computers.jpeg";
+import me from "../assets/pics/ily.jpg";
 
 export default function About() {
   return (
@@ -20,8 +23,9 @@ export default function About() {
         </div>
         <div className="col-span-8 flex justify-center">
           <div className="flex justify-between gap-[32px] max-w-[368px]">
-            <span className="w-[168px] h-[168px] rounded-[20px] bg-pearl-white"></span>
-            <span className="w-[168px] h-[168px] rounded-[20px] bg-pearl-white"></span>
+              <img src={computers} alt="" className="w-[168px] h-[168px] rounded-[20px]" />
+              <img src={me} alt="" className="w-[168px] h-[168px] object-cover rounded-[20px]" />
+            {/* <span className="w-[168px] h-[168px] rounded-[20px] bg-pearl-white"></span> */}
           </div>
         </div>
         <div className="flex flex-col items-start col-span-4 col-start-3 pt-4 gap-9 opacity-80">

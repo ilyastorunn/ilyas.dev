@@ -19,34 +19,67 @@ export default function Projects() {
           </span>
         </div>
         <div className="col-span-4 col-start-3 text-center mb-16">
-          <img
-            src={Project5}
-            className="rounded-[30px]"
-            alt="Daily Habits Tracker"
-          />
-          <span className="block text-pearl-white text-small opacity-90 mt-4">
+          <a href="https://github.com/ilyastorunn/habits" target="_blank">
+            <img
+              src={Project5}
+              className="rounded-[30px] w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+              alt="Daily Habits Tracker"
+            />
+          </a>
+          <a
+            href="https://github.com/ilyastorunn/habits"
+            target="_blank"
+            className="block text-pearl-white text-small opacity-90 mt-4 hover:underline"
+          >
             Daily Habits Tracker
-          </span>
+          </a>
         </div>
         <div className="col-span-4 col-start-3 grid grid-cols-2 gap-4 text-center mb-16">
           <div>
-            <img src={Project2} className="rounded-[30px]" alt="Emoji Tic-Tac-Toe" />
-            <span className="block text-pearl-white text-small opacity-90 mt-4">
+            <a
+              href="https://github.com/ilyastorunn/tic-tac-toe"
+              target="_blank"
+            >
+              <img
+                src={Project2}
+                className="rounded-[30px] object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+                alt="Emoji Tic-Tac-Toe"
+              />
+            </a>
+            <a
+              href="https://github.com/ilyastorunn/tic-tac-toe"
+              target="_blank"
+              className="block text-pearl-white text-small opacity-90 mt-4 hover:underline"
+            >
               Emoji Tic-Tac-Toe
-            </span>
+            </a>
           </div>
           <div>
-            <img src={Project3} className="rounded-[30px]" alt="E-commerce App" />
+            <img
+              src={Project3}
+              className="rounded-[30px]"
+              alt="E-commerce App"
+            />
             <span className="block text-pearl-white text-small opacity-90 mt-4">
               E-commerce App
             </span>
           </div>
         </div>
         <div className="col-span-4 col-start-3 justify-center items-center text-center mb-16">
-          <img src={Project6} className="rounded-[30px]" alt="Netflix Clone" />
-          <span className="block text-pearl-white text-small opacity-90 mt-4">
+          <a href="https://github.com/ilyastorunn/plak" target="_blank">
+            <img
+              src={Project6}
+              className="rounded-[30px] object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+              alt="Netflix Clone"
+            />
+          </a>
+          <a
+            href="https://github.com/ilyastorunn/plak"
+            target="_blank"
+            className="block text-pearl-white text-small opacity-90 mt-4 hover:underline"
+          >
             "plak"
-          </span>
+          </a>
         </div>
         <a
           className="col-span-4 col-start-3 text-center text-gray-3 text-small1 opacity-70 underline"
