@@ -5,6 +5,7 @@ import Project3 from "../assets/pics/Project3.png";
 import Project4 from "../assets/pics/Project4.png";
 import Project5 from "../assets/pics/Project5.png";
 import Project6 from "../assets/pics/Project6.png";
+import Project7 from "../assets/pics/Project7-2.png";
 
 export default function Projects() {
   return (
@@ -55,14 +56,23 @@ export default function Projects() {
             </a>
           </div>
           <div>
-            <img
-              src={Project3}
-              className="rounded-[30px]"
-              alt="E-commerce App"
-            />
-            <span className="block text-pearl-white text-small opacity-90 mt-4">
-              E-commerce App
-            </span>
+            <a
+              href="https://github.com/ilyastorunn/timer"
+              target="_blank"
+            >
+              <img
+                src={Project7}
+                className="rounded-[30px] object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+                alt="Timer"
+              />
+            </a>
+            <a
+              href="https://github.com/ilyastorunn/Timer"
+              target="_blank"
+              className="block text-pearl-white text-small opacity-90 mt-4 hover:underline"
+            >
+              Timer
+            </a>
           </div>
         </div>
         <div className="col-span-4 col-start-3 justify-center items-center text-center mb-16">
