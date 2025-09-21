@@ -1,8 +1,5 @@
 import Header from "../Components/Header";
-import Project1 from "../assets/pics/Project1.png";
 import Project2 from "../assets/pics/Project2.png";
-import Project3 from "../assets/pics/Project3.png";
-import Project4 from "../assets/pics/Project4.png";
 import Project5 from "../assets/pics/Project5.png";
 import Project6 from "../assets/pics/Project6.png";
 import Project7 from "../assets/pics/Project7-2.png";
@@ -11,10 +8,10 @@ export default function Projects() {
   return (
     <>
       <div className="container mx-auto grid grid-cols-8 px-4 my-5 max-w-[800px]">
-        <div className="grid col-span-4 col-start-3 items-center justify-center">
+        <div className="grid col-span-4 col-start-3 items-center justify-center pt-12">
           <Header />
         </div>
-        <div className="flex flex-col items-start col-span-4 col-start-3 mb-16 ml-4 mt-16">
+        <div className="flex flex-col items-start col-span-4 col-start-3 mb-10 ml-4 mt-16">
           <span className="text-pearl-white text-medium1">
             My latest projects:
           </span>

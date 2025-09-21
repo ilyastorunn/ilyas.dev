@@ -5,7 +5,7 @@ export default function Skills() {
   return (
     <>
       <div className="container mx-auto grid grid-cols-8 px-4 my-5 max-w-[800px]">
-        <div className="grid col-span-4 col-start-3 items-center justify-center mb-16">
+        <div className="grid col-span-4 col-start-3 items-center justify-center mb-16 pt-12">
           <Header />
         </div>
         <div className="col-span-6 col-start-2 text-center mb-[52px] p-0">
@@ -14,7 +14,7 @@ export default function Skills() {
           </span>
         </div>
         <div className="col-span-6 col-start-2 flex items-center justify-center gap-8">
-          <div className="w-[230px] h-[230px] rounded-[30px] bg-black-6 bg-opacity-80 pl-6 pt-4">
+          <div className="w-[230px] h-[230px] rounded-[30px] bg-black-6/10 backdrop-blur-lg border border-white/10 shadow-xl pl-6 pt-4">
             <span className="text-small text-pearl-white mb-6 block underline decoration-underline-gray">
               Languages
             </span>
@@ -22,9 +22,10 @@ export default function Skills() {
               <span>HTML</span>
               <span>CSS</span>
               <span>JavaScript</span>
+              <span>TypeScript</span>
             </div>
           </div>
-          <div className="w-[230px] h-[230px] rounded-[30px] bg-black-6 bg-opacity-80 pl-6 pt-4">
+          <div className="w-[230px] h-[230px] rounded-[30px] bg-black-6/10 backdrop-blur-lg border border-white/10 shadow-xl pl-6 pt-4">
             <span className="text-small text-pearl-white mb-6 block underline decoration-underline-gray">
               Frameworks
             </span>
@@ -36,7 +37,7 @@ export default function Skills() {
               <span>Tailwind</span>
             </div>
           </div>
-          <div className="w-[230px] h-[230px] rounded-[30px] bg-black-6 bg-opacity-80 pl-6 pt-4">
+          <div className="w-[230px] h-[230px] rounded-[30px] bg-black-6/10 backdrop-blur-lg border border-white/10 shadow-xl pl-6 pt-4">
             <span className="text-small text-pearl-white mb-6 block underline decoration-underline-gray">
               Others
             </span>

@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <>
       <div className="container mx-auto grid grid-cols-8 gap-8 px-4 my-5 max-w-[1200px]">
-        <div className="grid col-span-4 col-start-3 items-center justify-center">
+        <div className="grid col-span-4 col-start-3 items-center justify-center pt-12">
           <Header />
         </div>
         <div className="grid col-span-4 col-start-3 items-center justify-center text-center">
@@ -54,7 +54,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        <div className="col-span-3 col-start-5 rounded-[30px] bg-black-6">
+        <div className="col-span-3 col-start-5 rounded-[30px] bg-black-6/10 backdrop-blur-lg border border-white/10 shadow-xl">
           <div className="flex justify-center items-center leading-none text-small2 text-pearl-white mt-8">
             <CiMail className="mb-1" />
             <span className="ml-2">Get in touch</span>
@@ -84,7 +84,7 @@ export default function Contact() {
               />
             </div>
             <button className="px-6 py-2 rounded-[10px] bg-screen-black text-pearl-white text-small1 font-semibold shadow-lg tracking-wide mt-5 hover:bg-black-6">
-              <a href="mailto:ilyastorunn@outlook.com">SUBMIT</a>
+              <a href="mailto:ilyastorunn@outlook.com">submit</a>
             </button>
           </div>
         </div>

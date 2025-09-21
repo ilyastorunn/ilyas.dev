@@ -10,7 +10,7 @@ export default function Mind() {
   return (
     <>
       <div className="container mx-auto grid grid-cols-8 gap-8 px-4 my-5 max-w-[800px]">
-        <div className="grid col-span-4 col-start-3 items-center justify-center mb-8">
+        <div className="grid col-span-4 col-start-3 items-center justify-center mb-8 pt-12">
           <Header />
         </div>
         <div className="grid col-span-4 col-start-3">

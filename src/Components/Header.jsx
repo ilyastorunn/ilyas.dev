@@ -5,77 +5,79 @@ export default function Header() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center px-4 py-2 max-w-[412px] max-h-[56px] rounded-small bg-black-6">
-        <div className="flex items-center justify-center gap-2">
-          <div
-            className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large bg-black-6 flex-shrink-0 ${
-              location.pathname === '/' ? '' : ''
-            }`}
-          >
-            <a
-              href="/"
-              className={`text-gray-2 hover:text-white-1 ${
-                location.pathname === '/' ? 'opacity-100' : 'opacity-80'
-              } text-small1`}
+      <div className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 mt-6 mb-6">
+        <div className="flex flex-col items-center justify-center px-4 py-2 max-w-[412px] max-h-[56px] rounded-small bg-black-6/10 backdrop-blur-lg border border-white/10 shadow-xl">
+          <div className="flex items-center justify-center gap-2">
+            <div
+              className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large flex-shrink-0 ${
+                location.pathname === '/' ? '' : ''
+              }`}
             >
-              About
-            </a>
-          </div>
-          <div
-            className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large bg-black-6 flex-shrink-0 ${
-              location.pathname === '/projects' ? '' : ''
-            }`}
-          >
-            <a
-              href="/projects"
-              className={`text-gray-2 hover:text-white-1 ${
-                location.pathname === '/projects' ? 'opacity-100' : 'opacity-80'
-              } text-small1`}
+              <a
+                href="/"
+                className={`text-gray-2 hover:text-white-1 transition-all duration-300 ${
+                  location.pathname === '/' ? 'opacity-100' : 'opacity-80'
+                } text-small1`}
+              >
+                About
+              </a>
+            </div>
+            <div
+              className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large flex-shrink-0 ${
+                location.pathname === '/projects' ? '' : ''
+              }`}
             >
-              Projects
-            </a>
-          </div>
-          <div
-            className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large bg-black-6 flex-shrink-0 ${
-              location.pathname === '/skills' ? '' : ''
-            }`}
-          >
-            <a
-              href="/skills"
-              className={`text-gray-2 hover:text-white-1 ${
-                location.pathname === '/skills' ? 'opacity-100' : 'opacity-80'
-              } text-small1`}
+              <a
+                href="/projects"
+                className={`text-gray-2 hover:text-white-1 transition-all duration-300 ${
+                  location.pathname === '/projects' ? 'opacity-100' : 'opacity-80'
+                } text-small1`}
+              >
+                Projects
+              </a>
+            </div>
+            <div
+              className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large flex-shrink-0 ${
+                location.pathname === '/skills' ? '' : ''
+              }`}
             >
-              Skills
-            </a>
-          </div>
-          <div
-            className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large bg-black-6 flex-shrink-0 ${
-              location.pathname === '/mind' ? '' : ''
-            }`}
-          >
-            <a
-              href="/mind"
-              className={`text-gray-2 hover:text-white-1 ${
-                location.pathname === '/mind' ? 'opacity-100' : 'opacity-80'
-              } text-small1`}
+              <a
+                href="/skills"
+                className={`text-gray-2 hover:text-white-1 transition-all duration-300 ${
+                  location.pathname === '/skills' ? 'opacity-100' : 'opacity-80'
+                } text-small1`}
+              >
+                Skills
+              </a>
+            </div>
+            <div
+              className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large flex-shrink-0 ${
+                location.pathname === '/mind' ? '' : ''
+              }`}
             >
-              Mind
-            </a>
-          </div>
-          <div
-            className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large bg-black-6 flex-shrink-0 ${
-              location.pathname === '/contact' ? '' : ''
-            }`}
-          >
-            <a
-              href="/contact"
-              className={`text-gray-2 hover:text-white-1 ${
-                location.pathname === '/contact' ? 'opacity-100' : 'opacity-80'
-              } text-small1`}
+              <a
+                href="/mind"
+                className={`text-gray-2 hover:text-white-1 transition-all duration-300 ${
+                  location.pathname === '/mind' ? 'opacity-100' : 'opacity-80'
+                } text-small1`}
+              >
+                Mind
+              </a>
+            </div>
+            <div
+              className={`flex px-5 py-2 justify-center items-center gap-[10px] max-w-[67px] max-h-[40px] rounded-large flex-shrink-0 ${
+                location.pathname === '/contact' ? '' : ''
+              }`}
             >
-              Contact
-            </a>
+              <a
+                href="/contact"
+                className={`text-gray-2 hover:text-white-1 transition-all duration-300 ${
+                  location.pathname === '/contact' ? 'opacity-100' : 'opacity-80'
+                } text-small1`}
+              >
+                Contact
+              </a>
+            </div>
           </div>
         </div>
       </div>
