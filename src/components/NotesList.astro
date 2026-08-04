@@ -1,0 +1,14 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props { notes: CollectionEntry<"notes">[]; }
+const { notes } = Astro.props;
+const dateFormat = new Intl.DateTimeFormat("en", { month: "2-digit", day: "2-digit" });
+---
+<section class="cave-section notes" id="notes" aria-labelledby="notes-title" data-reveal>
+  <div class="notes-head"><div><p class="eyebrow">Thinking aloud</p><h2 id="notes-title">Notes</h2></div><p>Short observations about making software, interfaces, and independent work.</p></div>
+  <div class="note-list">{notes.map((note, index) => <a href={`/cave/notes/${note.id}/`}><time datetime={note.data.publishedAt.toISOString()}>{dateFormat.format(note.data.publishedAt)}</time><span>{note.data.title}</span>{index === 0 && <i>New</i>}<b aria-hidden="true">→</b></a>)}</div>
+</section>
+<style>
+  .cave-section{padding-block:clamp(5rem,9vw,8rem);border-top:1px solid var(--line)}.notes-head{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:2rem;margin-bottom:2.7rem}.notes-head h2{margin-top:.7rem;font-size:clamp(2.2rem,4vw,4rem);font-weight:510;line-height:.95;letter-spacing:-.06em}.notes-head>p{justify-self:end;max-width:23rem;color:var(--muted);line-height:1.55;font-size:.86rem}.note-list{border-top:1px solid var(--line)}.note-list a{display:grid;grid-template-columns:5rem 1fr auto auto;align-items:center;gap:1rem;padding:1.35rem 1rem;border-bottom:1px solid var(--line);transition:padding .2s,background .2s}.note-list a:hover{padding-inline:1.35rem;background:var(--card)}time{font:.67rem var(--font-mono);color:var(--muted)}.note-list i{padding:.18rem .4rem;border:1px solid var(--line);border-radius:999px;color:var(--muted);font:normal .52rem var(--font-mono)}.note-list b{font-weight:400}
+  @media(max-width:700px){.notes-head{grid-template-columns:1fr}.notes-head>p{justify-self:start}.note-list a{grid-template-columns:3.5rem 1fr auto}.note-list i{display:none}}
+</style>

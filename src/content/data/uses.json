@@ -1,0 +1,8 @@
+{
+  "macbook": { "category": "Hardware", "name": "MacBook Pro", "note": "The main workshop." },
+  "iphone": { "category": "Hardware", "name": "iPhone", "note": "Camera, test device, notebook." },
+  "xcode": { "category": "Software", "name": "Xcode", "note": "Apple platform work." },
+  "zed": { "category": "Software", "name": "Zed", "note": "A fast place to shape code." },
+  "figma": { "category": "Design", "name": "Figma", "note": "Interfaces and systems." },
+  "field-notes": { "category": "Analog", "name": "Field Notes", "note": "Ideas before they become tasks." }
+}

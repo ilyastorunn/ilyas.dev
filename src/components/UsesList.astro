@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props { items: CollectionEntry<"uses">[]; }
+const { items } = Astro.props;
+---
+<section class="cave-section uses" id="uses" aria-labelledby="uses-title" data-reveal>
+  <div class="section-title"><p class="eyebrow">Workbench</p><h2 id="uses-title">Uses</h2></div>
+  <div class="uses-list">{items.map((item) => <div class="use-row"><span>{item.data.category}</span><strong>{item.data.name}</strong><p>{item.data.note}</p></div>)}</div>
+</section>
+<style>
+  .cave-section{display:grid;grid-template-columns:1fr 2fr;gap:clamp(2rem,7vw,8rem);padding-block:clamp(5rem,9vw,8rem);border-top:1px solid var(--line)}.section-title h2{margin-top:.7rem;font-size:clamp(2.2rem,4vw,4rem);font-weight:510;line-height:.95;letter-spacing:-.06em}.uses-list{border-top:1px solid var(--line)}.use-row{display:grid;grid-template-columns:.75fr 1fr 1.2fr;gap:1rem;align-items:center;padding:1.3rem 0;border-bottom:1px solid var(--line)}.use-row span{font:.6rem var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.use-row strong{font-weight:520}.use-row p{color:var(--muted);font-size:.78rem}
+  @media(max-width:760px){.cave-section{grid-template-columns:1fr}.use-row{grid-template-columns:.7fr 1.3fr}.use-row p{grid-column:2}}
+</style>

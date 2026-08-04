@@ -1,0 +1,47 @@
+{
+  "signal": {
+    "title": "Signal Notes",
+    "kind": "app",
+    "eyebrow": "iOS APP · CONCEPT",
+    "summary": "A calm place for the thoughts worth returning to.",
+    "accent": "#c8d3dd",
+    "size": "wide",
+    "detail": {
+      "title": "Signal Notes",
+      "description": "A deliberately small notes app shaped around fast capture, quiet review, and the belief that a tool should disappear when the thought arrives.",
+      "actionLabel": "View concept",
+      "url": "https://example.com/signal-notes",
+      "meta": [{ "label": "Platform", "value": "iOS" }, { "label": "Role", "value": "Product & development" }]
+    }
+  },
+  "meter": {
+    "title": "Meter",
+    "kind": "app",
+    "eyebrow": "APPLE PLATFORMS · UTILITY",
+    "summary": "A precise daily dashboard without the dashboard noise.",
+    "accent": "#d8d2c2",
+    "size": "tall",
+    "detail": {
+      "title": "Meter",
+      "description": "A compact personal utility for seeing the few daily signals that matter. Designed as an instrument: legible, tactile, and intentionally finite.",
+      "actionLabel": "Open preview",
+      "url": "https://example.com/meter",
+      "meta": [{ "label": "Platform", "value": "iPhone & Mac" }, { "label": "Status", "value": "Prototype" }]
+    }
+  },
+  "swell": {
+    "title": "Swell Studio",
+    "kind": "website",
+    "eyebrow": "WEBSITE · 2026",
+    "summary": "A digital home for an independent objects studio.",
+    "accent": "#b8c4bc",
+    "size": "standard",
+    "detail": {
+      "title": "Swell Studio",
+      "description": "An editorial storefront concept that gives each object room to breathe. The visual system borrows its pacing from printed catalogues rather than conventional ecommerce.",
+      "actionLabel": "Visit website",
+      "url": "https://example.com/swell-studio",
+      "meta": [{ "label": "Type", "value": "Website" }, { "label": "Role", "value": "Design & development" }]
+    }
+  }
+}

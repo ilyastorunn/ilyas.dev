@@ -1,0 +1,74 @@
+---
+interface Props {
+  current?: "home" | "cave";
+}
+
+const { current = "home" } = Astro.props;
+---
+
+<header class="header content-width">
+  <a class="identity" href="/" aria-label="İlyas Torun, home">
+    <span class="memoji" aria-hidden="true"><span>İT</span></span>
+    <span>İlyas Torun</span>
+  </a>
+
+  <nav class="desktop-nav" aria-label="Primary navigation">
+    <a class:list={[{ active: current === "home" }]} href="/#work">Work</a>
+    <a href="/#about">About</a>
+    <a class:list={[{ active: current === "cave" }]} href="/cave">Cave</a>
+  </nav>
+
+  <a class="contact" href="mailto:ilyastorun.dev@gmail.com">Say hello <span aria-hidden="true">↗</span></a>
+
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+    <span class="sr-only">Toggle navigation</span>
+    <span></span><span></span>
+  </button>
+
+  <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" hidden>
+    <a href="/#work">Work</a>
+    <a href="/#about">About</a>
+    <a href="/cave">Cave</a>
+    <a href="mailto:ilyastorun.dev@gmail.com">Say hello ↗</a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
+  const menu = document.querySelector<HTMLElement>(".mobile-nav");
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    if (menu) menu.hidden = open;
+  });
+  menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+    toggle?.setAttribute("aria-expanded", "false");
+    if (menu) menu.hidden = true;
+  }));
+</script>
+
+<style>
+  .header { position: relative; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding-top: clamp(2rem, 4vw, 4.3rem); z-index: 20; }
+  .identity { display: inline-flex; align-items: center; gap: .72rem; justify-self: start; font-size: clamp(.9rem, 1.15vw, 1.05rem); font-weight: 590; letter-spacing: -.02em; }
+  .memoji { display: grid; place-items: center; width: 2.1rem; aspect-ratio: 1; overflow: hidden; border-radius: 50%; background: radial-gradient(circle at 35% 25%, #eee 0 14%, #999 15% 24%, #242525 26% 58%, #080909 60%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.25); }
+  .memoji span { font: 500 .58rem var(--font-mono); color: white; transform: translateY(.05rem); }
+  .desktop-nav { display: flex; align-items: center; gap: clamp(1.7rem, 3vw, 3rem); justify-self: center; font-size: clamp(.9rem, 1.15vw, 1.05rem); }
+  .desktop-nav a, .contact { position: relative; padding-block: .25rem; color: var(--muted); transition: color .2s ease; }
+  .desktop-nav a::after, .contact::after { content: ""; position: absolute; inset: auto 0 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .25s ease; }
+  .desktop-nav a:hover, .desktop-nav a.active, .contact:hover { color: var(--ink); }
+  .desktop-nav a:hover::after, .desktop-nav a.active::after, .contact:hover::after { transform: scaleX(1); transform-origin: left; }
+  .contact { justify-self: end; color: var(--ink); font-size: clamp(.9rem, 1.15vw, 1.05rem); }
+  .menu-toggle, .mobile-nav { display: none; }
+
+  @media (max-width: 760px) {
+    .header { grid-template-columns: 1fr auto; }
+    .desktop-nav, .contact { display: none; }
+    .menu-toggle { display: grid; gap: 5px; width: 2.75rem; height: 2.75rem; place-content: center; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); cursor: pointer; }
+    .menu-toggle span:not(.sr-only) { display: block; width: 1rem; height: 1px; background: var(--ink); transition: transform .25s ease; }
+    .menu-toggle[aria-expanded="true"] span:nth-last-child(2) { transform: translateY(3px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3px) rotate(-45deg); }
+    .mobile-nav:not([hidden]) { position: absolute; top: calc(100% + .8rem); right: 0; display: grid; width: min(15rem, 70vw); padding: .65rem; border: 1px solid var(--line); border-radius: 1.2rem; background: rgba(253,253,252,.96); box-shadow: 0 18px 50px rgba(20,20,20,.12); backdrop-filter: blur(18px); }
+    .mobile-nav a { padding: .8rem .9rem; border-radius: .75rem; }
+    .mobile-nav a:hover { background: var(--card); }
+  }
+</style>

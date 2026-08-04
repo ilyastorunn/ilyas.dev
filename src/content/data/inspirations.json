@@ -1,0 +1,7 @@
+{
+  "rams": { "name": "Dieter Rams", "field": "Industrial design", "note": "Restraint with a reason." },
+  "ive": { "name": "Jony Ive", "field": "Product design", "note": "Care for materials and manufacturing." },
+  "eames": { "name": "Charles & Ray Eames", "field": "Design", "note": "Serious work with a sense of play." },
+  "vignelli": { "name": "Massimo Vignelli", "field": "Graphic design", "note": "Systems that create freedom." },
+  "teenage-engineering": { "name": "Teenage Engineering", "field": "Objects & sound", "note": "Character through precise constraints." }
+}

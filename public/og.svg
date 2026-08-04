@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f1f2f3"/>
+  <rect x="52" y="48" width="1096" height="534" rx="42" fill="#fdfdfc" stroke="#dedfdf"/>
+  <circle cx="135" cy="132" r="28" fill="#202121"/>
+  <text x="135" y="141" text-anchor="middle" font-family="monospace" font-size="20" fill="#fff">İT</text>
+  <text x="181" y="143" font-family="Arial, sans-serif" font-size="29" font-weight="600" fill="#202121">İlyas Torun</text>
+  <text x="130" y="300" font-family="Arial, sans-serif" font-size="48" letter-spacing="-1.5" fill="#202121">Independent developer crafting</text>
+  <text x="130" y="360" font-family="Arial, sans-serif" font-size="48" letter-spacing="-1.5" fill="#202121">thoughtful digital products.</text>
+  <rect x="130" y="421" width="278" height="42" rx="21" fill="none" stroke="#dedfdf"/>
+  <circle cx="153" cy="442" r="6" fill="#f2a30f"/>
+  <text x="172" y="448" font-family="monospace" font-size="14" letter-spacing="1.5" fill="#505252">INDIE DEVELOPER</text>
+</svg>

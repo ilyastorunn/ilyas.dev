@@ -1,0 +1,21 @@
+---
+const detail = {
+  eyebrow: "About",
+  title: "Independent, by design.",
+  description: "I build small, useful digital products from first sketch to shipped software. I care about calm interfaces, durable ideas, and the details people feel before they notice.",
+  accent: "#d5d5d0",
+  meta: [{ label: "Based in", value: "Türkiye" }, { label: "Focus", value: "Apple platforms & web" }],
+};
+---
+<a class="profile-card small-card" href="#about" data-detail={JSON.stringify(detail)} data-reveal>
+  <div class="portrait" aria-hidden="true"><span>İT</span></div>
+  <div><p class="eyebrow">Profile</p><h2>Indie developer,<br/>making useful things.</h2></div>
+  <span class="card-arrow" aria-hidden="true">↗</span>
+</a>
+<style>
+  .profile-card { position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:18rem;padding:1.4rem;border:1px solid var(--line);border-radius:var(--radius-card);background:#efefec;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease; }
+  .profile-card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(30,32,33,.08)}
+  .portrait{display:grid;place-items:center;width:5.2rem;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 36% 26%,#fafafa 0 10%,#aeb0ad 11% 24%,#333 26% 59%,#111 61%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45),0 12px 24px rgba(0,0,0,.14)}
+  .portrait span{font:500 .85rem var(--font-mono);color:white}.profile-card h2{margin-top:.65rem;font-size:1.4rem;line-height:1.08;font-weight:520;letter-spacing:-.045em}.card-arrow{position:absolute;right:1.35rem;top:1.25rem;color:var(--muted)}
+  @media(max-width:500px){.profile-card{min-height:15.5rem;padding:1rem}.portrait{width:4rem}.profile-card h2{font-size:1.08rem}.card-arrow{right:1rem;top:1rem}}
+</style>
