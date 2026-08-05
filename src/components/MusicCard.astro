@@ -1,22 +1,22 @@
 ---
 const detail = {
   eyebrow: "On repeat",
-  title: "Promises",
-  description: "Floating Points, Pharoah Sanders and the London Symphony Orchestra. A patient, luminous record that rewards uninterrupted time.",
+  title: "Loser",
+  description: "Tame Impala · Deadbeat · 2025. Currently on repeat.",
   actionLabel: "Open Spotify",
-  url: "https://open.spotify.com/",
-  accent: "#cf5b32",
-  meta: [{ label: "Released", value: "2021" }, { label: "Format", value: "Album" }],
+  url: "https://open.spotify.com/track/7bxaFZ1O3cHkgLKMsdC3xR",
+  accent: "#73818b",
+  meta: [{ label: "Artist", value: "Tame Impala" }, { label: "Released", value: "2025" }],
 };
 ---
-<a class="music-card small-card" href="https://open.spotify.com/" data-detail={JSON.stringify(detail)} data-reveal>
-  <div class="album" aria-hidden="true"><span>PROMISES</span><i></i></div>
-  <div class="music-copy"><p class="eyebrow">On repeat</p><h2>Promises</h2><p>Floating Points · Pharoah Sanders</p></div>
+<a class="music-card small-card" href="https://open.spotify.com/track/7bxaFZ1O3cHkgLKMsdC3xR" data-detail={JSON.stringify(detail)} data-reveal>
+  <div class="album"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02208500450dcd0fd294d7bd3b" alt="Loser by Tame Impala cover" loading="lazy" /></div>
+  <div class="music-copy"><p class="eyebrow">On repeat</p><h2>Loser</h2><p>Tame Impala</p></div>
   <div class="play" aria-hidden="true">▶</div>
 </a>
 <style>
-  .music-card{position:relative;display:grid;grid-template-columns:4.7rem 1fr;align-items:end;gap:.85rem;min-height:12.75rem;padding:1.05rem;border:1px solid var(--line);border-radius:var(--radius-card);background:#eeeae4;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}.music-card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(30,32,33,.08)}
-  .album{position:absolute;left:1.05rem;top:1.05rem;width:5.4rem;aspect-ratio:1;background:#cf5b32;box-shadow:0 11px 20px rgba(91,52,36,.18);overflow:hidden}.album span{position:absolute;left:.55rem;bottom:.55rem;font:500 .48rem var(--font-mono);letter-spacing:.12em}.album i{position:absolute;right:-14%;top:-8%;width:75%;aspect-ratio:1;border:1.05rem solid rgba(240,202,165,.72);border-radius:50%}
+  .music-card{position:relative;display:grid;grid-template-columns:4.7rem 1fr;align-items:end;gap:.85rem;min-height:12.75rem;padding:1.05rem;border:1px solid var(--line);border-radius:var(--radius-card);background:#e9e8e5;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}.music-card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(30,32,33,.08)}
+  .album{position:absolute;left:1.05rem;top:1.05rem;width:5.4rem;aspect-ratio:1;background:#73818b;box-shadow:0 11px 20px rgba(48,55,59,.2);overflow:hidden}.album img{width:100%;height:100%;object-fit:cover}
   .music-copy{grid-column:1/-1}.music-copy h2{margin-top:.45rem;font-size:1.08rem;line-height:1;font-weight:540;letter-spacing:-.04em}.music-copy>p:last-child{margin-top:.26rem;font-size:.64rem;color:var(--muted)}.play{position:absolute;right:1rem;top:1rem;display:grid;place-items:center;width:2.05rem;aspect-ratio:1;border-radius:50%;background:var(--ink);color:white;font-size:.54rem;padding-left:.1rem}
   @media(max-width:500px){.music-card{display:flex;align-items:center;min-height:10.5rem;padding:1rem}.album{left:1rem;top:50%;width:5.8rem;transform:translateY(-50%)}.play{right:1rem;top:1rem;width:2rem}.music-copy{margin-left:6.8rem}.music-copy h2{font-size:1.04rem}.music-copy>p:last-child{max-width:8rem;font-size:.6rem}}
 </style>

@@ -1,9 +1,6 @@
 {
-  "design-of-everyday-things": { "title": "The Design of Everyday Things", "author": "Don Norman", "color": "#e0bd39", "ink": "#29271c", "height": 208, "selected": true, "note": "A durable reminder that confusion is usually a design problem, not a user problem." },
-  "dieter-rams": { "title": "Dieter Rams: As Little Design as Possible", "author": "Sophie Lovell", "color": "#e45d25", "ink": "#171717", "height": 232, "selected": true, "note": "An archive of restraint, systems thinking, and products that earn their place." },
-  "creative-act": { "title": "The Creative Act", "author": "Rick Rubin", "color": "#f0f0ec", "ink": "#1d1e1e", "height": 198, "selected": true, "note": "Useful when creative work starts feeling like production instead of attention." },
   "steve-jobs": { "title": "Steve Jobs", "author": "Walter Isaacson", "color": "#d7d7d3", "ink": "#161717", "height": 225, "selected": true, "note": "A complicated portrait of taste, focus, persuasion, and the cost of intensity." },
-  "shape-of-design": { "title": "The Shape of Design", "author": "Frank Chimero", "color": "#2454ba", "ink": "#f7f7f2", "height": 190, "selected": false, "note": "A warm, compact book about why design work matters and how it gets meaning." },
-  "jony-ive": { "title": "Jony Ive", "author": "Leander Kahney", "color": "#c9c6bd", "ink": "#232424", "height": 218, "selected": true, "note": "A look at the team, process, and material curiosity behind a generation of products." },
-  "ways-of-seeing": { "title": "Ways of Seeing", "author": "John Berger", "color": "#1e2020", "ink": "#f1f1eb", "height": 184, "selected": false, "note": "A short reset for how images construct meaning, value, and attention." }
+  "to-pixar-and-beyond": { "title": "To Pixar and Beyond", "author": "Lawrence Levy", "color": "#d7a845", "ink": "#242119", "height": 205, "selected": true, "note": "The quieter business story behind Pixar's transformation into a durable creative company." },
+  "creative-act": { "title": "The Creative Act: A Way of Being", "author": "Rick Rubin", "color": "#f0f0ec", "ink": "#1d1e1e", "height": 198, "selected": true, "note": "Useful when creative work starts feeling like production instead of attention." },
+  "press-reset": { "title": "Press Reset", "author": "Jason Schreier", "color": "#e4592d", "ink": "#171717", "height": 216, "selected": true, "note": "A clear-eyed account of instability, recovery, and the people behind the games industry." }
 }
