@@ -49,15 +49,15 @@ const shownBooks = preview ? books.filter((book) => book.data.selected).slice(0,
 </script>
 
 <style>
-  .bookshelf-section { padding-block: clamp(4rem, 7vw, 6rem) clamp(3rem, 5vw, 4.5rem); }
-  .bookshelf-heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2.2rem; }
-  .bookshelf-heading h2 { margin-top: .6rem; font-size: clamp(2rem, 3.35vw, 3.2rem); line-height: .96; font-weight: 510; letter-spacing: -.06em; }
-  .bookshelf-heading p:not(.eyebrow) { margin-top: 1rem; color: var(--muted); line-height: 1.5; }
+  .bookshelf-section { padding-block: clamp(3.2rem, 5.5vw, 4.8rem) clamp(2.5rem, 4vw, 3.7rem); }
+  .bookshelf-heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 1.7rem; }
+  .bookshelf-heading h2 { margin-top: .5rem; font-size: clamp(1.9rem, 3vw, 2.85rem); line-height: .96; font-weight: 510; letter-spacing: -.06em; }
+  .bookshelf-heading p:not(.eyebrow) { margin-top: .8rem; color: var(--muted); font-size: .9rem; line-height: 1.5; }
   .bookshelf-heading a { flex: none; padding-bottom: .22rem; border-bottom: 1px solid var(--line); font-size: .82rem; }
   .shelf-wrap { position: relative; padding-inline: 2.7rem; }
-  .books { position: relative; z-index: 2; display: flex; align-items: end; gap: clamp(.65rem, 1.4vw, 1.15rem); min-height: 14.5rem; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; scroll-snap-type: x proximity; padding: .75rem 1rem 1.35rem; }
+  .books { position: relative; z-index: 2; display: flex; align-items: end; gap: clamp(.55rem, 1.2vw, .95rem); min-height: 12.5rem; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; scroll-snap-type: x proximity; padding: .65rem .9rem 1.25rem; }
   .books::-webkit-scrollbar { display: none; }
-  .book { position: relative; flex: 0 0 clamp(5.4rem, 8.5vw, 7.1rem); height: calc(var(--book-height) - 32px); overflow: hidden; padding: .65rem .5rem; border: 1px solid color-mix(in srgb, var(--book-color), black 20%); border-radius: .25rem .45rem .18rem .18rem; background: var(--book-color); color: var(--book-ink); text-align: left; box-shadow: .34rem .55rem .8rem rgba(35,35,33,.16), inset 2px 0 rgba(255,255,255,.19), inset -3px 0 rgba(0,0,0,.08); transform: perspective(40rem) rotateY(calc((var(--book-index) - 2) * -.35deg)); transform-origin: bottom; scroll-snap-align: center; cursor: pointer; transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease; }
+  .book { position: relative; flex: 0 0 clamp(5rem, 7.6vw, 6.2rem); height: calc(var(--book-height) - 48px); overflow: hidden; padding: .58rem .45rem; border: 1px solid color-mix(in srgb, var(--book-color), black 20%); border-radius: .25rem .45rem .18rem .18rem; background: var(--book-color); color: var(--book-ink); text-align: left; box-shadow: .34rem .55rem .8rem rgba(35,35,33,.16), inset 2px 0 rgba(255,255,255,.19), inset -3px 0 rgba(0,0,0,.08); transform: perspective(40rem) rotateY(calc((var(--book-index) - 2) * -.35deg)); transform-origin: bottom; scroll-snap-align: center; cursor: pointer; transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease; }
   .book:hover, .book:focus-visible { transform: translateY(-.7rem) rotateY(0); box-shadow: .5rem 1.25rem 1.5rem rgba(35,35,33,.19), inset 2px 0 rgba(255,255,255,.19), inset -3px 0 rgba(0,0,0,.08); }
   .book-title { display: block; font-size: clamp(.62rem, .85vw, .78rem); line-height: 1.02; font-weight: 650; letter-spacing: -.045em; overflow-wrap: anywhere; }
   .book-author { position: absolute; left: .58rem; right: .58rem; bottom: .7rem; font: 500 .43rem var(--font-mono); line-height: 1.25; text-transform: uppercase; letter-spacing: .05em; }
