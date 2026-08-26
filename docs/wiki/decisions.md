@@ -1,57 +1,25 @@
 # Decisions
 
-Durable decisions are reverse chronological. “Owner” means explicitly chosen by İlyas in the project conversation.
+Durable decisions are reverse chronological. “Owner” means an explicit decision by İlyas.
 
-## 2026-08-06 — Live GitHub heatmap
+## 2026-08-26 — Clean application reset
 
-**Status:** verified implementation
+**Status:** verified
 
-The GitHub card should resemble the contribution component at `github-component.vercel.app`: a real year-scale heatmap, total contributions, and recent repository context. The implementation uses the project's own cached endpoint rather than depending on that third-party Vercel service. Public contribution HTML is the required source; public REST profile/events are optional enrichment.
+The owner chose to keep the technical foundation and remove the previous portfolio implementation and content so the site can be rebuilt from scratch. Preserved infrastructure includes Astro, TypeScript, Vitest, Wrangler, npm manifests, Git history, and repository operating instructions. Removed material includes application source, routes, content, tests, media, old design/spec documents, and generated build/tool state.
 
-Evidence: `src/lib/github.ts`, `src/pages/api/github.json.ts`, `src/components/GitHubCard.astro`, `src/lib/github.test.ts`.
+Evidence: current owner instruction; repository inventory after cleanup; [`README.md`](../../README.md).
 
-## 2026-08-06 — Initial real content
+## 2026-08-26 — Git remote status
 
-**Status:** verified implementation
+**Status:** verified
 
-Projects remain placeholders. Home music is “Loser” by Tame Impala. Bookshelf initially contains *Steve Jobs*, *To Pixar and Beyond*, *The Creative Act: A Way of Being*, and *Press Reset*. Cave content remains owner-editable placeholder content.
+The local Git repository has no configured remote. The local commit history was preserved, but the project is not currently connected to a GitHub repository.
 
-Evidence: `src/components/MusicCard.astro`, `src/content/data/books.json`, owner decision.
+Evidence: `git remote -v` returned no entries; `.git/config` contains no remote section.
 
-## 2026-08-05 — Compact density
+## Earlier portfolio decisions
 
-**Status:** verified implementation; supersedes the original specification's more spacious initial implementation where they conflict
+**Status:** superseded for implementation
 
-The initial architecture felt too large and required too much scrolling. Two compact passes reduced hero rhythm, project/card heights, bento gaps, heading scale, and bookshelf dimensions while preserving body readability and larger side margins.
-
-Evidence: commits `e816e4e` and `3f0a370`, current Home/card/Bookshelf styles.
-
-## 2026-08-04 — Product and visual direction
-
-**Status:** verified implementation with remaining content gaps
-
-- Build from scratch rather than modify the old site.
-- English-only.
-- Identity: indie developer.
-- Quiet/refined Apple and Braun language, influenced by Dieter Rams and Jony Ive.
-- Desktop navigation centered, restrained multiline hero, generous side margins.
-- Light-only first version; dark mode after publication.
-- Six home bentos: three projects, profile, live GitHub, music; Bookshelf follows as a separate section.
-- Clicking interactive bentos opens a soft-focus detail modal with an optional destination button.
-- Separate Cave sections: photo, uses, notes, music, inspirations, and bookshelf.
-- No Next.js; implementation may choose the best suitable stack.
-- Hosting will use Cloudflare under a temporary subdomain; deployment occurs later with owner authorization.
-- Contact email: `ilyastorun.dev@gmail.com`.
-- Production Memoji will be supplied later.
-
-Evidence: owner decisions and the [approved design specification](../superpowers/specs/2026-08-04-personal-portfolio-design.md).
-
-## Unresolved decisions
-
-- Exact temporary/production Cloudflare hostname; config currently says `portfolio.ilyastorun.dev`.
-- Final project names, copy, screenshots, destinations, and card emphasis.
-- Final Memoji asset.
-- Final Cave collection content and whether sample notes remain.
-- Whether the home music card should eventually be data-driven or a Spotify embed.
-- Publication timing and transition/redirect policy for the existing Vercel site.
-
+The earlier portfolio decisions remain recoverable through Git history but no longer describe active source files. Do not use them as implementation requirements without a new owner decision.

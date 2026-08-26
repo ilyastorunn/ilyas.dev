@@ -1,38 +1,34 @@
 # Project wiki
 
-This is the durable, source-aware briefing for future agents working on the portfolio. It summarizes the repository without replacing source code, tests, or owner-authored specifications.
+This is the durable, source-aware briefing for the repository. It describes the clean foundation that remains after the previous portfolio implementation was removed at the owner's request.
 
 ## Current status
 
-The Astro portfolio is implemented and builds successfully for Cloudflare Workers. Home, Cave, MDX notes, the shared detail modal, a live public GitHub contribution heatmap, and typed content collections exist. Three portfolio projects and most Cave sections still contain intentional placeholders. Production Memoji/media, deployment acceptance, a temporary Cloudflare subdomain, and final visual/accessibility review remain open.
+The repository contains project/tooling infrastructure only: Astro, TypeScript, Vitest, Wrangler, npm manifests, and operating documentation. The previous routes, components, styles, content, integrations, tests, media, design specification, and implementation plan were removed on 2026-08-26. No new product implementation exists yet.
 
-Status last verified: 2026-08-21 by repository inspection and the full automated validation suite: 8 tests passed, Astro reported no diagnostics, and the Cloudflare production build completed.
+The clean scaffold was verified on 2026-08-26: Astro check reported 0 errors, warnings, or hints; the empty test suite exited successfully; and the Cloudflare build completed. The build reports only expected missing-pages/sitemap warnings for this intentionally empty state.
+
+The local Git history is preserved. `git remote -v` was inspected on 2026-08-26 and returned no remote, so this checkout is not currently connected to a GitHub repository.
 
 ## Reading order
 
-1. [Product](product.md) — audience, promise, scope, voice, and design guardrails
-2. [Architecture](architecture.md) — routes, boundaries, data flow, and deployment model
-3. [Implementation](implementation.md) — what exists now, important paths, and verified gaps
-4. [Content](content.md) — schemas, ownership, placeholders, and editing instructions
-5. [Decisions](decisions.md) — durable owner and technical decisions
-6. [Roadmap](roadmap.md) — now, next, later, and explicitly deferred work
+1. [Product](product.md) — retained product context and current scope
+2. [Architecture](architecture.md) — surviving runtime and tooling foundation
+3. [Implementation](implementation.md) — what is currently present and absent
+4. [Content](content.md) — clean content starting point
+5. [Decisions](decisions.md) — durable owner decisions, newest first
+6. [Roadmap](roadmap.md) — next steps for rebuilding
 7. [Log](log.md) — reverse-chronological meaningful changes
 
 ## Evidence model
 
-Priority is: current owner decision; reproduced runtime/tests; current implementation; maintained specification; old plan/history. Page-level Sources sections point to primary repository evidence. Labels mean:
-
-- **verified**: directly inspected in current code/tests or reproduced
-- **documented**: stated by a maintained source but not independently verified
-- **inferred**: reasoned from evidence
-- **unresolved**: evidence or owner input is insufficient
-- **superseded**: historical direction replaced by a newer decision or implementation
+Priority is: current owner decision; reproduced tests/builds; current implementation; maintained documentation; historical material. Use `verified`, `documented`, `inferred`, `unresolved`, and `superseded` precisely.
 
 ## Primary sources
 
 - [README](../../README.md)
-- [Approved design specification](../superpowers/specs/2026-08-04-personal-portfolio-design.md)
-- [Original implementation plan](../superpowers/plans/2026-08-04-personal-portfolio-implementation.md)
-- [`src/`](../../src/)
+- [AGENTS.md](../../AGENTS.md)
 - [`package.json`](../../package.json)
+- [`astro.config.mjs`](../../astro.config.mjs)
 - [`wrangler.jsonc`](../../wrangler.jsonc)
+- [`tsconfig.json`](../../tsconfig.json)

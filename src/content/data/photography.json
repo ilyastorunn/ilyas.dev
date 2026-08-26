@@ -1,6 +1,0 @@
-{
-  "quiet-platform": { "title": "Quiet platform", "location": "Istanbul", "year": 2026, "palette": ["#929a9b", "#d5d1c8", "#454b4c"] },
-  "late-ferry": { "title": "Late ferry", "location": "Bosphorus", "year": 2025, "palette": ["#263541", "#9a7155", "#d9c6ad"] },
-  "red-chair": { "title": "Red chair", "location": "Cihangir", "year": 2025, "palette": ["#b34738", "#c4b8a6", "#42423f"] },
-  "winter-light": { "title": "Winter light", "location": "Ankara", "year": 2024, "palette": ["#d9d7d0", "#9da7aa", "#667172"] }
-}

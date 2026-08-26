@@ -1,6 +1,6 @@
-# İlyas Torun — Personal Portfolio
+# İlyas Torun — Portfolio foundation
 
-An English-only personal portfolio and digital home built with Astro, TypeScript, and Cloudflare Workers.
+This repository is a clean Astro, TypeScript, and Cloudflare Workers foundation for a new personal portfolio. The previous portfolio implementation and its content were intentionally removed on 2026-08-26 at the owner's request. The project has not been connected to a GitHub remote.
 
 ## Local development
 
@@ -19,27 +19,16 @@ npm test
 npm run build
 ```
 
-## Content
+The test command accepts an empty test suite while the new application is being built.
 
-- Projects and Cave collections: `src/content/data/`
-- Notes: `src/content/notes/`
-- Memoji and final media: replace the CSS placeholders with assets in `public/`
+## Surviving infrastructure
 
-All collections are schema validated in `src/content.config.ts`.
+- Astro with the Cloudflare adapter
+- TypeScript strict configuration
+- Vitest configuration
+- Wrangler configuration for local preview and a future Worker deployment
+- npm dependency manifests and lockfile
 
-## Cloudflare
+Application routes, components, styles, content schemas, data, notes, tests, and media are intentionally absent. Add them under `src/`, `public/`, and the relevant configuration files as the new product takes shape.
 
-The repository includes a Workers configuration in `wrangler.jsonc`. Preview locally after a production build:
-
-```sh
-npm run build
-npx wrangler dev
-```
-
-Set `PUBLIC_CF_ANALYTICS_TOKEN` in the Cloudflare build environment to enable Web Analytics. A future GitHub API token, if needed for higher rate limits, must be stored as a Cloudflare secret and never exposed to the browser.
-
-Deploy only after the temporary subdomain and Cloudflare account are confirmed:
-
-```sh
-npm run deploy
-```
+Deploy only after the site, Cloudflare account, and hostname are explicitly confirmed.

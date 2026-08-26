@@ -1,6 +1,0 @@
-{
-  "steve-jobs": { "title": "Steve Jobs", "author": "Walter Isaacson", "color": "#d7d7d3", "ink": "#161717", "height": 225, "selected": true, "note": "A complicated portrait of taste, focus, persuasion, and the cost of intensity." },
-  "to-pixar-and-beyond": { "title": "To Pixar and Beyond", "author": "Lawrence Levy", "color": "#d7a845", "ink": "#242119", "height": 205, "selected": true, "note": "The quieter business story behind Pixar's transformation into a durable creative company." },
-  "creative-act": { "title": "The Creative Act: A Way of Being", "author": "Rick Rubin", "color": "#f0f0ec", "ink": "#1d1e1e", "height": 198, "selected": true, "note": "Useful when creative work starts feeling like production instead of attention." },
-  "press-reset": { "title": "Press Reset", "author": "Jason Schreier", "color": "#e4592d", "ink": "#171717", "height": 216, "selected": true, "note": "A clear-eyed account of instability, recovery, and the people behind the games industry." }
-}
