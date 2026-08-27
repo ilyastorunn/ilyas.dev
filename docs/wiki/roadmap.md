@@ -1,22 +1,22 @@
 # Roadmap
 
-The roadmap starts from the clean foundation created on 2026-08-26. It is not permission to deploy or add external services.
+The roadmap continues from the first rebuilt hero. It is not permission to deploy or add external services.
 
 ## Next
 
-- Decide the new product promise, audience, and first route.
-- Choose the initial content and media model.
-- Add a minimal accessible layout and first page.
+- Replace About's scaffold copy with the owner's real biography, current focus, location, disciplines, and outside-work interests.
+- Decide whether About's visual/object area should remain typographic or receive owner-supplied media.
+- Choose the initial project/content model before activating navigation.
 - Reassess whether MDX, sitemap, and Vitest are needed for the new scope.
 
 ## Before preview or publication
 
-- Run `npm run check`, `npm test`, and `npm run build` after the first implementation.
+- Run `npm run check`, `npm test`, and `npm run build` after each meaningful implementation pass.
 - Perform manual keyboard, reduced-motion, responsive, and visual checks.
-- Confirm the Cloudflare account, Worker name, hostname, and analytics requirements.
+- Reconfirm the Cloudflare deployment target and analytics requirements.
 - Deploy only after explicit owner authorization.
 
-## Deferred until there is a product
+## Deferred
 
 - Feature-specific integrations, analytics, CMS, contact handling, and content publishing workflow.
 - Any domain binding, redirect, or change to an existing deployment.

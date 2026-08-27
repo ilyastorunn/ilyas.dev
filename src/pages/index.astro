@@ -1,0 +1,1334 @@
+---
+import { Image } from "astro:assets";
+import "@fontsource-variable/instrument-sans";
+import spiderVerseHero from "../assets/spider-verse-hero-2x.png";
+import madvillainyCover from "../assets/madvillainy-cover.png";
+import doctorDoomComic from "../assets/doctor-doom-comic.png";
+import unscrollIcon from "../assets/unscroll-icon.jpg";
+import mementoIcon from "../assets/memento-icon.jpg";
+
+const title = "İlyas Torun — Independent Developer";
+const email = "ilyastorun.dev@gmail.com";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="İlyas Torun is an independent developer designing and building thoughtful products for the web and Apple platforms."
+    />
+    <meta name="theme-color" content="#f1f2f3" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="card-stack">
+      <section class="transition-stage" data-transition-stage>
+        <div class="card-viewport" data-card-viewport>
+        <div class="site-canvas stack-card hero-card" data-hero-card>
+        <header class="site-header">
+          <nav class="section-preview" aria-label="Portfolio sections">
+            <a href="#work" data-card-link="0" aria-current="page">Work</a>
+            <a href="#about" data-card-link="1">About</a>
+            <span aria-disabled="true" title="Cave will be added as its card is designed">Cave</span>
+          </nav>
+
+          <a class="contact" href={`mailto:${email}`}>
+            <span>Contact me</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </header>
+
+        <main>
+          <section class="hero" id="work" aria-labelledby="intro-title">
+            <h1 id="intro-title" class="sr-only">
+              Independent developer designing and building thoughtful products for the web and Apple platforms.
+            </h1>
+
+            <figure class="hero-visual">
+              <Image
+                src={spiderVerseHero}
+                alt="Miles Morales suspended against an upside-down city skyline."
+                widths={[480, 720, 960, 1200, 1600, 2400]}
+                sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1520px) calc(100vw - 180px), 1270px"
+                loading="eager"
+                fetchpriority="high"
+              />
+
+              <figcaption class="comic-caption caption-one">
+                That’s all it is,<br />İlyas.
+              </figcaption>
+              <figcaption class="comic-caption caption-two">
+                Make something<br />beautiful.
+              </figcaption>
+
+              <div class="scroll-cue" aria-hidden="true">
+                <span>swipe down, please :)</span>
+                <svg viewBox="0 0 46 56" role="img">
+                  <path d="M20 3c2 14 3 25 1 39" />
+                  <path d="m9 33 12 11 14-10" />
+                </svg>
+              </div>
+            </figure>
+          </section>
+        </main>
+        </div>
+        <div class="site-canvas stack-card about-card" id="about" data-about-card aria-labelledby="about-title">
+          <div class="about-heading">
+            <p class="about-kicker">The person behind the pixels</p>
+            <div class="about-title-lockup">
+              <h2 id="about-title">About!</h2>
+              <span aria-hidden="true">issue no. 01</span>
+            </div>
+            <p class="about-doodle" aria-hidden="true">meet the human →</p>
+          </div>
+
+          <div class="about-bento">
+            <article class="bento-panel story-panel">
+              <p class="panel-label">The short version</p>
+              <div class="story-text">
+                <p class="story-copy">Hey, I’m Ilyas — a front-end developer building thoughtful things for the web.</p>
+                <p class="story-detail">It started with a C++ class in 2018. Today I craft digital products, build my own ideas, and keep pushing the edges of what I can make.</p>
+              </div>
+              <span class="draft-stamp">Since 2018</span>
+            </article>
+
+            <article class="bento-panel github-panel" data-github-card>
+              <div class="github-head">
+                <div>
+                  <p class="panel-label">GitHub activity</p>
+                  <a href="https://github.com/ilyastorunn" target="_blank" rel="noreferrer">@ilyastorunn ↗</a>
+                </div>
+                <span class="github-total" data-github-total>Loading…</span>
+              </div>
+              <div class="contribution-grid" data-github-grid aria-label="Recent GitHub contributions">
+                {Array.from({ length: 84 }, (_, index) => <i style={`--delay:${index}`} aria-hidden="true"></i>)}
+              </div>
+              <p class="github-status" data-github-status>Fetching the green squares.</p>
+            </article>
+
+            <article class="bento-panel music-panel" data-music-card>
+              <Image
+                class="doom-backdrop"
+                src={doctorDoomComic}
+                alt="Doctor Doom raising his fists beneath the words This land is mine."
+                widths={[400, 800]}
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+              <div class="record" aria-hidden="true">
+                <span class="record-label"><Image src={madvillainyCover} alt="" widths={[160, 300]} /></span>
+                <span class="record-hole"></span>
+              </div>
+              <div class="music-copy">
+                <p class="panel-value">All Caps</p>
+                <p class="track-artist">MF DOOM</p>
+              </div>
+              <button class="play-button" type="button" data-music-toggle aria-label="Play All Caps preview" aria-pressed="false">▶</button>
+              <audio data-music-audio preload="auto" src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/21/bc/bc/21bcbc11-adf7-1c11-ec7f-ca60bb54921d/mzaf_12993966015311248438.plus.aac.p.m4a"></audio>
+            </article>
+
+            <article class="bento-panel apps-panel" tabindex="0">
+              <div class="apps-copy">
+                <p class="panel-label">Three apps, one pocket</p>
+                <p class="panel-value">Things I’ve made.</p>
+              </div>
+              <div class="app-stack" aria-label="Apps by İlyas Torun">
+                <a class="app-sheet app-sheet-one" href="https://apps.apple.com/tr/app/unscroll-ekran-s%C3%BCresi/id6766120727?l=tr" target="_blank" rel="noreferrer">
+                  <Image src={unscrollIcon} alt="Unscroll app icon" widths={[160]} />
+                  <b>Unscroll</b><small>App Store ↗</small>
+                </a>
+                <a class="app-sheet app-sheet-two" href="https://apps.apple.com/tr/app/memento-takvim/id6757344347?l=tr" target="_blank" rel="noreferrer">
+                  <Image src={mementoIcon} alt="Memento app icon" widths={[160]} />
+                  <b>Memento</b><small>App Store ↗</small>
+                </a>
+                <span class="app-sheet app-sheet-three app-coming"><i>?</i><b>Next app</b><small>In review</small></span>
+                <span class="app-pocket" aria-hidden="true"></span>
+              </div>
+            </article>
+
+            <article class="bento-panel websites-panel">
+              <div class="website-copy">
+                <p class="panel-label">Selected websites</p>
+                <p class="panel-value">A tiny browser deck.</p>
+              </div>
+              <div class="browser-deck" aria-label="Website carousel awaiting final projects">
+                <div class="browser-card browser-card-back"><span></span></div>
+                <div class="browser-card browser-card-mid"><span></span></div>
+                <div class="browser-card browser-card-front">
+                  <span><i></i><i></i><i></i></span>
+                  <strong>Website preview</strong>
+                </div>
+              </div>
+              <div class="deck-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            </article>
+          </div>
+        </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const stage = document.querySelector<HTMLElement>("[data-transition-stage]");
+      const viewport = document.querySelector<HTMLElement>("[data-card-viewport]");
+      const heroCard = document.querySelector<HTMLElement>("[data-hero-card]");
+      const aboutCard = document.querySelector<HTMLElement>("[data-about-card]");
+      const cardLinks = [...document.querySelectorAll<HTMLAnchorElement>("[data-card-link]")];
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let previousActiveIndex = -1;
+
+      const updateCards = () => {
+        if (!stage || !viewport || !heroCard || !aboutCard) return;
+
+        const travel = Math.max(stage.offsetHeight - window.innerHeight, 1);
+        const progress = Math.min(Math.max(-stage.getBoundingClientRect().top / travel, 0), 1);
+        const activeIndex = progress >= 0.55 ? 1 : 0;
+        if (activeIndex !== previousActiveIndex) {
+          previousActiveIndex = activeIndex;
+          dispatchEvent(new CustomEvent("portfolio-card-change", { detail: { activeIndex } }));
+        }
+        cardLinks.forEach((link, index) => {
+          if (index === activeIndex) link.setAttribute("aria-current", "page");
+          else link.removeAttribute("aria-current");
+        });
+
+        if (reducedMotion.matches) {
+          const showAbout = progress >= 0.5;
+          heroCard.style.opacity = showAbout ? "0" : "1";
+          aboutCard.style.transform = showAbout ? "translateY(0)" : "translateY(110%)";
+          return;
+        }
+
+        const riseProgress = Math.min(Math.max((progress - 0.12) / 0.88, 0), 1);
+        const easedRise = 1 - Math.pow(1 - riseProgress, 3);
+        const fadeProgress = Math.min(Math.max((progress - 0.72) / 0.2, 0), 1);
+
+        heroCard.style.transform = `translateY(${-18 * progress}px) scale(${1 - 0.09 * progress})`;
+        heroCard.style.opacity = String(1 - fadeProgress);
+        aboutCard.style.transform = `translateY(${(1 - easedRise) * 108}%)`;
+      };
+
+      let ticking = false;
+      const requestUpdate = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          updateCards();
+          ticking = false;
+        });
+      };
+
+      updateCards();
+      addEventListener("scroll", requestUpdate, { passive: true });
+      addEventListener("resize", requestUpdate);
+      reducedMotion.addEventListener("change", requestUpdate);
+
+      cardLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          if (!stage) return;
+          event.preventDefault();
+          const progress = Number(link.dataset.cardLink ?? 0);
+          const travel = Math.max(stage.offsetHeight - window.innerHeight, 0);
+          history.replaceState(null, "", link.hash);
+          scrollTo({
+            top: stage.offsetTop + travel * progress,
+            behavior: reducedMotion.matches ? "auto" : "smooth",
+          });
+        });
+      });
+
+      const githubGrid = document.querySelector<HTMLElement>("[data-github-grid]");
+      const githubTotal = document.querySelector<HTMLElement>("[data-github-total]");
+      const githubStatus = document.querySelector<HTMLElement>("[data-github-status]");
+
+      if (githubGrid && githubTotal && githubStatus) {
+        fetch("https://github-contributions-api.jogruber.de/v4/ilyastorunn?y=last")
+          .then((response) => {
+            if (!response.ok) throw new Error("GitHub activity unavailable");
+            return response.json();
+          })
+          .then((payload) => {
+            const contributions = Array.isArray(payload.contributions)
+              ? payload.contributions.slice(-84)
+              : [];
+            const cells = [...githubGrid.querySelectorAll<HTMLElement>("i")];
+            contributions.forEach((day: { count?: number; date?: string; level?: number }, index: number) => {
+              const cell = cells[index];
+              if (!cell) return;
+              cell.dataset.level = String(Math.min(Number(day.level ?? 0), 4));
+              cell.title = `${day.count ?? 0} contributions on ${day.date ?? "this day"}`;
+            });
+            const total = Object.values(payload.total ?? {}).reduce(
+              (sum: number, value) => sum + Number(value ?? 0),
+              0,
+            );
+            githubTotal.textContent = `${total.toLocaleString()} this year`;
+            githubStatus.textContent = "The last twelve weeks, live from GitHub.";
+          })
+          .catch(() => {
+            githubTotal.textContent = "Public profile";
+            githubStatus.textContent = "Activity is taking a coffee break.";
+          });
+      }
+
+      const musicCard = document.querySelector<HTMLElement>("[data-music-card]");
+      const musicToggle = document.querySelector<HTMLButtonElement>("[data-music-toggle]");
+      const musicAudio = document.querySelector<HTMLAudioElement>("[data-music-audio]");
+
+      if (musicCard && musicToggle && musicAudio) {
+        musicAudio.volume = 0.5;
+        let autoStartAttempted = false;
+        let aboutIsActive = false;
+
+        const setMusicState = (playing: boolean) => {
+          musicCard.classList.toggle("is-playing", playing);
+          musicToggle.textContent = playing ? "Ⅱ" : "▶";
+          musicToggle.setAttribute("aria-pressed", String(playing));
+          musicToggle.setAttribute("aria-label", playing ? "Pause All Caps preview" : "Play All Caps preview");
+        };
+
+        const tryAutoStart = async () => {
+          if (autoStartAttempted || !aboutIsActive) return;
+          autoStartAttempted = true;
+          try {
+            await musicAudio.play();
+            setMusicState(true);
+          } catch {
+            autoStartAttempted = false;
+          }
+        };
+
+        addEventListener("portfolio-card-change", ((event: CustomEvent<{ activeIndex: number }>) => {
+          aboutIsActive = event.detail.activeIndex === 1;
+          if (aboutIsActive) void tryAutoStart();
+        }) as EventListener);
+
+        const unlockPlayback = (event: Event) => {
+          if ((event.target as Element | null)?.closest?.("[data-music-toggle]")) return;
+          aboutIsActive = cardLinks[1]?.getAttribute("aria-current") === "page";
+          if (aboutIsActive && musicAudio.paused) void tryAutoStart();
+        };
+        addEventListener("pointerdown", unlockPlayback, { passive: true });
+        addEventListener("keydown", unlockPlayback);
+
+        musicToggle.addEventListener("click", async () => {
+          if (musicAudio.paused) {
+            try {
+              await musicAudio.play();
+              setMusicState(true);
+            } catch {
+              setMusicState(false);
+            }
+          } else {
+            musicAudio.pause();
+            setMusicState(false);
+          }
+        });
+
+        musicAudio.addEventListener("ended", () => setMusicState(false));
+        musicAudio.addEventListener("pause", () => setMusicState(false));
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    min-width: 20rem;
+    background: #f1f2f3;
+    color: #161817;
+    font-family: "Instrument Sans Variable", "Helvetica Neue", Arial, sans-serif;
+    font-synthesis: none;
+  }
+
+  :global(body) {
+    min-height: 100svh;
+    margin: 0;
+  }
+
+  :global(a) {
+    color: inherit;
+  }
+
+  .card-stack {
+    position: relative;
+  }
+
+  .transition-stage {
+    position: relative;
+    height: 220svh;
+  }
+
+  .card-viewport {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    padding: clamp(0.75rem, 2.2vw, 2rem);
+    overflow: hidden;
+  }
+
+  .stack-card {
+    position: absolute;
+    inset: clamp(0.75rem, 2.2vw, 2rem);
+    transform-origin: 50% 8%;
+    will-change: transform, opacity;
+  }
+
+  .hero-card {
+    z-index: 1;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .about-card {
+    z-index: 2;
+    transform: translateY(108%);
+  }
+
+  .site-canvas {
+    width: min(100%, 91rem);
+    min-height: calc(100svh - clamp(1.5rem, 4.4vw, 4rem));
+    margin-inline: auto;
+    padding: clamp(1.4rem, 3.2vw, 3.6rem) clamp(1.35rem, 5vw, 6.5rem);
+    overflow: hidden;
+    border: 1px solid rgb(21 25 23 / 4%);
+    border-radius: clamp(1.5rem, 3vw, 2.75rem);
+    background: #fff;
+    box-shadow: 0 1.5rem 5rem rgb(30 39 35 / 6%);
+  }
+
+  .hero-card {
+    box-shadow: 0 2.4rem 6rem rgb(25 29 42 / 13%);
+  }
+
+  .about-card {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: clamp(1.25rem, 2vw, 2rem);
+    padding-block: clamp(1.6rem, 3vw, 3rem);
+    background: #e8e3f1;
+    color: #312b3b;
+    box-shadow: 0 1.75rem 5rem rgb(42 31 67 / 14%);
+  }
+
+  .about-heading {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+
+  .about-kicker,
+  .about-heading h2,
+  .about-doodle,
+  .panel-label,
+  .panel-value,
+  .story-copy,
+  .github-status {
+    margin: 0;
+  }
+
+  .about-kicker {
+    grid-column: 1;
+    color: #665e73;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .about-title-lockup {
+    position: relative;
+    grid-column: 1;
+    width: fit-content;
+    margin-top: 0.35rem;
+    padding: 0.2rem 1.1rem 0.3rem 0.75rem;
+    border: 3px solid #25202b;
+    background: #ffd51c;
+    box-shadow: 0.32rem 0.32rem 0 #13c5d9, 0.58rem 0.58rem 0 #e82d86;
+    transform: rotate(-1deg);
+  }
+
+  .about-heading h2 {
+    grid-column: 1;
+    font-size: clamp(2.8rem, 5.4vw, 5.8rem);
+    font-style: italic;
+    font-weight: 820;
+    letter-spacing: -0.07em;
+    line-height: 0.82;
+    text-transform: uppercase;
+  }
+
+  .about-title-lockup span {
+    position: absolute;
+    right: -2.2rem;
+    bottom: -0.8rem;
+    padding: 0.2rem 0.35rem;
+    border: 1.5px solid #25202b;
+    background: #fff;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 0.48rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transform: rotate(5deg);
+  }
+
+  .about-doodle {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+    padding: 0.55rem 0.8rem;
+    border: 2px solid #25202b;
+    background: #ffd51c;
+    box-shadow: 0.22rem 0.22rem 0 #13c5d9, 0.4rem 0.4rem 0 #e82d86;
+    font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
+    font-size: clamp(0.78rem, 1vw, 1rem);
+    font-weight: 700;
+    transform: rotate(2deg);
+  }
+
+  .about-bento {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.7rem, 1.2vw, 1rem);
+    min-height: 0;
+  }
+
+  .bento-panel {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    padding: clamp(1rem, 1.65vw, 1.55rem);
+    overflow: hidden;
+    border: 1px solid rgb(49 43 59 / 12%);
+    border-radius: clamp(1rem, 1.7vw, 1.5rem);
+    background: rgb(255 255 255 / 74%);
+  }
+
+  .panel-label {
+    color: #71697e;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .story-panel {
+    display: flex;
+    grid-column: span 5;
+    grid-row: span 2;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+  }
+
+  .story-copy {
+    max-width: 12ch;
+    font-size: clamp(1.45rem, 2.55vw, 2.8rem);
+    font-weight: 430;
+    letter-spacing: -0.052em;
+    line-height: 1.02;
+  }
+
+  .story-text {
+    display: grid;
+    gap: clamp(0.9rem, 1.8vh, 1.4rem);
+  }
+
+  .story-detail {
+    max-width: 42ch;
+    margin: 0;
+    color: #665e73;
+    font-size: clamp(0.72rem, 0.9vw, 0.9rem);
+    line-height: 1.45;
+  }
+
+  .draft-stamp {
+    position: absolute;
+    right: 1.2rem;
+    bottom: 1.15rem;
+    padding: 0.38rem 0.58rem;
+    border: 2px solid #d53379;
+    color: #d53379;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transform: rotate(-6deg);
+  }
+
+  .panel-value {
+    max-width: 16ch;
+    margin-top: 0.9rem;
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-weight: 520;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+
+  .github-panel {
+    display: flex;
+    grid-column: span 4;
+    gap: clamp(0.65rem, 1.2vh, 0.95rem);
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #25202b;
+    color: #fff;
+  }
+
+  .github-panel .panel-label,
+  .github-status {
+    color: #bdb5c8;
+  }
+
+  .github-head {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .github-head a {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.86rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .github-total,
+  .github-status {
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    font-size: 0.55rem;
+  }
+
+  .github-status {
+    line-height: 1.35;
+  }
+
+  .github-total {
+    color: #ffd51c;
+    white-space: nowrap;
+  }
+
+  .contribution-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(7, 1fr);
+    gap: clamp(2px, 0.32vw, 4px);
+    width: 100%;
+    margin-block: auto;
+  }
+
+  .contribution-grid i {
+    aspect-ratio: 1;
+    border-radius: 2px;
+    background: #3e3944;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .contribution-grid i[data-level="1"] { background: #817f45; }
+  .contribution-grid i[data-level="2"] { background: #b5b83f; }
+  .contribution-grid i[data-level="3"] { background: #d9df36; }
+  .contribution-grid i[data-level="4"] { background: #f3ff45; }
+  .contribution-grid i:hover { transform: scale(1.4); }
+
+  .music-panel {
+    grid-column: span 3;
+    background: #0b777f;
+    color: #fff;
+    isolation: isolate;
+  }
+
+  .doom-backdrop {
+    position: absolute;
+    z-index: -3;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 0%;
+    filter: saturate(0.9) contrast(1.02);
+  }
+
+  .music-panel::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border: 1px solid rgb(255 255 255 / 22%);
+    border-radius: inherit;
+    content: "";
+    pointer-events: none;
+  }
+
+  .record {
+    position: absolute;
+    right: -38%;
+    bottom: -36%;
+    width: min(108%, 17.5rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 0 8%, rgb(3 4 4 / 94%) 8.4% 9.3%, transparent 9.7%),
+      repeating-radial-gradient(circle at 50% 50%, transparent 0 2px, rgb(255 255 255 / 7%) 2.5px 3px, transparent 3.5px 6px),
+      conic-gradient(from 20deg, #080909, #202322 8%, #080909 20%, #2a2d2c 30%, #090a0a 43%, #212423 57%, #070808 70%, #292c2b 84%, #080909);
+    border: 1px solid rgb(255 255 255 / 18%);
+    box-shadow:
+      -0.75rem -0.55rem 1.4rem rgb(255 255 255 / 9%),
+      0.9rem 1.2rem 2.2rem rgb(0 0 0 / 54%);
+    animation: record-spin 9s linear infinite;
+    animation-play-state: paused;
+  }
+
+  .music-panel.is-playing .record { animation-play-state: running; }
+
+  .record::before,
+  .record::after {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    content: "";
+  }
+
+  .record::before {
+    background: linear-gradient(112deg, transparent 15%, rgb(255 255 255 / 13%) 27%, transparent 39% 67%, rgb(255 255 255 / 8%) 76%, transparent 88%);
+    mix-blend-mode: screen;
+  }
+
+  .record::after {
+    inset: 1.2%;
+    border: 1px solid rgb(255 255 255 / 10%);
+  }
+
+  .record-label {
+    position: absolute;
+    z-index: 2;
+    inset: 34%;
+    overflow: hidden;
+    border: 1px solid rgb(255 255 255 / 34%);
+    border-radius: 50%;
+    background: #d9d9d7;
+    box-shadow: 0 0 0 0.14rem #111;
+  }
+
+  .record-label :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .record-hole {
+    position: absolute;
+    z-index: 3;
+    inset: 48.25%;
+    border-radius: 50%;
+    content: "";
+    background: #050606;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 42%);
+  }
+
+  .music-copy {
+    position: absolute;
+    z-index: 4;
+    right: 0.7rem;
+    bottom: 36%;
+    padding: 0.34rem 0.65rem 0.4rem;
+    border: 2px solid #151717;
+    background: #d9282f;
+    box-shadow: 0.2rem 0.2rem 0 #fff, 0.38rem 0.38rem 0 #0ca8d7;
+    color: #fff;
+    transform: rotate(2deg);
+  }
+
+  .music-copy .panel-value {
+    margin: 0;
+    font-size: clamp(0.9rem, 1.25vw, 1.2rem);
+    font-style: italic;
+    font-weight: 850;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
+  .track-artist {
+    position: absolute;
+    top: calc(100% - 0.1rem);
+    left: 0.45rem;
+    margin: 0;
+    padding: 0.16rem 0.3rem;
+    border: 1.5px solid #151717;
+    background: #0ca8d7;
+    color: #111;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 0.48rem;
+    font-weight: 750;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transform: rotate(3deg);
+  }
+
+  .play-button {
+    position: absolute;
+    z-index: 2;
+    bottom: 1rem;
+    left: 1rem;
+    display: grid;
+    width: 2.2rem;
+    aspect-ratio: 1;
+    border: 2px solid #25202b;
+    border-radius: 50%;
+    background: #fff;
+    color: #25202b;
+    text-decoration: none;
+    place-items: center;
+  }
+
+  .music-panel audio { display: none; }
+
+  .apps-panel {
+    grid-column: span 3;
+    overflow: visible;
+    background: #ffd85a;
+    outline: none;
+    transition: z-index 0s 420ms;
+  }
+
+  .apps-panel:is(:hover, :focus-within, :focus) { z-index: 12; transition-delay: 0s; }
+
+  .apps-copy { position: relative; z-index: 5; }
+  .apps-copy .panel-value { margin-top: 0.45rem; font-size: clamp(1rem, 1.4vw, 1.35rem); }
+
+  .app-stack {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 72%;
+  }
+
+  .app-sheet {
+    position: absolute;
+    right: 17%;
+    bottom: 10%;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.1rem 0.55rem;
+    align-items: center;
+    width: 66%;
+    min-width: 8.5rem;
+    padding: 0.55rem;
+    border: 2px solid #25202b;
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 0.5rem 1rem rgb(67 50 10 / 11%);
+    color: #25202b;
+    text-decoration: none;
+    transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .app-sheet :global(img),
+  .app-sheet i {
+    grid-row: 1 / 3;
+    width: 2.5rem;
+    height: 2.5rem;
+    aspect-ratio: 1;
+    border-radius: 0.72rem;
+    object-fit: cover;
+  }
+
+  .app-sheet i {
+    display: grid;
+    background: #c9bef1;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 800;
+    place-items: center;
+  }
+
+  .app-sheet b { align-self: end; font-size: 0.72rem; }
+  .app-sheet small { align-self: start; color: #71697e; font-size: 0.52rem; }
+  .app-sheet-one { transform: translate(-9%, 2%) rotate(-5deg); }
+  .app-sheet-two { transform: translate(0, 1%) rotate(1deg); }
+  .app-sheet-three { transform: translate(8%, 3%) rotate(6deg); }
+
+  .apps-panel:is(:hover, :focus-within, :focus) .app-sheet { width: clamp(9.5rem, 13vw, 12rem); }
+  .apps-panel:is(:hover, :focus-within, :focus) .app-sheet-one { transform: translate(-84%, -98%) rotate(-7deg) scale(1.08); }
+  .apps-panel:is(:hover, :focus-within, :focus) .app-sheet-two { transform: translate(-3%, -108%) rotate(1deg) scale(1.08); }
+  .apps-panel:is(:hover, :focus-within, :focus) .app-sheet-three { transform: translate(78%, -82%) rotate(7deg) scale(1.08); }
+
+  .app-pocket {
+    position: absolute;
+    z-index: 4;
+    right: 5%;
+    bottom: -8%;
+    left: 5%;
+    height: 45%;
+    border: 2px solid #25202b;
+    border-radius: 1.3rem 1.3rem 0 0;
+    background: #e5b835;
+  }
+
+  .websites-panel {
+    grid-column: span 4;
+    overflow: visible;
+    background: #c9bef1;
+  }
+
+  .websites-panel:hover { z-index: 10; }
+
+  .website-copy { position: relative; z-index: 4; }
+  .website-copy .panel-value { margin-top: 0.45rem; font-size: clamp(1rem, 1.4vw, 1.35rem); }
+
+  .browser-deck {
+    position: absolute;
+    right: 6%;
+    bottom: 10%;
+    width: 56%;
+    aspect-ratio: 1.45;
+    transform-origin: 75% 75%;
+    transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .websites-panel:hover .browser-deck {
+    transform: translate(-10%, -18%) scale(1.32);
+  }
+
+  .browser-card {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border: 1.5px solid #312b3b;
+    border-radius: 0.75rem;
+    background: #fff;
+    box-shadow: 0.5rem 0.6rem 0 rgb(49 43 59 / 12%);
+    transition: transform 300ms ease;
+  }
+
+  .browser-card-back { background: #ffd85a; transform: translate(-18%, -12%) rotate(-7deg); }
+  .browser-card-mid { background: #d4528b; transform: translate(-9%, -6%) rotate(-3deg); }
+  .websites-panel:hover .browser-card-back { transform: translate(-28%, -18%) rotate(-10deg); }
+  .websites-panel:hover .browser-card-mid { transform: translate(-14%, -9%) rotate(-4deg); }
+
+  .browser-card-front > span {
+    display: flex;
+    gap: 0.2rem;
+    height: 20%;
+    padding: 0.45rem;
+    border-bottom: 1px solid #d7d2df;
+  }
+
+  .browser-card-front i { width: 0.3rem; aspect-ratio: 1; border-radius: 50%; background: #312b3b; }
+  .browser-card-front strong { display: grid; height: 80%; color: #665e73; font-size: 0.62rem; place-items: center; }
+
+  .deck-dots {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    gap: 0.28rem;
+  }
+
+  .deck-dots i { width: 0.32rem; aspect-ratio: 1; border-radius: 50%; background: #312b3b; opacity: 0.3; }
+  .deck-dots i:first-child { opacity: 1; }
+
+  @keyframes record-spin { to { transform: rotate(1turn); } }
+
+  .site-header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    min-height: 2.25rem;
+    font-size: 0.92rem;
+  }
+
+  .contact {
+    display: inline-flex;
+    gap: 0.68rem;
+    align-items: center;
+    width: fit-content;
+    font-weight: 560;
+    text-decoration: none;
+  }
+
+  .section-preview {
+    display: flex;
+    grid-column: 2;
+    gap: clamp(1.4rem, 3vw, 2.7rem);
+    justify-content: center;
+    color: #8b8f8d;
+  }
+
+  .section-preview a[aria-current="page"] {
+    color: #171a19;
+  }
+
+  .section-preview a,
+  .section-preview span {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .section-preview a::after,
+  .section-preview span::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.42rem;
+    left: 0;
+    height: 1px;
+    content: "";
+    background: currentColor;
+    opacity: 0.22;
+  }
+
+  .contact {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    gap: 0.42rem;
+    font-weight: 470;
+    transform: translateY(-50%);
+  }
+
+  .contact span:first-child {
+    padding-bottom: 0.26rem;
+    border-bottom: 1px solid #d7d9d8;
+  }
+
+  main {
+    display: grid;
+    min-height: 0;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: 0;
+    padding-block: clamp(2rem, 5svh, 4.25rem);
+  }
+
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 72rem;
+    max-height: 100%;
+    aspect-ratio: 16 / 8.6;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid rgb(16 22 33 / 10%);
+    border-radius: clamp(1.25rem, 2.4vw, 2rem);
+    background: #2438c8;
+    box-shadow: 0 2.2rem 4.5rem rgb(24 52 138 / 19%);
+    isolation: isolate;
+  }
+
+  .hero-visual::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    content: "";
+    background:
+      linear-gradient(180deg, rgb(18 9 52 / 13%), rgb(31 18 75 / 20%)),
+      radial-gradient(circle at 52% 48%, rgb(203 177 225 / 10%), transparent 46%);
+    mix-blend-mode: color;
+    pointer-events: none;
+  }
+
+  .hero-visual :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    filter: saturate(0.72) contrast(0.9) brightness(0.88) hue-rotate(4deg);
+    transform: scale(1.015);
+  }
+
+  .comic-caption {
+    position: absolute;
+    z-index: 2;
+    max-width: 16rem;
+    padding: clamp(0.58rem, 1.2vw, 0.86rem) clamp(0.72rem, 1.45vw, 1rem);
+    border: clamp(2px, 0.28vw, 3px) solid #101314;
+    background: #ffd51c;
+    box-shadow: 0.3rem 0.3rem 0 #13c5d9, 0.53rem 0.53rem 0 #e82d86;
+    color: #111415;
+    font-size: clamp(0.78rem, 1.25vw, 1.2rem);
+    font-style: italic;
+    font-weight: 780;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    text-transform: uppercase;
+    transform: rotate(-1deg);
+    animation: caption-in 520ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+  }
+
+  .caption-one {
+    top: 9%;
+    left: 7%;
+    animation-delay: 180ms;
+  }
+
+  .caption-two {
+    right: 7%;
+    bottom: 15%;
+    transform: rotate(1deg);
+    animation-delay: 330ms;
+  }
+
+  .scroll-cue {
+    position: absolute;
+    z-index: 3;
+    right: 3.5%;
+    bottom: 2.5%;
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+    color: #fff;
+    font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
+    font-size: clamp(0.74rem, 1vw, 1rem);
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgb(18 10 56 / 58%);
+    transform: rotate(-2deg);
+  }
+
+  .scroll-cue svg {
+    width: clamp(1.7rem, 2.5vw, 2.5rem);
+    overflow: visible;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3.1;
+    animation: cue-nudge 1.6s ease-in-out 1.2s infinite;
+  }
+
+  @keyframes cue-nudge {
+    50% {
+      transform: translateY(0.35rem) rotate(2deg);
+    }
+  }
+
+  @keyframes caption-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.55rem) rotate(-2deg) scale(0.97);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  :global(a:focus-visible) {
+    outline: 2px solid #175fa9;
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 68rem) {
+    .site-canvas {
+      padding-inline: clamp(1.5rem, 4vw, 3.5rem);
+    }
+
+    .contact span:first-child {
+      display: none;
+    }
+
+    .contact span:last-child {
+      display: grid;
+      width: 2rem;
+      aspect-ratio: 1;
+      border: 1px solid #dedfdf;
+      border-radius: 50%;
+      place-items: center;
+    }
+
+    .story-panel { grid-column: span 5; }
+    .github-panel { grid-column: span 4; }
+    .music-panel { grid-column: span 3; }
+  }
+
+  @media (min-width: 48.01rem) and (max-height: 60rem) {
+    .site-canvas {
+      padding-block: clamp(1.5rem, 3.2svh, 2.4rem);
+    }
+
+    .hero {
+      padding-block: clamp(1.5rem, 3.8svh, 2.25rem);
+    }
+
+    .hero-visual {
+      width: min(100%, calc((100svh - 20rem) * 1.8605));
+    }
+  }
+
+  @media (max-width: 48rem) {
+    .card-viewport {
+      padding: 0;
+    }
+
+    .stack-card {
+      inset: 0;
+    }
+
+    .site-canvas {
+      min-height: 100svh;
+      padding: 1.3rem 1.25rem 2rem;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .about-card {
+      display: block;
+      padding: 1.4rem 1.25rem 2rem;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .about-heading {
+      margin-bottom: 1.4rem;
+    }
+
+    .about-doodle {
+      max-width: 8.5rem;
+      font-size: 0.68rem;
+    }
+
+    .about-bento {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: none;
+      grid-auto-rows: minmax(9rem, auto);
+    }
+
+    .story-panel,
+    .github-panel,
+    .websites-panel {
+      grid-column: 1 / -1;
+    }
+
+    .story-panel {
+      grid-row: auto;
+      min-height: 20rem;
+    }
+
+    .music-panel,
+    .apps-panel {
+      grid-column: span 1;
+    }
+
+    .github-panel { min-height: 15rem; }
+    .music-panel,
+    .apps-panel { min-height: 13rem; }
+    .websites-panel { min-height: 14rem; }
+
+    .story-copy {
+      font-size: clamp(1.65rem, 8vw, 2.5rem);
+    }
+
+    .about-title-lockup span { right: -1rem; }
+
+    .site-header {
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+    }
+
+    .section-preview {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      justify-content: flex-start;
+      margin-top: 0.55rem;
+      font-size: 0.78rem;
+    }
+
+    .contact {
+      position: static;
+      grid-column: 2;
+      grid-row: 1;
+      transform: none;
+    }
+
+    .hero {
+      min-height: auto;
+      padding-block: clamp(3rem, 10vw, 4.5rem) 2rem;
+    }
+
+    .hero-visual {
+      width: 100%;
+      max-width: none;
+      aspect-ratio: 16 / 10;
+      border-radius: 1.4rem;
+    }
+
+    .hero-visual :global(img) {
+      object-position: 50% 50%;
+      transform: scale(1.04);
+    }
+
+    .comic-caption {
+      max-width: 10.5rem;
+      padding: 0.62rem 0.72rem;
+      font-size: clamp(0.66rem, 3.2vw, 0.82rem);
+      box-shadow: 0.22rem 0.22rem 0 #13c5d9, 0.4rem 0.4rem 0 #e82d86;
+    }
+
+    .caption-one {
+      top: 6%;
+      left: 5%;
+    }
+
+    .caption-two {
+      right: 5%;
+      bottom: 18%;
+    }
+
+    .scroll-cue {
+      right: 4%;
+      bottom: 3.5%;
+      font-size: 0.68rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stack-card {
+      transition: none;
+    }
+
+    .comic-caption {
+      animation: none;
+    }
+
+    .scroll-cue svg {
+      animation: none;
+    }
+
+    .record { animation: none; }
+
+    .app-sheet,
+    .browser-card { transition: none; }
+
+  }
+</style>

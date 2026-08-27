@@ -1,14 +1,14 @@
 # Project wiki
 
-This is the durable, source-aware briefing for the repository. It describes the clean foundation that remains after the previous portfolio implementation was removed at the owner's request.
+This is the durable, source-aware briefing for the repository as the portfolio is rebuilt screen by screen with the owner.
 
 ## Current status
 
-The repository contains project/tooling infrastructure only: Astro, TypeScript, Vitest, Wrangler, npm manifests, and operating documentation. The previous routes, components, styles, content, integrations, tests, media, design specification, and implementation plan were removed on 2026-08-26. No new product implementation exists yet.
+The rebuilt `/` route uses a full-width visual hero inside the quiet white portfolio canvas. Cards share one pinned transition viewport: native scrolling continuously shrinks/fades the hero while the next card rises over it, then leaves only the new card visible. About now has an asymmetric comic-scrapbook bento foundation with explicitly provisional copy awaiting owner details. The Spider-Verse image is color-graded toward the owner's darker vertical reference and served from a 2× project asset.
 
-The clean scaffold was verified on 2026-08-26: Astro check reported 0 errors, warnings, or hints; the empty test suite exited successfully; and the Cloudflare build completed. The build reports only expected missing-pages/sitemap warnings for this intentionally empty state.
+The hero and first card transition have been verified locally at desktop and mobile widths and have not been deployed.
 
-The local Git history is preserved. `git remote -v` was inspected on 2026-08-26 and returned no remote, so this checkout is not currently connected to a GitHub repository.
+The local Git history is preserved. The checkout is connected to `https://github.com/ilyastorunn/ilyas.dev.git` as the `origin` fetch and push remote, verified on 2026-08-27.
 
 ## Reading order
 

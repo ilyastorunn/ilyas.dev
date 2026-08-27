@@ -1,6 +1,6 @@
 # İlyas Torun — Portfolio foundation
 
-This repository is a clean Astro, TypeScript, and Cloudflare Workers foundation for a new personal portfolio. The previous portfolio implementation and its content were intentionally removed on 2026-08-26 at the owner's request. The project has not been connected to a GitHub remote.
+This repository is İlyas Torun’s English-language personal portfolio, built with Astro, TypeScript, and Cloudflare Workers. Its first rebuilt screen is a restrained split hero: professional introduction on the left and a Spider-Verse visual with two editorial captions on the right. The project has not been connected to a GitHub remote.
 
 ## Local development
 
@@ -19,16 +19,18 @@ npm test
 npm run build
 ```
 
-The test command accepts an empty test suite while the new application is being built.
+There is currently no application test suite; add tests with the first new feature.
 
-## Surviving infrastructure
+## Current structure
 
 - Astro with the Cloudflare adapter
 - TypeScript strict configuration
 - Vitest configuration
-- Wrangler configuration for local preview and a future Worker deployment
+- A responsive split hero at `/`
+- A local, Astro-optimized hero image in `src/assets/`
+- Wrangler configuration for `ilyastorun.site` and `www.ilyastorun.site`
 - npm dependency manifests and lockfile
 
-Application routes, components, styles, content schemas, data, notes, tests, and media are intentionally absent. Add them under `src/`, `public/`, and the relevant configuration files as the new product takes shape.
+The rebuilt hero is local and has not been deployed. Production still serves the previous release until an explicit deployment is requested.
 
-Deploy only after the site, Cloudflare account, and hostname are explicitly confirmed.
+Deploy only after explicit owner authorization.

@@ -4,10 +4,14 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
+  site: "https://ilyastorun.site",
   output: "server",
   adapter: cloudflare({ prerenderEnvironment: "node" }),
   integrations: [mdx(), sitemap()],
   vite: {
+    optimizeDeps: {
+      exclude: ["astro:assets"],
+    },
     build: {
       cssMinify: "lightningcss",
     },
