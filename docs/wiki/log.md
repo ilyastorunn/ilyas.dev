@@ -2,6 +2,54 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-08-27 — Make the app reveal icon-specific
+
+- Replaced the whole-panel hover that opened all three app cards with three independent icon targets. Hover/focus now enlarges only the selected icon and opens one compact information balloon directly above it.
+- Restyled the information balloons as broken-white comic callouts with black contours and cyan, orange, or yellow offset shadows sampled from the Galactus panel. Unscroll and Memento remain direct App Store links; the third app remains a keyboard-focusable in-review placeholder.
+- Preserved the visible orbital interaction hint and reduced-motion handling. The Memento hover state was observed locally at desktop width and confirmed that the two unselected icons remain closed. Verification: Astro check passed with 0 diagnostics before the final wiki update; full tests and production build follow in the same change. Deployment: none.
+
+## 2026-08-27 — Replace the generated app locker with Kirby machinery
+
+- Superseded the generated invention-lab background after owner review and replaced it with the Galactus Space Station panel from *Fantastic Four* #49, sourced through [Marvel's official KirbyTech feature](https://www.marvel.com/articles/comics/the-most-miraculous-machines-of-kirbytech-inc) and stored as `src/assets/galactus-space-station-ff49.webp`.
+- Removed the detached CSS shutter entirely. Hover/focus now reveals only the three larger app cards, which rise from the station's lower machinery and fan across neighboring panels without leaving a part below the source card.
+- Added three always-visible, enlarged app-icon signals across the panel's middle-lower planets, with dashed orbital rings and restrained floating motion. Their cyan, orange, and yellow borders/shadows are sampled from the comic panel; on hover/focus they enlarge once before the full cards open, providing a stronger visual hint without explanatory copy. The revealed card icons are larger and preserve the same palette. Orbit and launch motion are disabled under reduced motion.
+- Preserved the verified App Store destinations, third-app placeholder, closed-state concealment, keyboard/touch focus access, and reduced-motion behavior. The normal and hover states were observed locally at desktop width. Publication use of the Marvel panel remains subject to rights review.
+- Verification: Astro check passed with 0 diagnostics, the empty test suite passed, and the Cloudflare production build completed. Wrangler emitted its known sandbox-only log-file permission warning. Deployment: none.
+
+## 2026-08-27 — Rebuild the app reveal as a gadget locker
+
+- Replaced the flat yellow folder treatment with an original text-free retro-comic invention-lab illustration stored as `src/assets/gadget-locker-original.png`.
+- Added a mechanical lower shutter that opens on hover/focus while Unscroll, Memento, and the explicit in-review placeholder rise from the bay as larger physical product cards and fan across neighboring panels.
+- Kept the two verified App Store destinations, touch/keyboard focus access, closed-state concealment, and reduced-motion behavior. The normal and hover compositions were observed locally at desktop width, and the closed layout was observed at 390×844.
+- Verification: Astro check passed with 0 diagnostics before the final reduced-motion addition; full tests and production build follow in the same change. Deployment: none.
+
+## 2026-08-27 — Open up the GitHub scanner composition
+
+- Replaced the text-heavy provisional *X-Men* #7 background with an original, text-free retro-comic scanning chamber generated for this card and stored as `src/assets/cerebro-scanner-original.png`.
+- Removed the lower status caption and rebuilt the contribution matrix as a borderless projection inside the central radar; inactive cells merge into the lens while active cells glow by intensity.
+- Rebuilt the profile link as an ivory comic title card and aligned it with the live yearly-total burst across the card's upper boundary. The public profile link, live totals, contribution titles, fallback, and reduced-motion behavior remain intact.
+- Raised both upper labels, softened the surrounding crimson rays with a radial fade instead of a hard rectangular endpoint, and added a slow scanning-light pass that is disabled under reduced motion.
+- Verification: Astro check passed with 0 diagnostics, the empty test suite passed, and the Cloudflare server build completed. The complete About composition was observed locally at desktop width. Wrangler emitted its known sandbox-only log-file permission warning. Deployment: none.
+
+## 2026-08-27 — Restyle GitHub activity as a comic scanner
+
+- Rebuilt the native GitHub card around a dark purple halftone/radial backdrop, outlined background lettering, a small yellow yearly-total burst, and an ivory-framed scanner with crimson/yellow offset shadows.
+- Expanded the live contribution matrix from twelve to sixteen weeks so seven square rows fit the short bento card without clipping; intensity now uses dark crimson, red, yellow, and ivory instead of GitHub green.
+- Added a provisional, darkly graded background crop of the first Cerebro scene from *X-Men* #7 (1964), sourced from [Earth's Mightiest Blog](https://earthsmightiestblog.com/panel-every-issue-x-men-issue-7-first-cerebro/) and stored locally as `src/assets/cerebro-xmen-7.jpg`; final publication use still requires an explicit visual decision and rights review.
+- Preserved the public profile link, live contribution totals, per-day native titles, failure fallback, keyboard focus, and reduced-motion behavior. The complete About composition was observed locally at desktop width; Astro checks, tests, and production build passed. Deployment: none.
+
+## 2026-08-27 — Turn the Cyclops biography into comic captions
+
+- Replaced the editorial biography overlay with three always-visible comic narration boxes for the 2018 origin, current introduction, and present-day practice.
+- Updated the owner's role to independent developer across web and iOS, avoiding the stale web-only description.
+- Finalized crimson, broken-white, and near-black surfaces with hard ivory/crimson offset shadows and restrained hover movement. The captions cross the story panel's left and lower boundaries so Cyclops remains visible; the lower caption was raised enough to avoid canvas clipping. Content no longer depends on hover and remains available on touch devices. The desktop composition was observed locally; Astro checks, tests, and production build passed. Deployment: none.
+
+## 2026-08-27 — Establish the Cyclops story panel
+
+- Added the owner-supplied Cyclops illustration as the dominant About story panel's full-bleed background.
+- Tempered the primary red toward dark crimson/burgundy and added a directional black veil so the image retains its graphic force without overwhelming the bento or compromising the existing biography copy.
+- Shifted story copy to broken white, retained the character toward the right/lower visual field, and recolored the existing date stamp cyan for continuity with the comic palette. The complete About composition was observed locally at desktop width; Astro checks, tests, and production build passed. Deployment: none.
+
 ## 2026-08-27 — Connect the checkout to the GitHub repository
 
 - Added `https://github.com/ilyastorunn/ilyas.dev.git` as the local `origin` fetch and push remote.

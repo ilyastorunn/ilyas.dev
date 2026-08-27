@@ -2,8 +2,11 @@
 import { Image } from "astro:assets";
 import "@fontsource-variable/instrument-sans";
 import spiderVerseHero from "../assets/spider-verse-hero-2x.png";
+import cyclopsComic from "../assets/cyclops-comic.png";
+import cerebroScanner from "../assets/cerebro-scanner-original.png";
 import madvillainyCover from "../assets/madvillainy-cover.png";
 import doctorDoomComic from "../assets/doctor-doom-comic.png";
+import galactusStation from "../assets/galactus-space-station-ff49.webp";
 import unscrollIcon from "../assets/unscroll-icon.jpg";
 import mementoIcon from "../assets/memento-icon.jpg";
 
@@ -87,26 +90,47 @@ const email = "ilyastorun.dev@gmail.com";
 
           <div class="about-bento">
             <article class="bento-panel story-panel">
-              <p class="panel-label">The short version</p>
-              <div class="story-text">
-                <p class="story-copy">Hey, I’m Ilyas — a front-end developer building thoughtful things for the web.</p>
-                <p class="story-detail">It started with a C++ class in 2018. Today I craft digital products, build my own ideas, and keep pushing the edges of what I can make.</p>
+              <Image
+                class="cyclops-backdrop"
+                src={cyclopsComic}
+                alt=""
+                widths={[480, 720, 960]}
+                sizes="(max-width: 768px) calc(100vw - 40px), 40vw"
+                aria-hidden="true"
+              />
+              <div class="story-caption story-origin">
+                <span>Origin story</span>
+                <p>It started with a C++ class in 2018.</p>
               </div>
-              <span class="draft-stamp">Since 2018</span>
+              <div class="story-caption story-intro">
+                <p>Hey, I’m Ilyas — an independent developer building thoughtful products for the web and iOS.</p>
+              </div>
+              <div class="story-caption story-now">
+                <span>Meanwhile, today…</span>
+                <p>I craft digital products, build my own ideas, and keep pushing what I can make.</p>
+              </div>
             </article>
 
             <article class="bento-panel github-panel" data-github-card>
+              <Image
+                class="cerebro-backdrop"
+                src={cerebroScanner}
+                alt=""
+                widths={[720, 1200, 1800]}
+                sizes="(max-width: 768px) calc(100vw - 40px), 32vw"
+                aria-hidden="true"
+              />
               <div class="github-head">
-                <div>
-                  <p class="panel-label">GitHub activity</p>
-                  <a href="https://github.com/ilyastorunn" target="_blank" rel="noreferrer">@ilyastorunn ↗</a>
-                </div>
+                <a class="github-title-card" href="https://github.com/ilyastorunn" target="_blank" rel="noreferrer">
+                  ilyastorunn’s GitHub Activity! <span aria-hidden="true">↗</span>
+                </a>
                 <span class="github-total" data-github-total>Loading…</span>
               </div>
-              <div class="contribution-grid" data-github-grid aria-label="Recent GitHub contributions">
-                {Array.from({ length: 84 }, (_, index) => <i style={`--delay:${index}`} aria-hidden="true"></i>)}
+              <div class="activity-scanner">
+                <div class="contribution-grid" data-github-grid aria-label="Recent GitHub contributions">
+                  {Array.from({ length: 112 }, (_, index) => <i style={`--delay:${index}`} aria-hidden="true"></i>)}
+                </div>
               </div>
-              <p class="github-status" data-github-status>Fetching the green squares.</p>
             </article>
 
             <article class="bento-panel music-panel" data-music-card>
@@ -129,22 +153,32 @@ const email = "ilyastorun.dev@gmail.com";
               <audio data-music-audio preload="auto" src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/21/bc/bc/21bcbc11-adf7-1c11-ec7f-ca60bb54921d/mzaf_12993966015311248438.plus.aac.p.m4a"></audio>
             </article>
 
-            <article class="bento-panel apps-panel" tabindex="0">
+            <article class="bento-panel apps-panel">
+              <Image
+                class="app-comic-backdrop"
+                src={galactusStation}
+                alt=""
+                widths={[480, 800, 1200]}
+                sizes="(max-width: 768px) 50vw, 25vw"
+                aria-hidden="true"
+              />
               <div class="apps-copy">
                 <p class="panel-label">Three apps, one pocket</p>
                 <p class="panel-value">Things I’ve made.</p>
               </div>
-              <div class="app-stack" aria-label="Apps by İlyas Torun">
-                <a class="app-sheet app-sheet-one" href="https://apps.apple.com/tr/app/unscroll-ekran-s%C3%BCresi/id6766120727?l=tr" target="_blank" rel="noreferrer">
-                  <Image src={unscrollIcon} alt="Unscroll app icon" widths={[160]} />
-                  <b>Unscroll</b><small>App Store ↗</small>
+              <div class="app-launchers" aria-label="Apps by İlyas Torun">
+                <a class="app-launcher app-launcher-one" href="https://apps.apple.com/tr/app/unscroll-ekran-s%C3%BCresi/id6766120727?l=tr" target="_blank" rel="noreferrer" aria-label="Open Unscroll on the App Store">
+                  <span class="app-icon"><Image src={unscrollIcon} alt="" widths={[120]} /></span>
+                  <span class="app-info"><b>Unscroll</b><small>Screen time, reclaimed. ↗</small></span>
                 </a>
-                <a class="app-sheet app-sheet-two" href="https://apps.apple.com/tr/app/memento-takvim/id6757344347?l=tr" target="_blank" rel="noreferrer">
-                  <Image src={mementoIcon} alt="Memento app icon" widths={[160]} />
-                  <b>Memento</b><small>App Store ↗</small>
+                <a class="app-launcher app-launcher-two" href="https://apps.apple.com/tr/app/memento-takvim/id6757344347?l=tr" target="_blank" rel="noreferrer" aria-label="Open Memento on the App Store">
+                  <span class="app-icon"><Image src={mementoIcon} alt="" widths={[120]} /></span>
+                  <span class="app-info"><b>Memento</b><small>Your calendar, remembered. ↗</small></span>
                 </a>
-                <span class="app-sheet app-sheet-three app-coming"><i>?</i><b>Next app</b><small>In review</small></span>
-                <span class="app-pocket" aria-hidden="true"></span>
+                <span class="app-launcher app-launcher-three" tabindex="0" aria-label="Next app, currently in review">
+                  <span class="app-icon"><i>?</i></span>
+                  <span class="app-info"><b>Next app</b><small>Currently in review.</small></span>
+                </span>
               </div>
             </article>
 
@@ -240,9 +274,8 @@ const email = "ilyastorun.dev@gmail.com";
 
       const githubGrid = document.querySelector<HTMLElement>("[data-github-grid]");
       const githubTotal = document.querySelector<HTMLElement>("[data-github-total]");
-      const githubStatus = document.querySelector<HTMLElement>("[data-github-status]");
 
-      if (githubGrid && githubTotal && githubStatus) {
+      if (githubGrid && githubTotal) {
         fetch("https://github-contributions-api.jogruber.de/v4/ilyastorunn?y=last")
           .then((response) => {
             if (!response.ok) throw new Error("GitHub activity unavailable");
@@ -250,7 +283,7 @@ const email = "ilyastorun.dev@gmail.com";
           })
           .then((payload) => {
             const contributions = Array.isArray(payload.contributions)
-              ? payload.contributions.slice(-84)
+              ? payload.contributions.slice(-112)
               : [];
             const cells = [...githubGrid.querySelectorAll<HTMLElement>("i")];
             contributions.forEach((day: { count?: number; date?: string; level?: number }, index: number) => {
@@ -264,11 +297,9 @@ const email = "ilyastorun.dev@gmail.com";
               0,
             );
             githubTotal.textContent = `${total.toLocaleString()} this year`;
-            githubStatus.textContent = "The last twelve weeks, live from GitHub.";
           })
           .catch(() => {
             githubTotal.textContent = "Public profile";
-            githubStatus.textContent = "Activity is taking a coffee break.";
           });
       }
 
@@ -524,46 +555,103 @@ const email = "ilyastorun.dev@gmail.com";
     display: flex;
     grid-column: span 5;
     grid-row: span 2;
+    z-index: 4;
+    overflow: visible;
     flex-direction: column;
     justify-content: space-between;
-    background: #fff;
+    background: #090708;
+    isolation: isolate;
   }
 
-  .story-copy {
-    max-width: 12ch;
-    font-size: clamp(1.45rem, 2.55vw, 2.8rem);
-    font-weight: 430;
-    letter-spacing: -0.052em;
-    line-height: 1.02;
-  }
-
-  .story-text {
-    display: grid;
-    gap: clamp(0.9rem, 1.8vh, 1.4rem);
-  }
-
-  .story-detail {
-    max-width: 42ch;
-    margin: 0;
-    color: #665e73;
-    font-size: clamp(0.72rem, 0.9vw, 0.9rem);
-    line-height: 1.45;
-  }
-
-  .draft-stamp {
+  .story-panel::after {
     position: absolute;
-    right: 1.2rem;
-    bottom: 1.15rem;
-    padding: 0.38rem 0.58rem;
-    border: 2px solid #d53379;
-    color: #d53379;
-    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
-    font-size: 0.58rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transform: rotate(-6deg);
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(90deg, rgb(7 5 7 / 88%) 0%, rgb(7 5 7 / 63%) 42%, rgb(7 5 7 / 16%) 72%, transparent 100%);
+    border-radius: inherit;
+    content: "";
+    pointer-events: none;
   }
+
+  .cyclops-backdrop {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: 53% center;
+    filter: hue-rotate(-7deg) saturate(0.76) brightness(0.76) contrast(1.04);
+    transform: scale(1.015);
+  }
+
+  .story-caption {
+    position: absolute;
+    z-index: 2;
+    border: 2px solid #111214;
+    color: #111214;
+    transition: transform 180ms ease;
+  }
+
+  .story-caption p { margin: 0; }
+
+  .story-caption span {
+    display: block;
+    margin-bottom: 0.28rem;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    font-size: clamp(0.48rem, 0.58vw, 0.6rem);
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .story-origin {
+    top: 5%;
+    left: -8%;
+    width: min(61%, 17rem);
+    padding: 0.62rem 0.8rem 0.68rem 1.25rem;
+    background: #c92f38;
+    color: #f7f0e9;
+    font-size: clamp(0.75rem, 0.95vw, 0.98rem);
+    font-weight: 720;
+    line-height: 1.18;
+    box-shadow: 0.32rem 0.32rem 0 #f7f0e9;
+    transform: rotate(-1.5deg);
+  }
+
+  .story-intro {
+    top: 32%;
+    left: -16%;
+    width: min(73%, 21rem);
+    padding: clamp(0.8rem, 1.25vw, 1.05rem);
+    background: #f7f0e9;
+    font-size: clamp(1.1rem, 1.75vw, 1.85rem);
+    font-weight: 760;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+    box-shadow: 0.34rem 0.34rem 0 #cc2831;
+    transform: rotate(0.7deg);
+  }
+
+  .story-now {
+    right: 3%;
+    bottom: -1%;
+    width: min(68%, 19rem);
+    padding: 0.7rem 1.15rem 0.76rem 0.85rem;
+    border-color: #f7f0e9;
+    background: #151516;
+    color: #f7f0e9;
+    font-size: clamp(0.7rem, 0.86vw, 0.88rem);
+    font-weight: 690;
+    line-height: 1.25;
+    box-shadow: -0.32rem 0.32rem 0 #c92f38;
+    transform: rotate(1.8deg);
+  }
+
+  .story-panel:hover .story-origin { transform: translate(0.16rem, -0.12rem) rotate(-2deg); }
+  .story-panel:hover .story-intro { transform: translate(-0.12rem, 0.08rem) rotate(0deg); }
+  .story-panel:hover .story-now { transform: translate(-0.16rem, -0.1rem) rotate(2.4deg); }
 
   .panel-value {
     max-width: 16ch;
@@ -575,48 +663,148 @@ const email = "ilyastorun.dev@gmail.com";
   }
 
   .github-panel {
+    position: relative;
     display: flex;
     grid-column: span 4;
     gap: clamp(0.65rem, 1.2vh, 0.95rem);
+    overflow: visible;
     flex-direction: column;
     justify-content: flex-start;
-    background: #25202b;
+    background:
+      radial-gradient(circle, rgb(247 240 233 / 8%) 0 1px, transparent 1.3px) 0 0 / 8px 8px,
+      linear-gradient(145deg, #2a202e 0%, #17131d 72%);
     color: #fff;
+    isolation: isolate;
+    padding: clamp(0.85rem, 1.15vw, 1rem);
   }
 
-  .github-panel .panel-label,
-  .github-status {
-    color: #bdb5c8;
+  .github-panel::before {
+    position: absolute;
+    z-index: -1;
+    inset: -58% -62% -42% 18%;
+    border-radius: inherit;
+    background: repeating-conic-gradient(from 8deg, rgb(201 47 56 / 13%) 0deg 3deg, transparent 3deg 11deg);
+    content: "";
+    -webkit-mask-image: radial-gradient(ellipse at 48% 46%, #000 0 34%, rgb(0 0 0 / 82%) 48%, transparent 76%);
+    mask-image: radial-gradient(ellipse at 48% 46%, #000 0 34%, rgb(0 0 0 / 82%) 48%, transparent 76%);
+    pointer-events: none;
+    transform: rotate(-8deg);
+  }
+
+  .github-panel::after {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(180deg, rgb(18 13 23 / 12%) 0%, rgb(18 13 23 / 34%) 100%),
+      linear-gradient(100deg, rgb(113 32 47 / 18%), transparent 65%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .cerebro-backdrop {
+    position: absolute;
+    z-index: -3;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+    opacity: 0.94;
+    filter: saturate(0.84) brightness(0.78) contrast(1.06);
   }
 
   .github-head {
+    position: absolute;
+    z-index: 4;
+    top: -1.35rem;
+    right: 0.75rem;
+    left: 0.7rem;
     display: flex;
-    gap: 1rem;
-    align-items: flex-start;
+    gap: 0.75rem;
+    align-items: center;
     justify-content: space-between;
+    pointer-events: none;
   }
 
-  .github-head a {
+  .github-title-card {
     display: inline-block;
-    margin-top: 0.4rem;
-    font-size: 0.86rem;
-    font-weight: 650;
+    max-width: min(72%, 17rem);
+    padding: 0.52rem 0.7rem 0.48rem;
+    border: 2px solid #17131d;
+    background: #f7f0e9;
+    box-shadow: 0.3rem 0.3rem 0 #c92f38;
+    color: #17131d;
+    font-family: "Arial Black", "Instrument Sans", sans-serif;
+    font-size: clamp(0.72rem, 1.15vw, 1rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
     text-decoration: none;
+    text-transform: uppercase;
+    transform: rotate(-1.25deg);
+    pointer-events: auto;
   }
 
-  .github-total,
-  .github-status {
+  .github-title-card span { color: #c92f38; }
+
+  .github-title-card:focus-visible {
+    border-radius: 0.2rem;
+    outline: 2px solid #f2cf42;
+    outline-offset: 0.2rem;
+  }
+
+  .github-total {
     font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
     font-size: 0.55rem;
   }
 
-  .github-status {
-    line-height: 1.35;
+  .github-total {
+    display: grid;
+    width: clamp(3.9rem, 5.2vw, 5rem);
+    aspect-ratio: 1.25;
+    padding: 0.35rem;
+    place-items: center;
+    background: #f2cf42;
+    color: #17131d;
+    font-weight: 850;
+    line-height: 1.05;
+    text-align: center;
+    white-space: normal;
+    clip-path: polygon(50% 0%, 61% 20%, 82% 7%, 83% 31%, 100% 36%, 84% 53%, 97% 72%, 73% 73%, 69% 100%, 49% 81%, 28% 97%, 25% 75%, 0% 72%, 16% 51%, 1% 35%, 23% 30%, 22% 7%, 40% 20%);
+    transform: rotate(5deg);
+    pointer-events: auto;
   }
 
-  .github-total {
-    color: #ffd51c;
-    white-space: nowrap;
+  .activity-scanner {
+    position: absolute;
+    z-index: 2;
+    top: 51.5%;
+    left: 50%;
+    width: 66%;
+    padding: clamp(0.25rem, 0.45vw, 0.4rem);
+    background: radial-gradient(ellipse, rgb(17 15 25 / 46%) 0%, rgb(17 15 25 / 18%) 58%, transparent 82%);
+    filter: drop-shadow(0 0 0.8rem rgb(239 185 63 / 18%));
+    -webkit-mask-image: radial-gradient(ellipse, #000 52%, rgb(0 0 0 / 95%) 78%, transparent 108%);
+    mask-image: radial-gradient(ellipse, #000 52%, rgb(0 0 0 / 95%) 78%, transparent 108%);
+    transform: translate(-50%, -50%) rotate(-0.6deg);
+  }
+
+  .activity-scanner::after {
+    position: absolute;
+    z-index: 3;
+    top: -8%;
+    right: 4%;
+    left: 4%;
+    height: 18%;
+    background: linear-gradient(180deg, transparent, rgb(242 207 66 / 36%), transparent);
+    content: "";
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: github-scan 5.5s ease-in-out infinite;
   }
 
   .contribution-grid {
@@ -625,21 +813,26 @@ const email = "ilyastorun.dev@gmail.com";
     grid-template-rows: repeat(7, 1fr);
     gap: clamp(2px, 0.32vw, 4px);
     width: 100%;
-    margin-block: auto;
   }
 
   .contribution-grid i {
     aspect-ratio: 1;
-    border-radius: 2px;
-    background: #3e3944;
-    transition: background 180ms ease, transform 180ms ease;
+    border: 1px solid rgb(247 240 233 / 14%);
+    border-radius: 1px;
+    background: rgb(45 38 51 / 68%);
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 14%), 0 0 0.18rem rgb(247 240 233 / 5%);
+    transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
   }
 
-  .contribution-grid i[data-level="1"] { background: #817f45; }
-  .contribution-grid i[data-level="2"] { background: #b5b83f; }
-  .contribution-grid i[data-level="3"] { background: #d9df36; }
-  .contribution-grid i[data-level="4"] { background: #f3ff45; }
-  .contribution-grid i:hover { transform: scale(1.4); }
+  .contribution-grid i[data-level="1"] { background: #893b46; box-shadow: 0 0 0.38rem rgb(137 59 70 / 42%); }
+  .contribution-grid i[data-level="2"] { background: #db3c49; box-shadow: 0 0 0.48rem rgb(219 60 73 / 52%); }
+  .contribution-grid i[data-level="3"] { background: #ffc83f; box-shadow: 0 0 0.58rem rgb(255 200 63 / 62%); }
+  .contribution-grid i[data-level="4"] { background: #fff8df; box-shadow: 0 0 0.68rem rgb(255 248 223 / 72%); }
+  .contribution-grid i:hover {
+    z-index: 2;
+    box-shadow: 0.14rem 0.14rem 0 #c92f38, 0.26rem 0.26rem 0 #f2cf42;
+    transform: scale(1.45) rotate(3deg);
+  }
 
   .music-panel {
     grid-column: span 3;
@@ -797,85 +990,192 @@ const email = "ilyastorun.dev@gmail.com";
   .apps-panel {
     grid-column: span 3;
     overflow: visible;
-    background: #ffd85a;
+    background: #172b31;
+    color: #17131d;
+    isolation: isolate;
     outline: none;
+    perspective: 48rem;
     transition: z-index 0s 420ms;
   }
 
   .apps-panel:is(:hover, :focus-within, :focus) { z-index: 12; transition-delay: 0s; }
 
-  .apps-copy { position: relative; z-index: 5; }
-  .apps-copy .panel-value { margin-top: 0.45rem; font-size: clamp(1rem, 1.4vw, 1.35rem); }
-
-  .app-stack {
+  .app-comic-backdrop {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 72%;
-  }
-
-  .app-sheet {
-    position: absolute;
-    right: 17%;
-    bottom: 10%;
-    display: grid;
-    grid-template-columns: 2.5rem 1fr;
-    gap: 0.1rem 0.55rem;
-    align-items: center;
-    width: 66%;
-    min-width: 8.5rem;
-    padding: 0.55rem;
-    border: 2px solid #25202b;
-    border-radius: 1rem;
-    background: #fff;
-    box-shadow: 0 0.5rem 1rem rgb(67 50 10 / 11%);
-    color: #25202b;
-    text-decoration: none;
-    transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  .app-sheet :global(img),
-  .app-sheet i {
-    grid-row: 1 / 3;
-    width: 2.5rem;
-    height: 2.5rem;
-    aspect-ratio: 1;
-    border-radius: 0.72rem;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
     object-fit: cover;
+    object-position: center 44%;
+    filter: saturate(0.9) brightness(0.72) contrast(1.08);
   }
 
-  .app-sheet i {
+  .apps-panel::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(180deg, rgb(8 20 25 / 8%), transparent 42%, rgb(8 20 25 / 30%)),
+      radial-gradient(circle at 50% 72%, transparent 0 30%, rgb(9 23 27 / 14%) 72%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .apps-copy {
+    position: absolute;
+    z-index: 7;
+    top: 0.72rem;
+    left: 0.75rem;
+    width: min(70%, 12rem);
+    padding: 0.52rem 0.62rem 0.48rem;
+    border: 2px solid #17131d;
+    background: #fff8df;
+    box-shadow: 0.27rem 0.27rem 0 #f0cf3e, 0.45rem 0.45rem 0 #258db2;
+    transform: rotate(-1.3deg);
+  }
+
+  .apps-copy .panel-label {
+    color: #31505d;
+    font-size: 0.5rem;
+    font-weight: 820;
+  }
+
+  .apps-copy .panel-value {
+    max-width: none;
+    margin-top: 0.2rem;
+    font-family: "Arial Black", "Instrument Sans", sans-serif;
+    font-size: clamp(0.86rem, 1.25vw, 1.16rem);
+    font-style: italic;
+    font-weight: 900;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .app-launchers { position: absolute; z-index: 5; inset: 0; }
+
+  .app-launcher {
+    --app-accent: #f0cf3e;
+    position: absolute;
+    width: clamp(3rem, 4.2vw, 3.65rem);
+    aspect-ratio: 1;
+    color: #101419;
+    outline: none;
+    text-decoration: none;
+  }
+
+  .app-icon {
+    position: absolute;
+    z-index: 3;
     display: grid;
-    background: #c9bef1;
-    font-size: 1rem;
+    inset: 0;
+    border: 3px solid #101419;
+    border-radius: 50%;
+    background: #fff8df;
+    box-shadow: 0.18rem 0.18rem 0 var(--app-accent), 0 0 0.8rem color-mix(in srgb, var(--app-accent) 52%, transparent);
+    place-items: center;
+    transition: transform 240ms cubic-bezier(0.2, 0.86, 0.25, 1), box-shadow 180ms ease;
+    animation: orbit-signal 2.8s ease-in-out infinite;
+  }
+
+  .app-icon::after {
+    position: absolute;
+    inset: -0.42rem;
+    border: 2px dashed var(--app-accent);
+    border-radius: 50%;
+    content: "";
+    animation: orbit-ring 7s linear infinite;
+  }
+
+  .app-icon :global(img),
+  .app-icon i { width: 76%; height: 76%; border-radius: 50%; object-fit: cover; }
+
+  .app-icon i {
+    display: grid;
+    background: #f0cf3e;
+    color: #17131d;
+    font-size: 0.8rem;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 900;
     place-items: center;
   }
 
-  .app-sheet b { align-self: end; font-size: 0.72rem; }
-  .app-sheet small { align-self: start; color: #71697e; font-size: 0.52rem; }
-  .app-sheet-one { transform: translate(-9%, 2%) rotate(-5deg); }
-  .app-sheet-two { transform: translate(0, 1%) rotate(1deg); }
-  .app-sheet-three { transform: translate(8%, 3%) rotate(6deg); }
-
-  .apps-panel:is(:hover, :focus-within, :focus) .app-sheet { width: clamp(9.5rem, 13vw, 12rem); }
-  .apps-panel:is(:hover, :focus-within, :focus) .app-sheet-one { transform: translate(-84%, -98%) rotate(-7deg) scale(1.08); }
-  .apps-panel:is(:hover, :focus-within, :focus) .app-sheet-two { transform: translate(-3%, -108%) rotate(1deg) scale(1.08); }
-  .apps-panel:is(:hover, :focus-within, :focus) .app-sheet-three { transform: translate(78%, -82%) rotate(7deg) scale(1.08); }
-
-  .app-pocket {
+  .app-info {
     position: absolute;
-    z-index: 4;
-    right: 5%;
-    bottom: -8%;
-    left: 5%;
-    height: 45%;
-    border: 2px solid #25202b;
-    border-radius: 1.3rem 1.3rem 0 0;
-    background: #e5b835;
+    z-index: 2;
+    bottom: calc(100% + 0.8rem);
+    left: 50%;
+    display: grid;
+    gap: 0.16rem;
+    width: clamp(8.8rem, 11vw, 10.6rem);
+    padding: 0.58rem 0.68rem 0.62rem;
+    border: 2px solid #101419;
+    background: #fff8df;
+    box-shadow: 0.3rem 0.3rem 0 var(--app-accent);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 0.65rem) rotate(-2deg) scale(0.92);
+    transform-origin: 50% 100%;
+    transition: opacity 150ms ease, transform 240ms cubic-bezier(0.2, 0.86, 0.25, 1);
   }
+
+  .app-info::after {
+    position: absolute;
+    bottom: -0.48rem;
+    left: calc(50% - 0.42rem);
+    width: 0.72rem;
+    aspect-ratio: 1;
+    border-right: 2px solid #101419;
+    border-bottom: 2px solid #101419;
+    background: #fff8df;
+    content: "";
+    transform: rotate(45deg);
+  }
+
+  .app-info::before {
+    position: absolute;
+    right: 0;
+    bottom: -1rem;
+    left: 0;
+    height: 1rem;
+    content: "";
+  }
+
+  .app-info b {
+    font-family: "Arial Black", "Instrument Sans", sans-serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .app-info small { color: #31505d; font-size: 0.53rem; font-weight: 660; line-height: 1.2; }
+
+  .app-launcher-one { --app-accent: #258db2; bottom: 24%; left: 17%; transform: rotate(-7deg); }
+  .app-launcher-two { --app-accent: #e77a2f; bottom: 16%; left: 43%; transform: rotate(1deg); }
+  .app-launcher-three { --app-accent: #f0cf3e; right: 14%; bottom: 26%; transform: rotate(6deg); }
+  .app-launcher-two .app-icon { animation-delay: -0.9s; }
+  .app-launcher-three .app-icon { animation-delay: -1.8s; }
+
+  .app-launcher:is(:hover, :focus-visible) { z-index: 9; }
+
+  .app-launcher:is(:hover, :focus-visible) .app-icon {
+    box-shadow: 0.28rem 0.28rem 0 var(--app-accent), 0 0 1.1rem color-mix(in srgb, var(--app-accent) 72%, transparent);
+    transform: translateY(-0.18rem) scale(1.24);
+  }
+
+  .app-launcher:is(:hover, :focus-visible) .app-info {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0) rotate(-2deg) scale(1);
+  }
+
+  .app-launcher-two .app-info { transform: translate(-50%, 0.65rem) rotate(1deg) scale(0.92); }
+  .app-launcher-two:is(:hover, :focus-visible) .app-info { transform: translate(-50%, 0) rotate(1deg) scale(1); }
+  .app-launcher-three .app-info { transform: translate(-50%, 0.65rem) rotate(2deg) scale(0.92); }
+  .app-launcher-three:is(:hover, :focus-visible) .app-info { transform: translate(-50%, 0) rotate(2deg) scale(1); }
 
   .websites-panel {
     grid-column: span 4;
@@ -941,6 +1241,20 @@ const email = "ilyastorun.dev@gmail.com";
   .deck-dots i:first-child { opacity: 1; }
 
   @keyframes record-spin { to { transform: rotate(1turn); } }
+
+  @keyframes orbit-signal {
+    0%, 100% { margin-top: 0; }
+    50% { margin-top: -0.28rem; }
+  }
+
+  @keyframes orbit-ring { to { transform: rotate(1turn); } }
+
+  @keyframes github-scan {
+    0%, 12% { opacity: 0; transform: translateY(0); }
+    28% { opacity: 0.72; }
+    72% { opacity: 0.48; }
+    88%, 100% { opacity: 0; transform: translateY(470%); }
+  }
 
   .site-header {
     position: relative;
@@ -1205,6 +1519,7 @@ const email = "ilyastorun.dev@gmail.com";
     .about-card {
       display: block;
       padding: 1.4rem 1.25rem 2rem;
+      overflow-x: hidden;
       overflow-y: auto;
       overscroll-behavior: contain;
     }
@@ -1245,9 +1560,9 @@ const email = "ilyastorun.dev@gmail.com";
     .apps-panel { min-height: 13rem; }
     .websites-panel { min-height: 14rem; }
 
-    .story-copy {
-      font-size: clamp(1.65rem, 8vw, 2.5rem);
-    }
+    .story-origin { left: -0.65rem; width: min(68%, 17rem); }
+    .story-intro { top: 31%; left: -0.8rem; width: min(76%, 21rem); font-size: clamp(1.15rem, 5.4vw, 1.75rem); }
+    .story-now { right: -0.8rem; bottom: 0.35rem; width: min(72%, 19rem); }
 
     .about-title-lockup span { right: -1rem; }
 
@@ -1327,7 +1642,15 @@ const email = "ilyastorun.dev@gmail.com";
 
     .record { animation: none; }
 
-    .app-sheet,
+    .activity-scanner::after { animation: none; }
+
+    .app-icon,
+    .app-icon::after { animation: none; }
+
+    .story-caption,
+    .contribution-grid i,
+    .app-icon,
+    .app-info,
     .browser-card { transition: none; }
 
   }
