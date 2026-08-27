@@ -2,6 +2,22 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-08-27 — Replace the Daily Bugle website backdrop with Reed at work
+
+- Superseded the dark, text-heavy Daily Bugle newsroom treatment after owner review and replaced it with a brighter blue/white Reed Richards laboratory panel stored as `src/assets/reed-richards-work.jpg`. The character now remains visibly at work behind the project frame. Exact issue/artist attribution was not verified from the available Comic Vine image source, so publication use remains unresolved pending source and rights review.
+- Removed the redundant “Extra! Extra!” line and separate “Open project” label. “What I’m building nowadays!” remains the single headline.
+- Rebuilt the Screen Studio frame at a wide roughly 2:1 desktop ratio so it can be both larger and lower without being clipped by the fixed-height About canvas. Hover/focus expands it rightward and upward beyond the source card instead of growing into its center, while a small handwritten “scroll ↓” cue appears at the live frame's upper-right without intercepting iframe input.
+- Removed the background scale that leaked Reed's artwork beyond the rounded panel, and moved the headline to the card's left-middle boundary. Normal and hover states were observed locally at desktop width, including the clipped background, uncropped preview, and scroll cue. Verification: full checks follow in the same change. Deployment: none.
+
+## 2026-08-27 — Turn the website slot into a Daily Bugle live report
+
+**Superseded by the Reed Richards website-panel treatment above.**
+
+- Replaced the provisional three-site browser carousel with one current-project feature for Screen Studio at `https://screen-studio.pages.dev/`, headed “What I’m building nowadays!” and accompanied by a direct open-project link.
+- Added a real 1982 Daily Bugle newsroom page drawn by Mike Zeck as the full-card editorial backdrop, sourced through the [Spokesman-Review's Daily Bugle feature](https://www.spokesman.com/stories/2013/apr/02/life-daily-bugle/) and stored as `src/assets/daily-bugle-newsroom.jpg`. Publication use remains subject to rights review.
+- Built the current site into the lead-photo frame as a live iframe. The resting view is sepia/halftone; only the preview window's hover/focus removes the treatment, enlarges the frame, and enables interaction. The target returned no `X-Frame-Options` or blocking frame CSP on 2026-08-27, and both resting and live states were observed locally at desktop width.
+- Verification: Astro check passed with 0 diagnostics before the final wiki update; full tests and production build follow in the same change. Deployment: none.
+
 ## 2026-08-27 — Make the app reveal icon-specific
 
 - Replaced the whole-panel hover that opened all three app cards with three independent icon targets. Hover/focus now enlarges only the selected icon and opens one compact information balloon directly above it.
