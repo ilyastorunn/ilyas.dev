@@ -2,7 +2,7 @@
 
 ## Current status
 
-The active direction keeps the restrained white editorial canvas and centered desktop navigation while letting the horizontal Spider-Verse image occupy the full hero width. Sections behave like a vertical card carousel driven by native scrolling: each card remains sticky, recedes slightly, and is covered by the next. Two comic captions carry the hero's visible copy.
+The active direction keeps the restrained white editorial canvas and centered desktop navigation while letting a horizontal Spider-Man comic panel occupy the full hero width. Sections behave like a vertical card carousel driven by native scrolling: each card remains sticky, recedes slightly, and is covered by the next. Editable HTML speech balloons replace the source panel's dialogue with the owner's introduction.
 
 ## Retained context
 
@@ -11,10 +11,11 @@ The repository still describes an English-only personal portfolio and digital ho
 ## Current scope
 
 - `/` contains the responsive header and full-width visual hero.
+- Home now uses Artgerm's official Marvel variant cover for `Friendly Neighborhood Spider-Man #1`, stored locally as `src/assets/spider-man-artgerm.webp`. A high, horizontal crop removes the publication logo while preserving Spider-Man looking directly toward the viewer. Three editable white HTML/CSS speech balloons use heavy comic lettering and cross the panel's left edge, exposing Spider-Man's finger-heart gesture while introducing the owner, his web/iOS practice, and the site. The surrounding card uses a softened lavender-white paper tone. The active Home link is a small skewed yellow issue tab; inactive About me/Cave links remain quiet. Contact me is deliberately different: unboxed handwritten ink with a rough crimson underline. Comic bursts remain reserved for short emphatic data such as the About activity total. This supersedes both the horizontal Spider-Verse film still and the dialogue-heavy `Spider-Men II #1` experiment. Publication use remains provisional pending rights review.
 - The semantic page introduction remains available to assistive technology while the visible hero is image-led.
-- The hero header omits the owner's name because it already appears in the visual caption. It exposes working Work/About/Cave card navigation and a human-readable “Contact me” mail action.
-- A handwritten comic-style “swipe down, please :)” cue and arrow teach the card-scroll interaction on first view.
-- The hero canvas is height-aware as well as width-responsive: short desktop/laptop viewports constrain the Spider-Verse frame so it retains visible breathing room above and below instead of meeting the card edge.
+- The hero header omits the owner's name because it already appears in the visual dialogue. It exposes working Home/About me/Cave card navigation and a human-readable “Contact me” mail action. The first destination is a welcome cover, not a Work portfolio section; professional work remains represented inside About me until a dedicated project destination is designed.
+- A handwritten comic-style “swipe down, please :)” cue and arrow teach the card-scroll interaction on first view. It sits outside and directly below the image at the same right edge instead of covering the artwork.
+- The hero canvas is height-aware as well as width-responsive: short desktop/laptop viewports constrain the comic frame so it retains visible breathing room above and below instead of meeting the card edge.
 - About uses an asymmetric comic-scrapbook bento with a restrained issue-masthead title, dominant story panel, live GitHub activity, spinning-record music slot, comic-tech three-app reveal, and stacked-browser website deck. The masthead deliberately avoids another bordered sticker: “ABOUT!” is dark ink over an irregular yellow brush stroke, its issue number is a small print strip, and the right-side handwritten note is unboxed with a single crimson underline. This keeps the comic signal while preventing the header from competing with the denser story cards below.
 - GitHub activity targets the owner's verified public profile, `ilyastorunn`. The Rare UI/shadcn source was used as interaction reference but not installed because its React, Tailwind, and Motion dependencies conflict with the lightweight Astro-native foundation; the implementation uses native markup, CSS, and a public contributions endpoint instead. Its latest sixteen weeks are projected directly into the central radar of an original text-free retro-comic scanning chamber rather than presented in a separate rectangular frame. Inactive cells recede into the lens while contribution intensity glows from dark crimson through red and yellow to ivory; a restrained scan line moves across the projection and stops under reduced motion. The comic profile title and small yellow live-total burst cross the card's upper edge on the same visual line. Faded crimson radial rays connect the card to the surrounding canvas without a visible rectangular endpoint. The previous externally sourced *X-Men* #7 panel is superseded and no longer rendered.
 - The About story now uses owner-supplied biography material split into three permanently visible comic captions: a crimson 2018 origin box, a broken-white introduction identifying the owner as an independent web and iOS developer, and a near-black present-day maker statement. Ivory and crimson offset shadows extend beyond each caption, while the captions themselves cross the panel's left and lower boundaries to preserve the Cyclops figure. Hover provides only subtle panel movement rather than hiding or revealing content. Its dominant panel uses the owner-supplied Cyclops artwork as a full-bleed background, graded from hard primary red toward a darker crimson/burgundy so it remains forceful without overpowering the surrounding bento. The longer interests paragraph remains available for later Cave/About refinement.
@@ -28,7 +29,7 @@ The repository still describes an English-only personal portfolio and digital ho
 
 ## Sources and status
 
-- **verified:** current source, responsive browser renders, and build configuration inspected through 2026-08-27
+- **verified:** current source, responsive browser renders, and build configuration inspected through 2026-08-28
 - **documented:** retained product guardrails in [`AGENTS.md`](../../AGENTS.md)
 - **superseded:** the folder-first landing prototype and its interaction model
 - **superseded:** the removed portfolio specification and implementation plan; their files are no longer present, while their Git history remains locally available

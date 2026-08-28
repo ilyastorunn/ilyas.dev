@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import "@fontsource-variable/instrument-sans";
-import spiderVerseHero from "../assets/spider-verse-hero-2x.png";
+import spiderManComic from "../assets/spider-man-artgerm.webp";
 import cyclopsComic from "../assets/cyclops-comic.png";
 import cerebroScanner from "../assets/cerebro-scanner-original.png";
 import madvillainyCover from "../assets/madvillainy-cover.png";
@@ -34,8 +34,8 @@ const email = "ilyastorun.dev@gmail.com";
         <div class="site-canvas stack-card hero-card" data-hero-card>
         <header class="site-header">
           <nav class="section-preview" aria-label="Portfolio sections">
-            <a href="#work" data-card-link="0" aria-current="page">Work</a>
-            <a href="#about" data-card-link="0.5">About</a>
+            <a href="#work" data-card-link="0" aria-current="page">Home</a>
+            <a href="#about" data-card-link="0.5">About me</a>
             <a href="#cave" data-card-link="1">Cave</a>
           </nav>
 
@@ -53,29 +53,28 @@ const email = "ilyastorun.dev@gmail.com";
 
             <figure class="hero-visual">
               <Image
-                src={spiderVerseHero}
-                alt="Miles Morales suspended against an upside-down city skyline."
+                src={spiderManComic}
+                alt="Spider-Man reaches toward the viewer between New York skyscrapers."
                 widths={[480, 720, 960, 1200, 1600, 2400]}
                 sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1520px) calc(100vw - 180px), 1270px"
                 loading="eager"
                 fetchpriority="high"
               />
 
-              <figcaption class="comic-caption caption-one">
-                That’s all it is,<br />İlyas.
-              </figcaption>
-              <figcaption class="comic-caption caption-two">
-                Make something<br />beautiful.
-              </figcaption>
-
-              <div class="scroll-cue" aria-hidden="true">
-                <span>swipe down, please :)</span>
-                <svg viewBox="0 0 46 56" role="img">
-                  <path d="M20 3c2 14 3 25 1 39" />
-                  <path d="m9 33 12 11 14-10" />
-                </svg>
+              <div class="hero-dialogue" aria-label="Welcome message from İlyas">
+                <p class="speech-bubble speech-one">Hey, I’m İlyas.</p>
+                <p class="speech-bubble speech-two">I build thoughtful products for web &amp; iOS.</p>
+                <p class="speech-bubble speech-three">Welcome to my little corner of the internet.</p>
               </div>
             </figure>
+
+            <div class="scroll-cue" aria-hidden="true">
+              <span>swipe down, please :)</span>
+              <svg viewBox="0 0 46 56" role="img">
+                <path d="M20 3c2 14 3 25 1 39" />
+                <path d="m9 33 12 11 14-10" />
+              </svg>
+            </div>
           </section>
         </main>
         </div>
@@ -472,11 +471,15 @@ const email = "ilyastorun.dev@gmail.com";
     overflow: hidden;
     border: 1px solid rgb(21 25 23 / 4%);
     border-radius: clamp(1.5rem, 3vw, 2.75rem);
-    background: #fff;
+    background: #f5f3f8;
     box-shadow: 0 1.5rem 5rem rgb(30 39 35 / 6%);
   }
 
   .hero-card {
+    border-color: rgb(49 43 59 / 7%);
+    background:
+      radial-gradient(circle at 72% 18%, rgb(215 204 232 / 28%), transparent 32%),
+      #f5f3f8;
     box-shadow: 0 2.4rem 6rem rgb(25 29 42 / 13%);
   }
 
@@ -1387,61 +1390,83 @@ const email = "ilyastorun.dev@gmail.com";
     gap: 2rem;
     align-items: center;
     min-height: 2.25rem;
-    font-size: 0.92rem;
-  }
-
-  .contact {
-    display: inline-flex;
-    gap: 0.68rem;
-    align-items: center;
-    width: fit-content;
-    font-weight: 560;
-    text-decoration: none;
+    font-size: 0.82rem;
   }
 
   .section-preview {
     display: flex;
     grid-column: 2;
-    gap: clamp(1.4rem, 3vw, 2.7rem);
+    gap: clamp(0.45rem, 1.2vw, 0.85rem);
     justify-content: center;
-    color: #8b8f8d;
+    color: #665e73;
+    font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
   }
 
   .section-preview a[aria-current="page"] {
-    color: #171a19;
+    color: #211d29;
+    background: #f4ce2f;
+    clip-path: polygon(2% 8%, 100% 0, 96% 88%, 8% 100%);
+    box-shadow: none;
+    filter: drop-shadow(0 3px 0 #211d29);
+    transform: rotate(-1.5deg);
   }
 
   .section-preview a,
   .section-preview span {
     position: relative;
+    padding: 0.48rem 0.78rem 0.42rem;
+    border: 2px solid transparent;
     color: inherit;
     text-decoration: none;
+    transition: color 150ms ease, background 150ms ease, box-shadow 150ms ease, transform 150ms ease;
   }
 
-  .section-preview a::after,
-  .section-preview span::after {
-    position: absolute;
-    right: 0;
-    bottom: -0.42rem;
-    left: 0;
-    height: 1px;
-    content: "";
-    background: currentColor;
-    opacity: 0.22;
+  .section-preview a:is(:hover, :focus-visible) {
+    color: #211d29;
+    transform: translateY(-2px) rotate(-1deg);
   }
 
   .contact {
     position: absolute;
     top: 50%;
     right: 0;
+    display: inline-flex;
     gap: 0.42rem;
-    font-weight: 470;
-    transform: translateY(-50%);
+    align-items: center;
+    width: fit-content;
+    padding: 0.24rem 0.14rem 0.38rem;
+    border: 0;
+    background: transparent;
+    clip-path: none;
+    color: #211d29;
+    font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    filter: none;
+    transform: translateY(-50%) rotate(1deg);
+    transition: color 150ms ease, transform 150ms ease;
   }
 
-  .contact span:first-child {
-    padding-bottom: 0.26rem;
-    border-bottom: 1px solid #d7d9d8;
+  .contact::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: #d32f3c;
+    clip-path: polygon(0 38%, 22% 56%, 46% 24%, 72% 62%, 100% 30%, 98% 76%, 73% 88%, 45% 61%, 20% 92%, 1% 72%);
+    content: "";
+    transform: rotate(-1deg);
+  }
+
+  .contact:is(:hover, :focus-visible) {
+    color: #d32f3c;
+    filter: none;
+    transform: translateY(calc(-50% - 2px)) rotate(1deg);
   }
 
   main {
@@ -1462,23 +1487,25 @@ const email = "ilyastorun.dev@gmail.com";
 
   .hero {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     min-height: 0;
-    padding-block: clamp(2rem, 5svh, 4.25rem);
+    padding-block: clamp(1.4rem, 3.2svh, 2.8rem) 0.5rem;
   }
 
   .hero-visual {
     position: relative;
     width: 100%;
-    max-width: 72rem;
+    max-width: 78rem;
     max-height: 100%;
-    aspect-ratio: 16 / 8.6;
+    aspect-ratio: 16 / 8.15;
     margin: 0 auto;
-    overflow: hidden;
-    border: 1px solid rgb(16 22 33 / 10%);
+    overflow: visible;
+    border: 0;
     border-radius: clamp(1.25rem, 2.4vw, 2rem);
-    background: #2438c8;
-    box-shadow: 0 2.2rem 4.5rem rgb(24 52 138 / 19%);
+    background: #d6d4d6;
+    box-shadow: 0 2rem 4.25rem rgb(63 52 81 / 16%);
     isolation: isolate;
   }
 
@@ -1486,11 +1513,12 @@ const email = "ilyastorun.dev@gmail.com";
     position: absolute;
     z-index: 1;
     inset: 0;
+    border-radius: inherit;
     content: "";
     background:
-      linear-gradient(180deg, rgb(18 9 52 / 13%), rgb(31 18 75 / 20%)),
-      radial-gradient(circle at 52% 48%, rgb(203 177 225 / 10%), transparent 46%);
-    mix-blend-mode: color;
+      linear-gradient(180deg, rgb(22 28 38 / 2%), rgb(22 28 38 / 7%)),
+      repeating-linear-gradient(0deg, rgb(20 25 31 / 2%) 0 1px, transparent 1px 3px);
+    mix-blend-mode: multiply;
     pointer-events: none;
   }
 
@@ -1498,59 +1526,75 @@ const email = "ilyastorun.dev@gmail.com";
     display: block;
     width: 100%;
     height: 100%;
+    border-radius: inherit;
     object-fit: cover;
-    object-position: 50% 50%;
-    filter: saturate(0.72) contrast(0.9) brightness(0.88) hue-rotate(4deg);
-    transform: scale(1.015);
+    object-position: 50% 8%;
+    filter: saturate(0.9) contrast(1.03) brightness(0.96);
+    transform: scale(1.02);
   }
 
-  .comic-caption {
+  .hero-dialogue {
     position: absolute;
-    z-index: 2;
-    max-width: 16rem;
-    padding: clamp(0.58rem, 1.2vw, 0.86rem) clamp(0.72rem, 1.45vw, 1rem);
-    border: clamp(2px, 0.28vw, 3px) solid #101314;
-    background: #ffd51c;
-    box-shadow: 0.3rem 0.3rem 0 #13c5d9, 0.53rem 0.53rem 0 #e82d86;
-    color: #111415;
-    font-size: clamp(0.78rem, 1.25vw, 1.2rem);
-    font-style: italic;
-    font-weight: 780;
-    letter-spacing: -0.02em;
-    line-height: 1.08;
+    z-index: 3;
+    top: 8%;
+    left: -6.5%;
+    width: 27%;
+    height: 66%;
+    color: #17191c;
+    font-family: "Arial Black", "Instrument Sans Variable", sans-serif;
+    font-size: clamp(0.58rem, 0.84vw, 0.86rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+    text-align: center;
     text-transform: uppercase;
-    transform: rotate(-1deg);
-    animation: caption-in 520ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+    pointer-events: none;
   }
 
-  .caption-one {
-    top: 9%;
-    left: 7%;
-    animation-delay: 180ms;
+  .speech-bubble {
+    position: absolute;
+    display: grid;
+    margin: 0;
+    padding: 0.55em 1em;
+    border: clamp(2px, 0.22vw, 3px) solid #17191c;
+    border-radius: 48% 52% 50% 46% / 52% 48% 54% 46%;
+    background: #fff;
+    place-items: center;
+    filter: drop-shadow(0 1px 0 rgb(255 255 255 / 55%));
   }
 
-  .caption-two {
-    right: 7%;
-    bottom: 15%;
-    transform: rotate(1deg);
-    animation-delay: 330ms;
+  .speech-one { top: 0; left: 4%; width: 62%; min-height: 23%; transform: rotate(-2deg); }
+  .speech-two { top: 24%; left: 12%; width: 86%; min-height: 31%; transform: rotate(1deg); }
+  .speech-three { top: 56%; left: 0; width: 92%; min-height: 34%; transform: rotate(-1deg); }
+
+  .speech-three::after {
+    position: absolute;
+    right: -13%;
+    bottom: 4%;
+    width: 28%;
+    height: 36%;
+    border-right: clamp(2px, 0.22vw, 3px) solid #17191c;
+    border-bottom: clamp(2px, 0.22vw, 3px) solid #17191c;
+    background: #fff;
+    content: "";
+    clip-path: polygon(0 0, 100% 100%, 20% 70%);
+    transform: rotate(18deg);
   }
 
   .scroll-cue {
-    position: absolute;
-    z-index: 3;
-    right: 3.5%;
-    bottom: 2.5%;
+    align-self: flex-end;
     display: flex;
     gap: 0.35rem;
     align-items: center;
-    color: #fff;
+    margin-top: 0.65rem;
+    margin-right: max(0rem, calc((100% - 78rem) / 2));
+    color: #312b3b;
     font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
     font-size: clamp(0.74rem, 1vw, 1rem);
     font-weight: 700;
     letter-spacing: 0.015em;
     line-height: 1;
-    text-shadow: 0 1px 2px rgb(18 10 56 / 58%);
+    text-shadow: none;
     transform: rotate(-2deg);
   }
 
@@ -1571,16 +1615,6 @@ const email = "ilyastorun.dev@gmail.com";
     }
   }
 
-  @keyframes caption-in {
-    from {
-      opacity: 0;
-      transform: translateY(0.55rem) rotate(-2deg) scale(0.97);
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
   :global(a:focus-visible) {
     outline: 2px solid #175fa9;
     outline-offset: 4px;
@@ -1589,19 +1623,6 @@ const email = "ilyastorun.dev@gmail.com";
   @media (max-width: 68rem) {
     .site-canvas {
       padding-inline: clamp(1.5rem, 4vw, 3.5rem);
-    }
-
-    .contact span:first-child {
-      display: none;
-    }
-
-    .contact span:last-child {
-      display: grid;
-      width: 2rem;
-      aspect-ratio: 1;
-      border: 1px solid #dedfdf;
-      border-radius: 50%;
-      place-items: center;
     }
 
     .story-panel { grid-column: span 5; }
@@ -1619,7 +1640,7 @@ const email = "ilyastorun.dev@gmail.com";
     }
 
     .hero-visual {
-      width: min(100%, calc((100svh - 20rem) * 1.8605));
+      width: min(100%, calc((100svh - 15.5rem) * 1.963));
     }
   }
 
@@ -1691,6 +1712,7 @@ const email = "ilyastorun.dev@gmail.com";
     .about-title-lockup span { right: -1rem; }
 
     .site-header {
+      position: relative;
       grid-template-columns: 1fr auto;
       gap: 1rem;
     }
@@ -1704,49 +1726,53 @@ const email = "ilyastorun.dev@gmail.com";
     }
 
     .contact {
-      position: static;
+      position: absolute;
+      top: 0;
+      right: auto;
+      left: calc(100vw - 7.5rem);
       grid-column: 2;
       grid-row: 1;
-      transform: none;
+      padding: 0.42rem 0.58rem 0.38rem;
+      font-size: 0.74rem;
+      transform: rotate(1deg);
+    }
+
+    .contact:is(:hover, :focus-visible) {
+      transform: translate(2px, 2px) rotate(1deg);
     }
 
     .hero {
       min-height: auto;
-      padding-block: clamp(3rem, 10vw, 4.5rem) 2rem;
+      padding-block: clamp(2rem, 7vw, 3.5rem) 0;
     }
 
     .hero-visual {
       width: 100%;
+      height: clamp(15.5rem, 64vw, 20rem);
       max-width: none;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: auto;
       border-radius: 1.4rem;
     }
 
     .hero-visual :global(img) {
-      object-position: 50% 50%;
-      transform: scale(1.04);
+      object-position: 50% 8%;
+      transform: scale(1.03);
     }
 
-    .comic-caption {
-      max-width: 10.5rem;
-      padding: 0.62rem 0.72rem;
-      font-size: clamp(0.66rem, 3.2vw, 0.82rem);
-      box-shadow: 0.22rem 0.22rem 0 #13c5d9, 0.4rem 0.4rem 0 #e82d86;
-    }
-
-    .caption-one {
-      top: 6%;
-      left: 5%;
-    }
-
-    .caption-two {
-      right: 5%;
-      bottom: 18%;
+    .hero-dialogue {
+      top: 7%;
+      left: 4%;
+      width: 42%;
+      height: 66%;
+      font-size: clamp(0.42rem, 1.8vw, 0.64rem);
     }
 
     .scroll-cue {
-      right: 4%;
-      bottom: 3.5%;
+      width: calc(100vw - 2.5rem);
+      justify-content: flex-end;
+      padding-right: 0;
+      margin-top: 0.55rem;
+      margin-right: 0;
       font-size: 0.68rem;
     }
   }
@@ -1754,10 +1780,6 @@ const email = "ilyastorun.dev@gmail.com";
   @media (prefers-reduced-motion: reduce) {
     .stack-card {
       transition: none;
-    }
-
-    .comic-caption {
-      animation: none;
     }
 
     .scroll-cue svg {

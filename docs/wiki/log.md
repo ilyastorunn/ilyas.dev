@@ -2,6 +2,18 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-08-28 — Rename the opening destination to Home
+
+- Renamed the first two navigation labels from Work/About to Home/About me. The opening Spider-Man card is now explicitly treated as a welcome cover rather than a work section; professional work continues to live in the About me bento until a dedicated projects destination is designed.
+- Removed the repeated starburst treatment from Home and Contact me. Home now uses a compact skewed yellow issue tab with a dark print edge, while Contact me is unboxed handwritten ink with a rough crimson underline. The `458 this year`-style burst remains reserved for emphatic statistics rather than general navigation.
+- Observed the revised header in the complete Home composition at 1440×900. Verification: Astro check passed with 0 diagnostics, the empty test suite passed, the Cloudflare production build completed, and `git diff --check` passed. Wrangler emitted its known sandbox-only log-file permission warning. Deployment: none.
+
+## 2026-08-28 — Turn Work into a Spider-Man comic welcome panel
+
+- Superseded the dialogue-heavy `Spider-Men II #1` experiment after owner review and replaced it with Artgerm's `Friendly Neighborhood Spider-Man #1` variant, stored as `src/assets/spider-man-artgerm.webp`. The horizontal crop excludes the cover logo while keeping a single Spider-Man looking directly toward the visitor; source: [Marvel's official cover reveal](https://www.marvel.com/articles/comics/friendly-neighborhood-spider-man-covers-revealed).
+- Reduced the welcome treatment to three editable HTML/CSS speech balloons, switched their type from rounded UI lettering to heavy comic lettering, and moved the cluster across the image's left edge so the source finger-heart gesture remains visible. Removed the image's blue border, enlarged the visual, moved the handwritten scroll cue below its right edge, and softened the Work canvas from pure white to a quiet lavender-white paper surface related to About.
+- Rebuilt Work and “Contact me” as irregular yellow comic bursts inspired by About's “this year” total, replacing the rectangular offset-shadow sticker treatment; inactive About/Cave links remain typographic and quiet. Observed the revised desktop composition at 1440×900 and used 390×844 renders to constrain the mobile image crop and move viewport-edge controls into safe bounds. Publication rights remain unresolved. Verification: Astro check passed with 0 diagnostics, the empty test suite passed, the Cloudflare production build completed, and `git diff --check` passed. Wrangler emitted its known sandbox-only log-file permission warning. Deployment: none.
+
 ## 2026-08-27 — Repair Work/About navigation after adding Cave
 
 - Reproduced the owner's recording and traced the broken opening state to two causes: About was translated by `108px` instead of a full `108%` card height, and stale `#about`/`#cave` fragments made the `overflow: hidden` sticky viewport scroll internally by nearly one card.
