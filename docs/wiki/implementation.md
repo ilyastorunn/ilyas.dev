@@ -7,8 +7,10 @@
 - `src/pages/index.astro` contains the responsive header and split hero.
 - `src/assets/spider-verse-hero-2x.png` is a deterministic 2944×1656 Lanczos upscale of the supplied frame and is rendered through Astro's optimized `Image` component with variants up to 2400 px.
 - Vite excludes Astro's virtual `astro:assets` module from dependency optimization to keep Cloudflare local SSR startup stable.
-- The home route uses one 220svh transition stage and a pinned 100svh viewport. A small requestAnimationFrame controller maps bounded scroll progress to hero scale/fade and next-card translation, preventing either card from dropping back into normal flow mid-transition.
-- Work and About header links map to transition progress endpoints with native smooth scrolling and update `aria-current` from observed card progress. Cave remains non-interactive until its card exists.
+- The home route uses one 300svh transition stage and a pinned 100svh viewport. A small requestAnimationFrame controller maps bounded scroll progress across two independent one-viewport transitions, Work → About and About → Cave; each outgoing card recedes/fades while the next translates over it, preventing cards from dropping back into normal flow mid-transition.
+- Work, About, and Cave header links map to progress endpoints `0`, `0.5`, and `1` with native smooth scrolling and update `aria-current` from observed card progress.
+- Card links intentionally do not persist URL fragments. The sticky viewport uses `overflow: clip`, not `overflow: hidden`, so stale `#about`/`#cave` URLs cannot make the browser scroll the card layer itself and corrupt its visual starting position. Recognized stale fragments and browser scroll restoration are cleared on initialization; the page opens on Work.
+- Cave currently exists as an intentionally empty white `site-canvas` with a visually hidden semantic heading. It is structural scaffolding rather than an approved content or visual direction.
 - The first visual includes a handwritten scroll cue with an inline decorative SVG arrow; its nudge animation is disabled under reduced motion.
 - About uses a 12-column, three-row desktop CSS Grid with deliberately unequal panel spans. At mobile width it becomes a two-column auto-row grid inside an independently scrollable card; dominant and personal panels span both columns.
 - About's current biography, location, focus, and personal-interest language is scaffold copy, not verified owner content.
@@ -40,6 +42,6 @@ The deployed Worker is still serving the earlier release; this hero has not been
 
 ## Follow-ups
 
-- Decide the first real destination to build after the hero.
+- Decide Cave's content and visual direction on top of the existing third-card scaffold.
 - Decide whether MDX, sitemap, and Vitest integrations are needed for the new implementation.
 - Add content and media only when supplied or intentionally authored for the new version.

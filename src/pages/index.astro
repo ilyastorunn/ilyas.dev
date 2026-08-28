@@ -35,8 +35,8 @@ const email = "ilyastorun.dev@gmail.com";
         <header class="site-header">
           <nav class="section-preview" aria-label="Portfolio sections">
             <a href="#work" data-card-link="0" aria-current="page">Work</a>
-            <a href="#about" data-card-link="1">About</a>
-            <span aria-disabled="true" title="Cave will be added as its card is designed">Cave</span>
+            <a href="#about" data-card-link="0.5">About</a>
+            <a href="#cave" data-card-link="1">Cave</a>
           </nav>
 
           <a class="contact" href={`mailto:${email}`}>
@@ -46,7 +46,7 @@ const email = "ilyastorun.dev@gmail.com";
         </header>
 
         <main>
-          <section class="hero" id="work" aria-labelledby="intro-title">
+          <section class="hero" aria-labelledby="intro-title">
             <h1 id="intro-title" class="sr-only">
               Independent developer designing and building thoughtful products for the web and Apple platforms.
             </h1>
@@ -79,7 +79,7 @@ const email = "ilyastorun.dev@gmail.com";
           </section>
         </main>
         </div>
-        <div class="site-canvas stack-card about-card" id="about" data-about-card aria-labelledby="about-title">
+        <div class="site-canvas stack-card about-card" data-about-card aria-labelledby="about-title">
           <div class="about-heading">
             <p class="about-kicker">The person behind the pixels</p>
             <div class="about-title-lockup">
@@ -206,6 +206,9 @@ const email = "ilyastorun.dev@gmail.com";
             </article>
           </div>
         </div>
+        <div class="site-canvas stack-card cave-card" data-cave-card aria-labelledby="cave-title">
+          <h2 id="cave-title" class="sr-only">Cave</h2>
+        </div>
         </div>
       </section>
     </div>
@@ -215,16 +218,29 @@ const email = "ilyastorun.dev@gmail.com";
       const viewport = document.querySelector<HTMLElement>("[data-card-viewport]");
       const heroCard = document.querySelector<HTMLElement>("[data-hero-card]");
       const aboutCard = document.querySelector<HTMLElement>("[data-about-card]");
+      const caveCard = document.querySelector<HTMLElement>("[data-cave-card]");
       const cardLinks = [...document.querySelectorAll<HTMLAnchorElement>("[data-card-link]")];
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       let previousActiveIndex = -1;
 
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+      const resetInitialPosition = () => {
+        if (!stage || !viewport) return;
+        if (location.hash === "#work" || location.hash === "#about" || location.hash === "#cave") {
+          history.replaceState(null, "", `${location.pathname}${location.search}`);
+        }
+        viewport.scrollTop = 0;
+        scrollTo({ top: stage.offsetTop, behavior: "auto" });
+        updateCards();
+      };
+
       const updateCards = () => {
-        if (!stage || !viewport || !heroCard || !aboutCard) return;
+        if (!stage || !viewport || !heroCard || !aboutCard || !caveCard) return;
 
         const travel = Math.max(stage.offsetHeight - window.innerHeight, 1);
         const progress = Math.min(Math.max(-stage.getBoundingClientRect().top / travel, 0), 1);
-        const activeIndex = progress >= 0.55 ? 1 : 0;
+        const activeIndex = progress >= 0.76 ? 2 : progress >= 0.28 ? 1 : 0;
         if (activeIndex !== previousActiveIndex) {
           previousActiveIndex = activeIndex;
           dispatchEvent(new CustomEvent("portfolio-card-change", { detail: { activeIndex } }));
@@ -235,19 +251,27 @@ const email = "ilyastorun.dev@gmail.com";
         });
 
         if (reducedMotion.matches) {
-          const showAbout = progress >= 0.5;
+          const showAbout = progress >= 0.25;
+          const showCave = progress >= 0.75;
           heroCard.style.opacity = showAbout ? "0" : "1";
+          aboutCard.style.opacity = showCave ? "0" : "1";
           aboutCard.style.transform = showAbout ? "translateY(0)" : "translateY(110%)";
+          caveCard.style.transform = showCave ? "translateY(0)" : "translateY(110%)";
           return;
         }
 
-        const riseProgress = Math.min(Math.max((progress - 0.12) / 0.88, 0), 1);
-        const easedRise = 1 - Math.pow(1 - riseProgress, 3);
-        const fadeProgress = Math.min(Math.max((progress - 0.72) / 0.2, 0), 1);
+        const aboutRise = Math.min(progress * 2, 1);
+        const caveRise = Math.min(Math.max(progress * 2 - 1, 0), 1);
+        const easedAboutRise = 1 - Math.pow(1 - aboutRise, 3);
+        const easedCaveRise = 1 - Math.pow(1 - caveRise, 3);
+        const heroFade = Math.min(Math.max((aboutRise - 0.78) / 0.18, 0), 1);
+        const aboutFade = Math.min(Math.max((caveRise - 0.78) / 0.18, 0), 1);
 
-        heroCard.style.transform = `translateY(${-18 * progress}px) scale(${1 - 0.09 * progress})`;
-        heroCard.style.opacity = String(1 - fadeProgress);
-        aboutCard.style.transform = `translateY(${(1 - easedRise) * 108}%)`;
+        heroCard.style.transform = `translateY(${-36 * aboutRise}px) scale(${1 - 0.09 * aboutRise})`;
+        heroCard.style.opacity = String(1 - heroFade);
+        aboutCard.style.transform = `translateY(${(1 - easedAboutRise) * 108}%) translateY(${-18 * caveRise}px) scale(${1 - 0.07 * caveRise})`;
+        aboutCard.style.opacity = String(1 - aboutFade);
+        caveCard.style.transform = `translateY(${(1 - easedCaveRise) * 108}%)`;
       };
 
       let ticking = false;
@@ -261,6 +285,12 @@ const email = "ilyastorun.dev@gmail.com";
       };
 
       updateCards();
+      requestAnimationFrame(resetInitialPosition);
+      addEventListener("load", () => {
+        resetInitialPosition();
+        setTimeout(resetInitialPosition, 0);
+      }, { once: true });
+      addEventListener("pageshow", resetInitialPosition);
       addEventListener("scroll", requestUpdate, { passive: true });
       addEventListener("resize", requestUpdate);
       reducedMotion.addEventListener("change", requestUpdate);
@@ -271,7 +301,6 @@ const email = "ilyastorun.dev@gmail.com";
           event.preventDefault();
           const progress = Number(link.dataset.cardLink ?? 0);
           const travel = Math.max(stage.offsetHeight - window.innerHeight, 0);
-          history.replaceState(null, "", link.hash);
           scrollTo({
             top: stage.offsetTop + travel * progress,
             behavior: reducedMotion.matches ? "auto" : "smooth",
@@ -399,7 +428,7 @@ const email = "ilyastorun.dev@gmail.com";
 
   .transition-stage {
     position: relative;
-    height: 220svh;
+    height: 300svh;
   }
 
   .card-viewport {
@@ -407,7 +436,7 @@ const email = "ilyastorun.dev@gmail.com";
     top: 0;
     height: 100svh;
     padding: clamp(0.75rem, 2.2vw, 2rem);
-    overflow: hidden;
+    overflow: clip;
   }
 
   .stack-card {
@@ -426,6 +455,13 @@ const email = "ilyastorun.dev@gmail.com";
   .about-card {
     z-index: 2;
     transform: translateY(108%);
+  }
+
+  .cave-card {
+    z-index: 3;
+    transform: translateY(108%);
+    background: #fff;
+    box-shadow: 0 1.75rem 5rem rgb(32 29 39 / 12%);
   }
 
   .site-canvas {
@@ -482,14 +518,21 @@ const email = "ilyastorun.dev@gmail.com";
 
   .about-title-lockup {
     position: relative;
+    isolation: isolate;
     grid-column: 1;
     width: fit-content;
-    margin-top: 0.35rem;
-    padding: 0.2rem 1.1rem 0.3rem 0.75rem;
-    border: 3px solid #25202b;
-    background: #ffd51c;
-    box-shadow: 0.32rem 0.32rem 0 #13c5d9, 0.58rem 0.58rem 0 #e82d86;
-    transform: rotate(-1deg);
+    margin-top: 0.28rem;
+    padding: 0.08rem 0.75rem 0.12rem 0.12rem;
+  }
+
+  .about-title-lockup::before {
+    position: absolute;
+    z-index: -1;
+    inset: 17% -0.2rem 3% -0.35rem;
+    background: #f0cf3e;
+    content: "";
+    clip-path: polygon(1% 16%, 98% 0, 100% 80%, 3% 100%, 0 68%);
+    transform: rotate(-1.4deg);
   }
 
   .about-heading h2 {
@@ -504,31 +547,42 @@ const email = "ilyastorun.dev@gmail.com";
 
   .about-title-lockup span {
     position: absolute;
-    right: -2.2rem;
-    bottom: -0.8rem;
-    padding: 0.2rem 0.35rem;
-    border: 1.5px solid #25202b;
-    background: #fff;
+    right: -1.85rem;
+    bottom: -0.48rem;
+    padding: 0.12rem 0.28rem;
+    border-block: 1px solid #25202b;
+    background: #e8e3f1;
     font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
     font-size: 0.48rem;
     font-weight: 750;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    transform: rotate(5deg);
+    transform: rotate(3deg);
   }
 
   .about-doodle {
+    position: relative;
     grid-column: 2;
     grid-row: 1 / 3;
     align-self: center;
-    padding: 0.55rem 0.8rem;
-    border: 2px solid #25202b;
-    background: #ffd51c;
-    box-shadow: 0.22rem 0.22rem 0 #13c5d9, 0.4rem 0.4rem 0 #e82d86;
+    padding: 0.25rem 0.2rem 0.42rem;
+    color: #25202b;
     font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
     font-size: clamp(0.78rem, 1vw, 1rem);
     font-weight: 700;
-    transform: rotate(2deg);
+    transform: rotate(-2deg);
+  }
+
+  .about-doodle::after {
+    position: absolute;
+    right: 0;
+    bottom: 0.08rem;
+    left: 0;
+    height: 0.22rem;
+    background: #c92f38;
+    content: "";
+    clip-path: polygon(0 38%, 95% 0, 100% 55%, 8% 100%);
+    transform: rotate(1deg);
   }
 
   .about-bento {

@@ -4,7 +4,7 @@ This is the durable, source-aware briefing for the repository as the portfolio i
 
 ## Current status
 
-The rebuilt `/` route uses a full-width visual hero inside the quiet white portfolio canvas. Cards share one pinned transition viewport: native scrolling continuously shrinks/fades the hero while the next card rises over it, then leaves only the new card visible. About now has an asymmetric comic-scrapbook bento foundation with explicitly provisional copy awaiting owner details. The Spider-Verse image is color-graded toward the owner's darker vertical reference and served from a 2× project asset.
+The rebuilt `/` route uses a full-width visual hero inside the quiet white portfolio canvas. Work, About, and the new empty Cave canvas share one pinned transition viewport: native scrolling continuously recedes the current card while the next rises over it, then leaves only the active card visible. About contains the current asymmetric comic-scrapbook bento; Cave is intentionally blank pending its design direction. The Spider-Verse image is color-graded toward the owner's darker vertical reference and served from a 2× project asset.
 
 The hero and first card transition have been verified locally at desktop and mobile widths and have not been deployed.
 

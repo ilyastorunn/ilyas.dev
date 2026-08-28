@@ -4,6 +4,7 @@ The roadmap continues from the first rebuilt hero. It is not permission to deplo
 
 ## Next
 
+- Design and populate the intentionally blank Cave card without changing its approved third position in the vertical stack.
 - Replace About's scaffold copy with the owner's real biography, current focus, location, disciplines, and outside-work interests.
 - Decide whether About's visual/object area should remain typographic or receive owner-supplied media.
 - Choose the initial project/content model before activating navigation.

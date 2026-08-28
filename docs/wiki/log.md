@@ -2,6 +2,24 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-08-27 — Repair Work/About navigation after adding Cave
+
+- Reproduced the owner's recording and traced the broken opening state to two causes: About was translated by `108px` instead of a full `108%` card height, and stale `#about`/`#cave` fragments made the `overflow: hidden` sticky viewport scroll internally by nearly one card.
+- Restored percentage-based off-canvas placement, split the 300svh stage into two exact transition segments, and changed the viewport to `overflow: clip` so it cannot become a fragment-scroll container. Card clicks no longer persist hashes; recognized stale hashes and browser scroll restoration are reset to Work at startup.
+- Observed an old `/#about` URL opening cleanly on Work with zero window and viewport scroll. Programmatically verified the full bidirectional sequence `Work → About → Cave → About → Work`; the active link and top input layer matched at every endpoint. Verification: full checks follow in the same change. Deployment: none.
+
+## 2026-08-27 — Add the empty Cave card scaffold
+
+- Expanded the pinned transition stage from two cards to three and added an intentionally blank white Cave canvas after About. Its only content is a visually hidden semantic heading, leaving visual and content decisions open for the next design pass.
+- Activated the Cave header link and mapped Work, About, and Cave to scroll endpoints `0`, `0.5`, and `1`. The controller now recedes/fades each outgoing card while the next rises, with discrete no-animation state changes under reduced motion.
+- Observed the Cave endpoint locally at desktop width: Cave receives `aria-current="page"`, About is fully concealed, and no prior-card edge remains visible. Verification: Astro check passed with 0 diagnostics before the final wiki update; full tests and production build follow in the same change. Deployment: none.
+
+## 2026-08-27 — Simplify the About masthead
+
+- Replaced the yellow bordered title card and cyan/pink offset shadows with a dark-ink `ABOUT!` title over an irregular yellow brush stroke. Retained the kicker and converted the issue number into a small print-strip detail.
+- Removed the sticker box from “meet the human →” and restyled it as a small handwritten margin note with one crimson brush underline, reducing repeated card-within-card styling and keeping the header inside the About panel's existing palette.
+- Observed the complete About composition locally at desktop width; the quieter masthead remains legible without competing with the bento modules. Verification: Astro check passed with 0 diagnostics before the final wiki update; full tests and production build follow in the same change. Deployment: none.
+
 ## 2026-08-27 — Replace the Daily Bugle website backdrop with Reed at work
 
 - Superseded the dark, text-heavy Daily Bugle newsroom treatment after owner review and replaced it with a brighter blue/white Reed Richards laboratory panel stored as `src/assets/reed-richards-work.jpg`. The character now remains visibly at work behind the project frame. Exact issue/artist attribution was not verified from the available Comic Vine image source, so publication use remains unresolved pending source and rights review.
