@@ -206,7 +206,81 @@ const email = "ilyastorun.dev@gmail.com";
           </div>
         </div>
         <div class="site-canvas stack-card cave-card" data-cave-card aria-labelledby="cave-title">
-          <h2 id="cave-title" class="sr-only">Cave</h2>
+          <header class="cave-heading">
+            <p>Personal archive / slowly collecting</p>
+            <h2 id="cave-title">Cave</h2>
+            <span>Books, photographs, inspiration and recent watches.</span>
+          </header>
+
+          <div class="cave-board" data-cave-board aria-label="A movable personal archive board">
+            <p class="board-note board-note-books" aria-hidden="true">books I keep close ↘</p>
+            <section class="board-cluster books-cluster" data-drag-item tabindex="0" aria-label="Books shelf. Drag to move.">
+              <span class="board-pin" aria-hidden="true"></span>
+              <div class="mini-shelf" aria-hidden="true">
+                <div class="shelf-books">
+                  <i style="--book:#782d2d;--h:74%;--w:13%;--r:-4deg"><span>BOOK 01</span><small></small></i>
+                  <i style="--book:#355f64;--h:91%;--w:15%;--r:-1deg"><span>BOOK 02</span><small></small></i>
+                  <i style="--book:#c18a38;--h:67%;--w:11%;--r:2deg"><span>03</span><small></small></i>
+                  <i style="--book:#ddd0b3;--h:84%;--w:17%;--r:0deg"><span>BOOK 04</span><small></small></i>
+                  <i style="--book:#39333b;--h:77%;--w:12%;--r:5deg"><span>05</span><small></small></i>
+                  <i style="--book:#8b5637;--h:87%;--w:14%;--r:1deg"><span>BOOK 06</span><small></small></i>
+                </div>
+                <b class="shelf-plank"></b>
+              </div>
+              <h3>Books</h3>
+            </section>
+
+            <p class="board-note board-note-films" aria-hidden="true">recently watched ↙</p>
+            <section class="board-cluster films-cluster" data-drag-item tabindex="0" aria-label="Recently watched films. Drag to move.">
+              <span class="board-pin" aria-hidden="true"></span>
+              <div class="film-strip" aria-hidden="true">
+                <div class="film-strip-track">
+                  {[0, 1].map(() => Array.from({ length: 10 }, (_, index) => (
+                    <i class="film-frame" style={`--frame:${index}`}>
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <small><b>Film title</b><em>— / 10 · one-line note</em></small>
+                    </i>
+                  )))}
+                </div>
+              </div>
+              <h3>Recently developed</h3>
+            </section>
+
+            <p class="board-note board-note-photos" aria-hidden="true">photos I took ↗</p>
+            <section class="board-cluster photos-cluster" data-drag-item tabindex="0" aria-label="Photograph stamp sheet. Drag to move.">
+              <span class="board-pin" aria-hidden="true"></span>
+              <div class="stamp-sheet" aria-hidden="true">
+                {Array.from({ length: 9 }, (_, index) => (
+                  <i class={`photo-stamp stamp-${index + 1}`} style={`--stamp:${index}`}>
+                    <span></span>
+                    <small><b>{String(index + 1).padStart(2, "0")}</b><em>ILYAS · 2026</em></small>
+                  </i>
+                ))}
+              </div>
+              <h3>Photos</h3>
+            </section>
+
+            <p class="board-note board-note-tech" aria-hidden="true">things I build with ↖</p>
+            <section class="board-cluster tech-cluster" data-drag-item tabindex="0" aria-label="Technology stack. Drag to move.">
+              <span class="board-pin" aria-hidden="true"></span>
+              <div class="tech-stack" aria-hidden="true">
+                <i style="--i:0">MacBook</i><i style="--i:1">Xcode</i><i style="--i:2">Swift</i><i style="--i:3">React</i><i style="--i:4">Codex</i>
+              </div>
+              <h3>Tech stack</h3>
+            </section>
+
+            <section class="board-cluster inspiration-cluster" data-drag-item tabindex="0" aria-label="Inspiration fragments. Drag to move.">
+              <span class="board-pin" aria-hidden="true"></span>
+              <div class="inspiration-fragments" aria-hidden="true">
+                <i class="portrait-fragment">?</i>
+                <blockquote>Words worth keeping close.</blockquote>
+                <i class="reference-fragment"></i>
+              </div>
+              <h3>Inspiration</h3>
+            </section>
+
+            <span class="board-whisper" aria-hidden="true">move things around if you feel like it</span>
+          </div>
         </div>
         </div>
       </section>
@@ -395,6 +469,77 @@ const email = "ilyastorun.dev@gmail.com";
         musicAudio.addEventListener("ended", () => setMusicState(false));
         musicAudio.addEventListener("pause", () => setMusicState(false));
       }
+
+      const caveBoard = document.querySelector<HTMLElement>("[data-cave-board]");
+      const dragItems = [...document.querySelectorAll<HTMLElement>("[data-drag-item]")];
+
+      if (caveBoard) {
+        let topLayer = 10;
+        const keepItemsInsideBoard = () => {
+          dragItems.forEach((item) => {
+            if (!item.style.left && !item.style.top) return;
+            const maxX = Math.max(caveBoard.clientWidth - item.offsetWidth, 0);
+            const maxY = Math.max(caveBoard.clientHeight - item.offsetHeight, 0);
+            item.style.left = `${Math.min(Math.max(Number.parseFloat(item.style.left) || 0, 0), maxX)}px`;
+            item.style.top = `${Math.min(Math.max(Number.parseFloat(item.style.top) || 0, 0), maxY)}px`;
+          });
+        };
+
+        dragItems.forEach((item) => {
+          item.addEventListener("pointerdown", (event) => {
+            if (event.button !== 0) return;
+            const boardBounds = caveBoard.getBoundingClientRect();
+            const itemBounds = item.getBoundingClientRect();
+            const startX = event.clientX;
+            const startY = event.clientY;
+            const originX = itemBounds.left - boardBounds.left;
+            const originY = itemBounds.top - boardBounds.top;
+            const maxX = Math.max(boardBounds.width - itemBounds.width, 0);
+            const maxY = Math.max(boardBounds.height - itemBounds.height, 0);
+            item.setPointerCapture(event.pointerId);
+            item.classList.add("is-dragging");
+            item.style.zIndex = String(++topLayer);
+
+            const move = (moveEvent: PointerEvent) => {
+              const x = Math.min(Math.max(originX + moveEvent.clientX - startX, 0), maxX);
+              const y = Math.min(Math.max(originY + moveEvent.clientY - startY, 0), maxY);
+              item.style.left = `${x}px`;
+              item.style.top = `${y}px`;
+              item.style.right = "auto";
+              item.style.bottom = "auto";
+            };
+
+            const finish = () => {
+              item.classList.remove("is-dragging");
+              item.removeEventListener("pointermove", move);
+              item.removeEventListener("pointerup", finish);
+              item.removeEventListener("pointercancel", finish);
+            };
+
+            item.addEventListener("pointermove", move);
+            item.addEventListener("pointerup", finish);
+            item.addEventListener("pointercancel", finish);
+          });
+
+          item.addEventListener("keydown", (event) => {
+            const movement = { ArrowLeft: [-10, 0], ArrowRight: [10, 0], ArrowUp: [0, -10], ArrowDown: [0, 10] }[event.key];
+            if (!movement) return;
+            event.preventDefault();
+            const boardBounds = caveBoard.getBoundingClientRect();
+            const itemBounds = item.getBoundingClientRect();
+            const currentX = itemBounds.left - boardBounds.left;
+            const currentY = itemBounds.top - boardBounds.top;
+            const maxX = Math.max(caveBoard.clientWidth - item.offsetWidth, 0);
+            const maxY = Math.max(caveBoard.clientHeight - item.offsetHeight, 0);
+            item.style.left = `${Math.min(Math.max(currentX + movement[0], 0), maxX)}px`;
+            item.style.top = `${Math.min(Math.max(currentY + movement[1], 0), maxY)}px`;
+            item.style.right = "auto";
+            item.style.bottom = "auto";
+            item.style.zIndex = String(++topLayer);
+          });
+        });
+        addEventListener("resize", keepItemsInsideBoard);
+      }
     </script>
   </body>
 </html>
@@ -458,10 +603,162 @@ const email = "ilyastorun.dev@gmail.com";
 
   .cave-card {
     z-index: 3;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: clamp(1rem, 2vw, 1.8rem);
     transform: translateY(108%);
-    background: #fff;
-    box-shadow: 0 1.75rem 5rem rgb(32 29 39 / 12%);
+    background:
+      radial-gradient(circle at 15% 5%, rgb(255 224 95 / 24%), transparent 27%),
+      radial-gradient(circle at 82% 12%, rgb(84 196 213 / 18%), transparent 26%),
+      #efebf4;
+    color: #272230;
+    box-shadow: 0 1.75rem 5rem rgb(32 29 39 / 14%);
   }
+
+  .cave-heading {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.1rem 1.2rem;
+    align-items: end;
+  }
+
+  .cave-heading p,
+  .cave-heading h2,
+  .cave-heading span { margin: 0; }
+
+  .cave-heading p {
+    grid-column: 1 / -1;
+    color: #71697d;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: clamp(0.56rem, 0.72vw, 0.7rem);
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .cave-heading h2 {
+    color: #272230;
+    font-family: "Arial Black", "Instrument Sans Variable", sans-serif;
+    font-size: clamp(2.6rem, 6vw, 5.8rem);
+    letter-spacing: -0.09em;
+    line-height: 0.78;
+    text-transform: uppercase;
+    text-shadow: 0.12em 0.11em 0 #f4ce2f;
+    transform: rotate(-1deg);
+  }
+
+  .cave-heading span {
+    max-width: 31rem;
+    padding-bottom: 0.15rem;
+    color: #5d5667;
+    font-size: clamp(0.76rem, 1vw, 0.95rem);
+  }
+
+  .cave-board {
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+    border: 0.75rem solid #6b4a32;
+    border-radius: clamp(1rem, 2vw, 1.7rem);
+    background:
+      radial-gradient(circle, rgb(74 47 30 / 16%) 0 1px, transparent 1.5px) 0 0 / 9px 9px,
+      linear-gradient(145deg, rgb(255 255 255 / 12%), transparent 46%),
+      #caa77b;
+    box-shadow: inset 0 0 0 2px #272230, inset 0 0 3rem rgb(70 42 27 / 17%), 0.7rem 0.7rem 0 #d23440;
+    touch-action: none;
+  }
+
+  .cave-board::after {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(8deg, transparent 0 18px, rgb(74 47 30 / 3%) 19px 20px);
+    content: "";
+    pointer-events: none;
+  }
+
+  .board-cluster {
+    position: absolute;
+    z-index: 2;
+    color: #272230;
+    cursor: grab;
+    user-select: none;
+    will-change: left, top, transform;
+    transition: filter 180ms ease, transform 180ms ease;
+  }
+
+  .board-cluster:is(:hover, :focus-visible) { z-index: 8; filter: drop-shadow(0 0.8rem 0.55rem rgb(39 34 48 / 20%)); }
+  .board-cluster.is-dragging { cursor: grabbing; filter: drop-shadow(0 1.2rem 0.65rem rgb(39 34 48 / 28%)); transform: scale(1.035) rotate(0deg); transition: filter 120ms ease, transform 120ms ease; }
+  .board-cluster h3 { position: absolute; margin: 0; padding: 0.28rem 0.45rem 0.24rem; border: 2px solid #272230; background: #fffaf0; font-family: "Arial Black", sans-serif; font-size: clamp(0.54rem, 0.78vw, 0.76rem); line-height: 1; text-transform: uppercase; }
+
+  .board-pin { position: absolute; z-index: 9; top: -0.2rem; left: 50%; width: 0.85rem; aspect-ratio: 1; border: 2px solid #272230; border-radius: 50%; background: #d23440; box-shadow: 0 2px 2px rgb(39 34 48 / 28%); transform: translateX(-50%); }
+
+  .books-cluster { top: 8%; left: 4%; width: 25%; height: 31%; transform: rotate(-2deg); }
+  .mini-shelf { position: absolute; inset: 6% -4% 16%; filter: drop-shadow(0 0.65rem 0.35rem rgb(39 34 48 / 30%)); perspective: 34rem; }
+  .shelf-books { position: absolute; right: 8%; bottom: 18%; left: 8%; display: flex; height: 80%; gap: 1.5%; align-items: end; justify-content: center; padding-inline: 3%; border-bottom: 2px solid #2d1a12; }
+  .shelf-books i { position: relative; display: block; width: var(--w); height: var(--h); border: 1px solid #291c18; border-radius: 2px 3px 1px 2px; background: linear-gradient(90deg, rgb(255 255 255 / 16%), transparent 12% 72%, rgb(26 15 12 / 24%)), repeating-linear-gradient(0deg, transparent 0 12px, rgb(255 246 218 / 5%) 13px), var(--book); box-shadow: inset 0.16rem 0 0 rgb(255 255 255 / 10%), inset -0.16rem 0 0 rgb(22 13 11 / 20%), 0.12rem 0.12rem 0.14rem rgb(34 20 14 / 32%); transform: rotate(var(--r)) translateY(0); transform-origin: bottom center; transition: filter 180ms ease, transform 220ms cubic-bezier(.2,.8,.2,1); }
+  .shelf-books i::before, .shelf-books i::after { position: absolute; right: 8%; left: 8%; height: 1px; background: rgb(238 213 163 / 60%); content: ""; } .shelf-books i::before { top: 8%; } .shelf-books i::after { bottom: 8%; }
+  .shelf-books i span { position: absolute; inset: 16% 20%; overflow: hidden; color: rgb(247 226 184 / 78%); font: 700 clamp(0.26rem, 0.36vw, 0.36rem)/1.05 Georgia, serif; letter-spacing: 0.04em; text-align: center; text-orientation: mixed; writing-mode: vertical-rl; }
+  .shelf-books i small { position: absolute; top: 0; right: -3px; width: 3px; height: 100%; background: repeating-linear-gradient(0deg, #b9a98e 0 2px, #e5d9c1 3px 4px); opacity: 0.72; }
+  .shelf-books i:hover { z-index: 3; filter: brightness(1.12) saturate(1.08); transform: rotate(0deg) translateY(-13%) translateZ(1.5rem) scale(1.08); }
+  .shelf-plank { position: absolute; right: 0; bottom: 5%; left: 0; display: block; height: 18%; border: 1px solid #2f1c12; background: repeating-linear-gradient(7deg, transparent 0 8px, rgb(54 28 15 / 15%) 9px 10px), linear-gradient(#97653f, #623b24 63%, #432617 64%); box-shadow: inset 0 2px rgb(255 235 187 / 20%); transform: rotateX(50deg); transform-origin: top; }
+  .mini-shelf::before, .mini-shelf::after { position: absolute; z-index: -1; bottom: -3%; width: 14%; height: 24%; border: 1px solid #2a1912; background: linear-gradient(90deg, #3c2518, #765038 48%, #2e1b12); clip-path: polygon(0 0, 100% 0, 72% 100%, 28% 100%); content: ""; }
+  .mini-shelf::before { left: 12%; } .mini-shelf::after { right: 12%; }
+  .books-cluster h3 { right: 3%; bottom: 0; transform: rotate(2deg); }
+
+  .films-cluster { top: 8%; right: 2%; width: 42%; height: 31%; transform: rotate(2deg); }
+  .film-strip { position: absolute; inset: 9% -8% 17%; overflow: hidden; border: 2px solid #171219; background: #241111; box-shadow: 0.35rem 0.45rem 0.45rem rgb(39 34 48 / 28%); transform: perspective(30rem) rotateY(-2deg) skewY(-1deg); }
+  .film-strip::before, .film-strip::after { position: absolute; z-index: 3; right: 0; left: 0; height: 14%; background: repeating-linear-gradient(90deg, transparent 0 0.38rem, #e6b76b 0.38rem 0.72rem, transparent 0.72rem 1.05rem), #3a1714; content: ""; pointer-events: none; }
+  .film-strip::before { top: 0; border-bottom: 1px solid #d77731; } .film-strip::after { bottom: 0; border-top: 1px solid #d77731; }
+  .film-strip-track { display: flex; width: max-content; height: 100%; padding-block: 14%; animation: film-strip-roll 32s linear infinite; }
+  .film-strip:is(:hover) .film-strip-track { animation-play-state: paused; }
+  .film-frame { position: relative; flex: 0 0 clamp(4.2rem, 6.3vw, 6.4rem); height: 100%; border-inline: 2px solid #bd5a2c; background: linear-gradient(145deg, hsl(calc(var(--frame) * 31 + 190) 42% 24%), hsl(calc(var(--frame) * 19 + 2) 58% 42%)); box-shadow: inset 0 0 1.2rem #13090a; transition: filter 180ms ease, transform 180ms ease; }
+  .film-frame::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(255 141 55 / 16%), transparent 18% 82%, rgb(255 141 55 / 12%)), repeating-linear-gradient(0deg, transparent 0 0.32rem, rgb(255 244 203 / 5%) 0.34rem); content: ""; }
+  .film-frame > span { position: absolute; z-index: 2; right: 0.2rem; bottom: 0.16rem; color: #ffe1a5; font: 700 clamp(0.38rem, 0.5vw, 0.48rem)/1 ui-monospace, monospace; }
+  .film-frame small { position: absolute; z-index: 5; bottom: 76%; left: 50%; display: grid; width: clamp(6.5rem, 9vw, 8.5rem); padding: 0.45rem 0.5rem; border: 2px solid #272230; background: #fff8e8; box-shadow: 0.25rem 0.25rem 0 #d23440; color: #272230; font: 600 clamp(0.4rem, 0.52vw, 0.52rem)/1.15 "Instrument Sans Variable", sans-serif; opacity: 0; pointer-events: none; transform: translate(-50%, 0.4rem) rotate(-2deg); transition: opacity 160ms ease, transform 180ms ease; }
+  .film-frame small b { font-family: "Arial Black", sans-serif; text-transform: uppercase; } .film-frame small em { color: #8b392e; font-style: normal; }
+  .film-frame:hover { z-index: 4; filter: saturate(1.25) brightness(1.18); transform: scale(1.12); }
+  .film-frame:hover small { opacity: 1; transform: translate(-50%, 0) rotate(-2deg); }
+  .films-cluster h3 { right: 0; bottom: 0; transform: rotate(-2deg); }
+
+  .photos-cluster { bottom: 4%; left: 4%; width: 27%; height: 42%; transform: rotate(1.5deg); }
+  .stamp-sheet { position: absolute; inset: 0 1% 12%; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.18rem, 0.7vw, 0.62rem); align-items: center; padding: 4%; }
+  .photo-stamp { position: relative; display: block; aspect-ratio: 0.78; padding: clamp(0.25rem, 0.48vw, 0.46rem); overflow: hidden; background: #efe4c9; box-shadow: 0.2rem 0.28rem 0.22rem rgb(39 34 48 / 30%), inset 0 0 0 1px rgb(91 68 42 / 22%); clip-path: polygon(0 5%, 3% 3%, 5% 0, 10% 3%, 15% 0, 20% 3%, 25% 0, 30% 3%, 35% 0, 40% 3%, 45% 0, 50% 3%, 55% 0, 60% 3%, 65% 0, 70% 3%, 75% 0, 80% 3%, 85% 0, 90% 3%, 95% 0, 97% 3%, 100% 5%, 97% 10%, 100% 15%, 97% 20%, 100% 25%, 97% 30%, 100% 35%, 97% 40%, 100% 45%, 97% 50%, 100% 55%, 97% 60%, 100% 65%, 97% 70%, 100% 75%, 97% 80%, 100% 85%, 97% 90%, 100% 95%, 97% 97%, 95% 100%, 90% 97%, 85% 100%, 80% 97%, 75% 100%, 70% 97%, 65% 100%, 60% 97%, 55% 100%, 50% 97%, 45% 100%, 40% 97%, 35% 100%, 30% 97%, 25% 100%, 20% 97%, 15% 100%, 10% 97%, 5% 100%, 3% 97%, 0 95%, 3% 90%, 0 85%, 3% 80%, 0 75%, 3% 70%, 0 65%, 3% 60%, 0 55%, 3% 50%, 0 45%, 3% 40%, 0 35%, 3% 30%, 0 25%, 3% 20%, 0 15%, 3% 10%); transform: rotate(var(--stamp-angle, 0deg)); }
+  .photo-stamp::after { position: absolute; inset: 0; background: repeating-linear-gradient(103deg, transparent 0 3px, rgb(75 48 31 / 3%) 4px), linear-gradient(90deg, rgb(255 255 255 / 12%), transparent 35%, rgb(74 45 25 / 8%)); content: ""; pointer-events: none; }
+  .photo-stamp span { display: block; height: 78%; border: 1px solid rgb(47 35 28 / 55%); background: var(--stamp-image); filter: saturate(0.78) contrast(1.08) sepia(0.12); box-shadow: inset 0 0 0.75rem rgb(35 22 18 / 24%); }
+  .photo-stamp small { display: flex; align-items: end; justify-content: space-between; height: 22%; color: #403326; font: 700 clamp(0.3rem, 0.45vw, 0.44rem)/1 ui-monospace, monospace; letter-spacing: 0.04em; }
+  .photo-stamp small b { font-family: Georgia, serif; font-size: 1.5em; } .photo-stamp small em { font-style: normal; }
+  .photo-stamp:nth-child(1) { --stamp-angle:-4deg; --stamp-image:linear-gradient(155deg, #718b8b 0 42%, #d0b179 43% 60%, #513e2f 61%); }
+  .photo-stamp:nth-child(2) { --stamp-angle:2deg; --stamp-image:linear-gradient(170deg, #b95a3c 0 28%, #e4c884 29% 48%, #47676c 49%); }
+  .photo-stamp:nth-child(3) { --stamp-angle:-1deg; --stamp-image:linear-gradient(135deg, #697d9a 0 45%, #d9c8a5 46% 58%, #3f4235 59%); }
+  .photo-stamp:nth-child(4) { --stamp-angle:3deg; --stamp-image:linear-gradient(150deg, #ae9d77 0 38%, #39484a 39% 64%, #b55e44 65%); }
+  .photo-stamp:nth-child(5) { --stamp-angle:-2deg; --stamp-image:linear-gradient(165deg, #485f6a 0 34%, #d9a44b 35% 51%, #70483c 52%); }
+  .photo-stamp:nth-child(6) { --stamp-angle:4deg; --stamp-image:linear-gradient(145deg, #8f5548 0 30%, #d6c596 31% 56%, #44575c 57%); }
+  .photo-stamp:nth-child(7) { --stamp-angle:1deg; --stamp-image:linear-gradient(160deg, #64868f 0 48%, #d4c6a6 49% 63%, #6a4733 64%); }
+  .photo-stamp:nth-child(8) { --stamp-angle:-3deg; --stamp-image:linear-gradient(140deg, #a05f48 0 33%, #d6b96f 34% 49%, #3d5d63 50%); }
+  .photo-stamp:nth-child(9) { --stamp-angle:2deg; --stamp-image:linear-gradient(172deg, #536b75 0 37%, #c58c58 38% 57%, #423b34 58%); }
+  .photo-stamp:nth-child(3n + 1)::before { position: absolute; z-index: 3; top: 8%; right: -28%; width: 78%; aspect-ratio: 1; border: 2px double rgb(58 45 43 / 42%); border-radius: 50%; content: ""; transform: rotate(-14deg); }
+  .photos-cluster h3 { left: 0; bottom: 0; transform: rotate(-3deg); }
+
+  .tech-cluster { right: 0; bottom: 13%; width: 29%; height: 31%; transform: rotate(-2deg); }
+  .tech-stack { position: absolute; inset: 4% 5% 18%; }
+  .tech-stack i { position: absolute; top: 20%; left: 23%; display: grid; width: 48%; aspect-ratio: 1.4; border: 2px solid #272230; background: var(--card, #f4ce2f); font-family: "Arial Black", sans-serif; font-size: clamp(0.5rem, 0.8vw, 0.78rem); font-style: normal; place-items: center; transform: translate(calc(var(--i) * 4px), calc(var(--i) * 4px)) rotate(calc((var(--i) - 2) * 4deg)); transition: transform 260ms cubic-bezier(.2,.8,.2,1); }
+  .tech-stack i:nth-child(2) { --card:#43c4d5; } .tech-stack i:nth-child(3) { --card:#d23440; color:#fff; } .tech-stack i:nth-child(4) { --card:#fffaf0; } .tech-stack i:nth-child(5) { --card:#272230; color:#fff; }
+  .tech-cluster:is(:hover, :focus-visible) .tech-stack i:nth-child(1) { transform: translate(-60%, -28%) rotate(-15deg); } .tech-cluster:is(:hover, :focus-visible) .tech-stack i:nth-child(2) { transform: translate(48%, -35%) rotate(13deg); } .tech-cluster:is(:hover, :focus-visible) .tech-stack i:nth-child(3) { transform: translate(-72%, 54%) rotate(8deg); } .tech-cluster:is(:hover, :focus-visible) .tech-stack i:nth-child(4) { transform: translate(52%, 62%) rotate(-9deg); } .tech-cluster:is(:hover, :focus-visible) .tech-stack i:nth-child(5) { transform: translate(0, 5%) rotate(1deg); }
+  .tech-cluster h3 { right: 0; bottom: 0; transform: rotate(2deg); }
+
+  .inspiration-cluster { bottom: 9%; left: 36%; width: 27%; height: 36%; transform: rotate(-1deg); }
+  .inspiration-fragments { position: absolute; inset: 2% 2% 15%; }
+  .inspiration-fragments > * { position: absolute; border: 2px solid #272230; }
+  .portrait-fragment { top: 0; left: 4%; display: grid; width: 42%; aspect-ratio: 0.82; background: #272230; color: #fffaf0; font: normal clamp(2rem, 5vw, 4.5rem)/1 "Arial Black", sans-serif; place-items: center; transform: rotate(-7deg); }
+  .inspiration-fragments blockquote { top: 15%; right: 0; width: 61%; margin: 0; padding: 8%; background: #f4ce2f; font-family: "Bradley Hand", cursive; font-size: clamp(0.58rem, 0.9vw, 0.86rem); font-weight: 700; transform: rotate(4deg); }
+  .reference-fragment { right: 7%; bottom: 0; width: 48%; height: 25%; background: #43c4d5; transform: rotate(-3deg); }
+  .inspiration-cluster h3 { left: 3%; bottom: 0; transform: rotate(-2deg); }
+
+  .board-note, .board-whisper { position: absolute; z-index: 1; margin: 0; font-family: "Bradley Hand", "Marker Felt", cursive; font-weight: 700; pointer-events: none; }
+  .board-note { font-size: clamp(0.56rem, 0.85vw, 0.84rem); }
+  .board-note-books { top: 2%; left: 3%; transform: rotate(-4deg); } .board-note-films { top: 2%; right: 3%; transform: rotate(3deg); } .board-note-photos { bottom: 2%; left: 1%; transform: rotate(-5deg); } .board-note-tech { right: 1%; bottom: 10%; transform: rotate(4deg); }
+  .board-whisper { right: 34%; bottom: 2%; color: rgb(39 34 48 / 48%); font-size: clamp(0.48rem, 0.68vw, 0.66rem); transform: rotate(-2deg); }
+
+  @keyframes film-strip-roll { to { transform: translateX(-50%); } }
 
   .site-canvas {
     width: min(100%, 91rem);
@@ -1669,6 +1966,35 @@ const email = "ilyastorun.dev@gmail.com";
       overscroll-behavior: contain;
     }
 
+    .cave-card {
+      display: block;
+      padding: 1.4rem 1.25rem 2rem;
+      overflow-y: auto;
+    }
+
+    .cave-heading {
+      margin-bottom: 1.25rem;
+    }
+
+    .cave-heading h2 { font-size: clamp(3.2rem, 18vw, 5rem); }
+    .cave-heading span { max-width: 14rem; font-size: 0.7rem; }
+
+    .cave-board {
+      min-height: 46rem;
+      border-width: 0.5rem;
+      box-shadow: 0.35rem 0.35rem 0 #d23440;
+      touch-action: pan-y;
+    }
+
+    .books-cluster { top: 5%; left: 3%; width: 46%; height: 24%; }
+    .films-cluster { top: 6%; right: 0; width: 52%; height: 25%; }
+    .photos-cluster { bottom: 4%; left: 2%; width: 46%; height: 31%; }
+    .tech-cluster { right: 0; bottom: 8%; width: 48%; height: 25%; }
+    .inspiration-cluster { top: 38%; left: 23%; width: 54%; height: 28%; }
+    .film-strip { inset-inline: -4%; }
+    .board-note { display: none; }
+    .board-whisper { right: 4%; bottom: 0.7%; font-size: 0.5rem; }
+
     .about-heading {
       margin-bottom: 1.4rem;
     }
@@ -1797,10 +2123,14 @@ const email = "ilyastorun.dev@gmail.com";
     .contribution-grid i,
     .app-icon,
     .app-info,
+    .board-cluster,
+    .tech-stack i,
     .live-preview,
     .live-preview iframe,
     .preview-screen,
     .preview-scroll-hint { transition: none; }
+
+    .film-strip-track { animation: none; }
 
   }
 </style>

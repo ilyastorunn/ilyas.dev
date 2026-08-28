@@ -2,6 +2,32 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-08-28 — Give the Tech stack room and real labels
+
+- Moved Cave's Tech stack to the board's far-right side and raised it from the lower edge, preserving more open space for its five-card hover/focus expansion on desktop and mobile.
+- Replaced the generic HW/iOS/Web/Tools/Code labels with the owner's current working set: MacBook, Xcode, Swift, React, and Codex. Verification: Astro check, the empty test suite, production build, and `git diff --check` passed; Wrangler emitted its known sandbox-only log-file permission warning. Deployment: none.
+
+## 2026-08-28 — Build Cave's Books cluster as a physical shelf
+
+- Replaced the symbolic books-on-a-line treatment with a perspective wooden shelf made from a grained dimensional plank and two visible wall brackets. Six independently proportioned volumes now include muted cloth/paper covers, spine rules, inset shadows, exposed page blocks, subtle wear, and individual resting angles.
+- Hovering a volume pulls it upward and toward the viewer while the full shelf remains one draggable board object. Titles remain numbered placeholders until the owner supplies real books. Verification: Astro check, the empty test suite, production build, and `git diff --check` passed; Wrangler emitted its known sandbox-only log-file permission warning. Deployment: none.
+
+## 2026-08-28 — Give Cave photographs physical postage-stamp form
+
+- Rebuilt the Photos cluster as nine individually mounted postage stamps rather than a generic dotted grid. Each placeholder now has a serrated silhouette, warm fibrous paper, inset printed-image well, denomination/index, date line, print grain, cast shadow, independent rotation, and selective cancellation ring.
+- Kept the actual photography deliberately empty: the muted scenic color fields establish print behavior without pretending to be owner photographs and can be replaced directly when source images arrive. Verification: Astro check, the empty test suite, production build, and `git diff --check` passed; Wrangler emitted its known sandbox-only log-file permission warning. Deployment: none.
+
+## 2026-08-28 — Recast watched films as an analog film strip
+
+- Replaced Cave's circular poster orbit with a physical horizontal film strip: dark translucent stock, orange edge exposure, top and bottom sprocket holes, and ten distinct placeholder frames duplicated for a seamless developing-loop motion.
+- Hover pauses the strip and brings a frame forward with a reserved title, rating, and one-line note treatment. Reduced motion leaves the strip stationary, and the cluster remains independently draggable with the rest of the board. No film titles or opinions were invented. Verification: Astro check, the empty test suite, production build, and `git diff --check` passed; Wrangler emitted its known sandbox-only log-file permission warning. Deployment: none.
+
+## 2026-08-28 — Turn Cave into a movable personal board
+
+- Superseded the category-selector/archive-preview experiment with a freeform cork board containing five independently movable clusters: a physical Books shelf, ten-poster Last watched orbit, 3×3 Photos stamp sheet, expanding Tech stack, and loose Inspiration fragments.
+- Added bounded pointer dragging, arrow-key movement, active-layer elevation, resize clamping, mobile-safe vertical panning, responsive initial positions, handwritten edge annotations, and reduced-motion handling. Film posters orbit slowly only when motion is allowed; Tech cards spread outward only on hover/focus.
+- Kept the foundation dependency-free and avoided inventing personal content. Film titles, ratings, notes, photographs, book covers, inspiration sources, and real hardware/software remain explicit placeholders until supplied by the owner; Three.js remains deferred to a specific preview that demonstrates the need. Observed the initial board at 1440×900, verified a real pointer drag of the Books shelf completed within bounds, and observed the clean 390×844 composition. Verification: Astro check passed with 0 diagnostics, the empty test suite passed, the Cloudflare production build completed, and `git diff --check` passed. Wrangler emitted its known sandbox-only log-file permission warning. Deployment: none.
+
 ## 2026-08-28 — Rename the opening destination to Home
 
 - Renamed the first two navigation labels from Work/About to Home/About me. The opening Spider-Man card is now explicitly treated as a welcome cover rather than a work section; professional work continues to live in the About me bento until a dedicated projects destination is designed.
