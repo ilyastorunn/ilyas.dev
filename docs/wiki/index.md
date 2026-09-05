@@ -4,9 +4,9 @@ This is the durable, source-aware briefing for the repository as the portfolio i
 
 ## Current status
 
-The rebuilt `/` route uses a full-width visual hero inside the quiet white portfolio canvas. Work, About, and the new empty Cave canvas share one pinned transition viewport: native scrolling continuously recedes the current card while the next rises over it, then leaves only the active card visible. About contains the current asymmetric comic-scrapbook bento; Cave is intentionally blank pending its design direction. The Spider-Verse image is color-graded toward the owner's darker vertical reference and served from a 2× project asset.
+The rebuilt `/` route uses a full-width comic-led hero and a pinned native-scroll transition through the asymmetric About scrapbook and movable Cave cork board. Cave contains the owner's books, watched films, photograph stamps, three-item Tech stack, and an Inspiration placeholder.
 
-The hero and first card transition have been verified locally at desktop and mobile widths and have not been deployed.
+The complete current site was deployed to Cloudflare Workers on 2026-08-30 and is live at `ilyastorun.site` and `www.ilyastorun.site`.
 
 The local Git history is preserved. The checkout is connected to `https://github.com/ilyastorunn/ilyas.dev.git` as the `origin` fetch and push remote, verified on 2026-08-27.
 
