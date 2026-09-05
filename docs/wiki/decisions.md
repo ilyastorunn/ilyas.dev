@@ -2,6 +2,12 @@
 
 Durable decisions are reverse chronological. “Owner” means an explicit decision by İlyas.
 
+## 2026-09-05 — Implement the approved shadow-free Cave comic design
+
+**Status:** owner approved; local implementation
+
+The approved Imagegen reference is saved at `docs/design/cave-approved.png`. Preserve its layout closely while using actual owner media. Remove all colored offset shadows, the cork board, Tools and Coming soon. Photographs lift on hover and flip on click, exposing handwritten notes. Film perforations travel with the strip. Books use real Three.js geometry and owner-supplied cover photos; physical measurements are not available, so exact dimensions remain unresolved. A monochrome comic version of the supplied Virgil Abloh portrait and the exact supplied quote fill the Inspiration panel. No deployment was authorized.
+
 ## 2026-08-26 — Establish About as an asymmetric comic bento
 
 **Status:** verified foundation; content unresolved

@@ -1,5 +1,22 @@
 # Implementation status
 
+## 2026-09-05 — Cave comic archive (deployed 2026-09-05)
+
+- `src/components/Cave.astro` replaces the movable cork board with the approved `docs/design/cave-approved.png` layout: a large left photo panel, upper-right film strip, books below, and a single Inspiration portrait/quote panel. Colored offset shadows and Tech/Coming soon content are removed.
+- Cave content lives in `src/content/data/cave.ts`. Existing photographs, book editions, film titles and ratings are preserved. No content collection schema is active.
+- Photos use the previous coarse postage-stamp edge, with the existing short note handwritten below each image on the front. Hover lift and click/Enter flip remain available for reverse notes/location; Escape restores the front. Reduced motion uses a direct face change. Selected 3D books are scaled down and raised above the controls so their entire cover remains visible.
+- Film perforations, frame numbers and posters share one translating track. Pointer dragging, hover/focus pause, explicit pause, arrow keys, and reduced motion are supported. Animation stops while the Cave card is inactive or the tab is hidden.
+- `src/scripts/cave-books.ts` loads Three.js only on Cave entry or shelf interaction. Actual front/back/spine textures cover separate rounded cover boards, curved spines and page blocks. Selection brings a book forward for pointer or keyboard rotation; Escape returns focus. Photographic spine buttons remain as WebGL fallback. Book proportions use photographed aspect ratios and estimated relative heights, not measured physical dimensions.
+- The owner's Virgil portrait was edited with built-in Imagegen; asset and prompt provenance are in `docs/design/cave-artwork.md`. The exact owner-supplied quote is selectable HTML.
+- Desktop and mobile use independent layouts. A no-JavaScript fallback exposes the stacked cards and archive content.
+- Local Chrome verification covered desktop 1672×941 and mobile 390×844, photo flip/Escape, film motion/pause, book selection/keyboard return, reduced motion, no horizontal overflow, no-JavaScript visibility and no page errors. No screen-reader or production-performance audit was performed. Three.js emits a large-chunk advisory but is dynamically loaded.
+
+Production version `82990b59-4070-431f-a8bd-9d23d6ee415b` includes the final nine captions verbatim. Both custom domains returned HTTPS 200 and the exact caption sequence after deployment.
+
+## Earlier implementation notes
+
+The following describes earlier milestones; the Cave section above supersedes conflicting scaffolding/content-removal statements.
+
 ## Verified current state
 
 - The previous portfolio implementation has been removed from the working tree.

@@ -2,6 +2,22 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-09-05 — Publish the Cave redesign and final captions
+
+- Replaced all nine photo captions verbatim in row-major order with the owner's final text. Published the full approved Cave redesign via Wrangler to the existing Worker and custom domains, version `82990b59-4070-431f-a8bd-9d23d6ee415b` (18 new/modified assets).
+- Node 24 Astro check passed with no diagnostics; empty Vitest suite and production build passed, with the existing lazy Three.js chunk advisory. Both `ilyastorun.site` and `www.ilyastorun.site` returned HTTPS 200 with all nine captions in the correct order. Python's default user agent received 403; browser-user-agent curl requests succeeded.
+
+## 2026-09-05 — Refine Cave stamps and selected-book framing
+
+- Restored the previous coarse postage-stamp silhouette and placed each existing short note directly below its photograph in handwriting. Preserved reverse/location interaction. Scaled selected 3D books to 78% and raised their center to leave clearance above the control bar.
+- Verification: Node 24 Astro check, empty Vitest suite and production build; desktop/mobile local browser inspection. No deployment.
+
+## 2026-09-05 — Build the approved Cave comic archive
+
+- Replaced the cork board with the owner-approved shadow-free comic composition, saved in `docs/design/cave-approved.png`. Isolated Cave markup/styles, moved editable content into `src/content/data/cave.ts`, preserved owner photos/book textures/film records, removed Tools and Coming soon, and added the supplied Virgil Abloh quote and a built-in Imagegen portrait edit (prompt saved in `docs/design/cave-artwork.md`).
+- Added independent photo hover-lift/click-flip with handwritten backs, a physically unified draggable film strip with pause/keyboard controls, and lazy Three.js books with textured covers, curved spines, page blocks, selection and pointer/keyboard rotation. Added reduced-motion and no-JavaScript fallbacks.
+- Node 24: Astro check passed without diagnostics; Vitest completed successfully with no test files; production build passed with a large dynamically imported Three.js chunk advisory. Local Chrome inspected at 1672×941 and 390×844; photo keyboard flip/Escape, film motion/pause, book selection/return, reduced motion, no-JS archive visibility, no horizontal overflow and no page errors passed. Exact physical book measurements and a production performance audit remain follow-ups. No deployment.
+
 ## 2026-08-30 — Make image-heavy cards arrive with their artwork
 
 - Added explicit Astro image quality and display-sized responsive candidates across Home, About, and Cave; queued the next card's visible images in restrained batches; kept hidden 3D book textures inert until interaction; and stopped the music preview from downloading or attempting autoplay before its play button is used. In a production Worker preview at 390×844 with Slow 4G and 4× CPU, lab LCP improved from the deployed baseline's 13.49 s to 2.01 s with CLS at 0. A full Cave scroll reduced 20-second image transfer from 4.14 MB to 794 KB and pending images from 24 to 1. `npm run check`, the intentionally empty Vitest suite, production build, `git diff --check`, DOM/network assertions, and a mobile Cave visual inspection passed. Deployment: none.

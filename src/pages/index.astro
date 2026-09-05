@@ -10,70 +10,7 @@ import galactusStation from "../assets/galactus-space-station-ff49.webp";
 import reedRichardsWork from "../assets/reed-richards-work.jpg";
 import unscrollIcon from "../assets/unscroll-icon.jpg";
 import mementoIcon from "../assets/memento-icon.jpg";
-import steveJobsFront from "../assets/books/final/steve-jobs-front.webp";
-import steveJobsBack from "../assets/books/final/steve-jobs-back.webp";
-import steveJobsSpine from "../assets/books/final/steve-jobs-spine.webp";
-import pixarBeyondFront from "../assets/books/final/pixar-beyond-front.webp";
-import pixarBeyondBack from "../assets/books/final/pixar-beyond-back.webp";
-import pixarBeyondSpine from "../assets/books/final/pixar-beyond-spine.webp";
-import creativeActFront from "../assets/books/final/creative-act-front.webp";
-import creativeActBack from "../assets/books/final/creative-act-back.webp";
-import creativeActSpine from "../assets/books/final/creative-act-spine.webp";
-import pressResetFront from "../assets/books/final/press-reset-front.webp";
-import pressResetBack from "../assets/books/final/press-reset-back.webp";
-import pressResetSpine from "../assets/books/final/press-reset-spine.webp";
-import hitchhikersGuideFront from "../assets/books/final/hitchhikers-guide-front.webp";
-import hitchhikersGuideBack from "../assets/books/final/hitchhikers-guide-back.webp";
-import hitchhikersGuideSpine from "../assets/books/final/hitchhikers-guide-spine.webp";
-import theOdysseyPoster from "../assets/films/the-odyssey.png";
-import ladiesFirstPoster from "../assets/films/ladies-first.png";
-import theDramaPoster from "../assets/films/the-drama.png";
-import martySupremePoster from "../assets/films/marty-supreme.png";
-import theTwoPopesPoster from "../assets/films/the-two-popes.png";
-import theZoneOfInterestPoster from "../assets/films/the-zone-of-interest.png";
-import aboutEllyPoster from "../assets/films/about-elly.png";
-import nightWatchPhoto from "../assets/photos/night-watch.jpeg";
-import passingByPhoto from "../assets/photos/passing-by.jpeg";
-import slowAfternoonPhoto from "../assets/photos/slow-afternoon.jpeg";
-import coldplayPhoto from "../assets/photos/coldplay.png";
-import lookingUpPhoto from "../assets/photos/looking-up.jpeg";
-import afterClosingPhoto from "../assets/photos/after-closing.jpeg";
-import forTheLovePhoto from "../assets/photos/for-the-love.jpeg";
-import goldenHourPhoto from "../assets/photos/golden-hour.jpeg";
-import wideEyesPhoto from "../assets/photos/wide-eyes.jpeg";
-import macbookProImage from "../assets/tech/macbook-pro.png";
-import codexIcon from "../assets/tech/codex.png";
-import cursorIcon from "../assets/tech/cursor.png";
-
-const shelfBooks = [
-  { slug: "jobs", title: "Steve Jobs", author: "Walter Isaacson", front: steveJobsFront, back: steveJobsBack, spine: steveJobsSpine, height: "94%", width: "10%", rotation: "-3deg", depth: "clamp(0.84rem, 1.3vw, 1.18rem)", previewScale: "1" },
-  { slug: "creative", title: "Yaratıcı Eylem", author: "Rick Rubin", front: creativeActFront, back: creativeActBack, spine: creativeActSpine, height: "86%", width: "6.2%", rotation: "-1deg", depth: "clamp(0.52rem, 0.8vw, 0.72rem)", previewScale: "0.91" },
-  { slug: "pixar", title: "Pixar ve Ötesine", author: "Lawrence Levy", front: pixarBeyondFront, back: pixarBeyondBack, spine: pixarBeyondSpine, height: "86%", width: "8.8%", rotation: "2deg", depth: "clamp(0.74rem, 1.14vw, 1.02rem)", previewScale: "0.91" },
-  { slug: "reset", title: "Reset At", author: "Jason Schreier", front: pressResetFront, back: pressResetBack, spine: pressResetSpine, height: "80%", width: "7.4%", rotation: "0deg", depth: "clamp(0.64rem, 0.98vw, 0.88rem)", previewScale: "0.84" },
-  { slug: "hitchhikers", title: "Otostopçunun Galaksi Rehberi", author: "Douglas Adams", front: hitchhikersGuideFront, back: hitchhikersGuideBack, spine: hitchhikersGuideSpine, height: "90%", width: "11.5%", rotation: "3deg", depth: "clamp(0.95rem, 1.5vw, 1.35rem)", previewScale: "0.96" },
-];
-
-const watchedFilms = [
-  { title: "The Odyssey", rating: 4, poster: theOdysseyPoster },
-  { title: "Ladies First", rating: 1, poster: ladiesFirstPoster },
-  { title: "The Drama", rating: 3.5, poster: theDramaPoster },
-  { title: "Marty Supreme", rating: 3.5, poster: martySupremePoster },
-  { title: "The Two Popes", rating: 4, poster: theTwoPopesPoster },
-  { title: "The Zone of Interest", rating: 3.5, poster: theZoneOfInterestPoster },
-  { title: "About Elly", rating: 3.5, poster: aboutEllyPoster },
-];
-
-const cavePhotos = [
-  { image: passingByPhoto, note: "They’re watching us.", place: "Konya, Türkiye", position: "top" },
-  { image: nightWatchPhoto, note: "Always watching.", place: "Konya, Türkiye", position: "bottom" },
-  { image: forTheLovePhoto, note: "For the love of butts.", place: "Home", position: "bottom" },
-  { image: slowAfternoonPhoto, note: "No plans today.", place: "A slow afternoon", position: "top" },
-  { image: lookingUpPhoto, note: "Look up more often.", place: "İstanbul, Türkiye", position: "bottom" },
-  { image: goldenHourPhoto, note: "The light found a way in.", place: "Golden hour", position: "top" },
-  { image: afterClosingPhoto, note: "After closing.", place: "İstanbul, Türkiye", position: "top" },
-  { image: coldplayPhoto, note: "A little planet in a stadium.", place: "Coldplay", position: "bottom" },
-  { image: wideEyesPhoto, note: "Those eyes.", place: "Home", position: "top" },
-];
+import Cave from "../components/Cave.astro";
 
 const title = "İlyas Torun — Independent Developer";
 const email = "ilyastorun.dev@gmail.com";
@@ -92,6 +29,14 @@ const email = "ilyastorun.dev@gmail.com";
     <title>{title}</title>
   </head>
   <body>
+    <noscript><style is:global>
+      .transition-stage { height: auto !important; }
+      .card-viewport { position: static !important; height: auto !important; overflow: visible !important; }
+      .stack-card, [data-cave-card] { position: relative !important; inset: auto !important; transform: none !important; opacity: 1 !important; margin-block: 1rem !important; min-height: 95svh; }
+      [data-cave-card] { height: 900px; }
+      .film-window { overflow-x: auto !important; }
+      @media (max-width: 768px) { [data-cave-card] { height: auto; } }
+    </style></noscript>
     <div class="card-stack">
       <section class="transition-stage" data-transition-stage>
         <div class="card-viewport" data-card-viewport>
@@ -275,126 +220,7 @@ const email = "ilyastorun.dev@gmail.com";
             </article>
           </div>
         </div>
-        <div class="site-canvas stack-card cave-card" data-cave-card aria-labelledby="cave-title">
-          <header class="cave-heading">
-            <div class="cave-title-lockup"><h2 id="cave-title">Cave!</h2></div>
-          </header>
-
-          <div class="cave-board-wrap">
-          <div class="cave-board" data-cave-board aria-label="A movable personal archive board">
-            <section class="board-cluster books-cluster" data-drag-item tabindex="0" aria-label="Books shelf. Drag to move.">
-              <span class="board-pin" aria-hidden="true"></span>
-              <div class="mini-shelf" aria-hidden="true">
-                <div class="shelf-books">
-                  {shelfBooks.map((book) => (
-                    <button
-                      class={`real-book book-${book.slug}`}
-                      type="button"
-                      style={`--h:${book.height};--w:${book.width};--r:${book.rotation};--book-depth:${book.depth};--preview-scale:${book.previewScale}`}
-                      aria-label={`Show ${book.title} by ${book.author} in 3D`}
-                      aria-pressed="false"
-                      data-book-button
-                      data-no-drag
-                    >
-                      <Image class="shelf-spine-photo" src={book.spine} alt="" loading="lazy" widths={[40, 80, 120]} sizes="(max-width: 768px) 28px, 36px" quality="mid" />
-                      <template data-book-preview-template>
-                        <span class="book-preview" aria-hidden="true">
-                          <span class="book-model">
-                            <span class="book-face book-front"><Image src={book.front} alt="" loading="eager" widths={[160, 240, 320]} sizes="(max-width: 768px) 112px, 152px" quality="mid" /></span>
-                            <span class="book-face book-back"><Image src={book.back} alt="" loading="eager" widths={[160, 240, 320]} sizes="(max-width: 768px) 112px, 152px" quality="mid" /></span>
-                            <span class="book-face book-spine"><Image src={book.spine} alt="" loading="eager" widths={[40, 80, 120]} sizes="24px" quality="mid" /></span>
-                            <span class="book-pages"></span>
-                          </span>
-                          <strong>{book.title}</strong>
-                        </span>
-                      </template>
-                    </button>
-                  ))}
-                </div>
-                <b class="shelf-plank"></b>
-              </div>
-              <ul class="sr-only">
-                <li>Steve Jobs by Walter Isaacson</li>
-                <li>The Creative Act: A Way of Being by Rick Rubin</li>
-                <li>To Pixar and Beyond by Lawrence Levy</li>
-                <li>Press Reset: Ruin and Recovery in the Video Game Industry by Jason Schreier</li>
-                <li>The Hitchhiker's Guide to the Galaxy by Douglas Adams</li>
-              </ul>
-            </section>
-
-            <section class="board-cluster films-cluster" data-drag-item tabindex="0" aria-label="Recently watched films. Drag to move.">
-              <span class="board-pin" aria-hidden="true"></span>
-              <div class="film-strip">
-                <div class="film-strip-track">
-                  {[0, 1].map((copyIndex) => watchedFilms.map((film, index) => (
-                    <i
-                      class="film-frame"
-                      style={`--frame:${index}`}
-                      aria-label={copyIndex === 0 ? `${film.title}, rated ${film.rating} out of 5` : undefined}
-                      aria-hidden={copyIndex === 1 ? "true" : undefined}
-                      data-film-frame
-                      data-film-title={film.title}
-                      data-film-rating={film.rating}
-                    >
-                      <Image src={film.poster} alt="" loading="lazy" widths={[96, 160, 240]} sizes="(max-width: 768px) 68px, 102px" quality="mid" />
-                      <span>{String(index + 1).padStart(2, "0")}</span>
-                    </i>
-                  )))}
-                </div>
-              </div>
-              <div class="film-hover-preview" data-film-hover-preview aria-hidden="true">
-                <img data-film-preview-image alt="" />
-                <span class="film-stars" aria-hidden="true">
-                  {Array.from({ length: 5 }, () => <i>★</i>)}
-                </span>
-              </div>
-            </section>
-
-            <section class="board-cluster photos-cluster" data-drag-item tabindex="0" aria-label="Photograph stamp sheet. Drag to move.">
-              <span class="board-pin" aria-hidden="true"></span>
-              <div class="stamp-sheet">
-                {cavePhotos.map((photo, index) => (
-                  <button
-                    class={`photo-stamp stamp-${index + 1} note-${photo.position}`}
-                    type="button"
-                    style={`--stamp:${index}`}
-                    aria-label={`${photo.note} ${photo.place}`}
-                    data-photo-open
-                    data-no-drag
-                  >
-                    <span class="stamp-photo">
-                      <Image class="stamp-image" src={photo.image} alt="" loading="lazy" widths={[120, 180, 240]} sizes="(max-width: 768px) 72px, 90px" quality="mid" />
-                      <span class="stamp-note"><b>{photo.note}</b><em>{photo.place}</em></span>
-                    </span>
-                    <small><b>{String(index + 1).padStart(2, "0")}</b><em>ILYAS · 2026</em></small>
-                  </button>
-                ))}
-              </div>
-              <button class="photos-collapse" type="button" data-photo-collapse data-no-drag aria-label="Close enlarged photographs">×</button>
-            </section>
-
-            <section class="board-cluster tech-cluster" data-drag-item tabindex="0" aria-label="Technology stack. Drag to move.">
-              <span class="board-pin" aria-hidden="true"></span>
-              <div class="tech-stack" aria-hidden="true">
-                <i class="tech-macbook"><Image src={macbookProImage} alt="" loading="lazy" widths={[240, 360, 480]} sizes="(max-width: 768px) 220px, 320px" quality="mid" /></i>
-                <i class="tech-codex"><Image src={codexIcon} alt="" loading="lazy" widths={[96, 160, 240]} sizes="(max-width: 768px) 100px, 140px" quality="mid" /></i>
-                <i class="tech-cursor"><Image src={cursorIcon} alt="" loading="lazy" widths={[96, 160, 240]} sizes="(max-width: 768px) 96px, 132px" quality="mid" /></i>
-              </div>
-            </section>
-
-            <section class="board-cluster inspiration-cluster" data-drag-item tabindex="0" aria-label="Inspiration fragments. Drag to move.">
-              <span class="board-pin" aria-hidden="true"></span>
-              <div class="inspiration-fragments" aria-hidden="true">
-                <i class="portrait-fragment">?</i>
-                <blockquote>Words worth keeping close.</blockquote>
-                <i class="reference-fragment"></i>
-              </div>
-              <span class="coming-soon">Coming soon</span>
-            </section>
-
-          </div>
-          </div>
-        </div>
+        <Cave />
         </div>
       </section>
     </div>
@@ -579,182 +405,6 @@ const email = "ilyastorun.dev@gmail.com";
         musicAudio.addEventListener("pause", () => setMusicState(false));
       }
 
-      const caveBoard = document.querySelector<HTMLElement>("[data-cave-board]");
-      const dragItems = [...document.querySelectorAll<HTMLElement>("[data-drag-item]")];
-      const bookButtons = [...document.querySelectorAll<HTMLButtonElement>("[data-book-button]")];
-      const photosCluster = document.querySelector<HTMLElement>(".photos-cluster");
-      const photoOpenButtons = [...document.querySelectorAll<HTMLButtonElement>("[data-photo-open]")];
-      const photoCollapseButton = document.querySelector<HTMLButtonElement>("[data-photo-collapse]");
-
-      const closePhotoSheet = () => {
-        photosCluster?.classList.remove("is-expanded");
-        photosCluster?.setAttribute("aria-label", "Photograph stamp sheet. Drag to move or select a photograph to enlarge.");
-      };
-
-      photoOpenButtons.forEach((button) => {
-        button.addEventListener("pointerdown", (event) => event.stopPropagation());
-        button.addEventListener("keydown", (event) => event.stopPropagation());
-        button.addEventListener("click", () => {
-          if (!photosCluster?.classList.contains("is-expanded")) {
-            photosCluster?.classList.add("is-expanded");
-            photosCluster?.setAttribute("aria-label", "Enlarged photograph stamp sheet. Select a photograph to read its note.");
-          }
-        });
-      });
-
-      photoCollapseButton?.addEventListener("pointerdown", (event) => event.stopPropagation());
-      photoCollapseButton?.addEventListener("click", closePhotoSheet);
-      addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && photosCluster?.classList.contains("is-expanded")) {
-          closePhotoSheet();
-          photoOpenButtons[0]?.focus();
-        }
-      });
-
-      bookButtons.forEach((button) => {
-        const ensureBookPreview = () => {
-          const existingPreview = button.querySelector<HTMLElement>(".book-preview");
-          if (existingPreview) return existingPreview;
-          const template = button.querySelector<HTMLTemplateElement>("[data-book-preview-template]");
-          if (!template) return null;
-
-          button.append(template.content.cloneNode(true));
-          template.remove();
-          const preview = button.querySelector<HTMLElement>(".book-preview");
-          const model = preview?.querySelector<HTMLElement>(".book-model");
-
-          preview?.addEventListener("pointermove", (event) => {
-            if (!model || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-            const bounds = preview.getBoundingClientRect();
-            const x = Math.min(Math.max((event.clientX - bounds.left) / bounds.width, 0), 1);
-            const y = Math.min(Math.max((event.clientY - bounds.top) / bounds.height, 0), 1);
-            model.style.setProperty("--book-rotate-y", `${-14 + (x - 0.5) * 18}deg`);
-            model.style.setProperty("--book-rotate-x", `${(y - 0.5) * -8}deg`);
-          });
-
-          preview?.addEventListener("pointerleave", () => {
-            model?.style.removeProperty("--book-rotate-y");
-            model?.style.removeProperty("--book-rotate-x");
-          });
-
-          return preview ?? null;
-        };
-
-        button.addEventListener("pointerdown", (event) => event.stopPropagation());
-        button.addEventListener("keydown", (event) => event.stopPropagation());
-        button.addEventListener("pointerenter", ensureBookPreview, { once: true });
-        button.addEventListener("focus", ensureBookPreview, { once: true });
-        button.addEventListener("click", () => {
-          ensureBookPreview();
-          const willOpen = !button.classList.contains("is-open");
-          bookButtons.forEach((candidate) => {
-            candidate.classList.remove("is-open");
-            candidate.setAttribute("aria-pressed", "false");
-          });
-          if (willOpen) {
-            button.classList.add("is-open");
-            button.setAttribute("aria-pressed", "true");
-          }
-        });
-      });
-
-      const filmsCluster = document.querySelector<HTMLElement>(".films-cluster");
-      const filmPreview = document.querySelector<HTMLElement>("[data-film-hover-preview]");
-      const filmPreviewImage = filmPreview?.querySelector<HTMLImageElement>("[data-film-preview-image]");
-      const filmStars = [...(filmPreview?.querySelectorAll<HTMLElement>(".film-stars i") ?? [])];
-      const filmFrames = [...document.querySelectorAll<HTMLElement>("[data-film-frame]")];
-
-      filmFrames.forEach((frame) => {
-        frame.addEventListener("pointerenter", () => {
-          if (!filmsCluster || !filmPreview || !filmPreviewImage) return;
-          const sourceImage = frame.querySelector<HTMLImageElement>("img");
-          const rating = Number.parseFloat(frame.dataset.filmRating ?? "0");
-          const frameBounds = frame.getBoundingClientRect();
-          const clusterBounds = filmsCluster.getBoundingClientRect();
-          const center = frameBounds.left + frameBounds.width / 2 - clusterBounds.left;
-          const safeCenter = Math.min(Math.max(center, clusterBounds.width * 0.17), clusterBounds.width * 0.83);
-
-          filmPreviewImage.src = sourceImage?.currentSrc || sourceImage?.src || "";
-          filmPreview.style.left = `${safeCenter}px`;
-          filmPreview.setAttribute("data-visible", "true");
-          filmStars.forEach((star, index) => {
-            const fill = Math.min(Math.max(rating - index, 0), 1) * 100;
-            star.style.setProperty("--star-fill", `${fill}%`);
-          });
-        });
-
-        frame.addEventListener("pointerleave", () => {
-          filmPreview?.removeAttribute("data-visible");
-        });
-      });
-
-      if (caveBoard) {
-        let topLayer = 10;
-        const keepItemsInsideBoard = () => {
-          dragItems.forEach((item) => {
-            if (!item.style.left && !item.style.top) return;
-            const maxX = Math.max(caveBoard.clientWidth - item.offsetWidth, 0);
-            const maxY = Math.max(caveBoard.clientHeight - item.offsetHeight, 0);
-            item.style.left = `${Math.min(Math.max(Number.parseFloat(item.style.left) || 0, 0), maxX)}px`;
-            item.style.top = `${Math.min(Math.max(Number.parseFloat(item.style.top) || 0, 0), maxY)}px`;
-          });
-        };
-
-        dragItems.forEach((item) => {
-          item.addEventListener("pointerdown", (event) => {
-            if (event.button !== 0 || (event.target as Element).closest("[data-no-drag]")) return;
-            const boardBounds = caveBoard.getBoundingClientRect();
-            const itemBounds = item.getBoundingClientRect();
-            const startX = event.clientX;
-            const startY = event.clientY;
-            const originX = itemBounds.left - boardBounds.left;
-            const originY = itemBounds.top - boardBounds.top;
-            const maxX = Math.max(boardBounds.width - itemBounds.width, 0);
-            const maxY = Math.max(boardBounds.height - itemBounds.height, 0);
-            item.setPointerCapture(event.pointerId);
-            item.classList.add("is-dragging");
-            item.style.zIndex = String(++topLayer);
-
-            const move = (moveEvent: PointerEvent) => {
-              const x = Math.min(Math.max(originX + moveEvent.clientX - startX, 0), maxX);
-              const y = Math.min(Math.max(originY + moveEvent.clientY - startY, 0), maxY);
-              item.style.left = `${x}px`;
-              item.style.top = `${y}px`;
-              item.style.right = "auto";
-              item.style.bottom = "auto";
-            };
-
-            const finish = () => {
-              item.classList.remove("is-dragging");
-              item.removeEventListener("pointermove", move);
-              item.removeEventListener("pointerup", finish);
-              item.removeEventListener("pointercancel", finish);
-            };
-
-            item.addEventListener("pointermove", move);
-            item.addEventListener("pointerup", finish);
-            item.addEventListener("pointercancel", finish);
-          });
-
-          item.addEventListener("keydown", (event) => {
-            const movement = { ArrowLeft: [-10, 0], ArrowRight: [10, 0], ArrowUp: [0, -10], ArrowDown: [0, 10] }[event.key];
-            if (!movement) return;
-            event.preventDefault();
-            const boardBounds = caveBoard.getBoundingClientRect();
-            const itemBounds = item.getBoundingClientRect();
-            const currentX = itemBounds.left - boardBounds.left;
-            const currentY = itemBounds.top - boardBounds.top;
-            const maxX = Math.max(caveBoard.clientWidth - item.offsetWidth, 0);
-            const maxY = Math.max(caveBoard.clientHeight - item.offsetHeight, 0);
-            item.style.left = `${Math.min(Math.max(currentX + movement[0], 0), maxX)}px`;
-            item.style.top = `${Math.min(Math.max(currentY + movement[1], 0), maxY)}px`;
-            item.style.right = "auto";
-            item.style.bottom = "auto";
-            item.style.zIndex = String(++topLayer);
-          });
-        });
-        addEventListener("resize", keepItemsInsideBoard);
-      }
     </script>
   </body>
 </html>
@@ -815,169 +465,6 @@ const email = "ilyastorun.dev@gmail.com";
     z-index: 2;
     transform: translateY(108%);
   }
-
-  .site-canvas.cave-card {
-    z-index: 3;
-    display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
-    gap: clamp(1rem, 2vw, 1.8rem);
-    transform: translateY(108%);
-    background: #e9e5ef;
-    color: #272230;
-    box-shadow: 0 1.75rem 5rem rgb(32 29 39 / 14%);
-  }
-
-  .cave-heading { display: block; }
-  .cave-title-lockup { position: relative; isolation: isolate; width: fit-content; padding: 0.08rem 0.75rem 0.12rem 0.12rem; }
-  .cave-title-lockup::before { position: absolute; z-index: -1; inset: 17% -0.2rem 3% -0.35rem; background: #45c4d6; content: ""; clip-path: polygon(1% 16%, 98% 0, 100% 80%, 3% 100%, 0 68%); transform: rotate(1.2deg); }
-  .cave-heading h2 { margin: 0; color: #272230; font-size: clamp(2.8rem, 5.4vw, 5.8rem); font-style: italic; font-weight: 820; letter-spacing: -0.07em; line-height: 0.82; text-transform: uppercase; }
-
-  .cave-board-wrap { position: relative; min-height: 0; }
-
-  .cave-board {
-    position: relative;
-    height: 100%;
-    min-height: 0;
-    overflow: visible;
-    border: 0.75rem solid #6b4a32;
-    border-radius: clamp(1rem, 2vw, 1.7rem);
-    background:
-      radial-gradient(circle, rgb(74 47 30 / 16%) 0 1px, transparent 1.5px) 0 0 / 9px 9px,
-      linear-gradient(145deg, rgb(255 255 255 / 12%), transparent 46%),
-      #caa77b;
-    box-shadow: inset 0 0 0 2px #272230, inset 0 0 3rem rgb(70 42 27 / 17%), 0.7rem 0.7rem 0 #d23440;
-    touch-action: none;
-  }
-
-  .cave-board::after {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(8deg, transparent 0 18px, rgb(74 47 30 / 3%) 19px 20px);
-    content: "";
-    pointer-events: none;
-  }
-
-  .board-cluster {
-    position: absolute;
-    z-index: 2;
-    color: #272230;
-    cursor: grab;
-    user-select: none;
-    will-change: left, top, transform;
-    transition: filter 180ms ease, transform 180ms ease;
-  }
-
-  .board-cluster:is(:hover, :focus-visible) { z-index: 8; filter: drop-shadow(0 0.8rem 0.55rem rgb(39 34 48 / 20%)); }
-  .board-cluster.is-dragging { cursor: grabbing; filter: drop-shadow(0 1.2rem 0.65rem rgb(39 34 48 / 28%)); transform: scale(1.035) rotate(0deg); transition: filter 120ms ease, transform 120ms ease; }
-  .board-cluster h3 { position: absolute; margin: 0; padding: 0.28rem 0.45rem 0.24rem; border: 2px solid #272230; background: #fffaf0; font-family: "Arial Black", sans-serif; font-size: clamp(0.54rem, 0.78vw, 0.76rem); line-height: 1; text-transform: uppercase; }
-
-  .board-pin { position: absolute; z-index: 9; top: -0.2rem; left: 50%; width: 0.85rem; aspect-ratio: 1; border: 2px solid #272230; border-radius: 50%; background: #d23440; box-shadow: 0 2px 2px rgb(39 34 48 / 28%); transform: translateX(-50%); }
-
-  .books-cluster { top: 7%; left: 3%; width: 28%; height: 34%; transform: rotate(-2deg); }
-  .mini-shelf { position: absolute; inset: 6% -4% 16%; filter: drop-shadow(0 0.65rem 0.35rem rgb(39 34 48 / 30%)); perspective: 34rem; }
-  .shelf-books { position: absolute; right: 8%; bottom: 18%; left: 8%; display: flex; height: 80%; gap: 1.5%; align-items: end; justify-content: center; padding-inline: 3%; border-bottom: 2px solid #2d1a12; }
-  .shelf-books > i, .shelf-books > .real-book { position: relative; display: block; width: var(--w); height: var(--h); flex: 0 0 var(--w); border: 1px solid #291c18; border-radius: 2px 3px 1px 2px; background: linear-gradient(90deg, rgb(255 255 255 / 16%), transparent 12% 72%, rgb(26 15 12 / 24%)), repeating-linear-gradient(0deg, transparent 0 12px, rgb(255 246 218 / 5%) 13px), var(--book); box-shadow: inset 0.16rem 0 0 rgb(255 255 255 / 10%), inset -0.16rem 0 0 rgb(22 13 11 / 20%), 0.12rem 0.12rem 0.14rem rgb(34 20 14 / 32%); transform: rotate(var(--r)) translateY(0); transform-origin: bottom center; transition: filter 180ms ease, transform 220ms cubic-bezier(.2,.8,.2,1); }
-  .real-book { padding: 0; color: inherit; cursor: pointer; appearance: none; }
-  .shelf-spine-photo { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: inherit; object-fit: fill; object-position: center; }
-  .shelf-books i::before, .shelf-books i::after { position: absolute; right: 8%; left: 8%; height: 1px; background: rgb(238 213 163 / 60%); content: ""; } .shelf-books i::before { top: 8%; } .shelf-books i::after { bottom: 8%; }
-  .shelf-books i span { position: absolute; inset: 11% 13%; display: flex; overflow: hidden; align-items: center; justify-content: space-between; color: #24201d; font: 700 clamp(0.22rem, 0.31vw, 0.31rem)/1 Georgia, serif; letter-spacing: 0.025em; text-align: center; text-orientation: mixed; writing-mode: vertical-rl; }
-  .shelf-books i span b, .shelf-books i span em { font: inherit; } .shelf-books i span em { font-size: 0.76em; font-style: normal; opacity: 0.82; }
-  .shelf-books i small { position: absolute; top: 0; right: -3px; width: 3px; height: 100%; background: repeating-linear-gradient(0deg, #b9a98e 0 2px, #e5d9c1 3px 4px); opacity: 0.72; }
-  .shelf-books > i:hover, .real-book:is(:hover, :focus-visible, .is-open) { z-index: 3; filter: brightness(1.06) saturate(1.04); outline: none; transform: rotate(0deg) translateY(-22%) translateZ(1.5rem) scale(1.05); }
-  .book-preview { position: absolute; z-index: 20; bottom: -18%; left: calc(100% + 0.18rem); display: grid; visibility: hidden; width: clamp(7rem, 10vw, 9.5rem); aspect-ratio: 0.72; opacity: 0; perspective: 42rem; pointer-events: none; place-items: end center; transform: translateX(-0.55rem) scale(0.72); transform-origin: bottom left; transition: visibility 0s linear 180ms, opacity 180ms ease, transform 260ms cubic-bezier(.2,.8,.2,1); }
-  .book-preview::before { position: absolute; top: 0; right: 100%; bottom: 0; width: 0.5rem; content: ""; }
-  .real-book:is(:hover, :focus-visible, .is-open) .book-preview { visibility: visible; opacity: 1; pointer-events: auto; transform: translateX(0) scale(var(--preview-scale)); transition-delay: 0s; }
-  .book-preview > strong { position: absolute; right: -12%; bottom: -10%; left: -12%; padding: 0.3rem 0.4rem; border: 2px solid #272230; background: #fffaf0; box-shadow: 0.22rem 0.22rem 0 #d23440; color: #272230; font: 700 clamp(0.42rem, 0.58vw, 0.58rem)/1.05 "Arial Black", sans-serif; text-align: center; text-transform: uppercase; transform: rotate(-2deg); }
-  .book-model { --book-rotate-x:2deg; --book-rotate-y:-28deg; position: absolute; top: 0; left: 50%; width: 78%; height: 88%; transform: translateX(-50%) rotateX(var(--book-rotate-x)) rotateY(var(--book-rotate-y)); transform-style: preserve-3d; transition: transform 520ms cubic-bezier(.2,.8,.2,1); will-change: transform; }
-  .real-book:is(:hover, :focus-visible, .is-open) .book-model { --book-rotate-x:1deg; --book-rotate-y:-14deg; }
-  .book-face, .book-pages { position: absolute; display: block; overflow: hidden; border: 1px solid rgb(26 20 17 / 52%); backface-visibility: hidden; }
-  .book-face img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(1.015); }
-  .book-front, .book-back { inset: 0; background: #ddd2bc; }
-  .book-front { transform: translateZ(calc(var(--book-depth) / 2)); }
-  .book-back { transform: rotateY(180deg) translateZ(calc(var(--book-depth) / 2)); }
-  .book-spine { top: 0; bottom: 0; left: calc(var(--book-depth) / -2); width: var(--book-depth); background: #ddd2bc; transform: rotateY(-90deg); }
-  .book-spine img { transform: none; }
-  .book-pages { top: 2%; right: calc(var(--book-depth) / -2); bottom: 2%; width: var(--book-depth); background: repeating-linear-gradient(0deg, #d8cdb9 0 2px, #eee5d5 3px 4px); transform: rotateY(90deg); }
-  .shelf-plank { position: absolute; z-index: 4; right: 0; bottom: 5%; left: 0; display: block; height: 18%; border: 1px solid #2f1c12; background: repeating-linear-gradient(7deg, transparent 0 8px, rgb(54 28 15 / 15%) 9px 10px), linear-gradient(#97653f, #623b24 63%, #432617 64%); box-shadow: inset 0 2px rgb(255 235 187 / 20%); transform: rotateX(50deg); transform-origin: top; }
-  .mini-shelf::before, .mini-shelf::after { position: absolute; z-index: -1; bottom: -3%; width: 14%; height: 24%; border: 1px solid #2a1912; background: linear-gradient(90deg, #3c2518, #765038 48%, #2e1b12); clip-path: polygon(0 0, 100% 0, 72% 100%, 28% 100%); content: ""; }
-  .mini-shelf::before { left: 12%; } .mini-shelf::after { right: 12%; }
-
-  .films-cluster { top: 8%; right: 6%; width: 42%; height: 31%; transform: rotate(2deg); }
-  .film-strip { position: absolute; inset: 9% -8% 17%; overflow: hidden; border: 2px solid #171219; background: #241111; box-shadow: 0.35rem 0.45rem 0.45rem rgb(39 34 48 / 28%); transform: perspective(30rem) rotateY(-2deg) skewY(-1deg); }
-  .film-strip::before, .film-strip::after { position: absolute; z-index: 3; right: 0; left: 0; height: 8%; background: repeating-linear-gradient(90deg, transparent 0 0.28rem, #e6b76b 0.28rem 0.56rem, transparent 0.56rem 0.82rem), #3a1714; content: ""; pointer-events: none; }
-  .film-strip::before { top: 0; border-bottom: 1px solid #d77731; } .film-strip::after { bottom: 0; border-top: 1px solid #d77731; }
-  .film-strip-track { position: absolute; top: 8%; bottom: 8%; left: 0; display: flex; width: max-content; animation: film-strip-roll 50s linear infinite; }
-  .film-strip:is(:hover) .film-strip-track { animation-play-state: paused; }
-  .film-frame { position: relative; flex: 0 0 clamp(4.2rem, 6.3vw, 6.4rem); height: 100%; overflow: hidden; border-inline: 2px solid #bd5a2c; background: #160b0b; box-shadow: inset 0 0 1.2rem #13090a; transition: filter 180ms ease, transform 180ms ease; }
-  .film-frame > img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; filter: saturate(0.84) contrast(1.08) sepia(0.08); transition: filter 180ms ease, transform 260ms cubic-bezier(.2,.8,.2,1); }
-  .film-frame::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(255 141 55 / 16%), transparent 18% 82%, rgb(255 141 55 / 12%)), repeating-linear-gradient(0deg, transparent 0 0.32rem, rgb(255 244 203 / 5%) 0.34rem); content: ""; }
-  .film-frame > span { position: absolute; z-index: 2; right: 0.2rem; bottom: 0.16rem; color: #ffe1a5; font: 700 clamp(0.38rem, 0.5vw, 0.48rem)/1 ui-monospace, monospace; }
-  .film-frame:hover { z-index: 4; filter: brightness(1.08); }
-  .film-frame:hover > img { filter: saturate(1) contrast(1.05); }
-  .film-hover-preview { position: absolute; z-index: 12; top: 46%; left: 50%; visibility: hidden; width: clamp(7rem, 10vw, 9.5rem); aspect-ratio: 2 / 3; border: 2px solid #2b1714; background: #160b0b; box-shadow: 0.5rem 0.65rem 1rem rgb(28 12 10 / 42%); opacity: 0; pointer-events: none; transform: translate(-50%, -50%) scale(0.72) rotate(-1deg); transform-origin: center; transition: visibility 0s linear 180ms, opacity 160ms ease, transform 240ms cubic-bezier(.2,.8,.2,1); }
-  .film-hover-preview[data-visible="true"] { visibility: visible; opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(-1deg); transition-delay: 0s; }
-  .film-hover-preview > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-  .film-hover-preview::after { position: absolute; inset: 0; border: 1px solid rgb(255 195 104 / 32%); background: linear-gradient(rgb(22 7 7 / 58%), transparent 23%), repeating-linear-gradient(0deg, transparent 0 4px, rgb(255 244 203 / 3%) 5px); content: ""; pointer-events: none; }
-  .film-stars { position: absolute; z-index: 2; top: -0.9rem; left: 50%; display: flex; gap: 0.16rem; transform: translate(-50%, -100%); }
-  .film-stars i { background: linear-gradient(90deg, #f4ce2f var(--star-fill, 0%), transparent var(--star-fill, 0%)); background-clip: text; color: transparent; filter: drop-shadow(0 1px 0 rgb(42 24 9 / 52%)); font: normal clamp(0.78rem, 1.15vw, 1.12rem)/1 Georgia, serif; -webkit-background-clip: text; -webkit-text-stroke: 0.65px #f4ce2f; }
-  .film-stars i:nth-child(1), .film-stars i:nth-child(5) { transform: translateY(0.38rem); }
-  .film-stars i:nth-child(2), .film-stars i:nth-child(4) { transform: translateY(0.12rem); }
-  .film-stars i:nth-child(3) { transform: translateY(-0.04rem); }
-
-  .photos-cluster { bottom: 4%; left: 4%; width: 27%; height: 42%; transform: rotate(1.5deg); }
-  .stamp-sheet { position: absolute; inset: 0 1% 12%; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.18rem, 0.7vw, 0.62rem); align-items: center; padding: 4%; transition: gap 220ms ease, transform 220ms cubic-bezier(.2,.8,.2,1); }
-  .photo-stamp { position: relative; display: block; aspect-ratio: 0.78; min-width: 0; padding: clamp(0.25rem, 0.48vw, 0.46rem); overflow: hidden; border: 0; background: #efe4c9; box-shadow: 0.2rem 0.28rem 0.22rem rgb(39 34 48 / 30%), inset 0 0 0 1px rgb(91 68 42 / 22%); clip-path: polygon(0 5%, 3% 3%, 5% 0, 10% 3%, 15% 0, 20% 3%, 25% 0, 30% 3%, 35% 0, 40% 3%, 45% 0, 50% 3%, 55% 0, 60% 3%, 65% 0, 70% 3%, 75% 0, 80% 3%, 85% 0, 90% 3%, 95% 0, 97% 3%, 100% 5%, 97% 10%, 100% 15%, 97% 20%, 100% 25%, 97% 30%, 100% 35%, 97% 40%, 100% 45%, 97% 50%, 100% 55%, 97% 60%, 100% 65%, 97% 70%, 100% 75%, 97% 80%, 100% 85%, 97% 90%, 100% 95%, 97% 97%, 95% 100%, 90% 97%, 85% 100%, 80% 97%, 75% 100%, 70% 97%, 65% 100%, 60% 97%, 55% 100%, 50% 97%, 45% 100%, 40% 97%, 35% 100%, 30% 97%, 25% 100%, 20% 97%, 15% 100%, 10% 97%, 5% 100%, 3% 97%, 0 95%, 3% 90%, 0 85%, 3% 80%, 0 75%, 3% 70%, 0 65%, 3% 60%, 0 55%, 3% 50%, 0 45%, 3% 40%, 0 35%, 3% 30%, 0 25%, 3% 20%, 0 15%, 3% 10%); color: inherit; cursor: zoom-in; transform: rotate(var(--stamp-angle, 0deg)); transition: filter 180ms ease, opacity 180ms ease, transform 220ms cubic-bezier(.2,.8,.2,1); }
-  .photo-stamp::after { position: absolute; inset: 0; background: repeating-linear-gradient(103deg, transparent 0 3px, rgb(75 48 31 / 3%) 4px), linear-gradient(90deg, rgb(255 255 255 / 12%), transparent 35%, rgb(74 45 25 / 8%)); content: ""; pointer-events: none; }
-  .stamp-photo { position: relative; display: block; height: 78%; overflow: hidden; border: 1px solid rgb(47 35 28 / 55%); background: #403326; box-shadow: inset 0 0 0.75rem rgb(35 22 18 / 24%); }
-  .stamp-image { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.82) contrast(1.04) sepia(0.08); transition: filter 200ms ease, transform 300ms cubic-bezier(.2,.8,.2,1); }
-  .stamp-note { position: absolute; z-index: 2; right: 8%; left: 8%; display: grid; gap: 0.08rem; color: #fffaf0; opacity: 0; text-align: left; text-shadow: 0 1px 0 rgb(24 17 14 / 70%); transform: translateY(0.25rem); transition: opacity 180ms ease, transform 220ms cubic-bezier(.2,.8,.2,1); }
-  .note-top .stamp-note { top: 9%; } .note-bottom .stamp-note { bottom: 9%; }
-  .stamp-note b { font: 700 clamp(0.34rem, 0.62vw, 0.58rem)/1.05 "Bradley Hand", "Marker Felt", cursive; }
-  .stamp-note em { font: 600 clamp(0.25rem, 0.4vw, 0.38rem)/1.1 ui-monospace, monospace; font-style: normal; letter-spacing: 0.02em; opacity: 0.78; }
-  .photo-stamp small { display: flex; align-items: end; justify-content: space-between; height: 22%; color: #403326; font: 700 clamp(0.3rem, 0.45vw, 0.44rem)/1 ui-monospace, monospace; letter-spacing: 0.04em; }
-  .photo-stamp small b { font-family: Georgia, serif; font-size: 1.5em; } .photo-stamp small em { font-style: normal; }
-  .photo-stamp:nth-child(1) { --stamp-angle:-4deg; } .photo-stamp:nth-child(2) { --stamp-angle:2deg; } .photo-stamp:nth-child(3) { --stamp-angle:-1deg; }
-  .photo-stamp:nth-child(4) { --stamp-angle:3deg; } .photo-stamp:nth-child(5) { --stamp-angle:-2deg; } .photo-stamp:nth-child(6) { --stamp-angle:4deg; }
-  .photo-stamp:nth-child(7) { --stamp-angle:1deg; } .photo-stamp:nth-child(8) { --stamp-angle:-3deg; } .photo-stamp:nth-child(9) { --stamp-angle:2deg; }
-  .photo-stamp:nth-child(3n + 1)::before { position: absolute; z-index: 3; top: 8%; right: -28%; width: 78%; aspect-ratio: 1; border: 2px double rgb(58 45 43 / 42%); border-radius: 50%; content: ""; transform: rotate(-14deg); }
-  .stamp-sheet:has(.photo-stamp:is(:hover, :focus-visible)) .photo-stamp:not(:is(:hover, :focus-visible)) { filter: saturate(0.65); opacity: 0.72; }
-  .photo-stamp:is(:hover, :focus-visible) { z-index: 4; outline: none; transform: translateY(-0.28rem) rotate(0deg) scale(1.14); }
-  .photo-stamp:is(:hover, :focus-visible) .stamp-image { filter: brightness(0.72) saturate(0.76) contrast(1.05); transform: scale(1.035); }
-  .photo-stamp:is(:hover, :focus-visible) .stamp-note { opacity: 1; transform: translateY(0); }
-  .photos-cluster { transition: filter 180ms ease, width 300ms cubic-bezier(.2,.8,.2,1), height 300ms cubic-bezier(.2,.8,.2,1), inset 300ms cubic-bezier(.2,.8,.2,1), transform 300ms cubic-bezier(.2,.8,.2,1); }
-  .photos-cluster:is(:hover, :focus-within) .stamp-sheet { gap: clamp(0.3rem, 0.82vw, 0.74rem); transform: translateY(-0.08rem) scale(1.015); }
-  .photos-collapse { position: absolute; z-index: 12; top: 1%; right: 4%; display: none; width: clamp(1.5rem, 2.6vw, 2.2rem); aspect-ratio: 1; border: 2px solid #272230; border-radius: 50%; background: #d23440; box-shadow: 0.15rem 0.18rem 0 rgb(39 34 48 / 28%); color: #fff8e8; cursor: pointer; font: 800 clamp(0.9rem, 1.5vw, 1.25rem)/1 "Instrument Sans Variable", sans-serif; place-items: center; }
-  .photos-cluster.is-expanded { z-index: 30 !important; top: 5% !important; right: auto !important; bottom: auto !important; left: 18% !important; width: 58%; height: 90%; filter: drop-shadow(0 1.1rem 0.8rem rgb(39 34 48 / 24%)); transform: rotate(-0.4deg); }
-  .cave-board:has(.photos-cluster.is-expanded) > .board-cluster:not(.photos-cluster) { opacity: 0.2; filter: saturate(0.45); pointer-events: none; }
-  .cave-board > .board-cluster:not(.photos-cluster) { transition: opacity 220ms ease, filter 220ms ease; }
-  .photos-cluster.is-expanded .stamp-sheet { inset: 1% 10% 1%; gap: clamp(0.5rem, 1.2vw, 0.9rem); padding: 1%; transform: none; }
-  .photos-cluster.is-expanded .photo-stamp { padding: clamp(0.38rem, 0.8vw, 0.62rem); }
-  .photos-cluster.is-expanded .stamp-note b { font-size: clamp(0.72rem, 1.25vw, 1rem); }
-  .photos-cluster.is-expanded .stamp-note em { font-size: clamp(0.48rem, 0.72vw, 0.64rem); }
-  .photos-cluster.is-expanded .photo-stamp small { gap: 0.2rem; font-size: clamp(0.42rem, 0.67vw, 0.58rem); white-space: nowrap; }
-  .photos-cluster.is-expanded .photos-collapse { display: grid; }
-
-  .tech-cluster { right: 0; bottom: 13%; width: 29%; height: 31%; transform: rotate(-2deg); }
-  .tech-stack { position: absolute; inset: 2% 3% 5%; }
-  .tech-stack i { position: absolute; display: block; font-style: normal; filter: drop-shadow(0.3rem 0.4rem 0.3rem rgb(39 34 48 / 28%)); transform-origin: center; transition: filter 220ms ease, transform 320ms cubic-bezier(.2,.8,.2,1); }
-  .tech-stack img { display: block; width: 100%; height: 100%; object-fit: contain; }
-  .tech-macbook { z-index: 1; top: 28%; left: 8%; width: 72%; aspect-ratio: 1.9; transform: rotate(-7deg); }
-  .tech-codex { z-index: 2; top: 24%; left: 34%; width: 33%; aspect-ratio: 1; transform: rotate(7deg); }
-  .tech-cursor { z-index: 3; top: 30%; left: 41%; width: 31%; aspect-ratio: 1; transform: rotate(-4deg); }
-  .tech-cluster:is(:hover, :focus-visible) .tech-macbook { filter: drop-shadow(0.5rem 0.6rem 0.4rem rgb(39 34 48 / 32%)); transform: translate(-24%, -28%) rotate(-10deg) scale(1.06); }
-  .tech-cluster:is(:hover, :focus-visible) .tech-codex { transform: translate(72%, -38%) rotate(12deg) scale(1.02); }
-  .tech-cluster:is(:hover, :focus-visible) .tech-cursor { transform: translate(62%, 68%) rotate(-8deg) scale(1.02); }
-
-  .inspiration-cluster { bottom: 9%; left: 36%; width: 27%; height: 36%; transform: rotate(-1deg); }
-  .inspiration-fragments { position: absolute; inset: 2% 2% 15%; }
-  .inspiration-fragments > * { position: absolute; border: 2px solid #272230; }
-  .portrait-fragment { top: 0; left: 4%; display: grid; width: 42%; aspect-ratio: 0.82; background: #272230; color: #fffaf0; font: normal clamp(2rem, 5vw, 4.5rem)/1 "Arial Black", sans-serif; place-items: center; transform: rotate(-7deg); }
-  .inspiration-fragments blockquote { top: 15%; right: 0; width: 61%; margin: 0; padding: 8%; background: #f4ce2f; font-family: "Bradley Hand", cursive; font-size: clamp(0.58rem, 0.9vw, 0.86rem); font-weight: 700; transform: rotate(4deg); }
-  .reference-fragment { right: 7%; bottom: 0; width: 48%; height: 25%; background: #43c4d5; transform: rotate(-3deg); }
-  .coming-soon { position: absolute; z-index: 6; top: 45%; left: 18%; padding: 0.35rem 1rem 0.28rem; border-block: 2px solid #272230; background: #f4ce2f; box-shadow: 0.3rem 0.34rem 0 #d23440; color: #272230; font: 850 clamp(0.62rem, 1vw, 0.92rem)/1 "Arial Black", "Instrument Sans Variable", sans-serif; letter-spacing: 0.04em; text-transform: uppercase; transform: rotate(-7deg); }
-
-
-  @keyframes film-strip-roll { to { transform: translateX(-50%); } }
 
   .site-canvas {
     width: min(100%, 91rem);
@@ -2185,37 +1672,6 @@ const email = "ilyastorun.dev@gmail.com";
       overscroll-behavior: contain;
     }
 
-    .cave-card {
-      display: block;
-      padding: 1.4rem 1.25rem 2rem;
-      overflow-y: auto;
-    }
-
-    .cave-heading {
-      margin-bottom: 1.25rem;
-    }
-
-    .cave-heading h2 { font-size: clamp(3.2rem, 18vw, 5rem); }
-
-    .cave-board {
-      min-height: 46rem;
-      border-width: 0.5rem;
-      box-shadow: 0.35rem 0.35rem 0 #d23440;
-      touch-action: pan-y;
-    }
-
-    .books-cluster { top: 5%; left: 2%; width: 50%; height: 26%; }
-    .book-preview { bottom: -6%; left: calc(100% - 0.15rem); width: 6.4rem; }
-    .films-cluster { top: 6%; right: 2%; width: 52%; height: 25%; }
-    .photos-cluster { bottom: 4%; left: 2%; width: 46%; height: 31%; }
-    .tech-cluster { right: 0; bottom: 8%; width: 48%; height: 25%; }
-    .inspiration-cluster { top: 38%; left: 23%; width: 54%; height: 28%; }
-    .film-strip { inset-inline: -4%; }
-    .photos-cluster.is-expanded { top: 18% !important; left: 4% !important; width: 92%; height: 72%; }
-    .photos-cluster.is-expanded .stamp-sheet { inset-inline: 5%; }
-    .photos-cluster.is-expanded .stamp-note b { font-size: clamp(0.72rem, 3.2vw, 1rem); }
-    .photos-cluster.is-expanded .stamp-note em { font-size: clamp(0.48rem, 2vw, 0.66rem); }
-
     .about-heading {
       margin-bottom: 1.4rem;
     }
@@ -2344,20 +1800,11 @@ const email = "ilyastorun.dev@gmail.com";
     .contribution-grid i,
     .app-icon,
     .app-info,
-    .board-cluster,
-    .stamp-sheet,
-    .photo-stamp,
-    .stamp-image,
-    .stamp-note,
-    .book-preview,
-    .book-model,
-    .tech-stack i,
     .live-preview,
     .live-preview iframe,
     .preview-screen,
     .preview-scroll-hint { transition: none; }
 
-    .film-strip-track { animation: none; }
 
   }
 </style>

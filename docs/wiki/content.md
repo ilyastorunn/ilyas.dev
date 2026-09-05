@@ -1,6 +1,10 @@
 # Content guide
 
-There is currently no public-facing content model or content data in the repository. The previous JSON collections, MDX notes, project copy, Cave content, music references, and placeholder media were removed on 2026-08-26.
+Photo captions were replaced verbatim in row-major order with the owner’s final nine strings on 2026-09-05, including lowercase styling and “skyscrapper, really”.
+
+Cave content is now maintained in `src/content/data/cave.ts` (2026-09-05). The owner confirmed the existing book front/back/spine photos are correct; exact dimensions remain estimated. Photo notes and film ratings are retained. The Inspiration portrait and exact quote were supplied by the owner; Tools and the placeholder were removed.
+
+Historical reset context: The previous JSON collections, MDX notes, project copy, Cave content, music references, and placeholder media were removed on 2026-08-26.
 
 When rebuilding:
 

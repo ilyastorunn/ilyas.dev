@@ -1,0 +1,515 @@
+---
+import { Image, getImage } from 'astro:assets';
+import { shelfBooks, watchedFilms, cavePhotos } from '../content/data/cave';
+import portrait from '../assets/virgil-comic.png';
+import '@fontsource/barlow-condensed/700.css';
+import '@fontsource/caveat/400.css';
+const books = await Promise.all(shelfBooks.map(async (b) => ({...b, textures: await Promise.all([b.front,b.back,b.spine].map(src => getImage({src,width: Math.min(src.width,768),format:'webp'})))})));
+---
+<section class="cave-card" data-cave-card aria-labelledby="cave-title">
+  <header class="cave-heading"><h2 id="cave-title">Cave!</h2><p>My personal<br/>archive.</p></header>
+  <div class="archive-grid">
+    <section class="photo-panel panel" aria-labelledby="photos-title">
+      <h3 id="photos-title">Through my lens.</h3>
+      <div class="photo-grid">
+        {cavePhotos.map((photo,index) => <button class="photo" type="button" aria-label={`Turn photograph ${index+1}: ${photo.note} ${photo.place}`} aria-pressed="false" data-photo>
+          <span class="photo-turn"><span class="photo-front"><Image src={photo.image} alt={photo.note} widths={[180,300,450]} sizes="(max-width: 768px) 26vw, 12vw" loading="lazy" quality="high" /><span class="photo-caption">{photo.note}</span></span><span class="photo-back"><span>{photo.note}</span><small>{photo.place}</small></span></span>
+        </button>)}
+      </div>
+      <noscript><ul>{cavePhotos.map(p=><li>{p.note} — {p.place}</li>)}</ul></noscript>
+    </section>
+    <section class="films-panel" aria-labelledby="films-title">
+      <h3 id="films-title">Recently watched.</h3>
+      <div class="film-window" data-film-window tabindex="0" role="group" aria-label="Film strip. Use left and right arrows to browse, space to pause.">
+        <div class="film-track" data-film-track>{[0,1,2].map(copy=><div class="film-copy" aria-hidden={copy>0?'true':undefined}>{watchedFilms.map((film,index)=><div class="film-cell"><Image src={film.poster} alt={`${film.title}, ${film.rating} out of 5 stars`} widths={[160,240,360]} sizes="(max-width: 768px) 24vw, 9vw" loading="lazy" /><span class="film-info">{film.title}<br/>{film.rating} / 5</span><small>{String(index+1).padStart(2,'0')}</small></div>)}</div>)}</div>
+      </div>
+      <button class="film-pause" data-film-pause aria-pressed="false" aria-label="Pause film strip">Ⅱ</button>
+    </section>
+    <section class="books-panel panel" aria-labelledby="books-title">
+      <h3 id="books-title">On my shelf.</h3>
+      <div class="book-stage" data-book-stage>
+        <div class="book-fallback">{books.map(b=><button type="button" data-book-select data-title={b.title} data-front={b.textures[0].src} data-back={b.textures[1].src} data-spine={b.textures[2].src} data-ratio={b.front.width/b.front.height} data-depth={b.spine.width/b.spine.height} aria-label={`Examine ${b.title} by ${b.author}`}><Image src={b.spine} alt={b.title} width={100} loading="lazy" /></button>)}</div>
+        <div class="book-canvas" data-book-canvas aria-hidden="true"></div>
+      </div>
+      <div class="book-controls" hidden data-book-controls><span data-book-name></span><button type="button" data-book-left aria-label="Rotate book left">↶</button><button type="button" data-book-right aria-label="Rotate book right">↷</button><button type="button" data-book-close aria-label="Return book to shelf">×</button></div>
+      <div class="shelf" aria-hidden="true"></div>
+    </section>
+    <section class="inspiration-panel panel" aria-labelledby="inspiration-title">
+      <h3 id="inspiration-title">Inspiration.</h3>
+      <Image class="portrait" src={portrait} alt="Virgil Abloh seated on a wire chair, rendered as a monochrome comic print" widths={[480,720,960]} sizes="(max-width: 768px) 90vw, 28vw" loading="lazy" quality="high" />
+      <blockquote><p>Life is so short you can't waste even a day subscribing to what someone thinks you can do versus knowing what you can do</p><cite>Virgil Abloh</cite></blockquote>
+    </section>
+  </div>
+</section>
+<script>import '../scripts/cave';</script>
+<style>
+.cave-card {
+  position: absolute;
+  inset: clamp(0.75rem, 2.2vw, 2rem);
+  z-index: 3;
+  width: calc(100% - clamp(1.5rem, 4.4vw, 4rem));
+  margin-inline: auto;
+  padding: clamp(1rem, 1.5vw, 1.6rem);
+  display: grid;
+  grid-template-rows: 12.8% minmax(0, 1fr);
+  gap: 1.1%;
+  border: 1px solid #cfc7da;
+  border-radius: clamp(1.5rem, 3vw, 2.75rem);
+  background: #eae5f0;
+  color: #111;
+  transform: translateY(108%);
+  transform-origin: 50% 8%;
+  overflow: hidden;
+}
+.cave-heading {
+  display: flex;
+  align-items: center;
+  gap: 2.5%;
+  padding-left: 1.3%;
+}
+.cave-heading h2 {
+  margin: 0;
+  font-size: clamp(4rem, 8.7vw, 9rem);
+  line-height: 0.8;
+  letter-spacing: -0.075em;
+  font-weight: 900;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+.cave-heading p {
+  text-transform: uppercase;
+  font-size: clamp(0.65rem, 1.05vw, 1.05rem);
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  margin: 1rem 0 0;
+}
+.archive-grid {
+  display: grid;
+  grid-template-columns: 42% 28% 1fr;
+  grid-template-rows: 39% minmax(0, 1fr);
+  gap: 4% 1.2%;
+  min-height: 0;
+  padding-top: 1.5%;
+}
+.panel {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  border: 2px solid #171519;
+  background: radial-gradient(#68606c22 0.65px, transparent 0.8px) 0 0/4px 4px;
+}
+h3 {
+  position: relative;
+  z-index: 2;
+  display: table;
+  margin: 0;
+  padding: 0.24em 0.65em 0.32em;
+  border: 1.5px solid #171519;
+  background: #f5efdf;
+  font:
+    700 clamp(1rem, 1.65vw, 1.65rem)/1 "Barlow Condensed",
+    sans-serif;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.photo-panel {
+  grid-row: 1/3;
+  display: flex;
+  flex-direction: column;
+  padding: 2.6% 5.8% 8%;
+}
+.photo-panel h3 {
+  align-self: start;
+  margin-left: -3.5%;
+  margin-bottom: 4%;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 1.8% 2.5%;
+  flex: 1;
+  min-height: 0;
+  perspective: 1100px;
+}
+.photo {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  perspective: 900px;
+  transition: translate 0.2s;
+}
+.photo:hover {
+  translate: 0 -5px;
+  z-index: 3;
+}
+.photo:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 3px;
+}
+.photo-turn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.photo[aria-pressed="true"] .photo-turn {
+  transform: rotateY(180deg);
+}
+.photo-front,
+.photo-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  padding: 9%;
+  background: #f4ecd7;
+  backface-visibility: hidden;
+  clip-path: polygon(0 5%, 3% 3%, 5% 0, 10% 3%, 15% 0, 20% 3%, 25% 0, 30% 3%, 35% 0, 40% 3%, 45% 0, 50% 3%, 55% 0, 60% 3%, 65% 0, 70% 3%, 75% 0, 80% 3%, 85% 0, 90% 3%, 95% 0, 97% 3%, 100% 5%, 97% 10%, 100% 15%, 97% 20%, 100% 25%, 97% 30%, 100% 35%, 97% 40%, 100% 45%, 97% 50%, 100% 55%, 97% 60%, 100% 65%, 97% 70%, 100% 75%, 97% 80%, 100% 85%, 97% 90%, 100% 95%, 97% 97%, 95% 100%, 90% 97%, 85% 100%, 80% 97%, 75% 100%, 70% 97%, 65% 100%, 60% 97%, 55% 100%, 50% 97%, 45% 100%, 40% 97%, 35% 100%, 30% 97%, 25% 100%, 20% 97%, 15% 100%, 10% 97%, 5% 100%, 3% 97%, 0 95%, 3% 90%, 0 85%, 3% 80%, 0 75%, 3% 70%, 0 65%, 3% 60%, 0 55%, 3% 50%, 0 45%, 3% 40%, 0 35%, 3% 30%, 0 25%, 3% 20%, 0 15%, 3% 10%);
+}
+.photo-front { flex-direction: column; padding: 7% 7% 4%; }
+.photo-caption { display: flex; flex: 1; align-items: center; justify-content: center; padding-top: .15em; font: 400 clamp(.8rem, 1.25vw, 1.4rem)/1.05 Caveat, cursive; }
+.photo-front img {
+  width: 100%;
+  height: 74%;
+  flex: 0 0 74%;
+  min-height: 0;
+  object-fit: cover;
+  border: 1px solid #48443e;
+}
+.photo-back {
+  transform: rotateY(180deg);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  font:
+    400 clamp(1rem, 1.6vw, 1.7rem)/1.1 Caveat,
+    cursive;
+}
+.photo-back small {
+  font-size: 0.65em;
+}
+.films-panel {
+  grid-column: 2/4;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin-top: -4.5%;
+}
+.films-panel h3 {
+  align-self: start;
+  margin-bottom: 1.2%;
+}
+.film-window {
+  flex: 1;
+  overflow: hidden;
+  background: #0b0b0c;
+  min-height: 0;
+  touch-action: pan-y;
+  cursor: grab;
+}
+.film-window:active {
+  cursor: grabbing;
+}
+.film-track {
+  height: 100%;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.film-copy {
+  display: flex;
+  height: 100%;
+  padding-block: 1.1rem;
+  position: relative;
+}
+.film-copy:before,
+.film-copy:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.65rem;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 5px,
+    #eee9ec 5px 13px,
+    transparent 13px 20px
+  );
+}
+.film-copy:before {
+  top: 0.2rem;
+}
+.film-copy:after {
+  bottom: 0.2rem;
+}
+.film-cell {
+  position: relative;
+  height: 100%;
+  width: clamp(75px, 8.6vw, 140px);
+  flex-shrink: 0;
+  border-right: 3px solid #151515;
+  overflow: hidden;
+}
+.film-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.film-cell small {
+  position: absolute;
+  bottom: 2px;
+  right: 3px;
+  color: #f3e9d6;
+  font: 10px monospace;
+}
+.film-info {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 0.6em;
+  background: #111e;
+  color: #fff;
+  font-size: 0.75rem;
+  opacity: 0;
+}
+.film-cell:hover .film-info {
+  opacity: 1;
+}
+.film-pause {
+  position: absolute;
+  right: 0;
+  top: -0.1rem;
+  border: 0;
+  background: none;
+  color: #272230;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.books-panel {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+}
+.books-panel h3,
+.inspiration-panel h3 {
+  position: absolute;
+  left: 2.5%;
+  top: -0.65em;
+}
+.book-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin: 8% 3% 0;
+}
+.book-fallback {
+  position: absolute;
+  inset: 4% 1% 0;
+  display: flex;
+  align-items: end;
+  gap: 2%;
+  justify-content: center;
+}
+.book-fallback button {
+  padding: 0;
+  border: 0;
+  background: none;
+  height: 95%;
+  width: 18%;
+  cursor: pointer;
+  transition: translate 0.2s;
+}
+.book-fallback button:hover {
+  translate: 0 -10px;
+}
+.book-fallback button:nth-child(2) {
+  height: 88%;
+  width: 14%;
+}
+.book-fallback button:nth-child(3) {
+  height: 86%;
+}
+.book-fallback button:nth-child(4) {
+  height: 81%;
+  width: 16%;
+}
+.book-fallback img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.book-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.book-stage.is-ready .book-fallback button {
+  opacity: 0;
+}
+.book-stage.is-ready .book-fallback button:focus-visible {
+  opacity: 0.35;
+  outline: 3px solid black;
+}
+.book-stage.is-selected .book-canvas {
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
+}
+.book-controls {
+  position: absolute;
+  z-index: 4;
+  bottom: 1.5rem;
+  left: 3%;
+  right: 3%;
+  background: #f5efdf;
+  padding: 0.3rem;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+}
+.book-controls:not([hidden]) {
+  display: flex;
+}
+.book-controls span {
+  flex: 1;
+}
+.book-controls button {
+  border: 1px solid #111;
+  background: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.shelf {
+  height: 5%;
+  background: linear-gradient(#74513a, #37251c);
+  border-top: 3px solid #453123;
+}
+.inspiration-panel {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+.portrait {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: 50% 18%;
+  filter: grayscale(1);
+}
+blockquote {
+  margin: 0;
+  padding: 3% 4%;
+  background: #f5efdf;
+  border-top: 1px solid #111;
+  font:
+    700 clamp(0.95rem, 1.42vw, 1.45rem)/1.12 "Barlow Condensed",
+    sans-serif;
+}
+blockquote p {
+  margin: 0;
+}
+blockquote p:before {
+  content: "“";
+  float: left;
+  font-size: 2em;
+  line-height: 0.8;
+  margin-right: 0.12em;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 0.8em;
+  margin-top: 0.35em;
+}
+@media (max-width: 768px) {
+  .cave-card {
+    inset: 0.75rem;
+    width: calc(100% - 1.5rem);
+    padding: 1rem;
+    display: block;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .cave-heading {
+    height: 6rem;
+    margin-bottom: 1.3rem;
+  }
+  .cave-heading h2 {
+    font-size: 4.7rem;
+  }
+  .archive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 2rem 1rem;
+    padding-top: 0;
+  }
+  .photo-panel {
+    grid-column: 1/3;
+    grid-row: auto;
+    height: 34rem;
+    padding: 1rem 1.1rem 1.5rem;
+  }
+  .photo-panel h3 {
+    margin-left: 0;
+  }
+  .films-panel {
+    grid-column: 1/3;
+    height: 13rem;
+    margin: 0;
+  }
+  .books-panel {
+    grid-column: 1/3;
+    height: 24rem;
+  }
+  .inspiration-panel {
+    grid-column: 1/3;
+    height: 30rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  .photo-back {
+    font-size: 1.45rem;
+  }
+  .film-cell {
+    width: 100px;
+  }
+  blockquote {
+    font-size: 1.45rem;
+  }
+  .book-stage {
+    margin-top: 2rem;
+  }
+  .book-fallback {
+    inset-inline: 10%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo,
+  .photo-turn {
+    transition: none;
+  }
+  .photo[aria-pressed="true"] .photo-turn {
+    transform: none;
+  }
+  .photo[aria-pressed="true"] .photo-front {
+    visibility: hidden;
+  }
+  .photo-back {
+    transform: none;
+    visibility: hidden;
+  }
+  .photo[aria-pressed="true"] .photo-back {
+    visibility: visible;
+  }
+}
+</style>

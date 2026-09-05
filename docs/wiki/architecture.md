@@ -24,7 +24,7 @@ src/assets/            locally processed source media
 docs/wiki/             durable project context
 ```
 
-The home implementation is currently self-contained in `src/pages/index.astro`. It imports the horizontal Spider-Verse PNG from `src/assets/` through Astro's image pipeline and uses page-scoped CSS for the first responsive layout. No content collection, API endpoint, or shared component system is active yet.
+Home and About remain in `src/pages/index.astro`. Cave is isolated in `src/components/Cave.astro`, with editable data in `src/content/data/cave.ts`, interactions in `src/scripts/cave.ts`, and dynamically imported Three.js rendering in `src/scripts/cave-books.ts`. It imports the horizontal Spider-Verse PNG from `src/assets/` through Astro's image pipeline and uses page-scoped CSS for the first responsive layout. No content collection, API endpoint, or shared component system is active yet.
 
 ## External services
 
