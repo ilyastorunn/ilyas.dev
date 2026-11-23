@@ -4,6 +4,8 @@ This is the durable, source-aware briefing for the repository as the portfolio i
 
 ## Current status
 
+On branch `unfold` (2026-11-23), `/` is being rebuilt as a hand-drawn pop-up book adapted from the MIT-licensed unfold project; the mechanism works with four placeholder rooms that are still to be drawn with the owner. Production still serves the comic version described next.
+
 The rebuilt `/` route uses a full-width comic-led hero and a pinned native-scroll transition through the asymmetric About scrapbook and Cave comic archive. The live Cave redesign follows the owner-approved shadow-free reference, with flipping photo prints, a continuous film strip, real Three.js books, and a Virgil Abloh portrait/quote. The redesign and final owner-supplied photo captions were deployed on 2026-09-05.
 
 The complete current site was deployed to Cloudflare Workers on 2026-09-05 and is live at `ilyastorun.site` and `www.ilyastorun.site`.

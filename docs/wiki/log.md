@@ -2,6 +2,36 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-11-24 — Replace the close-up modal with a side note
+
+- Close-ups no longer dim the scene. The object pans aside and a paper note sits beside it (bottom sheet on phones), and you can step between projects without leaving the close-up. The canvas went full-bleed, framed between header and caption. Rewrote the four Work descriptions with taglines and fact tags drawn from each product's own page.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed; local Chrome check at desktop and phone widths. Not deployed.
+- Follow-ups: owner to review the new copy (especially devanta's English tagline).
+
+## 2026-11-23 — Real poster, calendar icon and a single phone in Work
+
+- Removed the standing phone and the place card. The Unscroll screen now sits on one phone lying on the desk. The niceapps.club poster shows the site's real hero, and the Memento calendar uses the app icon as its picture. Added a corner radius to `Sketch.image` and per-room wall resolution.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed; local Chrome check of the room and three zoomed views. Not deployed.
+
+## 2026-11-23 — Put the real screens in the Work room
+
+- Added image support to the drawing engine (`Sketch.image`, `Iso.image`, `images.ts` preloader, per-card texture resolution). The laptop shows a fresh devanta.net homepage capture; the phone stands on a stand and shows the Unscroll shield screen from the owner's app project.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed; local Chrome check of the room and zoomed view. Not deployed.
+- Follow-ups: the owner may pick a different Unscroll screen (other raw captures are in `doomscroll/output/`); a favicon is still missing.
+
+## 2026-11-23 — Draw the Work room
+
+- Drew Work in code with four self-labelled project objects: Memento calendar, niceapps.club poster, devanta.net laptop, and Unscroll phone, hourglass and place card. Added per-room project buttons under the caption and a hover name label so visitors can read the room without hunting. Tightened the open-room camera framing.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed; local Chrome check at desktop and phone widths, including button-to-close-up and Escape. Not deployed.
+- Follow-ups: owner to confirm the four one-line descriptions; consider a full-bleed canvas so zoomed views aren't cut by the header and caption rows; arrow placement on phones.
+
+## 2026-11-23 — Lay the pop-up book foundation
+
+- Parked the uncommitted `new-design` work in a git stash and branched `unfold` from `master`.
+- Adapted unfold's MIT core into `src/lib/unfold/` and ported its React Three Fiber scene to vanilla Three.js in `src/scripts/book/`; `/` now renders the book with four placeholder rooms (work, about, cave, contact), close-up dialogs, keyboard paging, a no-JS/screen-reader HTML version and reduced-motion support.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed with the Three.js chunk advisory; local browser check of open, page, zoom and close-up with no console errors. Not deployed.
+- Follow-ups: draw each room in code with the owner; check mobile and reduced motion in the browser; revise AGENTS.md's design direction; decide what happens to the stashed `new-design` work and the old Cave component.
+
 ## 2026-09-05 — Publish the Cave redesign and final captions
 
 - Replaced all nine photo captions verbatim in row-major order with the owner's final text. Published the full approved Cave redesign via Wrangler to the existing Worker and custom domains, version `82990b59-4070-431f-a8bd-9d23d6ee415b` (18 new/modified assets).

@@ -1,5 +1,43 @@
 # Implementation status
 
+## 2026-11-24 — Close-up notes and project copy (branch `unfold`, not deployed)
+
+- `<dialog data-book-note>` opens non-modally with `show()`. It is a tilted paper card with ruled lines and tape, showing kicker, title, a highlighted tagline, body, fact tags, a link and an "n / 4" count. On open, focus goes to the note; on close, it returns to the button that opened it. The room name and line fade out while a note is open; the project buttons stay, and the active one is underlined.
+- Scene: the canvas is now full-bleed under the header and caption. `insets()` keeps the book framed between them, which also fixes close-ups being cut at those rows. Zoomed views pan the object 19% of the width to the left (16% of the height upwards on screens narrower than 640 px). Narrow screens zoom less (×3.1 instead of ×3.6). The zoom target glides between spots (`zoomCur`).
+- `spots.ts` gained `tagline` and `facts`. Work copy was rewritten from each product's own page: the Memento App Store listing (tagline "Make time visible."), Unscroll's marketing notes and site ("Close the feed. Open your day."), the niceapps.club site ("Find something nice.") and devanta.net. devanta's tagline is an English adaptation of its Turkish closing line. The copy avoids counts that will go stale.
+- Verified in local Chrome at 1100×760 and 390×844: open-room framing, button → close-up, ←/→ stepping (count and arrow labels update), Escape closes and restores the room arrows. Check, empty test suite and build pass. Real-mouse drag and screen-reader output were not tested.
+
+## 2026-11-23 — Work room: one phone, real poster and calendar icon
+
+- Owner feedback: the standing phone plus the blue "Unscroll" place card read as two phones. The stand, the standing phone and the place card are gone; a single phone lies on the desk, screen up, showing the Unscroll shield screen. Its name now comes from the screen, the caption button and the hover label.
+- The niceapps.club poster on the right wall is now the site's real hero (`src/assets/work/niceapps-hero.jpg`, captured at 1280 px width on 2026-11-23 and cropped to the hero). The Memento wall calendar has Memento's app icon (`src/assets/memento-icon.jpg`, rounded corners) as its picture, above the month and the day grid.
+- `Sketch.image()` takes an optional corner `radius`. `Room.res` lets a room bake its walls at a higher resolution; Work uses 2048 px.
+- Verified in local Chrome at 1100×760: the open room, plus the zoomed Unscroll, Memento and niceapps.club views. Check, empty test suite and build pass, and all four image assets are emitted.
+
+## 2026-11-23 — Real screens in the Work room
+
+- The laptop now shows the real devanta.net homepage and the phone (now standing on a stand, screen out) shows the real Unscroll app. The images are `src/assets/work/devanta-screen.jpg` (1024×640, captured from devanta.net at 1440×900 on 2026-11-23) and `src/assets/work/unscroll-screen.jpg` (416×900, from the owner's `doomscroll/output/strict-hard-mode-1.3.3/shield-normal.png`, the blocked-app shield with the Unscroll mark).
+- `src/lib/unfold/images.ts` loads these before the book is baked. Rooms read them with `image(key)` and fall back to the hand-drawn version if one fails. `Sketch.image()` and `Iso.image()` (ily.dev additions, not in unfold) affine-map a cover-cropped image onto a surface parallelogram in the wash layer, so a screen appears only when its room colours in, like any other colour.
+- `PopUp.res` lets a card bake at a higher resolution; Work's desk card bakes at 2048 px so the screens stay sharp when the camera zooms in.
+- Verified in local Chrome at 1100×760: both screens render in the open room and in the Unscroll zoom; check, empty test suite and build pass, and both JPEGs are emitted into `dist/client/_astro`. The only console error is a pre-existing `/favicon.ico` 404 (there is no `public/` folder).
+
+## 2026-11-23 — Work room (branch `unfold`, not deployed)
+
+- `src/lib/unfold/rooms/work.ts` is the first finished room. Each project is an object that names itself: **Memento** is a wall calendar on the left wall (current month, today circled); **niceapps.club** is a poster on the right wall with its "find something nice." line and three dot mascots; **devanta.net** is the wordmark plus a factory roofline on the laptop screen; **Unscroll** is a face-down phone, an hourglass and a place card on the desk. A plant, a pinned "ship it" note, a lamp and crumpled drafts are decoration.
+- `spots.ts` gained `label` and `kicker`; Work has one spot per project (`memento`, `unscroll`, `niceapps`, `devanta`). One-line descriptions are drafts for the owner to confirm. Memento's and Unscroll's lines come from the parked `new-design` work, niceapps.club's from its own site, and devanta.net's is a summary of its site.
+- Discoverability: under the caption, every room lists its spots as buttons (focus moves the camera to the object, then opens the close-up), and hovering an object shows a handwritten name label. The single "look closer" button is gone.
+- The open-book camera is framed tighter than unfold (`viewH 1.7 + 0.45e`, `viewW 1.9 + 0.5e` on desktop) so the open room fills more of the view.
+- Verified locally in Chrome at 1100×760 and 390×844: room render, readable labels, button → zoom → close-up, Escape returns focus to the button; check, empty test suite and build pass. When zoomed, the canvas is visibly cut at the header and caption rows; on phones the arrows overlap the room walls.
+
+## 2026-11-23 — Pop-up book foundation (branch `unfold`, not deployed)
+
+- `/` is now the pop-up book; the previous comic/Cave Home is replaced on this branch only (`master` and production are unchanged). `src/components/Cave.astro`, `src/scripts/cave*.ts` and `src/content/data/cave.ts` remain but are no longer rendered.
+- `src/lib/unfold/` holds the adapted unfold core (MIT, `LICENSE` alongside): `fold.ts` (page angles, creased floor, camera focus), `sketch.ts` (hand-drawn 2D renderer and `bake()` texture packing), `iso.ts` (isometric pop-up cards), `style.ts`, `paperMaterial.ts` (paper shader with ink-to-colour reveal), `textures.ts`.
+- `src/lib/unfold/rooms.ts` defines four **placeholder** rooms — work, about, cave, contact — each with a wall wash, a clickable framed card (`s.mark("main")`), a "coming soon" note and a pop-up table. `spots.ts` holds the close-up copy per room/mark (placeholder text plus existing public links). `fold.ts` `N` must equal `ROOMS.length`.
+- `src/scripts/book/scene.ts` ports unfold's R3F `<Book>` to plain three.js (Line2 outlines, raycast hotspots, a radial shadow plane instead of drei `ContactShadows`). `src/scripts/book/index.ts` handles fonts, open/close, arrows, keys, drag, captions, a live region and the `<dialog>` close-up.
+- Accessibility/fallbacks added beyond unfold: without JS or WebGL the page renders a readable HTML version of all rooms; once the book starts that content stays available to screen readers. A "look closer" button opens each room's close-up by keyboard. `prefers-reduced-motion` makes folds, camera moves and hotspot breathing instant.
+- Verified: `npm run check` (0 diagnostics), `npm test` (no tests), `npm run build` (Three.js large-chunk advisory). Local in-app browser at 800×600: cover, opening, paging, pop-up table, card zoom and close-up, Escape; no console errors. Not verified: mobile widths, reduced-motion behaviour in a browser, no-JS rendering, screen readers, performance.
+
 ## 2026-09-05 — Cave comic archive (deployed 2026-09-05)
 
 - `src/components/Cave.astro` replaces the movable cork board with the approved `docs/design/cave-approved.png` layout: a large left photo panel, upper-right film strip, books below, and a single Inspiration portrait/quote panel. Colored offset shadows and Tech/Coming soon content are removed.

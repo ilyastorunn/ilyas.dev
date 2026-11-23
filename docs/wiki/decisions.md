@@ -2,6 +2,22 @@
 
 Durable decisions are reverse chronological. “Owner” means an explicit decision by İlyas.
 
+## 2026-11-24 — Close-ups keep the object visible
+
+**Status:** owner approved direction; implemented on branch `unfold`
+
+The centered modal with a dimmed backdrop hid the zoomed objects. A close-up now leaves the scene undimmed and slides the object aside. A paper note sits next to it: on the right on wide screens, as a bottom sheet on phones. While a note is open, the arrows and ←/→ step through the room's projects. Escape, × or a click on the scene closes it.
+
+Evidence: owner instruction in chat; [`src/scripts/book/index.ts`](../../src/scripts/book/index.ts), [`src/scripts/book/scene.ts`](../../src/scripts/book/scene.ts).
+
+## 2026-11-23 — Rebuild Home as a hand-drawn pop-up book (unfold)
+
+**Status:** owner decision; foundation implemented on branch `unfold`, rooms not yet drawn
+
+The owner dropped the text-first `new-design` direction (parked in a git stash, `new-design WIP (parked 2026-11-23)`) and chose a completely different style: the MIT-licensed open-source pop-up book [unfold](https://github.com/Dksie09/unfold) by Dakshi, adapted to this portfolio. Rooms are portfolio sections and are drawn **in code** with unfold's `Sketch`/`Iso` renderer, from the owner's descriptions and rough sketches (option A), rather than from image assets. The port is vanilla Three.js inside Astro — no React, R3F or drei — to keep the "no heavyweight UI library" rule. This supersedes the quiet Apple/Braun/Rams visual direction for Home; AGENTS.md still states the old direction and should be revised by the owner. The MIT notice must stay with the adapted code.
+
+Evidence: owner instruction in chat; [`src/lib/unfold/`](../../src/lib/unfold/), [`src/scripts/book/`](../../src/scripts/book/), [`src/pages/index.astro`](../../src/pages/index.astro).
+
 ## 2026-09-05 — Implement the approved shadow-free Cave comic design
 
 **Status:** owner approved; local implementation

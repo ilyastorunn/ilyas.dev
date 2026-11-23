@@ -1,1810 +1,629 @@
 ---
-import { Image } from "astro:assets";
-import "@fontsource-variable/instrument-sans";
-import spiderManComic from "../assets/spider-man-artgerm.webp";
-import cyclopsComic from "../assets/cyclops-comic.png";
-import cerebroScanner from "../assets/cerebro-scanner-original.png";
-import madvillainyCover from "../assets/madvillainy-cover.png";
-import doctorDoomComic from "../assets/doctor-doom-comic.png";
-import galactusStation from "../assets/galactus-space-station-ff49.webp";
-import reedRichardsWork from "../assets/reed-richards-work.jpg";
-import unscrollIcon from "../assets/unscroll-icon.jpg";
-import mementoIcon from "../assets/memento-icon.jpg";
-import Cave from "../components/Cave.astro";
+import "@fontsource/caveat/500.css";
+import "@fontsource/caveat/700.css";
+import { ROOMS } from "../lib/unfold/rooms";
+import { SPOTS } from "../lib/unfold/spots";
 
 const title = "İlyas Torun — Independent Developer";
-const email = "ilyastorun.dev@gmail.com";
+const description = "İlyas Torun is an independent developer building thoughtful products for the web and iOS.";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta
-      name="description"
-      content="İlyas Torun is an independent developer designing and building thoughtful products for the web and Apple platforms."
-    />
-    <meta name="theme-color" content="#f1f2f3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ecebe7" />
     <title>{title}</title>
   </head>
   <body>
-    <noscript><style is:global>
-      .transition-stage { height: auto !important; }
-      .card-viewport { position: static !important; height: auto !important; overflow: visible !important; }
-      .stack-card, [data-cave-card] { position: relative !important; inset: auto !important; transform: none !important; opacity: 1 !important; margin-block: 1rem !important; min-height: 95svh; }
-      [data-cave-card] { height: 900px; }
-      .film-window { overflow-x: auto !important; }
-      @media (max-width: 768px) { [data-cave-card] { height: auto; } }
-    </style></noscript>
-    <div class="card-stack">
-      <section class="transition-stage" data-transition-stage>
-        <div class="card-viewport" data-card-viewport>
-        <div class="site-canvas stack-card hero-card" data-hero-card>
-        <header class="site-header">
-          <nav class="section-preview" aria-label="Portfolio sections">
-            <a href="#work" data-card-link="0" aria-current="page">Home</a>
-            <a href="#about" data-card-link="0.5">About me</a>
-            <a href="#cave" data-card-link="1">Cave</a>
-          </nav>
-
-          <a class="contact" href={`mailto:${email}`}>
-            <span>Contact me</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </header>
-
-        <main>
-          <section class="hero" aria-labelledby="intro-title">
-            <h1 id="intro-title" class="sr-only">
-              Independent developer designing and building thoughtful products for the web and Apple platforms.
-            </h1>
-
-            <figure class="hero-visual">
-              <Image
-                src={spiderManComic}
-                alt="Spider-Man reaches toward the viewer between New York skyscrapers."
-                widths={[480, 720, 960, 1200, 1600, 2400]}
-                sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1520px) calc(100vw - 180px), 1270px"
-                quality="high"
-                loading="eager"
-                fetchpriority="high"
-              />
-
-              <div class="hero-dialogue" aria-label="Welcome message from İlyas">
-                <p class="speech-bubble speech-one">Hey, I’m İlyas.</p>
-                <p class="speech-bubble speech-two">I build thoughtful products for web &amp; iOS.</p>
-                <p class="speech-bubble speech-three">Welcome to my little corner of the internet.</p>
-              </div>
-            </figure>
-
-            <div class="scroll-cue" aria-hidden="true">
-              <span>swipe down, please :)</span>
-              <svg viewBox="0 0 46 56" role="img">
-                <path d="M20 3c2 14 3 25 1 39" />
-                <path d="m9 33 12 11 14-10" />
-              </svg>
-            </div>
-          </section>
-        </main>
+    <main class="stage" data-book>
+      <header class="topbar">
+        <div class="wordmark">
+          ily.dev
+          <svg class="underline" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M2 9 C 30 5, 70 11, 118 6"></path>
+            <path d="M8 12 C 40 9, 80 13, 112 10" opacity="0.5"></path>
+          </svg>
         </div>
-        <div class="site-canvas stack-card about-card" data-about-card aria-labelledby="about-title">
-          <div class="about-heading">
-            <p class="about-kicker">The person behind the pixels</p>
-            <div class="about-title-lockup">
-              <h2 id="about-title">About!</h2>
-              <span aria-hidden="true">issue no. 01</span>
-            </div>
-            <p class="about-doodle" aria-hidden="true">meet the human →</p>
-          </div>
+      </header>
 
-          <div class="about-bento">
-            <article class="bento-panel story-panel">
-              <Image
-                class="cyclops-backdrop"
-                src={cyclopsComic}
-                alt=""
-                widths={[480, 720, 960]}
-                sizes="(max-width: 768px) calc(100vw - 40px), 40vw"
-                quality="mid"
-                aria-hidden="true"
-              />
-              <div class="story-caption story-origin">
-                <span>Origin story</span>
-                <p>It started with a C++ class in 2018.</p>
-              </div>
-              <div class="story-caption story-intro">
-                <p>Hey, I’m Ilyas — an independent developer building thoughtful products for the web and iOS.</p>
-              </div>
-              <div class="story-caption story-now">
-                <span>Meanwhile, today…</span>
-                <p>I craft digital products, build my own ideas, and keep pushing what I can make.</p>
-              </div>
-            </article>
-
-            <article class="bento-panel github-panel" data-github-card>
-              <Image
-                class="cerebro-backdrop"
-                src={cerebroScanner}
-                alt=""
-                widths={[720, 1200, 1800]}
-                sizes="(max-width: 768px) calc(100vw - 40px), 32vw"
-                quality="mid"
-                aria-hidden="true"
-              />
-              <div class="github-head">
-                <a class="github-title-card" href="https://github.com/ilyastorunn" target="_blank" rel="noreferrer">
-                  ilyastorunn’s GitHub Activity! <span aria-hidden="true">↗</span>
-                </a>
-                <span class="github-total" data-github-total>Loading…</span>
-              </div>
-              <div class="activity-scanner">
-                <div class="contribution-grid" data-github-grid aria-label="Recent GitHub contributions">
-                  {Array.from({ length: 112 }, (_, index) => <i style={`--delay:${index}`} aria-hidden="true"></i>)}
-                </div>
-              </div>
-            </article>
-
-            <article class="bento-panel music-panel" data-music-card>
-              <Image
-                class="doom-backdrop"
-                src={doctorDoomComic}
-                alt="Doctor Doom raising his fists beneath the words This land is mine."
-                widths={[400, 800]}
-                sizes="(max-width: 768px) 50vw, 25vw"
-                quality="mid"
-              />
-              <div class="record" aria-hidden="true">
-                <span class="record-label"><Image src={madvillainyCover} alt="" widths={[96, 160]} sizes="86px" quality="mid" /></span>
-                <span class="record-hole"></span>
-              </div>
-              <div class="music-copy">
-                <p class="panel-value">All Caps</p>
-                <p class="track-artist">MF DOOM</p>
-              </div>
-              <button class="play-button" type="button" data-music-toggle aria-label="Play All Caps preview" aria-pressed="false">▶</button>
-              <audio data-music-audio preload="none" src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/21/bc/bc/21bcbc11-adf7-1c11-ec7f-ca60bb54921d/mzaf_12993966015311248438.plus.aac.p.m4a"></audio>
-            </article>
-
-            <article class="bento-panel apps-panel">
-              <Image
-                class="app-comic-backdrop"
-                src={galactusStation}
-                alt=""
-                widths={[480, 800, 1200]}
-                sizes="(max-width: 768px) 50vw, 25vw"
-                quality="mid"
-                aria-hidden="true"
-              />
-              <div class="apps-copy">
-                <p class="panel-label">Three apps, one pocket</p>
-                <p class="panel-value">Things I’ve made.</p>
-              </div>
-              <div class="app-launchers" aria-label="Apps by İlyas Torun">
-                <a class="app-launcher app-launcher-one" href="https://apps.apple.com/tr/app/unscroll-ekran-s%C3%BCresi/id6766120727?l=tr" target="_blank" rel="noreferrer" aria-label="Open Unscroll on the App Store">
-                  <span class="app-icon"><Image src={unscrollIcon} alt="" widths={[64, 120]} sizes="40px" quality="mid" /></span>
-                  <span class="app-info"><b>Unscroll</b><small>Screen time, reclaimed. ↗</small></span>
-                </a>
-                <a class="app-launcher app-launcher-two" href="https://apps.apple.com/tr/app/memento-takvim/id6757344347?l=tr" target="_blank" rel="noreferrer" aria-label="Open Memento on the App Store">
-                  <span class="app-icon"><Image src={mementoIcon} alt="" widths={[64, 120]} sizes="40px" quality="mid" /></span>
-                  <span class="app-info"><b>Memento</b><small>Your calendar, remembered. ↗</small></span>
-                </a>
-                <span class="app-launcher app-launcher-three" tabindex="0" aria-label="Next app, currently in review">
-                  <span class="app-icon"><i>?</i></span>
-                  <span class="app-info"><b>Next app</b><small>Currently in review.</small></span>
-                </span>
-              </div>
-            </article>
-
-            <article class="bento-panel websites-panel">
-              <Image
-                class="workshop-backdrop"
-                src={reedRichardsWork}
-                alt=""
-                widths={[480, 800, 1200]}
-                sizes="(max-width: 768px) calc(100vw - 40px), 34vw"
-                quality="mid"
-                aria-hidden="true"
-              />
-              <div class="website-headline">
-                <p>What I’m building nowadays!</p>
-              </div>
-              <div class="live-preview" tabindex="0">
-                <iframe src="https://screen-studio.pages.dev/" title="Live preview of Screen Studio" loading="lazy"></iframe>
-                <span class="preview-screen" aria-hidden="true">
-                  <b>Screen Studio</b>
-                  <small>Hover for the live report →</small>
-                </span>
-                <span class="preview-scroll-hint" aria-hidden="true">scroll ↓</span>
-              </div>
-            </article>
-          </div>
-        </div>
-        <Cave />
-        </div>
+      <!-- Readable content: the page itself without JavaScript or WebGL, and a screen-reader
+           companion to the book once it has loaded. -->
+      <section class="fallback" aria-labelledby="fallback-title">
+        <h1 id="fallback-title">İlyas Torun</h1>
+        <p>{description}</p>
+        {
+          ROOMS.map((room) => (
+            <section>
+              <h2>{room.name}</h2>
+              {Object.values(SPOTS[room.id] ?? {}).map((spot) => (
+                <article>
+                  <h3>{spot.title}</h3>
+                  {spot.tagline && <p><strong>{spot.tagline}</strong></p>}
+                  <p>{spot.body}</p>
+                  {spot.links && (
+                    <ul>
+                      {spot.links.map((l) => (
+                        <li>
+                          <a href={l.href}>{l.label}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              ))}
+            </section>
+          ))
+        }
       </section>
-    </div>
+
+      <div class="canvas-wrap" data-book-canvas>
+        <div class="loading" aria-hidden="true">sharpening pencils…</div>
+      </div>
+
+      <button class="arrow arrow-left" type="button" aria-label="Close the book" data-book-prev disabled>
+        <svg viewBox="0 0 90 64" width="78" height="56" style="transform: scaleX(-1)" aria-hidden="true">
+          <path d="M8 34 C 24 30.5, 44 36.5, 77 31.5"></path>
+          <path d="M57 14.5 C 64 21, 71 27, 79 31.8 C 71 36.5, 64 42.5, 56.5 50"></path>
+          <path d="M10 37.5 C 30 35, 50 39, 70 35.5" opacity="0.35"></path>
+        </svg>
+      </button>
+      <button class="arrow arrow-right" type="button" aria-label="Open the book" data-book-next>
+        <svg viewBox="0 0 90 64" width="78" height="56" aria-hidden="true">
+          <path d="M8 34 C 24 30.5, 44 36.5, 77 31.5"></path>
+          <path d="M57 14.5 C 64 21, 71 27, 79 31.8 C 71 36.5, 64 42.5, 56.5 50"></path>
+          <path d="M10 37.5 C 30 35, 50 39, 70 35.5" opacity="0.35"></path>
+        </svg>
+      </button>
+
+      <footer class="caption" data-book-caption>
+        <div class="room-name" data-caption-name>İlyas Torun</div>
+        <div class="room-mood" data-caption-mood>tap the cover to open</div>
+        <ul class="spot-list" aria-label="In this room" data-book-spots hidden></ul>
+      </footer>
+      <p class="sr-only" aria-live="polite" data-book-live></p>
+      <div class="spot-tip" aria-hidden="true" data-book-tip hidden></div>
+
+      <dialog class="note" data-book-note aria-labelledby="note-title" tabindex="-1">
+        <div class="note-top">
+          <p class="note-kicker" data-note-kicker hidden></p>
+          <span class="note-count" data-note-count aria-hidden="true"></span>
+          <form method="dialog">
+            <button class="note-close" aria-label="Close">×</button>
+          </form>
+        </div>
+        <h2 id="note-title" data-note-title></h2>
+        <p class="note-tagline" data-note-tagline hidden></p>
+        <p class="note-body" data-note-body></p>
+        <ul class="note-facts" aria-label="Highlights" data-note-facts hidden></ul>
+        <ul class="note-links" data-note-links></ul>
+      </dialog>
+    </main>
 
     <script>
-      const stage = document.querySelector<HTMLElement>("[data-transition-stage]");
-      const viewport = document.querySelector<HTMLElement>("[data-card-viewport]");
-      const heroCard = document.querySelector<HTMLElement>("[data-hero-card]");
-      const aboutCard = document.querySelector<HTMLElement>("[data-about-card]");
-      const caveCard = document.querySelector<HTMLElement>("[data-cave-card]");
-      const cardLinks = [...document.querySelectorAll<HTMLAnchorElement>("[data-card-link]")];
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      const queuedImageCards = new WeakSet<HTMLElement>();
-      let previousActiveIndex = -1;
-
-      const queueCardImages = (card: HTMLElement | null, highPriorityCount = 0) => {
-        if (!card || queuedImageCards.has(card)) return;
-        queuedImageCards.add(card);
-        const images = [...card.querySelectorAll<HTMLImageElement>('img[loading="lazy"]')]
-          .filter((image) => !image.complete);
-
-        images.forEach((image, index) => {
-          const requestImage = () => {
-            image.loading = "eager";
-            if (index < highPriorityCount) image.fetchPriority = "high";
-          };
-          const batch = Math.max(Math.floor((index - highPriorityCount) / 3), 0);
-          if (index < highPriorityCount) requestImage();
-          else window.setTimeout(requestImage, batch * 180);
-        });
-      };
-
-      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-
-      const resetInitialPosition = () => {
-        if (!stage || !viewport) return;
-        if (location.hash === "#work" || location.hash === "#about" || location.hash === "#cave") {
-          history.replaceState(null, "", `${location.pathname}${location.search}`);
-        }
-        viewport.scrollTop = 0;
-        scrollTo({ top: stage.offsetTop, behavior: "auto" });
-        updateCards();
-      };
-
-      const updateCards = () => {
-        if (!stage || !viewport || !heroCard || !aboutCard || !caveCard) return;
-
-        const travel = Math.max(stage.offsetHeight - window.innerHeight, 1);
-        const progress = Math.min(Math.max(-stage.getBoundingClientRect().top / travel, 0), 1);
-        const activeIndex = progress >= 0.76 ? 2 : progress >= 0.28 ? 1 : 0;
-        if (progress >= 0.4) queueCardImages(caveCard, 2);
-        if (activeIndex !== previousActiveIndex) {
-          previousActiveIndex = activeIndex;
-          dispatchEvent(new CustomEvent("portfolio-card-change", { detail: { activeIndex } }));
-        }
-        cardLinks.forEach((link, index) => {
-          if (index === activeIndex) link.setAttribute("aria-current", "page");
-          else link.removeAttribute("aria-current");
-        });
-
-        if (reducedMotion.matches) {
-          const showAbout = progress >= 0.25;
-          const showCave = progress >= 0.75;
-          heroCard.style.opacity = showAbout ? "0" : "1";
-          aboutCard.style.opacity = showCave ? "0" : "1";
-          aboutCard.style.transform = showAbout ? "translateY(0)" : "translateY(110%)";
-          caveCard.style.transform = showCave ? "translateY(0)" : "translateY(110%)";
-          return;
-        }
-
-        const aboutRise = Math.min(progress * 2, 1);
-        const caveRise = Math.min(Math.max(progress * 2 - 1, 0), 1);
-        const easedAboutRise = 1 - Math.pow(1 - aboutRise, 3);
-        const easedCaveRise = 1 - Math.pow(1 - caveRise, 3);
-        const heroFade = Math.min(Math.max((aboutRise - 0.78) / 0.18, 0), 1);
-        const aboutFade = Math.min(Math.max((caveRise - 0.78) / 0.18, 0), 1);
-
-        heroCard.style.transform = `translateY(${-36 * aboutRise}px) scale(${1 - 0.09 * aboutRise})`;
-        heroCard.style.opacity = String(1 - heroFade);
-        aboutCard.style.transform = `translateY(${(1 - easedAboutRise) * 108}%) translateY(${-18 * caveRise}px) scale(${1 - 0.07 * caveRise})`;
-        aboutCard.style.opacity = String(1 - aboutFade);
-        caveCard.style.transform = `translateY(${(1 - easedCaveRise) * 108}%)`;
-      };
-
-      let ticking = false;
-      const requestUpdate = () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          updateCards();
-          ticking = false;
-        });
-      };
-
-      updateCards();
-      requestAnimationFrame(resetInitialPosition);
-      addEventListener("load", () => {
-        resetInitialPosition();
-        setTimeout(resetInitialPosition, 0);
-        window.setTimeout(() => queueCardImages(aboutCard, 2), 200);
-      }, { once: true });
-      addEventListener("pageshow", resetInitialPosition);
-      addEventListener("scroll", requestUpdate, { passive: true });
-      addEventListener("resize", requestUpdate);
-      reducedMotion.addEventListener("change", requestUpdate);
-
-      cardLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-          if (!stage) return;
-          event.preventDefault();
-          const progress = Number(link.dataset.cardLink ?? 0);
-          if (progress >= 0.5) queueCardImages(caveCard, 2);
-          else if (progress > 0) queueCardImages(aboutCard, 2);
-          const travel = Math.max(stage.offsetHeight - window.innerHeight, 0);
-          scrollTo({
-            top: stage.offsetTop + travel * progress,
-            behavior: reducedMotion.matches ? "auto" : "smooth",
-          });
-        });
-      });
-
-      const githubGrid = document.querySelector<HTMLElement>("[data-github-grid]");
-      const githubTotal = document.querySelector<HTMLElement>("[data-github-total]");
-
-      if (githubGrid && githubTotal) {
-        fetch("https://github-contributions-api.jogruber.de/v4/ilyastorunn?y=last")
-          .then((response) => {
-            if (!response.ok) throw new Error("GitHub activity unavailable");
-            return response.json();
-          })
-          .then((payload) => {
-            const contributions = Array.isArray(payload.contributions)
-              ? payload.contributions.slice(-112)
-              : [];
-            const cells = [...githubGrid.querySelectorAll<HTMLElement>("i")];
-            contributions.forEach((day: { count?: number; date?: string; level?: number }, index: number) => {
-              const cell = cells[index];
-              if (!cell) return;
-              cell.dataset.level = String(Math.min(Number(day.level ?? 0), 4));
-              cell.title = `${day.count ?? 0} contributions on ${day.date ?? "this day"}`;
-            });
-            const total = Object.values(payload.total ?? {}).reduce(
-              (sum: number, value) => sum + Number(value ?? 0),
-              0,
-            );
-            githubTotal.textContent = `${total.toLocaleString()} this year`;
-          })
-          .catch(() => {
-            githubTotal.textContent = "Public profile";
-          });
-      }
-
-      const musicCard = document.querySelector<HTMLElement>("[data-music-card]");
-      const musicToggle = document.querySelector<HTMLButtonElement>("[data-music-toggle]");
-      const musicAudio = document.querySelector<HTMLAudioElement>("[data-music-audio]");
-
-      if (musicCard && musicToggle && musicAudio) {
-        musicAudio.volume = 0.5;
-
-        const setMusicState = (playing: boolean) => {
-          musicCard.classList.toggle("is-playing", playing);
-          musicToggle.textContent = playing ? "Ⅱ" : "▶";
-          musicToggle.setAttribute("aria-pressed", String(playing));
-          musicToggle.setAttribute("aria-label", playing ? "Pause All Caps preview" : "Play All Caps preview");
-        };
-
-        musicToggle.addEventListener("click", async () => {
-          if (musicAudio.paused) {
-            try {
-              await musicAudio.play();
-              setMusicState(true);
-            } catch {
-              setMusicState(false);
-            }
-          } else {
-            musicAudio.pause();
-            setMusicState(false);
-          }
-        });
-
-        musicAudio.addEventListener("ended", () => setMusicState(false));
-        musicAudio.addEventListener("pause", () => setMusicState(false));
-      }
-
+      import "../scripts/book/index";
     </script>
   </body>
 </html>
 
-<style>
-  :global(*) {
+<style is:global>
+  :root {
+    --ink: #2b1fd6;
+    --ink-soft: rgba(43, 31, 214, 0.55);
+    --paper: #ecebe7;
+    --hand: "Caveat", cursive;
+  }
+
+  * {
     box-sizing: border-box;
   }
 
-  :global(html) {
-    min-width: 20rem;
-    background: #f1f2f3;
-    color: #161817;
-    font-family: "Instrument Sans Variable", "Helvetica Neue", Arial, sans-serif;
-    font-synthesis: none;
-  }
-
-  :global(body) {
-    min-height: 100svh;
+  html,
+  body {
     margin: 0;
-  }
-
-  :global(a) {
-    color: inherit;
-  }
-
-  .card-stack {
-    position: relative;
-  }
-
-  .transition-stage {
-    position: relative;
-    height: 300svh;
-  }
-
-  .card-viewport {
-    position: sticky;
-    top: 0;
-    height: 100svh;
-    padding: clamp(0.75rem, 2.2vw, 2rem);
-    overflow: clip;
-  }
-
-  .stack-card {
-    position: absolute;
-    inset: clamp(0.75rem, 2.2vw, 2rem);
-    transform-origin: 50% 8%;
-    will-change: transform, opacity;
-  }
-
-  .hero-card {
-    z-index: 1;
-    display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
-  }
-
-  .about-card {
-    z-index: 2;
-    transform: translateY(108%);
-  }
-
-  .site-canvas {
-    width: min(100%, 91rem);
-    min-height: calc(100svh - clamp(1.5rem, 4.4vw, 4rem));
-    margin-inline: auto;
-    padding: clamp(1.4rem, 3.2vw, 3.6rem) clamp(1.35rem, 5vw, 6.5rem);
-    overflow: hidden;
-    border: 1px solid rgb(21 25 23 / 4%);
-    border-radius: clamp(1.5rem, 3vw, 2.75rem);
-    background: #f5f3f8;
-    box-shadow: 0 1.5rem 5rem rgb(30 39 35 / 6%);
-  }
-
-  .hero-card {
-    border-color: rgb(49 43 59 / 7%);
-    background:
-      radial-gradient(circle at 72% 18%, rgb(215 204 232 / 28%), transparent 32%),
-      #f5f3f8;
-    box-shadow: 0 2.4rem 6rem rgb(25 29 42 / 13%);
-  }
-
-  .about-card {
-    display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
-    gap: clamp(1.25rem, 2vw, 2rem);
-    padding-block: clamp(1.6rem, 3vw, 3rem);
-    background: #e8e3f1;
-    color: #312b3b;
-    box-shadow: 0 1.75rem 5rem rgb(42 31 67 / 14%);
-  }
-
-  .about-heading {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-  }
-
-  .about-kicker,
-  .about-heading h2,
-  .about-doodle,
-  .panel-label,
-  .panel-value,
-  .story-copy,
-  .github-status {
-    margin: 0;
-  }
-
-  .about-kicker {
-    grid-column: 1;
-    color: #665e73;
-    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-  }
-
-  .about-title-lockup {
-    position: relative;
-    isolation: isolate;
-    grid-column: 1;
-    width: fit-content;
-    margin-top: 0.28rem;
-    padding: 0.08rem 0.75rem 0.12rem 0.12rem;
-  }
-
-  .about-title-lockup::before {
-    position: absolute;
-    z-index: -1;
-    inset: 17% -0.2rem 3% -0.35rem;
-    background: #f0cf3e;
-    content: "";
-    clip-path: polygon(1% 16%, 98% 0, 100% 80%, 3% 100%, 0 68%);
-    transform: rotate(-1.4deg);
-  }
-
-  .about-heading h2 {
-    grid-column: 1;
-    font-size: clamp(2.8rem, 5.4vw, 5.8rem);
-    font-style: italic;
-    font-weight: 820;
-    letter-spacing: -0.07em;
-    line-height: 0.82;
-    text-transform: uppercase;
-  }
-
-  .about-title-lockup span {
-    position: absolute;
-    right: -1.85rem;
-    bottom: -0.48rem;
-    padding: 0.12rem 0.28rem;
-    border-block: 1px solid #25202b;
-    background: #e8e3f1;
-    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
-    font-size: 0.48rem;
-    font-weight: 750;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transform: rotate(3deg);
-  }
-
-  .about-doodle {
-    position: relative;
-    grid-column: 2;
-    grid-row: 1 / 3;
-    align-self: center;
-    padding: 0.25rem 0.2rem 0.42rem;
-    color: #25202b;
-    font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
-    font-size: clamp(0.78rem, 1vw, 1rem);
-    font-weight: 700;
-    transform: rotate(-2deg);
-  }
-
-  .about-doodle::after {
-    position: absolute;
-    right: 0;
-    bottom: 0.08rem;
-    left: 0;
-    height: 0.22rem;
-    background: #c92f38;
-    content: "";
-    clip-path: polygon(0 38%, 95% 0, 100% 55%, 8% 100%);
-    transform: rotate(1deg);
-  }
-
-  .about-bento {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-    gap: clamp(0.7rem, 1.2vw, 1rem);
-    min-height: 0;
-  }
-
-  .bento-panel {
-    position: relative;
-    min-width: 0;
-    min-height: 0;
-    padding: clamp(1rem, 1.65vw, 1.55rem);
-    overflow: hidden;
-    border: 1px solid rgb(49 43 59 / 12%);
-    border-radius: clamp(1rem, 1.7vw, 1.5rem);
-    background: rgb(255 255 255 / 74%);
-  }
-
-  .panel-label {
-    color: #71697e;
-    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .story-panel {
-    display: flex;
-    grid-column: span 5;
-    grid-row: span 2;
-    z-index: 4;
-    overflow: visible;
-    flex-direction: column;
-    justify-content: space-between;
-    background: #090708;
-    isolation: isolate;
-  }
-
-  .story-panel::after {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background: linear-gradient(90deg, rgb(7 5 7 / 88%) 0%, rgb(7 5 7 / 63%) 42%, rgb(7 5 7 / 16%) 72%, transparent 100%);
-    border-radius: inherit;
-    content: "";
-    pointer-events: none;
-  }
-
-  .cyclops-backdrop {
-    position: absolute;
-    z-index: -2;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    object-fit: cover;
-    object-position: 53% center;
-    filter: hue-rotate(-7deg) saturate(0.76) brightness(0.76) contrast(1.04);
-    transform: scale(1.015);
-  }
-
-  .story-caption {
-    position: absolute;
-    z-index: 2;
-    border: 2px solid #111214;
-    color: #111214;
-    transition: transform 180ms ease;
-  }
-
-  .story-caption p { margin: 0; }
-
-  .story-caption span {
-    display: block;
-    margin-bottom: 0.28rem;
-    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
-    font-size: clamp(0.48rem, 0.58vw, 0.6rem);
-    font-weight: 800;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-  }
-
-  .story-origin {
-    top: 5%;
-    left: -8%;
-    width: min(61%, 17rem);
-    padding: 0.62rem 0.8rem 0.68rem 1.25rem;
-    background: #c92f38;
-    color: #f7f0e9;
-    font-size: clamp(0.75rem, 0.95vw, 0.98rem);
-    font-weight: 720;
-    line-height: 1.18;
-    box-shadow: 0.32rem 0.32rem 0 #f7f0e9;
-    transform: rotate(-1.5deg);
-  }
-
-  .story-intro {
-    top: 32%;
-    left: -16%;
-    width: min(73%, 21rem);
-    padding: clamp(0.8rem, 1.25vw, 1.05rem);
-    background: #f7f0e9;
-    font-size: clamp(1.1rem, 1.75vw, 1.85rem);
-    font-weight: 760;
-    letter-spacing: -0.045em;
-    line-height: 0.98;
-    box-shadow: 0.34rem 0.34rem 0 #cc2831;
-    transform: rotate(0.7deg);
-  }
-
-  .story-now {
-    right: 3%;
-    bottom: -1%;
-    width: min(68%, 19rem);
-    padding: 0.7rem 1.15rem 0.76rem 0.85rem;
-    border-color: #f7f0e9;
-    background: #151516;
-    color: #f7f0e9;
-    font-size: clamp(0.7rem, 0.86vw, 0.88rem);
-    font-weight: 690;
-    line-height: 1.25;
-    box-shadow: -0.32rem 0.32rem 0 #c92f38;
-    transform: rotate(1.8deg);
-  }
-
-  .story-panel:hover .story-origin { transform: translate(0.16rem, -0.12rem) rotate(-2deg); }
-  .story-panel:hover .story-intro { transform: translate(-0.12rem, 0.08rem) rotate(0deg); }
-  .story-panel:hover .story-now { transform: translate(-0.16rem, -0.1rem) rotate(2.4deg); }
-
-  .panel-value {
-    max-width: 16ch;
-    margin-top: 0.9rem;
-    font-size: clamp(1.25rem, 2vw, 2rem);
-    font-weight: 520;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
-  }
-
-  .github-panel {
-    position: relative;
-    display: flex;
-    grid-column: span 4;
-    gap: clamp(0.65rem, 1.2vh, 0.95rem);
-    overflow: visible;
-    flex-direction: column;
-    justify-content: flex-start;
-    background:
-      radial-gradient(circle, rgb(247 240 233 / 8%) 0 1px, transparent 1.3px) 0 0 / 8px 8px,
-      linear-gradient(145deg, #2a202e 0%, #17131d 72%);
-    color: #fff;
-    isolation: isolate;
-    padding: clamp(0.85rem, 1.15vw, 1rem);
-  }
-
-  .github-panel::before {
-    position: absolute;
-    z-index: -1;
-    inset: -58% -62% -42% 18%;
-    border-radius: inherit;
-    background: repeating-conic-gradient(from 8deg, rgb(201 47 56 / 13%) 0deg 3deg, transparent 3deg 11deg);
-    content: "";
-    -webkit-mask-image: radial-gradient(ellipse at 48% 46%, #000 0 34%, rgb(0 0 0 / 82%) 48%, transparent 76%);
-    mask-image: radial-gradient(ellipse at 48% 46%, #000 0 34%, rgb(0 0 0 / 82%) 48%, transparent 76%);
-    pointer-events: none;
-    transform: rotate(-8deg);
-  }
-
-  .github-panel::after {
-    position: absolute;
-    z-index: -2;
-    inset: 0;
-    border-radius: inherit;
-    background:
-      linear-gradient(180deg, rgb(18 13 23 / 12%) 0%, rgb(18 13 23 / 34%) 100%),
-      linear-gradient(100deg, rgb(113 32 47 / 18%), transparent 65%);
-    content: "";
-    pointer-events: none;
-  }
-
-  .cerebro-backdrop {
-    position: absolute;
-    z-index: -3;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: inherit;
-    opacity: 0.94;
-    filter: saturate(0.84) brightness(0.78) contrast(1.06);
-  }
-
-  .github-head {
-    position: absolute;
-    z-index: 4;
-    top: -1.35rem;
-    right: 0.75rem;
-    left: 0.7rem;
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    justify-content: space-between;
-    pointer-events: none;
-  }
-
-  .github-title-card {
-    display: inline-block;
-    max-width: min(72%, 17rem);
-    padding: 0.52rem 0.7rem 0.48rem;
-    border: 2px solid #17131d;
-    background: #f7f0e9;
-    box-shadow: 0.3rem 0.3rem 0 #c92f38;
-    color: #17131d;
-    font-family: "Arial Black", "Instrument Sans", sans-serif;
-    font-size: clamp(0.72rem, 1.15vw, 1rem);
-    font-style: italic;
-    font-weight: 900;
-    letter-spacing: -0.035em;
-    line-height: 1.02;
-    text-decoration: none;
-    text-transform: uppercase;
-    transform: rotate(-1.25deg);
-    pointer-events: auto;
-  }
-
-  .github-title-card span { color: #c92f38; }
-
-  .github-title-card:focus-visible {
-    border-radius: 0.2rem;
-    outline: 2px solid #f2cf42;
-    outline-offset: 0.2rem;
-  }
-
-  .github-total {
-    font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
-    font-size: 0.55rem;
-  }
-
-  .github-total {
-    display: grid;
-    width: clamp(3.9rem, 5.2vw, 5rem);
-    aspect-ratio: 1.25;
-    padding: 0.35rem;
-    place-items: center;
-    background: #f2cf42;
-    color: #17131d;
-    font-weight: 850;
-    line-height: 1.05;
-    text-align: center;
-    white-space: normal;
-    clip-path: polygon(50% 0%, 61% 20%, 82% 7%, 83% 31%, 100% 36%, 84% 53%, 97% 72%, 73% 73%, 69% 100%, 49% 81%, 28% 97%, 25% 75%, 0% 72%, 16% 51%, 1% 35%, 23% 30%, 22% 7%, 40% 20%);
-    transform: rotate(5deg);
-    pointer-events: auto;
-  }
-
-  .activity-scanner {
-    position: absolute;
-    z-index: 2;
-    top: 51.5%;
-    left: 50%;
-    width: 66%;
-    padding: clamp(0.25rem, 0.45vw, 0.4rem);
-    background: radial-gradient(ellipse, rgb(17 15 25 / 46%) 0%, rgb(17 15 25 / 18%) 58%, transparent 82%);
-    filter: drop-shadow(0 0 0.8rem rgb(239 185 63 / 18%));
-    -webkit-mask-image: radial-gradient(ellipse, #000 52%, rgb(0 0 0 / 95%) 78%, transparent 108%);
-    mask-image: radial-gradient(ellipse, #000 52%, rgb(0 0 0 / 95%) 78%, transparent 108%);
-    transform: translate(-50%, -50%) rotate(-0.6deg);
-  }
-
-  .activity-scanner::after {
-    position: absolute;
-    z-index: 3;
-    top: -8%;
-    right: 4%;
-    left: 4%;
-    height: 18%;
-    background: linear-gradient(180deg, transparent, rgb(242 207 66 / 36%), transparent);
-    content: "";
-    mix-blend-mode: screen;
-    pointer-events: none;
-    animation: github-scan 5.5s ease-in-out infinite;
-  }
-
-  .contribution-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(7, 1fr);
-    gap: clamp(2px, 0.32vw, 4px);
-    width: 100%;
-  }
-
-  .contribution-grid i {
-    aspect-ratio: 1;
-    border: 1px solid rgb(247 240 233 / 14%);
-    border-radius: 1px;
-    background: rgb(45 38 51 / 68%);
-    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 14%), 0 0 0.18rem rgb(247 240 233 / 5%);
-    transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-  }
-
-  .contribution-grid i[data-level="1"] { background: #893b46; box-shadow: 0 0 0.38rem rgb(137 59 70 / 42%); }
-  .contribution-grid i[data-level="2"] { background: #db3c49; box-shadow: 0 0 0.48rem rgb(219 60 73 / 52%); }
-  .contribution-grid i[data-level="3"] { background: #ffc83f; box-shadow: 0 0 0.58rem rgb(255 200 63 / 62%); }
-  .contribution-grid i[data-level="4"] { background: #fff8df; box-shadow: 0 0 0.68rem rgb(255 248 223 / 72%); }
-  .contribution-grid i:hover {
-    z-index: 2;
-    box-shadow: 0.14rem 0.14rem 0 #c92f38, 0.26rem 0.26rem 0 #f2cf42;
-    transform: scale(1.45) rotate(3deg);
-  }
-
-  .music-panel {
-    grid-column: span 3;
-    background: #0b777f;
-    color: #fff;
-    isolation: isolate;
-  }
-
-  .doom-backdrop {
-    position: absolute;
-    z-index: -3;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 0%;
-    filter: saturate(0.9) contrast(1.02);
-  }
-
-  .music-panel::after {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    border: 1px solid rgb(255 255 255 / 22%);
-    border-radius: inherit;
-    content: "";
-    pointer-events: none;
-  }
-
-  .record {
-    position: absolute;
-    right: -38%;
-    bottom: -36%;
-    width: min(108%, 17.5rem);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 50% 50%, transparent 0 8%, rgb(3 4 4 / 94%) 8.4% 9.3%, transparent 9.7%),
-      repeating-radial-gradient(circle at 50% 50%, transparent 0 2px, rgb(255 255 255 / 7%) 2.5px 3px, transparent 3.5px 6px),
-      conic-gradient(from 20deg, #080909, #202322 8%, #080909 20%, #2a2d2c 30%, #090a0a 43%, #212423 57%, #070808 70%, #292c2b 84%, #080909);
-    border: 1px solid rgb(255 255 255 / 18%);
-    box-shadow:
-      -0.75rem -0.55rem 1.4rem rgb(255 255 255 / 9%),
-      0.9rem 1.2rem 2.2rem rgb(0 0 0 / 54%);
-    animation: record-spin 9s linear infinite;
-    animation-play-state: paused;
-  }
-
-  .music-panel.is-playing .record { animation-play-state: running; }
-
-  .record::before,
-  .record::after {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    content: "";
-  }
-
-  .record::before {
-    background: linear-gradient(112deg, transparent 15%, rgb(255 255 255 / 13%) 27%, transparent 39% 67%, rgb(255 255 255 / 8%) 76%, transparent 88%);
-    mix-blend-mode: screen;
-  }
-
-  .record::after {
-    inset: 1.2%;
-    border: 1px solid rgb(255 255 255 / 10%);
-  }
-
-  .record-label {
-    position: absolute;
-    z-index: 2;
-    inset: 34%;
-    overflow: hidden;
-    border: 1px solid rgb(255 255 255 / 34%);
-    border-radius: 50%;
-    background: #d9d9d7;
-    box-shadow: 0 0 0 0.14rem #111;
-  }
-
-  .record-label :global(img) {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .record-hole {
-    position: absolute;
-    z-index: 3;
-    inset: 48.25%;
-    border-radius: 50%;
-    content: "";
-    background: #050606;
-    box-shadow: 0 0 0 1px rgb(255 255 255 / 42%);
-  }
-
-  .music-copy {
-    position: absolute;
-    z-index: 4;
-    right: 0.7rem;
-    bottom: 36%;
-    padding: 0.34rem 0.65rem 0.4rem;
-    border: 2px solid #151717;
-    background: #d9282f;
-    box-shadow: 0.2rem 0.2rem 0 #fff, 0.38rem 0.38rem 0 #0ca8d7;
-    color: #fff;
-    transform: rotate(2deg);
-  }
-
-  .music-copy .panel-value {
-    margin: 0;
-    font-size: clamp(0.9rem, 1.25vw, 1.2rem);
-    font-style: italic;
-    font-weight: 850;
-    letter-spacing: -0.04em;
-    line-height: 0.9;
-    text-transform: uppercase;
-  }
-
-  .track-artist {
-    position: absolute;
-    top: calc(100% - 0.1rem);
-    left: 0.45rem;
-    margin: 0;
-    padding: 0.16rem 0.3rem;
-    border: 1.5px solid #151717;
-    background: #0ca8d7;
-    color: #111;
-    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
-    font-size: 0.48rem;
-    font-weight: 750;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transform: rotate(3deg);
-  }
-
-  .play-button {
-    position: absolute;
-    z-index: 2;
-    bottom: 1rem;
-    left: 1rem;
-    display: grid;
-    width: 2.2rem;
-    aspect-ratio: 1;
-    border: 2px solid #25202b;
-    border-radius: 50%;
-    background: #fff;
-    color: #25202b;
-    text-decoration: none;
-    place-items: center;
-  }
-
-  .music-panel audio { display: none; }
-
-  .apps-panel {
-    grid-column: span 3;
-    overflow: visible;
-    background: #172b31;
-    color: #17131d;
-    isolation: isolate;
-    outline: none;
-    perspective: 48rem;
-    transition: z-index 0s 420ms;
-  }
-
-  .apps-panel:is(:hover, :focus-within, :focus) { z-index: 12; transition-delay: 0s; }
-
-  .app-comic-backdrop {
-    position: absolute;
-    z-index: -2;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    object-fit: cover;
-    object-position: center 44%;
-    filter: saturate(0.9) brightness(0.72) contrast(1.08);
-  }
-
-  .apps-panel::after {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    border-radius: inherit;
-    background:
-      linear-gradient(180deg, rgb(8 20 25 / 8%), transparent 42%, rgb(8 20 25 / 30%)),
-      radial-gradient(circle at 50% 72%, transparent 0 30%, rgb(9 23 27 / 14%) 72%);
-    content: "";
-    pointer-events: none;
-  }
-
-  .apps-copy {
-    position: absolute;
-    z-index: 7;
-    top: 0.72rem;
-    left: 0.75rem;
-    width: min(70%, 12rem);
-    padding: 0.52rem 0.62rem 0.48rem;
-    border: 2px solid #17131d;
-    background: #fff8df;
-    box-shadow: 0.27rem 0.27rem 0 #f0cf3e, 0.45rem 0.45rem 0 #258db2;
-    transform: rotate(-1.3deg);
-  }
-
-  .apps-copy .panel-label {
-    color: #31505d;
-    font-size: 0.5rem;
-    font-weight: 820;
-  }
-
-  .apps-copy .panel-value {
-    max-width: none;
-    margin-top: 0.2rem;
-    font-family: "Arial Black", "Instrument Sans", sans-serif;
-    font-size: clamp(0.86rem, 1.25vw, 1.16rem);
-    font-style: italic;
-    font-weight: 900;
-    line-height: 0.95;
-    text-transform: uppercase;
-  }
-
-  .app-launchers { position: absolute; z-index: 5; inset: 0; }
-
-  .app-launcher {
-    --app-accent: #f0cf3e;
-    position: absolute;
-    width: clamp(3rem, 4.2vw, 3.65rem);
-    aspect-ratio: 1;
-    color: #101419;
-    outline: none;
-    text-decoration: none;
-  }
-
-  .app-icon {
-    position: absolute;
-    z-index: 3;
-    display: grid;
-    inset: 0;
-    border: 3px solid #101419;
-    border-radius: 50%;
-    background: #fff8df;
-    box-shadow: 0.18rem 0.18rem 0 var(--app-accent), 0 0 0.8rem color-mix(in srgb, var(--app-accent) 52%, transparent);
-    place-items: center;
-    transition: transform 240ms cubic-bezier(0.2, 0.86, 0.25, 1), box-shadow 180ms ease;
-    animation: orbit-signal 2.8s ease-in-out infinite;
-  }
-
-  .app-icon::after {
-    position: absolute;
-    inset: -0.42rem;
-    border: 2px dashed var(--app-accent);
-    border-radius: 50%;
-    content: "";
-    animation: orbit-ring 7s linear infinite;
-  }
-
-  .app-icon :global(img),
-  .app-icon i { width: 76%; height: 76%; border-radius: 50%; object-fit: cover; }
-
-  .app-icon i {
-    display: grid;
-    background: #f0cf3e;
-    color: #17131d;
-    font-size: 0.8rem;
-    font-style: normal;
-    font-weight: 900;
-    place-items: center;
-  }
-
-  .app-info {
-    position: absolute;
-    z-index: 2;
-    bottom: calc(100% + 0.8rem);
-    left: 50%;
-    display: grid;
-    gap: 0.16rem;
-    width: clamp(8.8rem, 11vw, 10.6rem);
-    padding: 0.58rem 0.68rem 0.62rem;
-    border: 2px solid #101419;
-    background: #fff8df;
-    box-shadow: 0.3rem 0.3rem 0 var(--app-accent);
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, 0.65rem) rotate(-2deg) scale(0.92);
-    transform-origin: 50% 100%;
-    transition: opacity 150ms ease, transform 240ms cubic-bezier(0.2, 0.86, 0.25, 1);
-  }
-
-  .app-info::after {
-    position: absolute;
-    bottom: -0.48rem;
-    left: calc(50% - 0.42rem);
-    width: 0.72rem;
-    aspect-ratio: 1;
-    border-right: 2px solid #101419;
-    border-bottom: 2px solid #101419;
-    background: #fff8df;
-    content: "";
-    transform: rotate(45deg);
-  }
-
-  .app-info::before {
-    position: absolute;
-    right: 0;
-    bottom: -1rem;
-    left: 0;
-    height: 1rem;
-    content: "";
-  }
-
-  .app-info b {
-    font-family: "Arial Black", "Instrument Sans", sans-serif;
-    font-size: 0.78rem;
-    font-style: italic;
-    line-height: 1;
-    text-transform: uppercase;
-  }
-
-  .app-info small { color: #31505d; font-size: 0.53rem; font-weight: 660; line-height: 1.2; }
-
-  .app-launcher-one { --app-accent: #258db2; bottom: 24%; left: 17%; transform: rotate(-7deg); }
-  .app-launcher-two { --app-accent: #e77a2f; bottom: 16%; left: 43%; transform: rotate(1deg); }
-  .app-launcher-three { --app-accent: #f0cf3e; right: 14%; bottom: 26%; transform: rotate(6deg); }
-  .app-launcher-two .app-icon { animation-delay: -0.9s; }
-  .app-launcher-three .app-icon { animation-delay: -1.8s; }
-
-  .app-launcher:is(:hover, :focus-visible) { z-index: 9; }
-
-  .app-launcher:is(:hover, :focus-visible) .app-icon {
-    box-shadow: 0.28rem 0.28rem 0 var(--app-accent), 0 0 1.1rem color-mix(in srgb, var(--app-accent) 72%, transparent);
-    transform: translateY(-0.18rem) scale(1.24);
-  }
-
-  .app-launcher:is(:hover, :focus-visible) .app-info {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, 0) rotate(-2deg) scale(1);
-  }
-
-  .app-launcher-two .app-info { transform: translate(-50%, 0.65rem) rotate(1deg) scale(0.92); }
-  .app-launcher-two:is(:hover, :focus-visible) .app-info { transform: translate(-50%, 0) rotate(1deg) scale(1); }
-  .app-launcher-three .app-info { transform: translate(-50%, 0.65rem) rotate(2deg) scale(0.92); }
-  .app-launcher-three:is(:hover, :focus-visible) .app-info { transform: translate(-50%, 0) rotate(2deg) scale(1); }
-
-  .websites-panel {
-    position: relative;
-    grid-column: span 4;
-    overflow: visible;
-    background: #d8c9a4;
-    isolation: isolate;
-  }
-
-  .websites-panel:is(:hover, :focus-within) { z-index: 10; }
-
-  .workshop-backdrop {
-    position: absolute;
-    z-index: -2;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    object-fit: cover;
-    object-position: left 20%;
-    filter: saturate(0.86) brightness(0.96) contrast(1.02);
-  }
-
-  .websites-panel::after {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(90deg, rgb(255 255 255 / 2%), rgb(20 27 42 / 10%));
-    content: "";
-    pointer-events: none;
-  }
-
-  .website-headline {
-    position: absolute;
-    z-index: 5;
-    top: 50%;
-    left: -0.65rem;
-    width: min(45%, 12rem);
-    padding: 0.62rem 0.7rem 0.66rem;
-    border: 2px solid #17131d;
-    background: #f4e9cb;
-    box-shadow: 0.3rem 0.3rem 0 #258db2, 0.5rem 0.5rem 0 #f0cf3e;
-    transform: translateY(-50%) rotate(-1.8deg);
-  }
-
-  .website-headline p {
-    margin: 0;
-    font-family: "Arial Black", "Instrument Sans", sans-serif;
-    font-size: clamp(0.82rem, 1.25vw, 1.15rem);
-    font-style: italic;
-    font-weight: 900;
-    letter-spacing: -0.045em;
-    line-height: 0.94;
-    text-transform: uppercase;
-  }
-
-  .live-preview {
-    position: absolute;
-    z-index: 3;
-    top: 40%;
-    right: -4%;
-    width: 80%;
-    height: 58%;
-    overflow: hidden;
-    border: 3px solid #17131d;
-    background: #e9ddbc;
-    box-shadow: 0.42rem 0.42rem 0 #258db2;
-    outline: none;
-    transform: rotate(1.1deg);
-    transition: box-shadow 220ms ease, transform 320ms cubic-bezier(0.2, 0.82, 0.2, 1);
-  }
-
-  .live-preview iframe {
-    width: 200%;
-    height: 200%;
-    border: 0;
-    filter: grayscale(1) sepia(0.5) contrast(0.86) brightness(0.76);
-    pointer-events: none;
-    transform: scale(0.5);
-    transform-origin: 0 0;
-    transition: filter 260ms ease;
-  }
-
-  .preview-screen {
-    position: absolute;
-    display: grid;
-    inset: 0;
-    align-content: end;
-    padding: 0.65rem;
-    background:
-      radial-gradient(circle, rgb(23 19 29 / 22%) 0 1px, transparent 1.3px) 0 0 / 5px 5px,
-      linear-gradient(180deg, transparent 42%, rgb(20 16 20 / 82%));
-    color: #fff8df;
-    pointer-events: none;
-    transition: opacity 180ms ease;
-  }
-
-  .preview-screen b { font-size: 0.78rem; }
-  .preview-screen small { margin-top: 0.08rem; font-family: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace; font-size: 0.48rem; }
-
-  .preview-scroll-hint {
-    position: absolute;
-    z-index: 5;
-    top: 0.55rem;
-    right: 0.72rem;
-    color: #fff8df;
-    font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
-    font-size: clamp(0.62rem, 0.85vw, 0.82rem);
-    font-weight: 700;
-    opacity: 0;
-    pointer-events: none;
-    text-shadow: 0 1px 0 #17131d, 1px 0 0 #17131d, 0 -1px 0 #17131d, -1px 0 0 #17131d;
-    transform: rotate(4deg) translateY(-0.3rem);
-    transition: opacity 180ms ease 120ms, transform 220ms ease 120ms;
-  }
-
-  .live-preview:is(:hover, :focus, :focus-within) {
-    z-index: 7;
-    box-shadow: 0.55rem 0.55rem 0 #f0cf3e, 0 1rem 1.5rem rgb(23 19 29 / 28%);
-    transform: translate(6%, -12%) rotate(0deg) scale(1.1);
-  }
-
-  .live-preview:is(:hover, :focus, :focus-within) iframe { filter: none; pointer-events: auto; }
-  .live-preview:is(:hover, :focus, :focus-within) .preview-screen { opacity: 0; }
-  .live-preview:is(:hover, :focus, :focus-within) .preview-scroll-hint { opacity: 1; transform: rotate(4deg) translateY(0); }
-
-  @keyframes record-spin { to { transform: rotate(1turn); } }
-
-  @keyframes orbit-signal {
-    0%, 100% { margin-top: 0; }
-    50% { margin-top: -0.28rem; }
-  }
-
-  @keyframes orbit-ring { to { transform: rotate(1turn); } }
-
-  @keyframes github-scan {
-    0%, 12% { opacity: 0; transform: translateY(0); }
-    28% { opacity: 0.72; }
-    72% { opacity: 0.48; }
-    88%, 100% { opacity: 0; transform: translateY(470%); }
-  }
-
-  .site-header {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 2rem;
-    align-items: center;
-    min-height: 2.25rem;
-    font-size: 0.82rem;
-  }
-
-  .section-preview {
-    display: flex;
-    grid-column: 2;
-    gap: clamp(0.45rem, 1.2vw, 0.85rem);
-    justify-content: center;
-    color: #665e73;
-    font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
-    font-weight: 900;
-    letter-spacing: 0.045em;
-    text-transform: uppercase;
-  }
-
-  .section-preview a[aria-current="page"] {
-    color: #211d29;
-    background: #f4ce2f;
-    clip-path: polygon(2% 8%, 100% 0, 96% 88%, 8% 100%);
-    box-shadow: none;
-    filter: drop-shadow(0 3px 0 #211d29);
-    transform: rotate(-1.5deg);
-  }
-
-  .section-preview a,
-  .section-preview span {
-    position: relative;
-    padding: 0.48rem 0.78rem 0.42rem;
-    border: 2px solid transparent;
-    color: inherit;
-    text-decoration: none;
-    transition: color 150ms ease, background 150ms ease, box-shadow 150ms ease, transform 150ms ease;
-  }
-
-  .section-preview a:is(:hover, :focus-visible) {
-    color: #211d29;
-    transform: translateY(-2px) rotate(-1deg);
-  }
-
-  .contact {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    display: inline-flex;
-    gap: 0.42rem;
-    align-items: center;
-    width: fit-content;
-    padding: 0.24rem 0.14rem 0.38rem;
-    border: 0;
-    background: transparent;
-    clip-path: none;
-    color: #211d29;
-    font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
-    font-size: 0.9rem;
-    font-weight: 800;
-    text-decoration: none;
-    filter: none;
-    transform: translateY(-50%) rotate(1deg);
-    transition: color 150ms ease, transform 150ms ease;
-  }
-
-  .contact::after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    background: #d32f3c;
-    clip-path: polygon(0 38%, 22% 56%, 46% 24%, 72% 62%, 100% 30%, 98% 76%, 73% 88%, 45% 61%, 20% 92%, 1% 72%);
-    content: "";
-    transform: rotate(-1deg);
-  }
-
-  .contact:is(:hover, :focus-visible) {
-    color: #d32f3c;
-    filter: none;
-    transform: translateY(calc(-50% - 2px)) rotate(1deg);
-  }
-
-  main {
-    display: grid;
-    min-height: 0;
+    min-height: 100%;
+    color: var(--ink);
+    font-family: var(--hand);
+    background-color: var(--paper);
+    /* paper grain + a soft vignette */
+    background-image:
+      radial-gradient(ellipse at 50% 45%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 60%),
+      radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0) 55%, rgba(60, 50, 30, 0.09) 100%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.3  0 0 0 0 0.22  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
   }
 
   .sr-only {
     position: absolute;
     width: 1px;
     height: 1px;
-    padding: 0;
+    margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip: rect(0 0 0 0);
     white-space: nowrap;
-    border: 0;
   }
 
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 0;
-    padding-block: clamp(1.4rem, 3.2svh, 2.8rem) 0.5rem;
+  :focus-visible {
+    outline: 2px dashed var(--ink);
+    outline-offset: 4px;
+    border-radius: 6px;
   }
 
-  .hero-visual {
-    position: relative;
-    width: 100%;
-    max-width: 78rem;
-    max-height: 100%;
-    aspect-ratio: 16 / 8.15;
+  /* ---- without JS / WebGL: a plain readable page -------------------------- */
+
+  .stage .canvas-wrap,
+  .stage .arrow,
+  .stage .caption {
+    display: none;
+  }
+
+  .fallback {
+    max-width: 38rem;
     margin: 0 auto;
-    overflow: visible;
-    border: 0;
-    border-radius: clamp(1.25rem, 2.4vw, 2rem);
-    background: #d6d4d6;
-    box-shadow: 0 2rem 4.25rem rgb(63 52 81 / 16%);
-    isolation: isolate;
+    padding: 2rem 1rem 4rem;
+    font-size: 1.5rem;
+    line-height: 1.3;
   }
 
-  .hero-visual::after {
-    position: absolute;
-    z-index: 1;
-    inset: 0;
-    border-radius: inherit;
-    content: "";
-    background:
-      linear-gradient(180deg, rgb(22 28 38 / 2%), rgb(22 28 38 / 7%)),
-      repeating-linear-gradient(0deg, rgb(20 25 31 / 2%) 0 1px, transparent 1px 3px);
-    mix-blend-mode: multiply;
-    pointer-events: none;
+  .fallback h1 {
+    font-size: 3rem;
+    margin: 0 0 0.5rem;
   }
 
-  .hero-visual :global(img) {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    object-fit: cover;
-    object-position: 50% 8%;
-    filter: saturate(0.9) contrast(1.03) brightness(0.96);
-    transform: scale(1.02);
+  .fallback h2 {
+    font-size: 2.2rem;
+    margin: 2rem 0 0.25rem;
   }
 
-  .hero-dialogue {
-    position: absolute;
-    z-index: 3;
-    top: 8%;
-    left: -6.5%;
-    width: 27%;
-    height: 66%;
-    color: #17191c;
-    font-family: "Arial Black", "Instrument Sans Variable", sans-serif;
-    font-size: clamp(0.58rem, 0.84vw, 0.86rem);
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    line-height: 0.98;
-    text-align: center;
-    text-transform: uppercase;
-    pointer-events: none;
+  .fallback a,
+  .note a {
+    color: inherit;
   }
 
-  .speech-bubble {
-    position: absolute;
-    display: grid;
-    margin: 0;
-    padding: 0.55em 1em;
-    border: clamp(2px, 0.22vw, 3px) solid #17191c;
-    border-radius: 48% 52% 50% 46% / 52% 48% 54% 46%;
-    background: #fff;
-    place-items: center;
-    filter: drop-shadow(0 1px 0 rgb(255 255 255 / 55%));
-  }
-
-  .speech-one { top: 0; left: 4%; width: 62%; min-height: 23%; transform: rotate(-2deg); }
-  .speech-two { top: 24%; left: 12%; width: 86%; min-height: 31%; transform: rotate(1deg); }
-  .speech-three { top: 56%; left: 0; width: 92%; min-height: 34%; transform: rotate(-1deg); }
-
-  .speech-three::after {
-    position: absolute;
-    right: -13%;
-    bottom: 4%;
-    width: 28%;
-    height: 36%;
-    border-right: clamp(2px, 0.22vw, 3px) solid #17191c;
-    border-bottom: clamp(2px, 0.22vw, 3px) solid #17191c;
-    background: #fff;
-    content: "";
-    clip-path: polygon(0 0, 100% 100%, 20% 70%);
-    transform: rotate(18deg);
-  }
-
-  .scroll-cue {
-    align-self: flex-end;
+  .topbar {
     display: flex;
-    gap: 0.35rem;
     align-items: center;
-    margin-top: 0.65rem;
-    margin-right: max(0rem, calc((100% - 78rem) / 2));
-    color: #312b3b;
-    font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
-    font-size: clamp(0.74rem, 1vw, 1rem);
-    font-weight: 700;
-    letter-spacing: 0.015em;
-    line-height: 1;
-    text-shadow: none;
-    transform: rotate(-2deg);
+    justify-content: space-between;
+    padding: 18px 28px 0;
+    z-index: 2;
   }
 
-  .scroll-cue svg {
-    width: clamp(1.7rem, 2.5vw, 2.5rem);
-    overflow: visible;
+  .wordmark {
+    position: relative;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .wordmark .underline {
+    position: absolute;
+    left: -4px;
+    bottom: -10px;
+    width: calc(100% + 8px);
+    height: 12px;
+  }
+
+  .underline path,
+  .arrow path {
     fill: none;
-    stroke: currentColor;
+    stroke: var(--ink);
+    stroke-width: 3.2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-width: 3.1;
-    animation: cue-nudge 1.6s ease-in-out 1.2s infinite;
   }
 
-  @keyframes cue-nudge {
-    50% {
-      transform: translateY(0.35rem) rotate(2deg);
+  /* ---- the book, once the script has started it -------------------------- */
+
+  .stage.is-ready {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    user-select: none;
+    overflow: hidden;
+  }
+
+  .stage.is-ready .fallback {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  /* the canvas is full-bleed; header and caption float over it (the scene frames the book
+     between them, so close-ups are no longer cut off at those rows) */
+  .stage.is-ready .canvas-wrap {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    cursor: grab;
+    touch-action: none;
+  }
+
+  .stage.is-ready .topbar {
+    position: relative;
+    pointer-events: none;
+  }
+
+  .stage.is-ready .topbar > * {
+    pointer-events: auto;
+  }
+
+  .stage.is-ready .canvas-wrap:active {
+    cursor: grabbing;
+  }
+
+  .canvas-wrap canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  .loading {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    opacity: 0.6;
+  }
+
+  .canvas-wrap:has(canvas) .loading {
+    display: none;
+  }
+
+  .stage.is-ready .arrow {
+    display: block;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    padding: 18px;
+    cursor: pointer;
+    z-index: 3;
+    transition:
+      opacity 0.3s ease,
+      transform 0.2s ease;
+  }
+
+  .arrow-left {
+    left: max(12px, 4vw);
+  }
+
+  .arrow-right {
+    right: max(12px, 4vw);
+  }
+
+  .arrow:hover:not(:disabled) {
+    transform: translateY(-50%) scale(1.08) rotate(-3deg);
+  }
+
+  .arrow:disabled {
+    opacity: 0.18;
+    cursor: default;
+  }
+
+  .stage.is-ready .caption {
+    display: block;
+    position: relative;
+    grid-row: 3;
+    text-align: center;
+    padding: 0 24px 26px;
+    min-height: 92px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .stage.is-ready .caption .spot-list {
+    pointer-events: auto;
+  }
+
+  .spot-list button[aria-current="true"] {
+    border-bottom: 2.5px solid var(--ink);
+  }
+
+  .room-name {
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .room-mood {
+    font-size: 22px;
+    opacity: 0.7;
+    margin-top: 6px;
+  }
+
+  .spot-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 18px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .spot-list[hidden] {
+    display: none;
+  }
+
+  .spot-list button {
+    font: 600 22px var(--hand);
+    color: var(--ink);
+    background: none;
+    border: 0;
+    border-bottom: 1.5px solid var(--ink-soft);
+    padding: 0 2px;
+    cursor: pointer;
+  }
+
+  .spot-list button:hover {
+    border-bottom-color: var(--ink);
+  }
+
+  .spot-tip {
+    position: fixed;
+    z-index: 4;
+    transform: translate(14px, -130%);
+    padding: 2px 10px;
+    font: 700 22px var(--hand);
+    color: var(--ink);
+    background: #fbfaf5;
+    border: 1.5px solid var(--ink);
+    border-radius: 8px 10px 7px 9px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .spot-tip[hidden] {
+    display: none;
+  }
+
+  /* ---- close-up note: a paper card taped beside the zoomed object ---------- */
+
+  .note {
+    --tilt: -1.2deg;
+    position: fixed;
+    inset: auto;
+    top: 50%;
+    right: calc(max(12px, 4vw) + 100px); /* clear of the right arrow */
+    z-index: 3;
+    width: min(24rem, 33vw);
+    max-height: calc(100svh - 200px);
+    margin: 0;
+    padding: 1.6rem 1.75rem 1.5rem;
+    overflow: auto;
+    color: var(--ink);
+    font-family: var(--hand);
+    font-size: 1.4rem;
+    line-height: 1.28;
+    background:
+      repeating-linear-gradient(transparent 0 33px, rgba(43, 31, 214, 0.07) 33px 34px),
+      #fffdf6;
+    background-position: 0 14px;
+    border: 2px solid var(--ink);
+    border-radius: 12px 6px 14px 8px / 8px 14px 6px 12px;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 22px 44px -18px rgba(42, 35, 80, 0.35);
+    transform: translateY(-50%) rotate(var(--tilt));
+  }
+
+  /* the note itself only receives focus so screen readers announce it; its controls keep
+     their own visible focus */
+  .note:focus,
+  .note:focus-visible {
+    outline: none;
+  }
+
+  /* while a note is open, only the project buttons stay in the caption */
+  .room-name,
+  .room-mood {
+    transition: opacity 0.25s ease;
+  }
+
+  .is-closeup .room-name,
+  .is-closeup .room-mood {
+    opacity: 0;
+  }
+
+  /* a strip of tape holding the note */
+  .note::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 92px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(43, 31, 214, 0.18);
+    transform: translateX(-50%) rotate(3deg);
+  }
+
+  .note-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 1.6rem;
+  }
+
+  .note-kicker {
+    margin: 0;
+    padding: 0 0.55rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border: 1.5px solid var(--ink-soft);
+    border-radius: 999px;
+  }
+
+  .note-count {
+    margin-left: auto;
+    font-size: 1.1rem;
+    opacity: 0.6;
+  }
+
+  .note-top form {
+    margin: 0;
+  }
+
+  .note-close {
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin: -0.4rem -0.6rem -0.4rem 0;
+    font: 700 1.9rem/1 var(--hand);
+    color: var(--ink);
+    background: none;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .note-close:hover {
+    background: rgba(43, 31, 214, 0.08);
+  }
+
+  .note h2 {
+    margin: 0.7rem 0 0;
+    font-size: 2.6rem;
+    line-height: 0.95;
+  }
+
+  .note-tagline {
+    position: relative;
+    display: inline-block;
+    margin: 0.45rem 0 0;
+    font-size: 1.55rem;
+    font-weight: 700;
+  }
+
+  /* hand-drawn highlighter under the tagline */
+  .note-tagline::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    right: -6px;
+    bottom: 2px;
+    height: 0.5em;
+    z-index: -1;
+    background: rgba(255, 226, 120, 0.7);
+    border-radius: 3px 8px 4px 9px;
+    transform: rotate(-0.8deg);
+  }
+
+  .note-body {
+    margin: 0.75rem 0 0;
+  }
+
+  .note-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.5rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1.1rem;
+  }
+
+  .note-facts li {
+    padding: 0.05rem 0.6rem;
+    background: rgba(43, 31, 214, 0.06);
+    border: 1.5px dashed var(--ink-soft);
+    border-radius: 8px;
+  }
+
+  .note-links {
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .note-links a {
+    display: inline-block;
+    font-size: 1.45rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .note-kicker[hidden],
+  .note-tagline[hidden],
+  .note-facts[hidden] {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .note.is-in {
+      animation: note-in 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
   }
 
-  :global(a:focus-visible) {
-    outline: 2px solid #175fa9;
-    outline-offset: 4px;
-  }
-
-  @media (max-width: 68rem) {
-    .site-canvas {
-      padding-inline: clamp(1.5rem, 4vw, 3.5rem);
-    }
-
-    .story-panel { grid-column: span 5; }
-    .github-panel { grid-column: span 4; }
-    .music-panel { grid-column: span 3; }
-  }
-
-  @media (min-width: 48.01rem) and (max-height: 60rem) {
-    .site-canvas {
-      padding-block: clamp(1.5rem, 3.2svh, 2.4rem);
-    }
-
-    .hero {
-      padding-block: clamp(1.5rem, 3.8svh, 2.25rem);
-    }
-
-    .hero-visual {
-      width: min(100%, calc((100svh - 15.5rem) * 1.963));
+  @keyframes note-in {
+    from {
+      opacity: 0;
+      transform: translateY(calc(-50% + 14px)) rotate(calc(var(--tilt) + 2.5deg));
     }
   }
 
-  @media (max-width: 48rem) {
-    .card-viewport {
-      padding: 0;
+  @media (max-width: 640px) {
+    .topbar {
+      padding: 14px 16px 0;
     }
-
-    .stack-card {
-      inset: 0;
+    .wordmark {
+      font-size: 32px;
     }
-
-    .site-canvas {
-      min-height: 100svh;
-      padding: 1.3rem 1.25rem 2rem;
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
+    .stage.is-ready .caption {
+      padding: 0 84px 24px;
     }
-
-    .about-card {
-      display: block;
-      padding: 1.4rem 1.25rem 2rem;
-      overflow-x: hidden;
-      overflow-y: auto;
-      overscroll-behavior: contain;
+    .room-name {
+      font-size: 40px;
     }
-
-    .about-heading {
-      margin-bottom: 1.4rem;
+    .room-mood {
+      font-size: 19px;
     }
-
-    .about-doodle {
-      max-width: 8.5rem;
-      font-size: 0.68rem;
+    .arrow-left {
+      left: 0;
     }
-
-    .about-bento {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: none;
-      grid-auto-rows: minmax(9rem, auto);
+    .arrow-right {
+      right: 0;
     }
-
-    .story-panel,
-    .github-panel,
-    .websites-panel {
-      grid-column: 1 / -1;
+    /* on phones the note is a sheet along the bottom; the object is lifted above it */
+    .note {
+      --tilt: -0.6deg;
+      top: auto;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      width: auto;
+      max-height: 48svh;
+      padding: 1.25rem 1.25rem 1.1rem;
+      font-size: 1.25rem;
+      transform: rotate(var(--tilt));
     }
-
-    .story-panel {
-      grid-row: auto;
-      min-height: 20rem;
+    .note h2 {
+      font-size: 2.2rem;
     }
-
-    .music-panel,
-    .apps-panel {
-      grid-column: span 1;
+    @keyframes note-in {
+      from {
+        opacity: 0;
+        transform: translateY(18px) rotate(var(--tilt));
+      }
     }
-
-    .github-panel { min-height: 15rem; }
-    .music-panel,
-    .apps-panel { min-height: 13rem; }
-    .websites-panel { min-height: 14rem; }
-
-    .story-origin { left: -0.65rem; width: min(68%, 17rem); }
-    .story-intro { top: 31%; left: -0.8rem; width: min(76%, 21rem); font-size: clamp(1.15rem, 5.4vw, 1.75rem); }
-    .story-now { right: -0.8rem; bottom: 0.35rem; width: min(72%, 19rem); }
-
-    .about-title-lockup span { right: -1rem; }
-
-    .site-header {
-      position: relative;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
+    /* while it is open, the arrows sit just above the sheet */
+    .stage.is-closeup .arrow {
+      top: calc(52svh - 60px);
     }
-
-    .section-preview {
-      grid-column: 1 / -1;
-      grid-row: 2;
-      justify-content: flex-start;
-      margin-top: 0.55rem;
-      font-size: 0.78rem;
-    }
-
-    .contact {
-      position: absolute;
-      top: 0;
-      right: auto;
-      left: calc(100vw - 7.5rem);
-      grid-column: 2;
-      grid-row: 1;
-      padding: 0.42rem 0.58rem 0.38rem;
-      font-size: 0.74rem;
-      transform: rotate(1deg);
-    }
-
-    .contact:is(:hover, :focus-visible) {
-      transform: translate(2px, 2px) rotate(1deg);
-    }
-
-    .hero {
-      min-height: auto;
-      padding-block: clamp(2rem, 7vw, 3.5rem) 0;
-    }
-
-    .hero-visual {
-      width: 100%;
-      height: clamp(15.5rem, 64vw, 20rem);
-      max-width: none;
-      aspect-ratio: auto;
-      border-radius: 1.4rem;
-    }
-
-    .hero-visual :global(img) {
-      object-position: 50% 8%;
-      transform: scale(1.03);
-    }
-
-    .hero-dialogue {
-      top: 7%;
-      left: 4%;
-      width: 42%;
-      height: 66%;
-      font-size: clamp(0.42rem, 1.8vw, 0.64rem);
-    }
-
-    .scroll-cue {
-      width: calc(100vw - 2.5rem);
-      justify-content: flex-end;
-      padding-right: 0;
-      margin-top: 0.55rem;
-      margin-right: 0;
-      font-size: 0.68rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .stack-card {
-      transition: none;
-    }
-
-    .scroll-cue svg {
-      animation: none;
-    }
-
-    .record { animation: none; }
-
-    .activity-scanner::after { animation: none; }
-
-    .app-icon,
-    .app-icon::after { animation: none; }
-
-    .story-caption,
-    .contribution-grid i,
-    .app-icon,
-    .app-info,
-    .live-preview,
-    .live-preview iframe,
-    .preview-screen,
-    .preview-scroll-hint { transition: none; }
-
-
   }
 </style>

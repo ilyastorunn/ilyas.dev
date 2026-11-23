@@ -2,7 +2,9 @@
 
 ## Current status
 
-The active direction keeps the restrained white editorial canvas and centered desktop navigation while letting a horizontal Spider-Man comic panel occupy the full hero width. Sections behave like a vertical card carousel driven by native scrolling: each card remains sticky, recedes slightly, and is covered by the next. Editable HTML speech balloons replace the source panel's dialogue with the owner's introduction.
+**Superseded 2026-11-23:** Home is being rebuilt as a hand-drawn pop-up book adapted from unfold (see [Decisions](decisions.md)); rooms map to portfolio sections. The paragraph below describes the deployed comic version.
+
+The previous direction kept the restrained white editorial canvas and centered desktop navigation while letting a horizontal Spider-Man comic panel occupy the full hero width. Sections behave like a vertical card carousel driven by native scrolling: each card remains sticky, recedes slightly, and is covered by the next. Editable HTML speech balloons replace the source panel's dialogue with the owner's introduction.
 
 ## Retained context
 
