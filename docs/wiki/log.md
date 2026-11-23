@@ -2,6 +2,12 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-11-24 — Draw the About room with İlyas and the cat
+
+- Added cut-out figure support (`cutout.ts`, `Sketch.cutout`, `Iso.figure`) and the About room: framed ink portrait, bookshelf, 2018 note, rug, plant, lamp, and the cat on an armchair. Both figures come from the owner's photos, processed locally (Vision subject lift plus an ink/wash filter) after Codex image generation returned 403.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed; local Chrome desktop check of the room and both close-ups. Not deployed.
+- Follow-ups: the cat's name; owner edits to the bio and cat copy; phone-width check; possibly redo the figures as true illustrations if Codex image access is restored.
+
 ## 2026-11-24 — Replace the close-up modal with a side note
 
 - Close-ups no longer dim the scene. The object pans aside and a paper note sits beside it (bottom sheet on phones), and you can step between projects without leaving the close-up. The canvas went full-bleed, framed between header and caption. Rewrote the four Work descriptions with taglines and fact tags drawn from each product's own page.

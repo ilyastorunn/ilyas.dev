@@ -8,6 +8,7 @@
 // bake() packs them into one RGBA texture: rgb = wash, a = mask ? 0.5 + ink/2 : 0.
 
 import * as THREE from "three";
+import type { Cutout } from "./cutout";
 
 export type Pt = [number, number];
 type RNG = () => number;
@@ -447,6 +448,31 @@ export class Sketch {
     ink.fill();
     ink.restore();
     if (o.mask) this.maskFill(quad);
+  }
+
+  /**
+   * Stick an ink illustration (see ./cutout.ts) onto the sheet as a paper cut-out, mapped onto
+   * the parallelogram p0 (top-left), p1 (top-right), p3 (bottom-left). Its lines go to the ink
+   * layer and its colours to the wash, so it behaves like everything drawn by hand.
+   * Added for ily.dev (not in unfold).
+   */
+  cutout(c: Cutout, p0: Pt, p1: Pt, p3: Pt) {
+    const [x0, y0] = this.px(p0);
+    const [x1, y1] = this.px(p1);
+    const [x3, y3] = this.px(p3);
+    const w = c.wash.width;
+    const h = c.wash.height;
+    const put = (ctx: CanvasRenderingContext2D, layer: HTMLCanvasElement, op: GlobalCompositeOperation) => {
+      ctx.save();
+      ctx.globalCompositeOperation = op;
+      ctx.setTransform((x1 - x0) / w, (y1 - y0) / w, (x3 - x0) / h, (y3 - y0) / h, x0, y0);
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(layer, 0, 0);
+      ctx.restore();
+    };
+    put(this.wash, c.wash, "multiply");
+    put(this.ink, c.ink, "source-over");
+    put(this.mask, c.mask, "source-over");
   }
 
   /** Remember the bounding box of these points under a name, so the 3D scene can make it clickable. */

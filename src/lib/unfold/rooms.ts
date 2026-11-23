@@ -16,6 +16,7 @@ import type { Pt, Sketch } from "./sketch";
 import { isoLayers, WHITE } from "./iso";
 import { tint } from "./style";
 import { workRoom } from "./rooms/work";
+import { aboutRoom } from "./rooms/about";
 
 /** res overrides the texture size (px) for cards carrying fine detail such as real screens. */
 export type PopUp = { size: number; at: [number, number]; draw: (s: Sketch) => void; halo?: number; res?: number };
@@ -83,7 +84,7 @@ function placeholderRoom(id: string, name: string, mood: string, p: Palette): Ro
 
 export const ROOMS: Room[] = [
   workRoom,
-  placeholderRoom("about", "about", "who I am", { wall: "#f6eef3", floor: "#eedcc6", card: "#fadbe2", wood: "#e8cfae" }),
+  aboutRoom,
   placeholderRoom("cave", "cave", "the personal archive", { wall: "#eef5ec", floor: "#e6dcc8", card: "#dff0d4", wood: "#e2ccab" }),
   placeholderRoom("contact", "contact", "say hello", { wall: "#fbf4e4", floor: "#ecd9bf", card: "#fff3b5", wood: "#ead3b2" }),
 ];

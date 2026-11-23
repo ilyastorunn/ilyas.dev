@@ -13,6 +13,7 @@
 // The corner is [0, 0, 0]; the floor runs to 1 on both axes; the walls are 1 high.
 
 import type { Pt, Sketch } from "./sketch";
+import type { Cutout } from "./cutout";
 import { shade, soften } from "./style";
 
 export type V3 = [number, number, number];
@@ -169,6 +170,26 @@ export class Iso {
     const b = this.p(tr);
     const c = this.p(bl);
     this.s?.image(img, a, b, c, aspect, { mask: true });
+  }
+
+  /**
+   * A standing figure (an ink illustration made into a cut-out, see ./cutout.ts) whose feet are
+   * at room point `base`, `height` tall. It is drawn flat on the card, which faces the camera,
+   * so it reads as an upright paper figure. Returns its corners, e.g. for mark(). Added for ily.dev.
+   */
+  figure(c: { aspect: number } & Partial<Cutout>, [xa, xb, z]: V3, height: number): V3[] {
+    // a sideways step on the card moves xa and xb in opposite directions (S stays constant)
+    const t = (height * c.aspect) / 2 / (2 * SQ);
+    const tl: V3 = [xa - t, xb + t, z + height];
+    const tr: V3 = [xa + t, xb - t, z + height];
+    const bl: V3 = [xa - t, xb + t, z];
+    const br: V3 = [xa + t, xb - t, z];
+    const a = this.p(tl);
+    const b = this.p(tr);
+    const d = this.p(bl);
+    this.p(br);
+    if (this.s && c.wash) this.s.cutout(c as Cutout, a, b, d);
+    return [tl, tr, br, bl];
   }
 
   /** Mark the projected area of these room points as clickable (see Sketch.mark). */

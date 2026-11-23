@@ -6,12 +6,16 @@ import devantaScreen from "../../assets/work/devanta-screen.jpg?url";
 import unscrollScreen from "../../assets/work/unscroll-screen.jpg?url";
 import niceappsHero from "../../assets/work/niceapps-hero.jpg?url";
 import mementoIcon from "../../assets/memento-icon.jpg?url";
+import ilyasPortrait from "../../assets/about/ilyas-portrait.png?url";
+import catFigure from "../../assets/about/cat.png?url";
 
 const SOURCES = {
   devantaScreen,
   unscrollScreen,
   niceappsHero,
   mementoIcon,
+  ilyasPortrait,
+  catFigure,
 } as const;
 
 export type ImageKey = keyof typeof SOURCES;

@@ -1,5 +1,12 @@
 # Implementation status
 
+## 2026-11-24 — About room with İlyas and the cat (branch `unfold`, not deployed)
+
+- `src/lib/unfold/rooms/about.ts`. Left wall: İlyas's portrait in a frame with a handwritten "that's me". Right wall: a bookshelf and a pinned "C++ class, 2018, still going" note. Floor: a round rug. Pop-ups: a plant, a floor lamp, an armchair, and the cat sitting on its seat as a standing paper figure. Spots: `ilyas` (frame) and `cat` (figure), each with a draft note in `spots.ts`.
+- **How the figures were made:** generating illustrations through Codex failed (its image tool returned HTTP 403 for the owner's ChatGPT account), so the owner chose a local route. The subject was lifted out of the owner's photos on-device with macOS Vision (`VNGenerateForegroundInstanceMaskRequest`). A Pillow filter then turned each cut-out into blue-ink line art: difference-of-Gaussians lines, a silhouette outline, hatching on the darkest ~10–12%, and a posterised pastel wash. Outputs are `src/assets/about/ilyas-portrait.png` (849×1000) and `cat.png` (530×1000). The scripts and the raw photos stayed outside the repository; the raw selfies are not committed.
+- Renderer additions: `cutout.ts` splits an illustration into wash, ink and silhouette mask, using transparency or a border flood fill; only strongly blue dark pixels count as ink. `Sketch.cutout()` places those layers on a surface. `Iso.figure()` stands one upright on a pop-up card at a room point. So figures behave like everything else: line art in the background, coloured when their room is in front.
+- Verified in local Chrome at 1100×760: room render, İlyas and cat close-ups, ←/→ between them, Escape. Check, empty test suite and build pass. Not checked at phone width.
+
 ## 2026-11-24 — Close-up notes and project copy (branch `unfold`, not deployed)
 
 - `<dialog data-book-note>` opens non-modally with `show()`. It is a tilted paper card with ruled lines and tape, showing kicker, title, a highlighted tagline, body, fact tags, a link and an "n / 4" count. On open, focus goes to the note; on close, it returns to the button that opened it. The room name and line fade out while a note is open; the project buttons stay, and the active one is underlined.

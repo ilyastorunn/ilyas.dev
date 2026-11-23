@@ -60,10 +60,23 @@ export const SPOTS: Record<string, Record<string, Spot>> = {
     },
   },
   about: {
-    main: {
-      label: "look closer",
-      title: "who I am",
-      body: "Hey, I'm İlyas — an independent developer building thoughtful products for the web and iOS. This room is still being drawn.",
+    // Draft copy built from the owner's earlier About text; awaiting his edits and the cat's name.
+    ilyas: {
+      label: "İlyas",
+      kicker: "about me",
+      title: "Hey, I'm İlyas.",
+      tagline: "Independent developer.",
+      body: "I design and build thoughtful products for the web and iOS: small, calm apps that respect people's time, and websites that do their job quietly. It started with a C++ class in 2018 and never really stopped.",
+      facts: ["web & iOS", "since 2018"],
+      links: [{ label: "GitHub", href: "https://github.com/ilyastorunn" }],
+    },
+    cat: {
+      label: "the cat",
+      kicker: "roommate",
+      title: "The cat",
+      tagline: "Head of quality control.",
+      body: "A brown tabby with very round eyes and strong opinions about the tops of wardrobes. Supervises most of my work, ideally from somewhere higher than the desk.",
+      facts: ["tabby", "professional napper"],
     },
   },
   cave: {
