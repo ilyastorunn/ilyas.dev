@@ -273,7 +273,6 @@ export function createScene({ canvasHost, tex, reducedMotion, insets, onSpot }: 
     const now = performance.now();
     const dt = Math.min((now - last) / 1000, 1 / 20);
     last = now;
-    const elapsed = (now - t0) / 1000;
     if (!book.dragging) book.f += (book.target - book.f) * ease(7, dt);
     book.open += (book.openTarget - book.open) * ease(7, dt);
     if (Math.abs(book.openTarget - book.open) < 1e-4) book.open = book.openTarget;
@@ -345,13 +344,12 @@ export function createScene({ canvasHost, tex, reducedMotion, insets, onSpot }: 
       });
     }
 
-    // Spots breathe faintly while their room is in front, and tint on hover.
+    // Spots stay invisible: unfold tinted their bounding boxes, which read as grey slabs behind
+    // the objects. Discovery comes from the pointer cursor, the hover name label and the
+    // project buttons instead. (The meshes stay in the scene so the raycaster can hit them.)
     for (const h of hots) {
-      const on = live(h);
-      const breathe = reducedMotion() ? 0.05 : 0.035 + 0.035 * Math.sin(elapsed * 2.2);
-      const want = !on ? 0 : hovered === h ? 0.16 : breathe;
-      h.mesh.material.opacity += (want - h.mesh.material.opacity) * (reducedMotion() ? 1 : 0.15);
-      h.mesh.visible = h.mesh.material.opacity > 0.002 || on;
+      h.mesh.material.opacity = 0;
+      h.mesh.visible = live(h);
     }
 
     // camera: front view of the cover when shut, looking into the focused room when open

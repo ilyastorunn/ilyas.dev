@@ -2,6 +2,32 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-11-24 — Joey's note, bowl and ball; the owner's bookshelf
+
+- Named the cat Joey, with his note (food, a short fuse, ball-chasing), a food bowl and a ball. Drew the owner's books as titled spines and made the shelf a spot linking to Amazon searches.
+- Verification: Chrome check of the room and the three notes; `tsc` on the changed files, Astro build and tests pass. `astro check` runs out of memory because of an untracked `apps/archive` project in the repository root (not created here, left untouched).
+- Resolved the same day: the archive site, built separately by the owner with another agent and linked from Cave later, was moved out of the repository. `npm run check` and `npm run build` pass again.
+- Follow-ups: choose specific Amazon editions or a storefront if wanted.
+
+## 2026-11-24 — Figma illustrations for İlyas and the cat; drop hotspot boxes
+
+- With the owner's authorization, generated two illustrations with Figma's image tool from text-only prompts (no photos sent): İlyas cross-legged with a laptop, and the tabby on its cushion, in the book's ink style and isometric angle. Added them to About as ink/wash cut-outs; the code-drawn figures remain as a fallback. Removed the tinted hotspot boxes everywhere.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed; local Chrome check of the room and the close-up. Not deployed.
+- Follow-ups: the cat's name; the owner's copy edits; a phone-width check of About.
+
+## 2026-11-24 — Draw İlyas and the cat by hand; stop the load-time flash
+
+- Replaced the photo-derived figures with code-drawn ones in the book's style (`figures.ts`, `Iso.standee`): İlyas cross-legged with a laptop in the corner, and the cat lying on a cushion beside him. Removed the photo cut-out pipeline and its assets.
+- With JavaScript on, the page no longer shows the plain-HTML version while the book loads.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed; local Chrome check of the room, both close-ups and the first paint. Not deployed.
+- Follow-ups: owner feedback on the figures' likeness; the cat's name; copy edits.
+
+## 2026-11-24 — Rebuild About as İlyas on the floor with the cat
+
+- Following the owner's direction, replaced the framed portrait and armchair with İlyas sitting on the floor in the corner and the cat lying on a cushion beside him. Both figures come from new owner photos, processed locally; a friend in the source photo was masked out.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed; local Chrome check of the room and the close-up. Not deployed.
+- Follow-ups: a self-timer photo sitting in a corner would give a sharper, untrimmed figure; the cat's name; the owner's copy edits.
+
 ## 2026-11-24 — Draw the About room with İlyas and the cat
 
 - Added cut-out figure support (`cutout.ts`, `Sketch.cutout`, `Iso.figure`) and the About room: framed ink portrait, bookshelf, 2018 note, rug, plant, lamp, and the cat on an armchair. Both figures come from the owner's photos, processed locally (Vision subject lift plus an ink/wash filter) after Codex image generation returned 403.

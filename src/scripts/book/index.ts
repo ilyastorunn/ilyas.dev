@@ -26,7 +26,10 @@ function webglAvailable() {
 
 async function start() {
   const root = document.querySelector<HTMLElement>("[data-book]");
-  if (!root || !webglAvailable()) return;
+  if (!root || !webglAvailable()) {
+    document.documentElement.classList.remove("js"); // show the plain-HTML version
+    return;
+  }
 
   const host = root.querySelector<HTMLElement>("[data-book-canvas]")!;
   const header = root.querySelector<HTMLElement>(".topbar")!;
@@ -290,4 +293,9 @@ async function start() {
   render();
 }
 
-void start();
+// if anything goes wrong while starting, fall back to the plain-HTML version
+start().catch((err) => {
+  console.error(err);
+  document.documentElement.classList.remove("js");
+  document.querySelector("[data-book]")?.classList.remove("is-ready");
+});

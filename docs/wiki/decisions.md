@@ -2,6 +2,22 @@
 
 Durable decisions are reverse chronological. “Owner” means an explicit decision by İlyas.
 
+## 2026-11-24 — The archive is a separate site in its own folder
+
+**Status:** owner decision
+
+The personal archive site is built separately (by the owner, with another agent) in its own folder outside this repository, and the Cave room will link to it. Don't nest other projects inside this repository: `tsconfig.json` includes `**/*`, and a nested project with its own `node_modules` made `astro check` run out of memory.
+
+Evidence: owner instruction in chat; repository state on 2026-11-24.
+
+## 2026-11-24 — People and pets appear as style-matched illustrations, not photos
+
+**Status:** owner decision
+
+Figures in rooms must match the book: blue ink, pastel wash, isometric three-quarter angle. They don't need to be exact likenesses. Photo-derived figures were rejected as too realistic. The owner authorized Figma's paid image generation, from text-only prompts, to produce them.
+
+Evidence: owner instructions in chat; [`src/assets/about/`](../../src/assets/about/), [`src/lib/unfold/rooms/about.ts`](../../src/lib/unfold/rooms/about.ts).
+
 ## 2026-11-24 — Close-ups keep the object visible
 
 **Status:** owner approved direction; implemented on branch `unfold`

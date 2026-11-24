@@ -6,15 +6,15 @@ import devantaScreen from "../../assets/work/devanta-screen.jpg?url";
 import unscrollScreen from "../../assets/work/unscroll-screen.jpg?url";
 import niceappsHero from "../../assets/work/niceapps-hero.jpg?url";
 import mementoIcon from "../../assets/memento-icon.jpg?url";
-import ilyasPortrait from "../../assets/about/ilyas-portrait.png?url";
-import catFigure from "../../assets/about/cat.png?url";
+import ilyasFigure from "../../assets/about/ilyas.webp?url";
+import catFigure from "../../assets/about/cat.webp?url";
 
 const SOURCES = {
   devantaScreen,
   unscrollScreen,
   niceappsHero,
   mementoIcon,
-  ilyasPortrait,
+  ilyasFigure,
   catFigure,
 } as const;
 

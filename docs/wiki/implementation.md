@@ -1,11 +1,32 @@
 # Implementation status
 
+## 2026-11-24 — No plain-HTML flash on load
+
+- An inline head script adds `js` to `<html>`, and the book's loading layout ("sharpening pencils…") applies from `.js .stage`. The plain-HTML content stays visually hidden but readable by screen readers from the first paint. If WebGL is unavailable or start-up throws, the script removes `js` and the plain-HTML page shows. Previously that content was visible until the book finished loading (reported by the owner).
+
 ## 2026-11-24 — About room with İlyas and the cat (branch `unfold`, not deployed)
 
-- `src/lib/unfold/rooms/about.ts`. Left wall: İlyas's portrait in a frame with a handwritten "that's me". Right wall: a bookshelf and a pinned "C++ class, 2018, still going" note. Floor: a round rug. Pop-ups: a plant, a floor lamp, an armchair, and the cat sitting on its seat as a standing paper figure. Spots: `ilyas` (frame) and `cat` (figure), each with a draft note in `spots.ts`.
-- **How the figures were made:** generating illustrations through Codex failed (its image tool returned HTTP 403 for the owner's ChatGPT account), so the owner chose a local route. The subject was lifted out of the owner's photos on-device with macOS Vision (`VNGenerateForegroundInstanceMaskRequest`). A Pillow filter then turned each cut-out into blue-ink line art: difference-of-Gaussians lines, a silhouette outline, hatching on the darkest ~10–12%, and a posterised pastel wash. Outputs are `src/assets/about/ilyas-portrait.png` (849×1000) and `cat.png` (530×1000). The scripts and the raw photos stayed outside the repository; the raw selfies are not committed.
-- Renderer additions: `cutout.ts` splits an illustration into wash, ink and silhouette mask, using transparency or a border flood fill; only strongly blue dark pixels count as ink. `Sketch.cutout()` places those layers on a surface. `Iso.figure()` stands one upright on a pop-up card at a room point. So figures behave like everything else: line art in the background, coloured when their room is in front.
-- Verified in local Chrome at 1100×760: room render, İlyas and cat close-ups, ←/→ between them, Escape. Check, empty test suite and build pass. Not checked at phone width.
+- Owner direction: İlyas sits on the floor in the corner with his laptop, and his cat lies on a small cushion beside him. `src/lib/unfold/rooms/about.ts`:
+  - Left wall: a window with an evening sky, and a handwritten "that's me" pointing into the corner.
+  - Right wall: a bookshelf and a pinned "C++ class, 2018, still going" note.
+  - Floor: a round rug with soft contact shadows under both figures.
+  - Pop-ups: İlyas, the cat on its cushion, a floor lamp and a plant.
+  - Spots `ilyas` and `cat` have draft notes in `spots.ts`.
+- **Figures are Figma-generated illustrations.** They were made with the owner's authorization, using the Figma MCP `generate_image` tool (`gpt-image-2.5-flare`, Figma AI credits on his student team). The source file is "ily.dev — About room figures" in his Figma drafts.
+  - The prompts were text-only. No photos were uploaded; the tool takes no reference images. They describe him (short dark side-swept hair with faded sides, full beard, hoop earring, nose ring, tee, trousers, white trainers, laptop) and the brown tabby on a pink cushion.
+  - Both are in blue-fineliner ink with pastel washes, in an isometric three-quarter view from the front-right at ~30°, so they match the room's camera.
+  - Local processing: the white background was flood-filled to transparency and each image cropped to its subject, giving `src/assets/about/ilyas.webp` (576×836) and `cat.webp` (816×798). The cat image includes its cushion.
+- Rendering: `cutout.ts` splits each illustration into wash, ink and mask layers, and `Sketch.cutout()` draws them onto an `Iso.standee()` card. So the figures are line art while the room is in the background and colour in when it comes to the front, like everything else. The ink threshold was tightened (`(140 − lum)/60`) so blue jeans stay wash. If an image fails to load, the code-drawn stand-ins in `src/lib/unfold/figures.ts` are used.
+- Earlier attempts the same day were rejected or superseded:
+  - Codex image generation: HTTP 403 on the owner's account.
+  - Photo cut-outs with an ink filter: too realistic, inconsistent scale.
+  - Head-on code-drawn figures: wrong angle, too dark, too large.
+- Hotspots no longer tint their bounding boxes. unfold's "breathing" hint drew grey slabs behind objects, which the owner flagged. Spots are now found through the pointer cursor, the hover name label and the room's buttons.
+- Verified in local Chrome at 1100×760: room render and the İlyas close-up; check, empty test suite and build pass, and both WebP files are emitted.
+- **Joey and the bookshelf.** The cat is Joey: he loves food, is a bit aggressive, and adores chasing a ball. His note, label and fact tags say so, and a food bowl with kibble and a ball sit by his cushion.
+  - The top shelf holds the owner's books as titled spines: *Steve Jobs*, *The Creative Act*, *Shoe Dog*, *Dune*, *Dune Messiah* and *Children of Dune*. The shelf is a third spot, `books`, whose note links each title to an **Amazon search** (amazon.com, books category). Search links were used instead of guessed product pages; switch to specific editions or amazon.com.tr if the owner wants.
+  - The About walls bake at 2048 px so the spine titles stay legible.
+- Verified in Chrome: the Joey and bookshelf close-ups, all four links, and ←/→ stepping across the three spots. `tsc` on the changed files, the Astro build and the empty test suite pass. For a while `astro check` ran out of memory: a separate archive site (`apps/archive`, ~690 MB with its own `node_modules`) had been placed inside this repository, and `tsconfig.json` includes `**/*`. The owner moved it to its own folder outside the repository, after which `npm run check` (0 diagnostics) and `npm run build` pass again.
 
 ## 2026-11-24 — Close-up notes and project copy (branch `unfold`, not deployed)
 

@@ -16,6 +16,9 @@ const description = "İlyas Torun is an independent developer building thoughtfu
     <meta name="description" content={description} />
     <meta name="theme-color" content="#ecebe7" />
     <title>{title}</title>
+    <!-- With JavaScript, go straight to the book's loading state instead of flashing the
+         plain-HTML version; the script removes this again if WebGL is unavailable. -->
+    <script is:inline>document.documentElement.classList.add("js");</script>
   </head>
   <body>
     <main class="stage" data-book>
@@ -217,7 +220,7 @@ const description = "İlyas Torun is an independent developer building thoughtfu
 
   /* ---- the book, once the script has started it -------------------------- */
 
-  .stage.is-ready {
+  .js .stage {
     position: fixed;
     inset: 0;
     display: grid;
@@ -226,7 +229,7 @@ const description = "İlyas Torun is an independent developer building thoughtfu
     overflow: hidden;
   }
 
-  .stage.is-ready .fallback {
+  .js .stage .fallback {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -238,7 +241,7 @@ const description = "İlyas Torun is an independent developer building thoughtfu
 
   /* the canvas is full-bleed; header and caption float over it (the scene frames the book
      between them, so close-ups are no longer cut off at those rows) */
-  .stage.is-ready .canvas-wrap {
+  .js .stage .canvas-wrap {
     display: block;
     position: absolute;
     inset: 0;
@@ -247,16 +250,16 @@ const description = "İlyas Torun is an independent developer building thoughtfu
     touch-action: none;
   }
 
-  .stage.is-ready .topbar {
+  .js .stage .topbar {
     position: relative;
     pointer-events: none;
   }
 
-  .stage.is-ready .topbar > * {
+  .js .stage .topbar > * {
     pointer-events: auto;
   }
 
-  .stage.is-ready .canvas-wrap:active {
+  .js .stage .canvas-wrap:active {
     cursor: grabbing;
   }
 

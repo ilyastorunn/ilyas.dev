@@ -104,7 +104,7 @@ export function cutoutOf(img: CanvasImageSource & { width: number; height: numbe
       // a navy sweater, a sky — stay colour rather than turning into ink
       const r = px[s * 4];
       const b = px[s * 4 + 2];
-      const dark = Math.min(1, Math.max(0, (170 - lum[s]) / 80));
+      const dark = Math.min(1, Math.max(0, (140 - lum[s]) / 60));
       const blue = Math.min(1, Math.max(0, (b - r - 40) / 80));
       id.data[o + 3] = Math.round(255 * dark * blue);
       if (!bg[s]) {
