@@ -1,5 +1,28 @@
 # Implementation status
 
+## 2026-11-26 — Contact room; all four rooms drawn (branch `unfold`, not deployed)
+
+- `src/lib/unfold/rooms/contact.ts` is a small mail corner.
+  - Left wall: a big pinned postcard ("say hello! projects, questions, or a nice app you found — write anytime"), with a stamp, a postmark and the address "to: İlyas Torun / ilyastorun.dev@gmail.com".
+  - Right wall: a wall clock and a paper tag reading "GitHub @ilyastorunn" ("find me here, too").
+  - Floor: a rug and a paper plane that has just landed.
+  - Pop-ups: a plant, and a mailbox on a post with its flag up and letters in the slot.
+- Spots: `email` (postcard and mailbox) and `github`. Only channels the owner has already published are used: the email from the old site, and GitHub. Other channels or a résumé can be added once the owner supplies them.
+- The placeholder-room code in `rooms.ts` was removed; all four rooms now live in `src/lib/unfold/rooms/`.
+- Verified in local Chrome at 1100×760: the room, the email close-up (link is `mailto:ilyastorun.dev@gmail.com`), and the next arrow disabled on the last room. `npm run check` (0 diagnostics), the empty test suite and `npm run build` pass.
+
+## 2026-11-26 — Cave room (branch `unfold`, not deployed)
+
+- `src/lib/unfold/rooms/cave.ts` is a warm, dim den, with lamp glow on both walls and the floor.
+  - Left wall: the owner's nine photos as polaroids pegged to two sagging strings, with "things I've seen".
+  - Right wall: a framed Virgil Abloh print with "“life is so short…” — Virgil Abloh" under it, and a cork board of the seven films watched lately ("lately watched").
+  - Floor: warm planks and a rug.
+  - Pop-ups: a floor lamp, a record player on a low cabinet, and a taped cardboard box marked ARCHIVE.
+- Content comes from the earlier Cave design (`src/content/data/cave.ts`): photo captions, film ratings and the exact Virgil quote. It now lives in `src/lib/unfold/caveData.ts`. Small copies of the images are in `src/assets/cave/` (9 photos and 7 posters at 420 px on the long side, the portrait at 700 px; 728 KB in all). They load via `import.meta.glob`, are read with `caveImage(name)`, and render with `Sketch.image()`, so they appear when the room colours in.
+- Spots: `photos` (captions as tags), `films` (titles with ★ ratings), `virgil` (the quote), `archive`. The archive note says the separate archive site is "opening soon" and has **no link yet**; add one once the owner has the URL. That site lives in its own folder outside this repository.
+- The old `src/components/Cave.astro`, `src/scripts/cave*.ts` and the original assets in `src/assets/{photos,films,books}` are no longer used by `/`. They remain in the tree until the owner decides to remove them.
+- Verified in local Chrome at 1100×760: the room, the photos, films and archive close-ups, and ←/→ stepping. `npm run check` (0 diagnostics), the empty test suite and `npm run build` pass.
+
 ## 2026-11-24 — No plain-HTML flash on load
 
 - An inline head script adds `js` to `<html>`, and the book's loading layout ("sharpening pencils…") applies from `.js .stage`. The plain-HTML content stays visually hidden but readable by screen readers from the first paint. If WebGL is unavailable or start-up throws, the script removes `js` and the plain-HTML page shows. Previously that content was visible until the book finished loading (reported by the owner).

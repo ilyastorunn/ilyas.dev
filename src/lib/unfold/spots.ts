@@ -6,6 +6,8 @@
 // Copy is drawn from each product's own page (App Store listing, site, marketing notes); keep it
 // factual and avoid numbers that will go stale.
 
+import { CAVE_FILMS, CAVE_PHOTOS, VIRGIL_QUOTE, stars } from "./caveData";
+
 export type SpotLink = { label: string; href: string };
 export type Spot = {
   label: string;
@@ -93,21 +95,53 @@ export const SPOTS: Record<string, Record<string, Spot>> = {
     },
   },
   cave: {
-    main: {
-      label: "look closer",
-      title: "the personal archive",
-      body: "Photos, books, music and the things I keep. This room is still being drawn.",
+    photos: {
+      label: "photos",
+      kicker: "photos",
+      title: "Things I've seen",
+      tagline: "Pegged up so I don't forget them.",
+      body: "A few frames from home, İstanbul, Konya and one very loud night at a Coldplay concert.",
+      facts: CAVE_PHOTOS.map((p) => p.note),
+    },
+    films: {
+      label: "films",
+      kicker: "films",
+      title: "Lately watched",
+      tagline: "Rated honestly, out of five.",
+      body: "What has been on the screen recently, from the very good to the one I'd rather forget.",
+      facts: CAVE_FILMS.map((f) => `${f.title} ${stars(f.rating)}`),
+    },
+    virgil: {
+      label: "Virgil",
+      kicker: "inspiration",
+      title: "Virgil Abloh",
+      tagline: "A reminder I keep on the wall.",
+      body: `“${VIRGIL_QUOTE}.”`,
+    },
+    archive: {
+      label: "archive",
+      kicker: "archive",
+      title: "The archive",
+      tagline: "Everything else lives here.",
+      body: "A separate little site for everything that doesn't fit on these walls: more photos, notes, films and books. Opening soon.",
     },
   },
   contact: {
-    main: {
-      label: "look closer",
-      title: "say hello",
-      body: "The easiest way to reach me is by email.",
-      links: [
-        { label: "ilyastorun.dev@gmail.com", href: "mailto:ilyastorun.dev@gmail.com" },
-        { label: "GitHub", href: "https://github.com/ilyastorunn" },
-      ],
+    email: {
+      label: "email",
+      kicker: "email",
+      title: "Say hello",
+      tagline: "The inbox is always open.",
+      body: "Projects, questions, collaborations, or just a nice app you found — send it over. Email is the easiest way to reach me.",
+      links: [{ label: "ilyastorun.dev@gmail.com", href: "mailto:ilyastorun.dev@gmail.com" }],
+    },
+    github: {
+      label: "GitHub",
+      kicker: "code",
+      title: "GitHub",
+      tagline: "Where the code lives.",
+      body: "Side projects and experiments, in public.",
+      links: [{ label: "github.com/ilyastorunn", href: "https://github.com/ilyastorunn" }],
     },
   },
 };
