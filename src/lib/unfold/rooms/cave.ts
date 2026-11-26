@@ -79,6 +79,8 @@ export const caveRoom: Room = {
   name: "cave",
   mood: "the personal archive",
   res: 2048, // prints and posters are real images
+  // the record on the turntable (see the cabinet pop-up below) turns while music plays
+  spinner: { at: [0.115, 0.53, 0.224], r: 0.065 },
   left(s) {
     s.washAll(tint(C.wall), 1);
     // warm light spilling from the lamp in the corner
@@ -196,6 +198,12 @@ export const caveRoom: Room = {
         ] as V3[],
         { w: 1.8 },
       );
+      iso.mark("music", [
+        [0.05, 0.43, T],
+        [0.18, 0.65, T],
+        [0.05, 0.65, T + 0.04],
+        [0.18, 0.43, T + 0.04],
+      ]);
     },
     // the ARCHIVE box by the right wall, a few papers sticking out
     (iso) => {

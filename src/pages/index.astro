@@ -3,6 +3,7 @@ import "@fontsource/caveat/500.css";
 import "@fontsource/caveat/700.css";
 import { ROOMS } from "../lib/unfold/rooms";
 import { SPOTS } from "../lib/unfold/spots";
+import { CAVE_SONG } from "../lib/unfold/caveData";
 
 const title = "İlyas Torun — Independent Developer";
 const description = "İlyas Torun is an independent developer building thoughtful products for the web and iOS.";
@@ -87,6 +88,19 @@ const description = "İlyas Torun is an independent developer building thoughtfu
         <ul class="spot-list" aria-label="In this room" data-book-spots hidden></ul>
       </footer>
       <p class="sr-only" aria-live="polite" data-book-live></p>
+
+      <!-- now playing (Cave): appears while you are in the room; the button pauses / resumes -->
+      <div class="player" data-player hidden>
+        <button class="player-toggle" type="button" aria-pressed="false" aria-label="Play" data-player-toggle>
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="play-icon" aria-hidden="true">▶</span>
+        </button>
+        <span class="player-text">
+          <strong>{CAVE_SONG.title}</strong>
+          <span>{CAVE_SONG.artist}</span>
+        </span>
+        <a class="player-link" href={CAVE_SONG.link} target="_blank" rel="noreferrer">Apple Music <span aria-hidden="true">↗</span></a>
+      </div>
       <div class="spot-tip" aria-hidden="true" data-book-tip hidden></div>
 
       <dialog class="note" data-book-note aria-labelledby="note-title" tabindex="-1">
@@ -389,6 +403,134 @@ const description = "İlyas Torun is an independent developer building thoughtfu
 
   .spot-tip[hidden] {
     display: none;
+  }
+
+  /* ---- now playing ---------------------------------------------------------- */
+
+  .player {
+    position: fixed;
+    top: 16px;
+    right: 24px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: calc(100vw - 140px);
+    padding: 6px 14px 6px 6px;
+    font-family: var(--hand);
+    color: var(--ink);
+    background: #fffdf6;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 0 10px 24px -14px rgba(42, 35, 80, 0.4);
+  }
+
+  .player[hidden] {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .player:not([hidden]) {
+      animation: note-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+  }
+
+  .player-toggle {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    flex: none;
+    color: var(--ink);
+    background: rgba(43, 31, 214, 0.08);
+    border: 1.5px solid var(--ink-soft);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .player .eq,
+  .player.is-playing .play-icon {
+    display: none;
+  }
+
+  .player.is-playing .eq {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 14px;
+  }
+
+  .eq i {
+    width: 3px;
+    height: 100%;
+    background: var(--ink);
+    border-radius: 2px;
+    transform-origin: bottom;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .eq i {
+      animation: eq 0.9s ease-in-out infinite alternate;
+    }
+    .eq i:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    .eq i:nth-child(3) {
+      animation-delay: -0.6s;
+    }
+  }
+
+  @keyframes eq {
+    from {
+      transform: scaleY(0.25);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  .play-icon {
+    font-size: 13px;
+    margin-left: 2px;
+  }
+
+  .player-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.05;
+  }
+
+  .player-text strong {
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .player-text span {
+    font-size: 14px;
+    opacity: 0.7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .player-link {
+    flex: none;
+    font-size: 15px;
+    color: inherit;
+  }
+
+  @media (max-width: 640px) {
+    .player {
+      top: 12px;
+      right: 12px;
+      max-width: calc(100vw - 120px);
+    }
+    .player-link {
+      display: none;
+    }
   }
 
   /* ---- close-up note: a paper card taped beside the zoomed object ---------- */

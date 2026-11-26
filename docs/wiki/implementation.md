@@ -1,5 +1,14 @@
 # Implementation status
 
+## 2026-11-26 — Cave plays a record (branch `unfold`, not deployed)
+
+- On entering Cave, *Devil In a New Dress* (Kanye West feat. Rick Ross) starts at low volume (0.35, faded in over 0.9 s), and the record on the turntable spins up to 33⅓ rpm. Leaving the room fades the music out and the record coasts to a stop; coming back resumes where it left off.
+- Source: Apple's official 30-second iTunes preview, found via the iTunes Search API. The URL and Apple Music link are in `CAVE_SONG` in `src/lib/unfold/caveData.ts`. The owner approved using a 30-second excerpt; Apple chooses which 30 seconds the preview contains. The file is fetched only on first entry (`preload="none"`) and loops.
+- Autoplay rules: playback starts from `music.sync()`, which is called inside `goTo` and `setOpen`, so it always runs within the click, key or drag that moved the visitor into Cave. If the browser still refuses, the player shows a play button.
+- A "now playing" pill at the top right shows the title, the artist, a pause/play toggle (aria-pressed and a label) and an Apple Music link (hidden on phones). A visitor's manual pause sticks until they press play again. Playback pauses in background tabs. The equaliser bars and the record's spin are disabled under reduced motion; the music itself is unaffected.
+- The turntable is a new `music` spot ("record") with a note linking to Apple Music. Code: `src/scripts/book/music.ts` (player), `Room.spinner` plus the spinner meshes in `scene.ts` (a canvas-textured disc placed over the drawn record, faded in with the pop-ups, spinning while `book.spinning`).
+- Verified in local Chrome with real clicks: entering Cave plays (currentTime advanced, readyState 4), leaving pauses and hides the player, returning resumes, and a manual pause persists across leaving and returning; the spin is visible between screenshots. Check, empty test suite and build pass. Not tested in Safari or iOS, whose autoplay policies differ.
+
 ## 2026-11-26 — Contact room; all four rooms drawn (branch `unfold`, not deployed)
 
 - `src/lib/unfold/rooms/contact.ts` is a small mail corner.

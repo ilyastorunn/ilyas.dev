@@ -2,6 +2,11 @@
 
 Meaningful changes are recorded newest-first. Git remains the source for exact diffs.
 
+## 2026-11-26 — Music and a spinning record in Cave
+
+- Entering Cave now plays Apple's 30-second preview of *Devil In a New Dress* at low volume, with a now-playing pill and a pause button; the turntable's record spins while it plays. Leaving fades it out, and a manual pause is respected.
+- Verification: check 0 diagnostics, empty Vitest suite, build passed; local Chrome check of play, pause, leave and return with real clicks. Not deployed; Safari and iOS not yet tested.
+
 ## 2026-11-26 — Build the Contact room
 
 - Drew Contact as a mail corner: a postcard with the email address, a GitHub tag, and a mailbox with letters. Removed the placeholder-room code now that every room is drawn.

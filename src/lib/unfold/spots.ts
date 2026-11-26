@@ -6,7 +6,7 @@
 // Copy is drawn from each product's own page (App Store listing, site, marketing notes); keep it
 // factual and avoid numbers that will go stale.
 
-import { CAVE_FILMS, CAVE_PHOTOS, VIRGIL_QUOTE, stars } from "./caveData";
+import { CAVE_FILMS, CAVE_PHOTOS, CAVE_SONG, VIRGIL_QUOTE, stars } from "./caveData";
 
 export type SpotLink = { label: string; href: string };
 export type Spot = {
@@ -117,6 +117,14 @@ export const SPOTS: Record<string, Record<string, Spot>> = {
       title: "Virgil Abloh",
       tagline: "A reminder I keep on the wall.",
       body: `“${VIRGIL_QUOTE}.”`,
+    },
+    music: {
+      label: "record",
+      kicker: "now spinning",
+      title: CAVE_SONG.title,
+      tagline: CAVE_SONG.artist,
+      body: `From ${CAVE_SONG.album}. A 30-second preview plays while you're in the Cave; pause it any time from the player at the bottom.`,
+      links: [{ label: "Listen on Apple Music", href: CAVE_SONG.link }],
     },
     archive: {
       label: "archive",

@@ -12,6 +12,8 @@ import { SPOTS, type Spot } from "../../lib/unfold/spots";
 import { buildTextures } from "../../lib/unfold/textures";
 import { loadImages } from "../../lib/unfold/images";
 import { book, createScene } from "./scene";
+import { createMusic } from "./music";
+import { CAVE_SONG } from "../../lib/unfold/caveData";
 
 const FONT = "Caveat";
 
@@ -40,6 +42,7 @@ async function start() {
   const spotList = root.querySelector<HTMLElement>("[data-book-spots]")!;
   const tip = root.querySelector<HTMLElement>("[data-book-tip]")!;
   const note = root.querySelector<HTMLDialogElement>("[data-book-note]")!;
+  const music = createMusic(CAVE_SONG, root.querySelector<HTMLElement>("[data-player]")!);
   const q = <T extends HTMLElement>(sel: string) => note.querySelector<T>(sel)!;
   const noteKicker = q("[data-note-kicker]");
   const noteTitle = q("[data-note-title]");
@@ -196,11 +199,13 @@ async function start() {
     room = Math.max(0, Math.min(N - 1, logical));
     book.target = physicalOf(room);
     render();
+    music.sync(open && ROOMS[room].id === "cave");
   };
   const setOpen = (v: boolean) => {
     open = v;
     book.openTarget = v ? 1 : 0;
     render();
+    music.sync(open && ROOMS[room].id === "cave");
   };
 
   prev.addEventListener("click", () => {

@@ -28,6 +28,8 @@ export const book = {
   zoom: 0,
   zoomTarget: 0,
   zoomAt: [0, 0.5, 0] as [number, number, number],
+  /** whether a room's record should be turning (music playing) */
+  spinning: false,
 };
 
 type Rect = [number, number, number, number];
@@ -93,6 +95,55 @@ function makeShadow() {
   mesh.rotation.x = -Math.PI / 2;
   mesh.position.y = -0.04;
   return mesh;
+}
+
+const RPM33 = (33.3 / 60) * Math.PI * 2; // radians per second
+
+/** A vinyl record in the book's ink-and-wash style, with a highlight so the spin reads. */
+function makeRecordTexture() {
+  const S = 256;
+  const c = document.createElement("canvas");
+  c.width = c.height = S;
+  const g = c.getContext("2d")!;
+  const ink = `#${INK.getHexString()}`;
+  g.translate(S / 2, S / 2);
+  g.fillStyle = "#6f6a86";
+  g.beginPath();
+  g.arc(0, 0, S / 2 - 3, 0, Math.PI * 2);
+  g.fill();
+  g.strokeStyle = "rgba(255,255,255,0.18)";
+  g.lineWidth = 1;
+  for (let r = 40; r < S / 2 - 8; r += 7) {
+    g.beginPath();
+    g.arc(0, 0, r, 0, Math.PI * 2);
+    g.stroke();
+  }
+  // sheen
+  g.strokeStyle = "rgba(255,255,255,0.45)";
+  g.lineWidth = 5;
+  g.beginPath();
+  g.arc(0, 0, S / 2 - 30, -0.9, -0.35);
+  g.stroke();
+  // label and spindle
+  g.fillStyle = "#f8c9c3";
+  g.beginPath();
+  g.arc(0, 0, 34, 0, Math.PI * 2);
+  g.fill();
+  g.strokeStyle = ink;
+  g.lineWidth = 2.5;
+  g.stroke();
+  g.fillStyle = ink;
+  g.fillRect(-14, -4, 28, 3); // a line of print on the label, so the turn is visible
+  g.beginPath();
+  g.arc(0, 0, 4, 0, Math.PI * 2);
+  g.fill();
+  g.lineWidth = 3;
+  g.beginPath();
+  g.arc(0, 0, S / 2 - 3, 0, Math.PI * 2);
+  g.stroke();
+  const tex = new THREE.CanvasTexture(c);
+  tex.anisotropy = 4;
+  return tex;
 }
 
 export type SceneOptions = {
@@ -206,6 +257,18 @@ export function createScene({ canvasHost, tex, reducedMotion, insets, onSpot }: 
         addHot(hinge, p, spot, [((x0 + x1) / 2 - 0.5) * spec.size, (1 - (y0 + y1) / 2) * spec.size, 0.006], (x1 - x0) * spec.size, (y1 - y0) * spec.size);
       return { spec, mat, outer, hinge };
     });
+  });
+
+  // ---- spinning records (a room's `spinner`) --------------------------------
+  const spinners = Array.from({ length: N }, (_, p) => {
+    const spec = ROOMS[logicalOf(p)].spinner;
+    if (!spec) return null;
+    const geo = new THREE.CircleGeometry(spec.r * L, 48).rotateX(-Math.PI / 2);
+    const mat = new THREE.MeshBasicMaterial({ map: makeRecordTexture(), transparent: true, depthTest: false });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.renderOrder = 10; // drawn over the pop-up card it sits on
+    scene.add(mesh);
+    return { at: spec.at, mesh, mat, speed: 0 };
   });
 
   const shadow = makeShadow();
@@ -342,6 +405,18 @@ export function createScene({ canvasHost, tex, reducedMotion, insets, onSpot }: 
         pu.mat.uniforms.uOpacity.value = vis;
         pu.mat.uniforms.uReveal.value = fr;
       });
+
+      // a record that can spin: a real disc placed exactly over the one drawn on the card
+      const sp = spinners[p];
+      if (sp) {
+        const [xa, xb, z] = sp.at;
+        sp.mesh.position.set((dA[0] * xa + dB[0] * xb) * L, z * H, (dA[2] * xa + dB[2] * xb) * L);
+        sp.mat.opacity = rise;
+        sp.mesh.visible = rise > 0.01;
+        const want = book.spinning && !reducedMotion() ? RPM33 : 0;
+        sp.speed += (want - sp.speed) * (1 - Math.exp(-dt * (want ? 1.5 : 2.5))); // spin up, coast down
+        sp.mesh.rotation.y -= sp.speed * dt;
+      }
     }
 
     // Spots stay invisible: unfold tinted their bounding boxes, which read as grey slabs behind

@@ -29,6 +29,8 @@ export type Room = {
   popups: PopUp[];
   /** Texture size (px) for the two walls and the floor; defaults to 1024. */
   res?: number;
+  /** A record that can spin, placed over one drawn on a pop-up: room point [xa, xb, z] and radius. */
+  spinner?: { at: [number, number, number]; r: number };
 };
 
 export const ROOMS: Room[] = [
